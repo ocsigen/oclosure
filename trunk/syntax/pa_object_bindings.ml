@@ -58,7 +58,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
     | <:ctyp< int >> -> "val_int"
     | <:ctyp< string >> -> "val_string"
     | <:ctyp< unit >> -> "(function(){return UNIT;})"
-    | <:ctyp< bool >> -> "(function(o) { if(o) { return TRUE;} else { return FALSE;}) "
+    | <:ctyp< bool >> -> "(function(o) { if(o) { return TRUE;} else { return FALSE;}}) "
     | _ -> "(function (o) { if (!o.__caml) { o.__caml = o.vm.callback_method(o.mlo, \"__caml_wrapper\", [o]); } ; return o.__caml; })"
 
   (* extract a value from ML to JS in JS *)
