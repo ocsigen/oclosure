@@ -1,9 +1,9 @@
 .PHONY: clean all var
 
-#You can set OBROWSER_PATH if ocamlfind cannot find it
-#Exemple export OBROWSER_PATH=~/local/src/obrowser/rt/caml
+# You can set OBROWSER_PATH if ocamlfind cannot find it
+# Example: OBROWSER_PATH=~/local/src/obrowser/rt/caml
 
-OBROWSER_PATH?=`ocamlfind query obrowser`
+OBROWSER_PATH?=$(shell ocamlfind query obrowser)
 LIB=$(OBROWSER_PATH)
 
 #Where to find pa_object_bindings file
