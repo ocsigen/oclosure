@@ -9,10 +9,10 @@ type coordinate = JSOO.obj (*goog.math.Coordinate*)
 type browserEvent = JSOO.obj (*goog.events.BrowserEvent*)
 type corner = JSOO.obj (*goog.positioning.Corner*)
 
-class external tooltip :
+class external tooltip : string -> string ->
   <
   getDomHelper : unit -> domHelper;
-  attach : element -> unit;
+  (*attach : element -> unit;
   detach : unit -> unit; (*optional argument of type element*)
   setshowDelayMs : number -> unit;
   getShowDelayMs : unit -> number;
@@ -42,5 +42,5 @@ class external tooltip :
   clearShowTimer : unit -> unit;
   disposeInternal : unit -> unit;
   (* reposition is defined twice*)
-  reposition : element -> corner (*-> box (optional argument)*) -> unit;
- >
+  reposition : element -> corner (*-> box (optional argument)*) -> unit;*)
+ > = "goog.ui.Tooltip"

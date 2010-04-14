@@ -9,15 +9,15 @@
     if (typeof goog == 'undefined') {
       alert('Closure failed to load');
     } else {
-      goog.require('goog.ui.Dialog');
+      goog.require('goog.ui.Tooltip');
     }
   </script>
   <script src="/info/master1/bozman/s2/pl/obrowser/vm.js"></script>
-  <script src="../ui/dialog_gen.js"></script>
-  <h1>OClosure : goog.ui.Dialog </h1>
+  <script src="../ui/tooltip_gen.js"></script>
+  <h1>OClosure : goog.ui.Tooltip </h1>
   <script>
-      window.onload = function(e) { exec_caml("dialog.uue")};
+      window.onload = function(e) { exec_caml("tooltip.uue")};
   </script>
-  <div id="dialog"></div>
+  <button id="tool_id">Hover me</button>
   </body>
 </html>

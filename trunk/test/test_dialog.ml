@@ -1,6 +1,9 @@
 (* 
  * Module goog.ui.Dialog
  * A simple Dialog
+ * 
+ * Bozman Cagdas - 2010
+ * Cardoso Gabriel - 2010
  *)
 
 open Js
@@ -16,7 +19,7 @@ let button = Html.a ~onclick:(fun () -> show_dialog dialog) [Html.string "Click"
 
 let _ =
   dialog # setVisible false;
-  dialog # setContent "Voici un exemple simple <br />
- avec O'Closure:<br /> goog.ui.Dialog";
+  dialog # setContent "<br />Voici un exemple simple <br />
+ avec OClosure:<br /><br /> goog.ui.Dialog <br />";
   Node.append cdiv button
 	
