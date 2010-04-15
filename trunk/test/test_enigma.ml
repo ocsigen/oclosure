@@ -19,7 +19,6 @@ let button = Html.a ~onclick:(fun () -> show_dialog dialog) [Html.string "Click"
 
 let _ =
   dialog # setVisible false;
-  dialog # setContent "<br />OClosure :<br />
-A simple dialog box (goog.ui.Dialog)";
+  dialog # setContent "<br /><b>ANSWER :</b> <br /> 5 euros !<br />";
   Node.append cdiv button
 	
