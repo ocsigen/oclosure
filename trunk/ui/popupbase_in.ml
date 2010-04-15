@@ -7,7 +7,7 @@ type number = JSOO.obj
 type element = JSOO.obj
 
 
-class external popupbase :
+class external popupbase : element ->
   <
   (* variables : a ne pas binder*)
   (* element_ : element;
@@ -39,4 +39,6 @@ class external popupbase :
   (*hide_ takes an optional parameter : Target of the event causing the hide *)
   showPopupElement : unit -> unit;
   onBeforeShow : unit -> bool; (* call dispatchEvent*)
-  >
+  > = "goog.ui.PopupBase";;
+
+
