@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <title>Enigma</title>
+ <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/dialog.css">
+  <link rel="stylesheet"
+href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/css/demo.css">
+  <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+<script> 
+    goog.require('goog.ui.AnimatedZippy');
+    goog.require('goog.ui.Zippy');
+    goog.require('goog.ui.ZippyEvent');
+    goog.require('goog.ui.Dialog');
+  </script> 
+<style> 
+    h2 {
+      background: #C0C0FF;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      cursor: pointer;
+      padding: 1px 3px;
+    }
+    div {
+      margin: 0px;
+      padding: 0px;
+    }
+    p {
+      background: #DEDEFF;
+      border: solid #C0C0FF;
+      border-width: 0px 3px 3px 3px;
+      margin-top: 0px;
+      padding: 3px;
+      text-align: justify;
+      overflow: hidden;
+    }
+    #dialog {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    img {
+      width: 19px;
+      height: 16px;
+    }
+    .goog-zippy-expanded img {
+      background-image: url('minus.png');
+    }
+    .goog-zippy-collapsed img {
+      background-image: url('plus.png');
+    }
+  </style> 
+  <script type="text/javascript" src="vm.js"></script>
+  <script src="../ui/zippy_gen.js"></script>
+  <script src="../ui/dialog_gen.js"></script>
+  <link rel="stylesheet"
+        href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/css/demo.css"> 
+  </head>
+  <body>
+
+    <h1>Oclosure : </h1>
+    <h2 id="header">Enigme</h2> 
+    <p id="content"> 
+<b>EN :</b> <br />
+During a walk on a small market, you notice a stall on which are exposed cameras.
+The complete set (camera and case) costs 310 euros. The saler tells you that the camera costs 300 euros more than the case and that the case's price is equal to the set's price minus the camera's price. <br /> <br />
+You decide to buy the case only and give him a 100 euros bill. How much must the saler pay you back ?<br /> <br />
+<b>FR :</b> <br />
+ Lors d'un voyage sur un petit march&eacute;, vous remarquez un stand sur lequels sont expos&eacute;s des appareils photo.
+      Le set complet (appareil photo + &eacute;tui) coute 310 euros. Le vendeur vous dit que l'appareil photo coute 300 euros de plus que l'&eacute;tui et que le prix de l'&eacute;tui est &eacute;gal au prix du set moins le prix de l'appareil.<br><br>
+Vous d&eacute;cidez d'acheter uniquement l'&eacute;tui et tendez un billet de 100 euros au vendeur. Combien le vendeur doit-il vous rendre ?<br /><br />
+   <span id="dialog"></span>
+  </p>
+  
+    <script>
+    window.onload = function(e) {
+       exec_caml("zippy.uue");
+       exec_caml("dialog.uue");
+    };
+
+
+    </script>
+  </body>
+</html>
