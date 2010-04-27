@@ -12,4 +12,5 @@ class external disposable :
   dispose: unit -> unit;
  getDisposed: unit -> bool;
  isDisposed: unit -> bool;
- >
+ > = "goog.Disposable"
+  
