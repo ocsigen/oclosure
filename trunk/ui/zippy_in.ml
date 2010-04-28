@@ -15,11 +15,10 @@ class external zippy : string -> string ->
   < disposeInternal : unit -> unit ;
     expand : unit -> unit ; 
     toggle : unit -> unit ;
-    (*setExpanded : bool -> unit ;
-    isExpanded : unit -> bool ; 
+    setExpanded : bool -> unit ;
+    (*isExpanded : unit -> bool ; 
     updateHeaderClassName_ : bool -> unit;
     onHeaderKeyDown_ : browserEvent -> unit;
     onHeaderClick_ : browserEvent -> unit*)
 > = "goog.ui.Zippy" 
-;;
 
