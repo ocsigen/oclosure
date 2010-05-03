@@ -1,11 +1,10 @@
 #DIRECTORY TO VISIT
-DIRS=syntax goog
+DIRS= asserts disposable dom events positioning ui
 
 all:
 	@for D in $(DIRS);do\
 	(cd $$D; ${MAKE});\
 	done;
-	make -C test vm.js
 
 clean:
 	@for D in $(DIRS);do\

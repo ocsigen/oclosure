@@ -5,9 +5,10 @@
 
 OBROWSER_PATH?=$(shell ocamlfind query obrowser)
 LIB=$(OBROWSER_PATH)
-
+INCLUDES= -I ../disposable -I ../events -I ../positioning -I ../ui -I ../dom -I ../asserts
+OCAMLFLAGS= $(INCLUDES)
 #Where to find pa_object_bindings file
-PA_PATH=../syntax
+PA_PATH=../../syntax
 PA_ML=$(PA_PATH)/pa_object_bindings.ml
 PA_CMO=$(PA_ML:.ml=.cmo)
 
@@ -34,7 +35,7 @@ $(PA_CMO): $(PA_ML)
 
 %.cmo: %.ml
 	@echo "[CC] $@"
-	@CAMLLIB=$(LIB) ocamlc -c $<
+	@CAMLLIB=$(LIB) ocamlc $(OCAMLFLAGS) -c $<
 
 #Check Some Variables
 var:
@@ -44,3 +45,4 @@ var:
 clean:
 	@echo [Clean] $(PWD)
 	@rm -Rf *_gen.js *.cmo *.cmi *.o $(TARGET) $(TARGET:.cmo=.ml) $(PA_CMO)
+
