@@ -908,7 +908,7 @@ Writer.prototype.finalize = function () {
     this.chunk_idx = 0;
     this.write (32, 0x8495A6BE);
     this.write (32, this.block_len);
-    this.write (32, this.num_objects);
+    this.write (32, this.obj_counter);
     this.write (32, this.size_32);
     this.write (32, this.size_64);
     return this.chunk;
@@ -961,12 +961,12 @@ function output_val (v, error) {
   } else {
       writer.write_code (32, CODE_STRING32, len);
   }
-  for (var i = 0;i < le;i++)
+  for (var i = 0;i < len;i++)
       writer.write (8, v.get (i));
   writer.size_32 += 1 + (len + 4) / 4;
   writer.size_64 += 1 + (len + 8) / 8;
   v.dejavu = true;
-  v.dejavu_location = writer.num_objects++;
+  v.dejavu_location = writer.obj_counter++;
   break;
      }
      case 253: {
@@ -977,7 +977,7 @@ function output_val (v, error) {
   writer.size_32 += 1 + 2;
   writer.size_64 += 1 + 1;
   v.dejavu = true;
-  v.dejavu_location = writer.num_objects++;
+  v.dejavu_location = writer.obj_counter++;
   break;
      }
      case 254: {
@@ -993,7 +993,7 @@ function output_val (v, error) {
   writer.size_32 += 1 + nfloats * 2;
   writer.size_64 += 1 + nfloats;
   v.dejavu = true;
-  v.dejavu_location = writer.num_objects++;
+  v.dejavu_location = writer.obj_counter++;
   break;
      }
      case 251:
@@ -1013,32 +1013,44 @@ function output_val (v, error) {
   writer.write(8, 0);
   v.get (0).serialize(v, writer);
   v.dejavu = true;
-  v.dejavu_location = writer.num_objects++;
+  v.dejavu_location = writer.obj_counter++;
   break;
      }
      default: {
-  if (v.tag < 16 && v.size < 8 / 4)
+  if (v.tag < 16 && v.size < 8) {
       writer.write (8, PREFIX_SMALL_BLOCK + v.tag + (v.size<<4));
-  else
+  } else {
       writer.write_code(32, CODE_BLOCK32, (((v).size << 10) | (v).tag));
-  writer.size_32 += 1 + v.size * 4;
-  writer.size_64 += 1 + v.size * 4;
+  }
+  writer.size_32 += 1 + v.size ;
+  writer.size_64 += 1 + v.size ;
   v.dejavu = true;
-  v.dejavu_location = writer.num_objects++;
-  for (i = 1; i < v.size; i++)
+  v.dejavu_location = writer.obj_counter++;
+  for (i = 0; i < v.size; i++) {
       extern_rec (v.get (i));
+  }
      }
      }
  }
     }
+    extern_rec (v);
     writer.finalize ();
     return writer.chunk;
 }
 function caml_output_value_to_string (v, fl) {
+    var vm = this;
+    function caml_failwith (s) {vm.failwith (s);};
     var t = output_val (v, caml_failwith);
-    return mk_array_from_js (t);
+    var b = (new Block (t.length + 1, 252));
+    for (var i = 0;i < t.length;i++) {
+ (b).set(i,t[i]);
+    }
+    (b).set(t.length,0);
+    return b;
 }
 function caml_output_value_to_buffer (s, ofs, len, v, fl) {
+    var vm = this;
+    function caml_failwith (s) {vm.failwith (s);};
     var t = output_val (v, caml_failwith);
     for (var i = 0;i < t.length;i++) {
  s.set (ofs + i, t[i]);
@@ -2153,6 +2165,8 @@ oo_new_table = function (pm) {
     for (var i = 0;i < pm.size;i++) {
  var plab = plabel (pm.get(i));
  methods.set (i * 2 + 3, plab);
+ methods["M" + jsstr (pm.get(i))] = i * 2 + 2;
+ methods["L" + plab] = i * 2 + 2;
     }
     var refnil = (new Block (1, 0));
     refnil.set (0, 0);
@@ -2199,6 +2213,8 @@ oo_get_method_label = function (table, name) {
  m = oo_new_method (table);
  table.by_name[name] = m;
  table.by_label[m] = true;
+ table.methods["M" + name] = m;
+ table.methods["L" + plabel_jsstr(name)] = m;
     }
     return m;
 }
@@ -4034,6 +4050,7 @@ VM.prototype.raise = function (e) {
     }
 }
 VM.prototype.run = function () {
+    running_vm = this;
     if (this.status != 667) {
  this.status = 667;
  var vm = this;
@@ -4074,6 +4091,7 @@ VM.prototype.run = function () {
  }
  sched_run ();
     }
+    running_vm = null;
 }
 VM.prototype.thread_notify_all = function (res) {
     var p = this.ctx;
@@ -4274,6 +4292,7 @@ VM.prototype.callback = function (clos, args) {
     code.set (4, 19);
     code.set (5, 1);
     code.set (6, 143);
+    running_vm = this;
     try {
  while (ctx.cur_code.get (ctx.pc) != 143) {
      if (! i_tbl_cb [ctx.cur_code.get (ctx.pc++)] (this, ctx)) {
@@ -4289,6 +4308,7 @@ VM.prototype.callback = function (clos, args) {
      throw e;
  }
     }
+    running_vm = null;
     var r = ctx.accu;
     this.ctx = octx;
     return r;

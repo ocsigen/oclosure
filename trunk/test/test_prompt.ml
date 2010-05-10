@@ -21,5 +21,6 @@ let button = Html.a ~onclick:(fun () -> show_prompt prompt) [Html.string "Click"
 
 let _ =
   prompt # setRows 3;
+  prompt # setContent "Question" (** Fonction de la classe mère **);
   Node.append cdiv button
 	
