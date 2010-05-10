@@ -102,7 +102,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
 	      else
 		let r = l (n - 1) in
 		let n = Printf.sprintf "a%d" n in
-		<:expr< $lid:n$ ; $r$ >>
+		  Ast.ExSem (_loc, r, <:expr< $lid:n$ >>)
 	    in
 	    let l = l !argc in
     let nn = n ^ "_" in
