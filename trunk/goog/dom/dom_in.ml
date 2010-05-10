@@ -5,7 +5,7 @@
  *)
 
 (** JSOO.obj **)
-type element = JSOO.obj
+type element = JSOO.obj 
 
 (** Number **)
 type number = JSOO.obj (*TODO : Check this type *)

@@ -23,8 +23,9 @@
  * Cardoso Gabriel - 2010
  * Bozman Cagdas - 2010
  *)
+open Component
 
-class external dialog : 
+class external dialog inherit component: 
   < 
   (** Allows arbitrary HTML to be set in the content element.  **)
   setContent : string -> unit; 
