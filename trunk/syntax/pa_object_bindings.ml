@@ -23,6 +23,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
     | <:ctyp< string >> -> <:expr< JSOO.string >>
     | <:ctyp< unit >> -> <:expr< Obj.magic >>
     | <:ctyp< bool >> -> <:expr< JSOO.bool >>
+    | <:ctyp< float >> -> <:expr< JSOO.float >>
     | _ -> <:expr<
 	(fun o ->
 	   let o = Obj.magic o in
@@ -41,6 +42,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
     | <:ctyp< int >> -> <:expr< JSOO.as_int >>
     | <:ctyp< unit >> -> <:expr< ignore >>
     | <:ctyp< bool >> -> <:expr< JSOO.as_bool >>
+    | <:ctyp< float >> -> <:expr< JSOO.as_float >>
     | _ -> <:expr<
 	(fun o ->
 	   let o = Obj.magic o in
@@ -65,6 +67,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
     | <:ctyp< string >> -> "val_string"
     | <:ctyp< unit >> -> "(function(){return UNIT;})"
     | <:ctyp< bool >> -> "(function(o) { if(o) { return TRUE;} else { return FALSE;}}) "
+    | <:ctyp< float >> -> "val_float"
     | _ -> "(function (o) { if ((!o) || (!o.__caml_wrapper)) {return o; } ; if (!o.__caml) { o.__caml = running_vm.callback(o.__caml_wrapper, [o]); } ; return o.__caml; })"
 
   (* extract a value from ML to JS in JS *)
@@ -73,6 +76,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
     | <:ctyp< int >> -> "int_val"
     | <:ctyp< unit >> -> "(function(){return UNIT;})"
     | <:ctyp< bool >> -> "mk_bool"
+    | <:ctyp< float >> -> "float_val"
     | _ -> "(function (o) { if (o && o.__jso) return o.__jso; return o; })"
 
 
