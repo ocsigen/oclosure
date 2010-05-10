@@ -13,14 +13,14 @@ let show_prompt prompt =
     
 let cdiv = Js.get_element_by_id "dialog"
     
-let handler res = alert res
+let handler () = alert "youhou"
 
-let prompt = new Prompt.prompt "Goog.ui.Prompt" "Question" (fun () -> alert "lol")
+let prompt = new Prompt.prompt "Goog.ui.Prompt" "Question" handler
 
 let button = Html.a ~onclick:(fun () -> show_prompt prompt) [Html.string "Click"]
 
 let _ =
   prompt # setRows 3;
-  prompt # setContent "Question" (** Fonction de la classe mère **);
+  prompt # setContent "Question";  (** Fonction de la classe mère **)
   Node.append cdiv button
 	
