@@ -24,10 +24,3 @@ class external popup inherit popupbase : element ->
   positionAtCoordinate : 
     coordinate -> element -> corner -> (* optional argument : goog.math.Box -> *) bool;
   > = "goog.ui.Popup";;
-
-      let p = Js.get_element_by_id "popup"
-      let popup_elt = new popup p
-      let _ = popup_elt # setVisible false
-      let _ = popup_elt # setAutoHide true
-      let _ = popup_elt # setPosition new abstractPosition
-      let _ = popup_elt # setVisible true
