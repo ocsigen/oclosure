@@ -1,0 +1,33 @@
+<html>
+<head>
+  <link rel="stylesheet"
+        href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/css/demo.css">
+  <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/menus.css"> 
+  <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/toolbar.css"> 
+</head>
+<body>
+  <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+  <script>
+    if (typeof goog == 'undefined') {
+      alert('Closure failed to load');
+    } else {
+      goog.require('goog.ui.Toolbar');
+      goog.require('goog.ui.ToolbarButton');
+    }
+  </script>
+  <script src="vm.js"></script>
+  <script src="../goog/disposable/disposable_gen.js"></script>
+  <script src="../goog/events/eventTarget_gen.js"></script>
+  <script src="../goog/ui/component_gen.js"></script>
+  <script src="../goog/ui/control_gen.js"></script>
+  <script src="../goog/ui/button_gen.js"></script>
+  <script src="../goog/ui/toolbarButton_gen.js"></script>
+  <script src="../goog/ui/container_gen.js"></script>
+  <script src="../goog/ui/toolbar_gen.js"></script>
+  <h1>OClosure : goog.ui.ToolBar </h1>
+  <script>
+    window.onload = function(e) { exec_caml("toolbar.uue")};
+  </script>
+  <div id="toolbar"></div>
+  </body>
+</html>
