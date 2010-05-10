@@ -18,7 +18,7 @@ type funct
 (** Number **)
 type number
 
-class external prompt inherit dialog : string -> string -> funct ->
+class external prompt inherit dialog : string -> string -> (string -> unit) ->
 <
   (** Return the number of cols in the user input element. **)
   getCols : unit -> number;

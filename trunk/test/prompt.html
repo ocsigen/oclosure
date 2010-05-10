@@ -6,20 +6,24 @@
   <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/dialog.css">
 </head>
 <body>
-  <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+  <script src="/info/master1/bozman/s2/pl/closure-library-read-only/closure/goog/base.js"></script>
+  <script src="vm.js"></script>
+
   <script>
+    
     if (typeof goog == 'undefined') {
       alert('Closure failed to load');
     } else {
       goog.require('goog.ui.Prompt');
     }
 
-  var hand = function() {
-        alert('Afraid to answer?');
+    function hand(handler) {
+        var tab = [];
+        myVM.thread_new(handler2, tab);
     }
 
   </script>
-  <script src="vm.js"></script>
+
   <script src="../goog/disposable/disposable_gen.js"></script>
   <script src="../goog/events/eventTarget_gen.js"></script>
   <script src="../goog/ui/component_gen.js"></script>
@@ -27,7 +31,7 @@
   <script src="../goog/ui/prompt_gen.js"></script>
   <h1>OClosure : goog.ui.Prompt </h1>
   <script>
-      window.onload = function(e) { exec_caml("prompt.uue")};
+      window.onload = function(e) { myVM = exec_caml("prompt.uue")};
   </script>
   <div id="dialog"></div>
   </body>

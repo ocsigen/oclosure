@@ -24,6 +24,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
     | <:ctyp< unit >> -> <:expr< Obj.magic >>
     | <:ctyp< bool >> -> <:expr< JSOO.bool >>
     | <:ctyp< float >> -> <:expr< JSOO.float >>
+    | <:ctyp< $a$ -> $b$ >> -> <:expr< JSOO.wrap_event >>
     | _ -> <:expr<
 	(fun o ->
 	   let o = Obj.magic o in
