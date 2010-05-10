@@ -106,7 +106,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
 	    in
 	    let l = l !argc in
     let nn = n ^ "_" in
-	      <:expr< $c$ (JSOO.call_method $str:nn$ [| $l$ |] __jso) >>
+	      <:expr< $c$ (JSOO.call_method $str:nn$ [| $l$ |] (JSOO.get "__jso" (Obj.magic self))) >>
     in
     let e = mk_args t in
       <:class_str_item< method $lid:n$ : $t$ = $e$ >>
@@ -134,6 +134,7 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
       print_js ("function " ^ jsmli ^ "(mlo, vm, args) {");
       print_js ("  this.mlo = mlo;");
       print_js ("  this.vm = vm;");
+      print_js ("  mlo.__jso = this;");
       print_js ("  " ^ jsi ^ ".apply (this, args);") ;
       print_js ("}") ;
       print_js ("function " ^ jsmlif ^ "(mlo, vm) {");
@@ -205,30 +206,25 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
 	match inh with
 	  | None ->
 	      <:class_expr< object (self)
-		val mutable __jso = o
 		  $cst:m$
-		initializer
-		  JSOO.set "__jso" __jso (Obj.magic self)
 	      end >>
 	  | Some c ->
 	      <:class_expr< object (self)
-		inherit $lid:"__" ^ c$ o
+		inherit $lid:"__" ^ c$
 		  $cst:m$
 	      end >>
       in
 	<:str_item< 
 	  let $lid:mlif$ o = $fargs <:expr<JSOO.call_function  $targs 0 (<:expr<Obj.magic o>> :: <:expr<JSOO.current_vm ()>> :: transt p)$ (JSOO.eval $str:jsmlif$)>> 0 (List.rev p)$
   ;;
-  class $lid:tmli$ o = $stub$ and $lid:mli$ = $pargs <:class_expr<
-	  let nil = JSOO.inject JSOO.Nil in  object (self)
-	    inherit $lid:tmli$ nil
+  class $lid:tmli$ = $stub$ and $lid:mli$ = $pargs <:class_expr< object (self)
+	    inherit $lid:tmli$
 	    initializer 
-	      __jso <- $eargs <:expr<$lid:mlif$ (Obj.repr self)>> 0 p$ ;
-	      JSOO.set "__jso" __jso (Obj.magic self)
+	      ignore ($eargs <:expr<$lid:mlif$ (Obj.repr self)>> 0 p$)
 	  end >> 0 p$  ;;
 	  let _ =
-	      JSOO.set "__caml_wrapper" (Obj.magic (fun o -> new $lid:tmli$ o)) (JSOO.get "prototype" (JSOO.eval $str:jsi$)) ;
-	      JSOO.set "__caml_wrapper" (Obj.magic (fun o -> new $lid:tmli$ o)) (JSOO.get "prototype" (JSOO.eval $str:jsmli$))
+	      JSOO.set "__caml_wrapper" (Obj.magic (fun o -> let co = Obj.magic (new $lid:tmli$) in JSOO.set "__jso" o co ; co)) (JSOO.get "prototype" (JSOO.eval $str:jsi$)) ;
+	      JSOO.set "__caml_wrapper" (Obj.magic (fun o -> let co = Obj.magic (new $lid:tmli$) in JSOO.set "__jso" o co ; co)) (JSOO.get "prototype" (JSOO.eval $str:jsmli$))
 	  ;; >>
 
 
