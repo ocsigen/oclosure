@@ -10,11 +10,6 @@
 
 open Dialog
 
-(** The function to call when the user selects Ok or Cancel. 
-    The function should expect a single argument which represents what 
-    the user entered into the prompt. If the user presses cancel, the value of the argument will be null. **)
-type funct
-
 (** Number **)
 type number
 
