@@ -32,6 +32,5 @@ type size
 class external abstractPosition :
   < 
   (**  Repositions the element. Abstract method, should be overloaded **)
-  reposition: element -> corner -> box -> size -> unit
-
+  reposition: element -> corner -> box (*->  size*) -> unit
   > = "goog.positioning.AbstractPosition"

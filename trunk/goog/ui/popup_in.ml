@@ -18,41 +18,40 @@
 open PopupBase
 open AbstractPosition
 
-type element = JSOO.obj 
 type coordinate = JSOO.obj (*goog.math.Coordinate *)
 type box = JSOO.obj (*goog.math.Box*)
 type number
 
 class external popup inherit popupbase : element ->
-	<
-  (**  Returns the corner of the popup to used in the positioning algorithm.*)
-  getPinnedCorner : unit -> corner;
+  <
+    (**  Returns the corner of the popup to used in the positioning algorithm.*)
+    getPinnedCorner : unit -> corner;
 
-  (** Sets the corner of the popup to used in the positioning algorithm.*)
-  setPinnedCorner : corner -> unit;
+    (** Sets the corner of the popup to used in the positioning algorithm.*)
+    setPinnedCorner : corner -> unit;
 
-  (** Returns the position helper object associated with the popup.*)
-  getPosition : unit -> abstractPosition;
+    (** Returns the position helper object associated with the popup.*)
+    getPosition : unit -> abstractPosition;
 
-  (** Sets the position helper object associated with the popup.*)
-  setPosition : abstractPosition -> unit;
+    (** Sets the position helper object associated with the popup.*)
+    setPosition : abstractPosition -> unit;
 
-  (** Returns the margin to place around the popup.*)
-  getMargin : unit -> box; (*in popup.js : "box" is "goog.math.Box?" *)
+    (** Returns the margin to place around the popup.*)
+    getMargin : unit -> box; (*in popup.js : "box" is "goog.math.Box?" *)
 
-  (** Sets the margin to place around the popup*)
-  setMargin : number -> unit; (* or goog.math.Box -> unit*)
+    (** Sets the margin to place around the popup*)
+    setMargin : number -> unit; (* or goog.math.Box -> unit*)
 
-  (** Repositions the popup according to the current state.*)
-  reposition : unit -> unit;
+    (** Repositions the popup according to the current state.*)
+    reposition : unit -> unit;
 
-  (** Positions a movable element relative to an anchorElement. The caller
-     * specifies the corners that should touch. This functions then moves the      * movable element accordingly.*)
-  positionPopup : 
-    element -> corner -> element -> corner -> (* optional argument : number ->*) bool;
-
+    (** Positions a movable element relative to an anchorElement. The caller  
+     * specifies the corners that should touch. This functions then moves the        * movable element accordingly.*)
+    positionPopup : 
+    element -> corner -> element -> corner -> (* optional argument : numb  er ->*) bool;
+  
   (** Positions the specified corner of the movable element at the
-     * specified coordinate.*)
-  positionAtCoordinate : 
-    coordinate -> element -> corner -> (* optional argument : goog.math.Box -> *) bool;
+       * specified coordinate.*)
+    positionAtCoordinate : 
+    coordinate -> element -> corner -> (* optional argument : goog.math.B  ox -> *) bool;
   > = "goog.ui.Popup"
