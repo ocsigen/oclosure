@@ -1,5 +1,6 @@
-(* 
- * Module goog.ui.Dialog
+(**
+ * OClosure Project - 2010
+ * Class goog.ui.Dialog
  *
  * Class for showing simple dialog boxes. The Html structure of the dialog 
  * box is:
@@ -20,21 +21,23 @@
  * - button
  * - ...
  * 
- * Cardoso Gabriel - 2010
- * Bozman Cagdas - 2010
+ * @author Cardoso Gabriel - 2010
+ * @author Bozman Cagdas - 2010
+ * @version 0.1
+ * @see 'goog.ui.Component'
  *)
 open Component
 
 class external dialog inherit component: 
   < 
-  (** Allows arbitrary HTML to be set in the content element.  **)
+  (** Allows arbitrary HTML to be set in the content element. *)
   setContent : string -> unit; 
  
-  (** Sets the title. **)
+  (** Sets the title. *)
   setTitle : string -> unit;
 
   (** Sets the visibility of the dialog box and moves focus to the default button. 
-    *  Lazily renders the component if needed. 
-    **)
+   *  Lazily renders the component if needed. 
+   *)
   setVisible : bool -> unit;
  > = "goog.ui.Dialog"

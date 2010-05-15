@@ -1,9 +1,14 @@
-(* 
- * Module goog.ui.Prompt
+(**
+ * OClosure Project - 2010
+ * Test goog.ui.Prompt
+ *
  * A simple Prompt
  * 
- * Bozman Cagdas - 2010
- * Cardoso Gabriel - 2010
+ * @author Bozman Cagdas 
+ * @author Cardoso Gabriel 
+ * @version 0.1
+ * @see 'Js'
+ * @see 'goog.ui.Prompt'
  *)
 
 open Js

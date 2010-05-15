@@ -1,11 +1,15 @@
-(* 
- * Module goog.ui.Dialog
+(** 
+ * OClosure Project - 2010 
+ * Test goog.ui.Dialog
+ * 
  * A simple Dialog
  * 
- * Bozman Cagdas - 2010
- * Cardoso Gabriel - 2010
+ * @author Bozman Cagdas
+ * @author Cardoso Gabriel
+ * @version 0.1
+ * @see 'goog.ui.Dialog'
+ * @see 'Js'
  *)
-
 open Js
 
 let show_dialog dialog = 

@@ -5,9 +5,8 @@
 open AbstractPosition
 
 
-
 class external anchoredPosition inherit abstractPosition : 
   element -> corner ->
-	< reposition : element -> corner-> 
-	(*optional argument : goog.math.Box ->*)unit
-	> = "goog.positioning.AnchoredPosition"
+< 
+
+> = "goog.positioning.AnchoredPosition"
