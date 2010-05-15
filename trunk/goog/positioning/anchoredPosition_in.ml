@@ -1,5 +1,5 @@
 (** OClosure Project - 2010 
-    * Class goog.ui.AnchoredPosition
+    * Class goog.positioning.AnchoredPosition
     *
     * Encapsulates a popup position where the popup is anchored 
     * at a corner of an element. When using AnchoredPosition, it is 
