@@ -7,9 +7,10 @@
     *
     * @author Esther Baruk
     * @version 0.1
+    * @see 'goog.dom.DomHelper'
 *)
+open Dom
 
-type domHelper = JSOO.obj
 type number = JSOO.obj
 type element = JSOO.obj
 (** goog.ui.Tooltip.State = {
@@ -38,7 +39,7 @@ type corner = int
 class external tooltip : string -> string ->
   <
     (** Returns the dom helper that is being used on this component.*)
-    getDomHelper : unit -> domHelper;
+    getDomHelper : unit -> dom; (* domHelper *)
   (*
     (** Attach to element. Tooltip will be displayed when the cursor is 
        * over the element or when the element has been active for a 
