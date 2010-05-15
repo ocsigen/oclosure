@@ -2,10 +2,9 @@
  * Esther Baruk    *
  * goog.ui.Popup   *
  *)
-open Popupbase
+open PopupBase
 open AbstractPosition
 
-type corner = JSOO.obj (*goog.positioning.Corner *)
 type element = JSOO.obj 
 type coordinate = JSOO.obj (*goog.math.Coordinate *)
 type box = JSOO.obj (*goog.math.Box*)
