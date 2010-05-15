@@ -7,7 +7,7 @@
 (** JSOO.obj **)
 type element = JSOO.obj
 (** goog.positioning.Corner **)
-type corner = 
+type corner = int
 (*goog.positioning.Corner = {
   TOP_LEFT: 0,
   TOP_RIGHT: 2,
