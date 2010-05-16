@@ -30,7 +30,7 @@ open Disposable
 type funct
 
 class external eventTarget inherit disposable : 
-  <
+  < 
   (** Adds an event listener to the event target. 
       The same handler can only be added once per the type.
       Even if you add the same handler multiple times using the same type then
