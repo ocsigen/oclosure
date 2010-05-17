@@ -5,3 +5,6 @@ control.cmo : component.cmo
 button.cmo : control.cmo
 popup.cmo : ../positioning/abstractPosition.cmo ../positioning/anchoredPosition.cmo popupBase.cmo
 tooltip.cmo : ../dom/dom.cmo
+comboBox.cmo : menuItem.cmo
+comboBoxItem.cmo : menuItem.cmo
+animatedZippy.cmo : zippy.cmo
