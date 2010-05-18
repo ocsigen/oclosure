@@ -8,3 +8,4 @@ tooltip.cmo : ../dom/dom.cmo
 comboBox.cmo : menuItem.cmo
 comboBoxItem.cmo : menuItem.cmo
 animatedZippy.cmo : zippy.cmo
+colorPalette.cmo : palette.cmo

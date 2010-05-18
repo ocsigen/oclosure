@@ -1,0 +1,33 @@
+<html>
+<head>
+    
+</head>
+<body>
+   <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+  <script>
+    if (typeof goog == 'undefined') {
+      alert('Closure failed to load');
+    } else {
+      goog.require('goog.ui.ColorPicker');
+    }
+  </script>
+  <h1>OClosure : goog.ui.ColorPicker </h1>
+  ici
+  <script src="vm.js"></script>
+
+  <script src="../goog/dom/dom_gen.js"></script>
+
+  <script src="../goog/disposable/disposable_gen.js"></script>
+  <script src="../goog/events/eventTarget_gen.js"></script>
+  <script src="../goog/ui/component_gen.js"></script>
+  <script src="../goog/ui/control_gen.js"></script>
+  <script src="../goog/ui/palette_gen.js"></script>
+  <script src="../goog/ui/colorPalette_gen.js"></script>
+  
+  <script src="../goog/ui/colorPicker_gen.js"></script>
+  <script>
+      window.onload = function(e) { exec_caml("cp.uue")};
+  </script>
+  <div id="cp"></div>
+  </body>
+</html>

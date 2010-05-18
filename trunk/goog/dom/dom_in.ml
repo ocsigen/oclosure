@@ -1,32 +1,32 @@
-(** 
-    * OClosure Project - 2010
-    * Class goog.dom.DomHelper
-    *
-    * Create an instance of a DOM helper with a new document object. 
-    *
-    * @author Bozman Cagdas 
-    * @version 0.1
+(**
+   OClosure Project - 2010
+   Class goog.dom.DomHelper
+   
+   Create an instance of a DOM helper with a new document object. 
+   
+   @author Bozman Cagdas 
+   @version 0.1
 *)
 
-(** JSOO.obj **)
+(** JSOO.obj *)
 type element
 
-(** Number **)
+(** Number *)
 type number 
 
-(** Node **) 
+(** Node *) 
 type node = JSOO.obj
 
-(** Document object**)
+(** Document object*)
 type document 
 
-(** goog.math.Coordinate: Object with values 'x' and 'y' **) 
+(** goog.math.Coordinate: Object with values 'x' and 'y' *) 
 type coordinate 
 
-(** goog.math.Size **)
+(** goog.math.Size *)
 type size 
 
-(** The window associated with the given document **)
+(** The window associated with the given document *)
 type window 
 
 class external dom : 
