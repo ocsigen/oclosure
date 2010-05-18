@@ -1,13 +1,13 @@
 (**
- * OClosure Project - 2010
- * Class goog.ui.Zippy
- *
- * Zippy widget. Expandable/collapsible container, 
- * clicking the header toggles the visibility of the content.
- *
- * @author : Oran Charles
- * @version 0.1
- *)
+   * OClosure Project - 2010
+   * Test goog.ui.Zippy
+   *
+   * Zippy widget. Expandable/collapsible container, 
+   * clicking the header toggles the visibility of the content.
+   *
+   * @author : Oran Charles
+   * @version 0.1
+*)
 
 let f a = 
   Js.alert a

@@ -1,15 +1,15 @@
-(**
- * OClosure Project - 2010
- * Class goog.ui.Charcounter
- *
- * CharCounter widget. Counts the number of characters in a input field or a
- * text box and displays the number of additional characters that may be
- * entered before the maximum length is reached.
- *
- * @author : Oran Charles
- * @version 0.1
- * @see 'goog.events.EventTarget'
- *)
+(** 
+    * OClosure Project - 2010
+    * Class goog.ui.Charcounter
+    *
+    * CharCounter widget. Counts the number of characters in a input field or a
+    * text box and displays the number of additional characters that may be
+    * entered before the maximum length is reached.
+    *
+    * @author : Oran Charles
+    * @version 0.1
+    * @see 'goog.events.EventTarget'
+*)
 open EventTarget
 
 (** JSOO.obj **)

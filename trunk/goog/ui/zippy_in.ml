@@ -1,13 +1,13 @@
 (**
- * OClosure Project - 2010
- * Class goog.ui.Zippy
- *
- * Zippy widget. Expandable/collapsible container, 
- * clicking the header toggles the visibility of the content.
- *
- * @author : Oran Charles
- * @version 0.1
- * @see 'goog.events.EventTarget'
+   * OClosure Project - 2010
+   * Class goog.ui.Zippy
+   *
+   * Zippy widget. Expandable/collapsible container, 
+   * clicking the header toggles the visibility of the content.
+   *
+   * @author : Oran Charles
+   * @version 0.1
+   * @see 'goog.events.EventTarget'
  *)
 open EventTarget
 

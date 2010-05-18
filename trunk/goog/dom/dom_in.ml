@@ -1,12 +1,12 @@
-(**
- * OClosure Project - 2010
- * Class goog.dom.DomHelper
- *
- * Create an instance of a DOM helper with a new document object. 
- *
- * @author Bozman Cagdas 
- * @version 0.1
- *)
+(** 
+    * OClosure Project - 2010
+    * Class goog.dom.DomHelper
+    *
+    * Create an instance of a DOM helper with a new document object. 
+    *
+    * @author Bozman Cagdas 
+    * @version 0.1
+*)
 
 (** JSOO.obj **)
 type element

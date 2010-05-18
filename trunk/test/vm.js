@@ -1233,7 +1233,7 @@ function hash_aux(obj){
     }
     case 253: {
  hash_univ_count--;
- var bytes = bytes_of_float (obj.get (0));
+ var bytes = bytes_of_float (obj);
  for (var p = 7; p >= 0; p--)
             (hash_accu = hash_accu * 19 + (bytes[p]));
  break;

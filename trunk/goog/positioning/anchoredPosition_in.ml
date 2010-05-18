@@ -1,4 +1,5 @@
-(** OClosure Project - 2010 
+(** 
+    * OClosure Project - 2010 
     * Class goog.positioning.AnchoredPosition
     *
     * Encapsulates a popup position where the popup is anchored 

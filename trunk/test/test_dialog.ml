@@ -1,15 +1,15 @@
 (** 
- * OClosure Project - 2010 
- * Test goog.ui.Dialog
- * 
- * A simple Dialog
- * 
- * @author Bozman Cagdas
- * @author Cardoso Gabriel
- * @version 0.1
- * @see 'goog.ui.Dialog'
- * @see 'Js'
- *)
+    * OClosure Project - 2010 
+    * Test goog.ui.Dialog
+    * 
+    * A simple Dialog
+    * 
+    * @author Bozman Cagdas
+    * @author Cardoso Gabriel
+    * @version 0.1
+    * @see 'goog.ui.Dialog'
+    * @see 'Js'
+*)
 open Js
 
 let show_dialog dialog = 

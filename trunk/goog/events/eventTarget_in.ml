@@ -1,27 +1,30 @@
-(**
- * OClosure Project - 2010
- * Class goog.asserts.AssertionError
- *
- * This implements the EventTarget interface as defined by W3C DOM 2/3. 
- * The main difference from the spec is that the this does not know about event
- * propagation and therefore the flag whether to use bubbling or capturing is 
- * not used. 
- * Another difference is that event objects do not really have to implement 
- * the Event interface. 
- * An object is treated as an event object if it has a type property. 
- * It also allows you to pass a string instead of an event object and in that 
- * case an event like object is created with the type set to the string value.
- * Unless propagation is stopped, events dispatched by an EventTarget bubble to
- * its parent event target, returned by getParentEventTarget.
- * To set the parent event target, call setParentEventTarget or override 
- * getParentEventTarget in a subclass.
- * Subclasses that don't support changing the parent event target should
- * override the setter to throw an error. 
- *
- * @author Bozman Cagdas 
- * @version 0.1
- * @see 'goog.disposable.Disposable'
- *)
+(** 
+    * OClosure Project - 2010
+    * Class goog.asserts.AssertionError
+    *
+    * This implements the EventTarget interface as defined by W3C DOM 2/3. 
+    * The main difference from the spec is that
+    * the this does not know about event
+    * propagation and therefore the flag whether to use bubbling or capturing 
+    * is not used. 
+    * Another difference is that event objects do not really have to implement 
+    * the Event interface. 
+    * An object is treated as an event object if it has a type property. 
+    * It also allows you to pass a string instead of an event object and 
+    * in that case an event like object is created with the type set 
+    * to the string value.
+    * Unless propagation is stopped, events dispatched by 
+    * an EventTarget bubble to
+    * its parent event target, returned by getParentEventTarget.
+    * To set the parent event target, call setParentEventTarget or override 
+    * getParentEventTarget in a subclass.
+    * Subclasses that don't support changing the parent event target should
+    * override the setter to throw an error. 
+    *
+    * @author Bozman Cagdas 
+    * @version 0.1
+    * @see 'goog.disposable.Disposable'
+*)
 open Disposable
 
 (** handler The function to handle the event. 

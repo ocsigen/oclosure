@@ -1,4 +1,5 @@
-(** OClosure Project - 2010 
+(** 
+    * OClosure Project - 2010 
     * Class goog.ui.PopupBase
     * 
     * The PopupBase class provides functionality for showing and

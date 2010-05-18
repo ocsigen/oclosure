@@ -1,4 +1,5 @@
-(** OClosure Project - 2010 
+(** 
+    * OClosure Project - 2010 
     * Class goog.ui.Tooltip
     *
     * Tooltip widget. Can be attached to one or more elements 

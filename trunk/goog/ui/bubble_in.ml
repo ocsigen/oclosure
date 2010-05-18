@@ -1,14 +1,14 @@
-(**
- * OClosure Project - 2010
- * Class goog.ui.Bubble
- *
- * The Bubble provides a general purpose bubble implementation 
- * that can be anchored to a particular element and
- * displayed for a period of time.
- * 
- * @author Bozman Cagdas
- * @version 0.1
- *)
+(** 
+    * OClosure Project - 2010
+    * Class goog.ui.Bubble
+    *
+    * The Bubble provides a general purpose bubble implementation 
+    * that can be anchored to a particular element and
+    * displayed for a period of time.
+    * 
+    * @author Bozman Cagdas
+    * @version 0.1
+*)
 
 (** JSOO.obj **)
 type element = JSOO.obj

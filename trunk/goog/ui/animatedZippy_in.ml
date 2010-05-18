@@ -1,15 +1,15 @@
 (**
- * OClosure Project - 2010
- * Class goog.ui.AnimatedZippy
- *
- * Zippy widget. Expandable/collapsible container, 
- * clicking the header toggles the visibility of the content.
- *
- * @author : Oran Charles
- * @version 0.1
- * @see 'goog.ui.Zippy'
- * @see 'goog.events.Event'
- *)
+   * OClosure Project - 2010
+   * Class goog.ui.AnimatedZippy
+   *
+   * Zippy widget. Expandable/collapsible container, 
+   * clicking the header toggles the visibility of the content.
+   *
+   * @author : Oran Charles
+   * @version 0.1
+   * @see 'goog.ui.Zippy'
+   * @see 'goog.events.Event'
+*)
 open Zippy
 open Event
 

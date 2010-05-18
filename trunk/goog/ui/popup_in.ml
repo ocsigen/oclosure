@@ -1,4 +1,5 @@
-(** OClosure Project - 2010 
+(** 
+    * OClosure Project - 2010 
     * Class goog.ui.Popup
     * 
     * The Popup class provides functionality for displaying 

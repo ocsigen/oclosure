@@ -1,13 +1,13 @@
-(**
-   * OClosure Project - 2010
-   * Class goog.positioning.AbstractPosition
-   * 
-   * Abstract position object. Encapsulates position and overflow handling.
-   * 
-   * @author Bozman Cagdas
-   * @version 0.1
+(** 
+    * OClosure Project - 2010
+    * Class goog.positioning.AbstractPosition
+    * 
+    * Abstract position object. Encapsulates position and overflow handling.
+    * 
+    * @author Bozman Cagdas
+    * @version 0.1
 *)
- 
+
 (** JSOO.obj **)
 type element = JSOO.obj
 

@@ -1,13 +1,14 @@
-(**
- * OClosure Project - 2010
- * Class goog.events.Event
- *
- * A base class for event objects, so that they can support preventDefault and stopPropagation.
- *
- * @author : Oran Charles
- * @version 0.1
- * @see 'goog.Disposable'
- *)
+(** 
+    * OClosure Project - 2010
+    * Class goog.events.Event
+    *
+    * A base class for event objects, so that they can support 
+    * preventDefault and stopPropagation.
+    *
+    * @author : Oran Charles
+    * @version 0.1
+    * @see 'goog.Disposable'
+*)
 open Disposable
 
 (** JSOO.obj *)
