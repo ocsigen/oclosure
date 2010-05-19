@@ -7,8 +7,9 @@ OBROWSER_PATH?=$(shell ocamlfind query obrowser)
 LIB=$(OBROWSER_PATH)
 INCLUDES= -I ../disposable -I ../events -I ../positioning -I ../ui -I ../dom -I ../asserts
 OCAMLFLAGS= $(INCLUDES)
+ROOT?=../..
 #Where to find pa_object_bindings file
-PA_PATH=../../syntax
+PA_PATH=$(ROOT)/syntax
 PA_ML=$(PA_PATH)/pa_object_bindings.ml
 PA_CMO=$(PA_ML:.ml=.cmo)
 
@@ -20,6 +21,7 @@ TARGET=$(FILE:_in.ml=.cmo)
 
 #We want *.cmo (and *.ml)
 all: $(TARGET) $(TARGET:.cmo=.ml)
+
 
 $(PA_CMO): $(PA_ML)
 	@cd $(PA_PATH);${MAKE}
@@ -44,5 +46,8 @@ var:
 	@echo [Files] = $(FILE)
 clean:
 	@echo [Clean] $(PWD)
-	@rm -Rf *_gen.js *.cmo *.cmi *.o $(TARGET) $(TARGET:.cmo=.ml) $(PA_CMO)
+	@rm -Rf .depend *_gen.js *.cmo *.cmi *.o $(TARGET) $(TARGET:.cmo=.ml) $(PA_CMO)
 
+depend:$(FILE:_in.ml=.ml)
+	@ocamldep $(INCLUDES) $(FILE:_in.ml=.ml) > .depend
+-include .depend

@@ -10,3 +10,8 @@ clean:
 	@for D in $(DIRS);do\
 	(cd $$D; ${MAKE} clean);\
 	done;
+
+depend:
+	@for D in $(DIRS);do\
+	(cd $$D; ${MAKE} depend);\
+	done;
