@@ -188,10 +188,10 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
 	      | [] -> <:expr< $ee$ >>
       in
       let rec pargs ee n = function
-	  _ :: l ->
+	  (typ, _) :: l ->
 	    let nn = Printf.sprintf "a%d" n in
 	    let e = pargs ee (n + 1) l in
-	      <:class_expr< fun $lid:nn$ -> $e$ >>
+	      <:class_expr< fun ($lid:nn$ : $typ$) -> $e$ >>
 	      | [] -> <:class_expr< $ee$ >>
       in
       let transt l =
