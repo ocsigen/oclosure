@@ -18,13 +18,16 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
 	  output_string f (s ^ "\n")
 
   (* inject a value from ML to JS in ML *)
-  let injector _loc = function
+  let rec injector _loc = function
     | <:ctyp< int >> -> <:expr< JSOO.int >>
     | <:ctyp< string >> -> <:expr< JSOO.string >>
     | <:ctyp< unit >> -> <:expr< Obj.magic >>
     | <:ctyp< bool >> -> <:expr< JSOO.bool >>
     | <:ctyp< float >> -> <:expr< JSOO.float >>
     | <:ctyp< $a$ -> $b$ >> -> <:expr< JSOO.wrap_event >>
+    | <:ctyp< $_$ array >> as t -> <:expr< fun (o : $t$) ->
+	JSOO.call_function [| Obj.magic o |] (JSOO.eval ($str:js_extractor _loc
+							   t$)) >>
     | _ -> <:expr<
 	(fun o ->
 	   let o = Obj.magic o in
@@ -38,12 +41,15 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
 		   jso) >>
 
   (* extract a value from JS to ML in ML *)
-  let  extractor _loc = function
+  and  extractor _loc = function
     | <:ctyp< string >> -> <:expr< JSOO.as_string >>
     | <:ctyp< int >> -> <:expr< JSOO.as_int >>
     | <:ctyp< unit >> -> <:expr< ignore >>
     | <:ctyp< bool >> -> <:expr< JSOO.as_bool >>
     | <:ctyp< float >> -> <:expr< JSOO.as_float >>
+    | <:ctyp< $_$ array >> as t -> <:expr< fun o ->
+	(Obj.magic
+	   (JSOO.call_function [| Obj.magic o |] (JSOO.eval ($str:js_injector _loc t$))) : $t$) >>
     | _ -> <:expr<
 	(fun o ->
 	   let o = Obj.magic o in
@@ -63,21 +69,28 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
 	>>
 
   (* inject a value from JS to ML in JS *)
-  let js_injector _loc = function
+  and js_injector _loc = function
     | <:ctyp< int >> -> "val_int"
     | <:ctyp< string >> -> "val_string"
     | <:ctyp< unit >> -> "(function(){return UNIT;})"
     | <:ctyp< bool >> -> "(function(o) { if(o) { return TRUE;} else { return FALSE;}}) "
     | <:ctyp< float >> -> "val_float"
+    | <:ctyp< $t$ array >> ->
+      "(function(o){var b = mk_block (o.length, 0);for(var
+i=0;i<o.length;i++)b.set(i," ^ js_injector _loc t ^ "(o[i]));
+console.debug (b); return b;})"
     | _ -> "(function (o) { if ((!o) || (!o.__caml_wrapper)) {return o; } ; if (!o.__caml) { o.__caml = running_vm.callback(o.__caml_wrapper, [o]); } ; return o.__caml; })"
 
   (* extract a value from ML to JS in JS *)
-  let  js_extractor _loc = function
+  and  js_extractor _loc = function
     | <:ctyp< string >> -> "string_val"
     | <:ctyp< int >> -> "int_val"
     | <:ctyp< unit >> -> "(function(){return UNIT;})"
     | <:ctyp< bool >> -> "mk_bool"
     | <:ctyp< float >> -> "float_val"
+    | <:ctyp< $t$ array >> ->
+      "(function(b){var o = new Array();for(var i=0;i<b.size;i++)o[i]="
+      ^ js_extractor _loc t ^ "(b.get(i)); console.debug (o); return o;})"
     | _ -> "(function (o) { if (o && o.__jso) return o.__jso; return o; })"
 
 
