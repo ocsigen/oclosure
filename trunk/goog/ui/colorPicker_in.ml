@@ -34,7 +34,7 @@ type size = int
     The index of the color selected. *)
 type number
 
-class external colorPicker  inherit component: domHelper -> colorPalette ->
+class external colorPicker  inherit component: dom -> colorPalette ->
   <
     (** Sets the array of colors to be displayed by the color picker. *)
     addColor : colors -> unit;

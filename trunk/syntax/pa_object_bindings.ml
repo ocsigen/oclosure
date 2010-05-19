@@ -24,9 +24,11 @@ module Make (Syntax : Sig.Camlp4Syntax) = struct
     | <:ctyp< unit >> -> <:expr< Obj.magic >>
     | <:ctyp< bool >> -> <:expr< JSOO.bool >>
     | <:ctyp< float >> -> <:expr< JSOO.float >>
-    | <:ctyp< $a$ -> $b$ >> -> <:expr< JSOO.wrap_event >>
-    | <:ctyp< $_$ array >> as t -> <:expr< fun (o : $t$) ->
+    | <:ctyp< $_$ -> unit >> as t -> <:expr< fun (o : $t$) ->
 	JSOO.call_function [| Obj.magic o |] (JSOO.eval ($str:js_extractor _loc
+							   t$)) >>
+      | <:ctyp< $_$ array >> as t -> <:expr< fun (o : $t$) ->
+	  JSOO.call_function [| Obj.magic o |] (JSOO.eval ($str:js_extractor _loc
 							   t$)) >>
     | _ -> <:expr<
 	(fun o ->
