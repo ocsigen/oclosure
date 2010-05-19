@@ -147,9 +147,9 @@ and print_name ?(full=0) = function
 	end 
 
 and print_utype ?(full=0) = function
-    Array x -> format "(* Array[%s] *)" (print_gtype x) 
+    Array x -> format "%s array" (print_gtype x) 
   | Star -> "(* any = \"*\" *)"
-  | Fun xs-> "(* function *)"
+  | Fun xs-> "(* func *)"
   | Other(xx) ->
       if full==0
       then
