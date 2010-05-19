@@ -8,8 +8,10 @@
     if (typeof goog == 'undefined') {
       alert('Closure failed to load');
     } else {
-      goog.require('goog.ui.ColorPicker');
+          goog.require('goog.dom');					
+   	   goog.require('goog.ui.ColorPicker');
     }
+goog.ui.ColorPicker.createSimpleColorGrid ();
   </script>
   <h1>OClosure : goog.ui.ColorPicker </h1>
   ici

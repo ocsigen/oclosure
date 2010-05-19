@@ -28,7 +28,7 @@ type element
 
 (** [oog.math.Size]
     The size of the grid. *)
-type size
+type size = int
 
 (** type number 
     The index of the color selected. *)
@@ -41,12 +41,9 @@ class external colorPicker  inherit component: domHelper -> colorPalette ->
 
  (** ColorPickers cannot be used to decorate pre-existing html,
      since the structure they build is fairly complicated. *)
- canDecorate : element -> bool;
- 
- (** *)
- disposeInternal : unit;
+ canDecorate : element -> bool; 
 
- (** Renders the color picker inside the provided element.
+(** Renders the color picker inside the provided element.
      This will override the current content of the element. *)
  enterDocument : unit;
 
