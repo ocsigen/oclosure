@@ -37,10 +37,8 @@ class external charcounter inherit eventTarget: elInput -> elCount -> float -> i
  (** @inheritDoc *)
  disposeInternal : unit -> unit ;
 
- (*(** Change event handler for input field. *)
- onChange_ : browserEvent -> unit ;
- 
- (** Checks length of text in input field and updates the counter. Truncates text if the maximum lengths is exceeded. *)
- checkLength_ : unit -> unit ;*)
-
 > = "goog.ui.CharCounter"
+
+let display_Remaining = 0
+
+let display_Incremental = 1 

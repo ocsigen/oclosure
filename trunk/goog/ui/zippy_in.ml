@@ -37,9 +37,6 @@ class external zippy inherit eventTarget : string -> string ->
  (** Whether the zippy is expanded. *)
  isExpanded : unit -> bool ;
 
- (*updateHeaderClassName_ : bool -> unit;
-   onHeaderKeyDown_ : browserEvent -> unit;
-   onHeaderClick_ : browserEvent -> unit*)
 > = "goog.ui.Zippy" 
 
 
