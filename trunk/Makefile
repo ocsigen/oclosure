@@ -1,7 +1,7 @@
 #DIRECTORY TO VISIT
 DIRS=syntax goog
 
-all:
+all: depend
 	@for D in $(DIRS);do\
 	(cd $$D; ${MAKE});\
 	done;
