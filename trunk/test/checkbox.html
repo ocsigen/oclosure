@@ -1,0 +1,29 @@
+<html>
+  <head>
+  <title>Checkbox</title>
+  <script src="../../../closure-library-read-only/closure/goog/base.js"></script>
+  <link rel="stylesheet" href="../../../closure-library-read-only/closure/goog/css/demo.css">
+  <link rel="stylesheet" href="../../../closure-library-read-only/closure/goog/css/checkbox.css">
+  <script>
+    goog.require('goog.ui.Checkbox');
+  </script>
+
+
+  <script type="text/javascript" src="vm.js"></script>
+  <script src="../goog/disposable/disposable_gen.js"></script>
+  <script src="../goog/events/eventTarget_gen.js"></script>
+  <script src="../goog/ui/component_gen.js"></script>
+  <script src="../goog/ui/control_gen.js"></script>
+  <script src="../goog/ui/checkbox_gen.js"></script>
+
+  </head>
+  
+  <body>
+  <div><span id="checkbox"></span>Ici</div>
+  <div><span id="check"></span>La</div>
+  <script>
+    window.onload = function (e) {exec_caml("checkbox.uue")};
+  </script>
+
+  </body>
+</html>
