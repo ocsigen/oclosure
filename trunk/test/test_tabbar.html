@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+@author Bourdin Pierre 
+
+<html>
+  <head>
+    
+    
+    <title>test tabbar</title>
+    <meta charset="utf-8">
+    <script
+       src="../../../Documents/ProjetLong/closure-library-read-only/closure/goog/base.js"></script>
+    
+    <script>
+      if (typeof goog == 'undefined'){
+      alert("eee");
+      }
+      else {
+      goog.require('goog.dom');
+      goog.require('goog.ui.Component');
+      goog.require('goog.ui.Container');
+      goog.require('goog.ui.TabBar');
+      goog.require('goog.ui.Component.EventType');
+      goog.require('goog.ui.LabelInput');
+    
+}
+    </script>
+    
+    <script type="text/javascript"src="vm.js"></script>
+    <script type="text/javascript" src="../goog/disposable/disposable_gen.js"> </script>
+    <script type="text/javascript" src="../goog/events/eventTarget_gen.js"> </script>
+    <script type="text/javascript" src="../goog/ui/component_gen.js"> </script>
+    <script type="text/javascript" src="../goog/ui/container_gen.js"> </script>
+    <script type="text/javascript" src="../goog/ui/tabbar_gen.js"> </script>
+
+    
+    <script type="text/javascript" src="../../../obrowser/rt/js/ffi.js"></script>
+<script>
+      goog.require('goog.dom');
+      goog.require('goog.ui.Component');
+      goog.require('goog.events');
+      goog.require('goog.ui.Container'); 
+      goog.require('goog.ui.TabBar');
+      goog.require('goog.object');
+      goog.require('goog.ui.Component.EventType');
+      goog.require('goog.ui.Tab');
+      
+    
+    </script>
+    
+    <link rel="stylesheet" href="../../../Documents/ProjetLong/closure-library-read-only/closure/goog/css/menus.css">
+    <link rel="stylesheet" href="../../../Documents/ProjetLong/closure-library-read-only/closure/goog/css/combobox.css">
+    <link rel="stylesheet" href="../../../Documents/ProjetLong/closure-library-read-only/closure/goog/css/demos.css">
+    <link rel="stylesheet" href="../../../Documents/ProjetLong/closure-library-read-only/closure/goog/css/roundedtab.css">
+    <link rel="stylesheet" href="../../../Documents/ProjetLong/closure-library-read-only/closure/goog/css/tab.css">
+    <link rel="stylesheet" href="../../../Documents/ProjetLong/closure-library-read-only/closure/goog/css/tabbar.css">
+    
+    <style>
+      
+      
+    </style>
+    
+  </head>
+  <body>
+    <h1>Binding De Tabbar (goog.ui)</h1>
+
+
+    <div id="tabbar" class="goog-tab-bar goog-tab-bar-start">
+            <div class="goog-tab">Hello</div>
+
+            <div class="goog-tab">Settings</div>
+            <div class="goog-tab">More</div>
+            <div class="goog-tab goog-tab-enable">Advanced</div>
+    </div>
+
+    
+    <script>
+
+     window.onload = function (e) {
+      exec_caml ("tabbar.uue");
+    }
+    </script>
+    
+  </body>
+</html>
