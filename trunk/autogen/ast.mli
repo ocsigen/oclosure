@@ -12,6 +12,7 @@ and info =
   | Extends of utype list
   | Private
   | Protected
+  | Comment of string list
 and gtype = stype list
 and stype = utype * (opt list)
 and opt = Opt
@@ -19,4 +20,5 @@ and utype =
     Array of gtype
   | Star
   | Fun of gtype list
+  | Obj of string*gtype
   | Other of string list

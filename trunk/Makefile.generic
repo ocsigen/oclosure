@@ -18,9 +18,9 @@ PA_CMO=$(PA_ML:.ml=.cmo)
 #Exemple TreeControl_in.ml -> TreeControl.cmo & TreeControl_gen.js
 FILE=$(wildcard *_in.ml)
 TARGET=$(FILE:_in.ml=.cmo)
-
+TARGET2=$(FILE:_in.ml=.cma)
 #We want *.cmo (and *.ml)
-all: $(TARGET) $(TARGET:.cmo=.ml)
+all: $(TARGET) $(TARGET2) $(TARGET:.cmo=.ml)
 
 
 $(PA_CMO): $(PA_ML)
@@ -38,6 +38,12 @@ $(PA_CMO): $(PA_ML)
 %.cmo: %.ml
 	@echo "[CC] $@"
 	@CAMLLIB=$(LIB) ocamlc $(OCAMLFLAGS) -c $<
+%.cma: %.cmo
+	@echo "[CMA] $@"
+	@CAMLLIB=$(LIB) ocamlc $(OCAMLFLAGS) -a $< -o $@
+
+ui.cma: $(TARGET)
+	CAMLLIB=$(LIB) ocamlmklib $^ -o $(basename $@)
 
 #Check Some Variables
 var:

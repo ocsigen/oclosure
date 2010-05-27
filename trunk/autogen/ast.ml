@@ -12,6 +12,7 @@ and info =
   | Extends of utype list
   | Private
   | Protected
+  | Comment of string list
 and gtype = stype list
 and stype = utype * (opt list)
 and opt = Opt

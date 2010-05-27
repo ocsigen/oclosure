@@ -2,7 +2,7 @@
 #Directory to put new files
 DEST=Gen_File
 #Where is goog directory
-BASE=~/local/src/closure-library/closure/goog
+BASE=Parse_File
 ok=0
 err=0
 
@@ -11,15 +11,17 @@ rm -Rf ${DEST}
 
 mkdir ${DEST}
 
+cp ../goog/Makefile ./${DEST}/Makefile
 for dd in `ls ${BASE}/`
 do
     if test -d "${BASE}/${dd}"
     then
 	mkdir ${DEST}/${dd}
-	
-	for f in ${BASE}/${dd}/*.js
+	echo "ROOT=../../.." > ${DEST}/${dd}/Makefile
+	echo "include ../../../Makefile.generic" >> ${DEST}/${dd}/Makefile
+	for f in ${BASE}/${dd}/*.parse
 	do
-	    ./extract_info.sh "$f" | ./generate > ${DEST}/${dd}/`basename $f .js`"_in.ml" 2> /dev/null
+	    cat "$f" | ./generate > ${DEST}/${dd}/`basename $f .parse`"_in.ml" 2> /dev/null
 	    if [ $? -eq 2 ]
 	    then echo $f "Error";echo $f >> error.log; err=$(($err+1))
 	    else echo $f "Ok " ; ok=$((ok+1))

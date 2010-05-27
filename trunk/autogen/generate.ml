@@ -124,10 +124,17 @@ and print_gtypes l =
     | (Param x)::xs -> (print_gtype x)^" -> "^(print_gtypes xs)
     | _ -> ""
 
+and print_gtypes_2 l =
+  match l with
+      [] -> ""
+    | x::[] -> print_gtype x
+    | x::xs -> (print_gtype x)^" -> "^(print_gtypes_2 xs)
+
 and print_name ?(full=0) = function
     Array x -> format "(* Array[%s] *)" (print_gtype x) 
   | Star -> "(* any = \"*\" *)"
   | Fun xs-> "(* function *)"
+  | Obj(a,b) -> "(* Object with "^a^":"^(print_gtype b)^")"
   | Other(xx) ->
       if full==0
       then
@@ -148,14 +155,22 @@ and print_name ?(full=0) = function
 
 and print_utype ?(full=0) = function
     Array x -> format "%s array" (print_gtype x) 
-  | Star -> "(* any = \"*\" *)"
-  | Fun xs-> "(* func *)"
+  | Star -> "any (* any = \"*\" *)"
+  | Fun(xs)-> "(" ^ (print_gtypes_2 xs) ^ ")"
+  | Obj(a,b) -> "(* Object with "^a^":"^(print_gtype b)^")"
   | Other(xx) ->
       if full==0
       then
 	let name = List.hd (last xx)
 	in let name = uncapitalize name
-	in name
+	in
+	  begin match name with
+	  | "object" -> "JSOO.obj (*object*)"
+	  | "function" -> "JSOO.obj (*object*)"
+	  | "boolean" -> "bool"
+	  | "type" -> "type_"
+	  | x -> x
+	  end
       else
 	begin
 	  let rec p = function
