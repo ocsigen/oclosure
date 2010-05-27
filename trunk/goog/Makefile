@@ -1,5 +1,5 @@
 #DIRECTORY TO VISIT
-DIRS= asserts disposable dom events math positioning timer ui
+DIRS= asserts disposable dom events i18n math positioning timer ui
 
 all:
 	@for D in $(DIRS);do\
