@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>goog.ui.CharPicker</title> 
+  <meta charset=utf-8> 
+  <!-- common css used by all closure demos; not required for char picker --> 
+  <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/css/demo.css">
+ 
+  <!-- used only for button in this page; not required for char picker--> 
+  <link rel="stylesheet" href="closure-library-read-only/closure/goog/css/menubutton.css"> 
+ 
+  <!-- only required css for char picker --> 
+  <link rel="stylesheet" href="closure-library-read-only/closure/goog/css/charpicker.css"> 
+ 
+  <script src="closure-library-read-only/closure/goog/base.js"></script>
+  <script> 
+    goog.require('goog.i18n.CharPickerData');
+    goog.require('goog.ui.CharPicker');
+  </script> 
+
+  <script type="text/javascript" src="vm.js"></script>
+  <script src="../goog/disposable/disposable_gen.js"></script>
+  <script src="../goog/events/eventTarget_gen.js"></script>
+  <script src="../goog/ui/component_gen.js"></script>
+  <script src="../goog/i18n/charPickerData_gen.js"></script>
+  <script src="../goog/ui/charPicker_gen.js"></script>
+ 
+  <style> 
+    #p1_value {
+      color: red;
+      font-weight: bold;
+      font-size: large;
+    }
+ 
+    p {
+      height: 2em;
+    }
+  </style> 
+</head> 
+ 
+<body> 
+  <h1>goog.ui.CharPicker</h1> 
+  <p>You have selected: <span id="p1_value">none</span> 
+  <div id="char-picker"></div> 
+ 
+  <script> 
+    window.onload = function(e) { exec_caml("charPicker.uue")};
+  </script> 
+  <p> 
+    <input type="button" value="Dispose" onclick="picker.dispose()"> 
+  </p> 
+</body> 
+</html> 
