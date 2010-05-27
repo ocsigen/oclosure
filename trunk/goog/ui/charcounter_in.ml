@@ -39,6 +39,8 @@ class external charcounter inherit eventTarget: elInput -> elCount -> float -> i
 
 > = "goog.ui.CharCounter"
 
+(** Widget displays the number of characters remaining (the default). **)
 let display_Remaining = 0
 
+(** Widget displays the number of characters entered. **)
 let display_Incremental = 1 
