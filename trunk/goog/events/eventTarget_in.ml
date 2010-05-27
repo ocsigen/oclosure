@@ -31,8 +31,10 @@ open Disposable
     The handler can also be an object that implements the handleEvent method
     which takes the event object as argument. **)
 type funct
+type event
 
-class external eventTarget inherit disposable : 
+
+class external eventTarget inherit disposable :  
   < 
   (** Adds an event listener to the event target. 
       The same handler can only be added once per the type.
@@ -40,7 +42,7 @@ class external eventTarget inherit disposable :
       it will only be called once when the event is dispatched.
       Supported for legacy but use 
       goog.events.listen(src, type, handler) instead. *)
-  addEventListener : string -> funct -> bool -> JSOO.obj -> unit;
+  addEventListener : string -> ( JSOO.obj -> unit) -> unit;
 
  (** Dispatches an event (or event like object) and calls all listeners
      listening for events of this type. The type of the event is decided by the
