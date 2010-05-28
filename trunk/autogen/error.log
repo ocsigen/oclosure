@@ -1,4 +1,10 @@
+Parse_File/date/date.parse
+Parse_File/editor/seamlessfield_test.parse
 Parse_File/events/pools.parse
+Parse_File/gears/managedresourcestore.parse
+Parse_File/iter/iter.parse
+Parse_File/module/modulemanager.parse
+Parse_File/structs/treenode.parse
 Parse_File/testing/asserts.parse
 Parse_File/testing/asynctestcase.parse
 Parse_File/testing/mockclock.parse

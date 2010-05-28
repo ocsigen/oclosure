@@ -130,6 +130,8 @@ and print_gtypes_2 l =
     | x::[] -> print_gtype x
     | x::xs -> (print_gtype x)^" -> "^(print_gtypes_2 xs)
 
+and count =ref 0
+  
 and print_name ?(full=0) = function
     Array x -> format "(* Array[%s] *)" (print_gtype x) 
   | Star -> "(* any = \"*\" *)"
@@ -143,7 +145,15 @@ and print_name ?(full=0) = function
 	    in let name = Str.global_replace (Str.regexp "\\(.+\\)\\([A-Z]\\)") "\\1_\\2" name
 	    in let name = String.lowercase name
 	  *)
-	in capitalize name
+	in let name = capitalize name
+	in let name =
+	    if List.mem name ["$";"$$"]
+	    then (incr count ;"_"^(string_of_int (!count))^"(* incorect name : "^name^" *)")
+	    else name
+	in
+	  if List.mem name ["assert";"and";"or";"begin";"end";"open";"not";"nor";"xor"]
+	  then name^"_ (* reserved word *)"
+	  else name
       else
 	begin
 	  let rec p = function
@@ -155,9 +165,9 @@ and print_name ?(full=0) = function
 
 and print_utype ?(full=0) = function
     Array x -> format "%s array" (print_gtype x) 
-  | Star -> "any (* any = \"*\" *)"
+  | Star -> "JSOO.obj (* any = \"*\" *)"
   | Fun(xs)-> "(" ^ (print_gtypes_2 xs) ^ ")"
-  | Obj(a,b) -> "(* Object with "^a^":"^(print_gtype b)^")"
+  | Obj(a,b) -> "JSOO.obj (* Object with "^a^":"^(print_gtype b)^" *)"
   | Other(xx) ->
       if full==0
       then

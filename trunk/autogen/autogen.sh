@@ -10,15 +10,16 @@ rm -Rf error.log
 rm -Rf ${DEST}
 
 mkdir ${DEST}
+echo "ROOT=../../" > ./${DEST}/Makefile
+cat ../goog/Makefile >> ./${DEST}/Makefile
 
-cp ../goog/Makefile ./${DEST}/Makefile
 for dd in `ls ${BASE}/`
 do
     if test -d "${BASE}/${dd}"
     then
 	mkdir ${DEST}/${dd}
-	echo "ROOT=../../.." > ${DEST}/${dd}/Makefile
-	echo "include ../../../Makefile.generic" >> ${DEST}/${dd}/Makefile
+#	echo "ROOT=../../.." > ${DEST}/${dd}/Makefile
+#	echo "include ../../../Makefile.generic" >> ${DEST}/${dd}/Makefile
 	for f in ${BASE}/${dd}/*.parse
 	do
 	    cat "$f" | ./generate > ${DEST}/${dd}/`basename $f .parse`"_in.ml" 2> /dev/null
