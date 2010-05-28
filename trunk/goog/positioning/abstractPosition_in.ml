@@ -20,7 +20,7 @@ type element = JSOO.obj
     TOP_END: 6,
     BOTTOM_START: 5,
     BOTTOM_END: 7 **)
-type corner 
+type corner = int
 
 (** goog.math.Box **)
 type box
