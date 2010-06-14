@@ -1,4 +1,5 @@
-LIB=~/M1/Oclosure/ocaml2js/lib
+JS_FROM_OCAML_PATH?=$(shell ocamlfind query obrowser)
+LIB=$(JS_FROM_OCAML_PATH)/lib
 
 FILE=$(wildcard */*.ml */*/*.ml)
 INC_DIR=$(sort $(dir $(wildcard */ */*/)))
