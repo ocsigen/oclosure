@@ -1,0 +1,86 @@
+(**
+ * OClosure Project - 2010
+ * Class goog.ui.Combobox
+ *
+ * A ComboBox control.
+ * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @extends {goog.ui.Component} * 
+ * @author Bourdin Piere
+ * @version 0.1
+ *)
+
+open Js
+open Component
+
+type element = JSOO.obj
+type arrow
+  
+  
+
+class type comboboxitem = object 
+  (*Sets the menu item to be sticky or not sticky.
+   * @param {boolean} sticky Whether the menu item should be sticky.*)
+  method setSticky:bool->unit meth
+ (*@return {boolean} Whether the menu item is sticky.*)
+  method isSticky:unit->bool meth
+ (*Sets the format for a menu item based on a token, bolding the token.
+  * @param {js_string t} token The token.*)
+  method setFormatFromToken:js_string t->js_string t meth
+end
+
+let comboBoxItem : (js_string t-> comboBoxItem t) constr = 
+  Js.Unsafe.variable "goog.ui.ComboBoxItem"
+       
+class type combobox = object
+  inherit component
+  (*Adds a new menu item at the end of the menu.
+   * @param {goog.ui.MenuItem} item Menu item to add to the menu.*)
+  method addItem:comboboxitem->unit meth
+ (*
+  * Adds a new menu item at a specific index in the menu.
+  * @param {goog.ui.MenuItem} item Menu item to add to the menu.
+  * @param {number} n Index at which to insert the menu item.*)
+  method addItemAt:comboboxitem->int->unit meth
+ (** Sets the default text for the combo box.
+  * @param {js_string t} text The default text for the combo box.
+  */
+  *)
+  method setDefaultText:js_string t->unit meth
+ (* @return {js_string t} text The default text for the combox box.*)
+  method getDefaultText:unit->js_string t meth
+  method enterDocument:unit->unit meth
+  method exitDocument:unit->unit meth
+ (** Combo box currently can't decorate elements.
+  * @return {boolean} The value false.
+  *)
+  method canDecorate:unit->bool meth
+  method disposeInternal:unit->unit meth
+  method dissim:unit->unit meth
+ (*
+  * Removes an item from the menu and disposes it.
+  * @param {goog.ui.MenuItem} item The menu item to remove.*)
+  method removeItem:comboboxitem->unit meth
+ (* * Removes a menu item at a given index in the menu.
+  * @param {number} n Index of item.*)
+  method removeAllItems:unit->unit meth
+ (** Returns a reference to the menu item at a given index.
+  * @param {number} n Index of menu item.
+  * @return {goog.ui.MenuItem?} Reference to the menu item.*)
+  method removeItemAt:int->unit meth
+  method getItemAt:int->comboboxitem meth
+ (* Sets the field name for the combo box.
+  * @param {js_string t} fieldName The field name for the combo box.*)
+  method getFieldName:unit->js_string t meth
+ (*Set to true if a unicode inverted triangle should be displayed in the
+  * dropdown button.
+  * This option defaults to false for backwards compatibility.
+  * @param {boolean} useDropdownArrow True to use the dropdown arrow.*) 
+  method setUseDropdownArrow:arrow->unit meth
+ (*Sets the current value of the combo box.
+ * @param {js_string t} value The new value.*)
+  method setValue:js_string t->unit meth
+ (*@return {js_string t} The current value of the combo box.*)
+  method getValue:unit->js_string t meth
+end
+
+let comboBox
