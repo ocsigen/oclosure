@@ -17,11 +17,14 @@ class type component = object
   (** Adds the specified component as the last child of this component. 
     * See goog.ui.Component#addChildAt for detailed semantics. 
     *) 
-  method addChild : component t -> bool -> unit meth
+  method addChild : component t -> bool t -> unit meth
   (** Decorates the element for the UI component. *)
   method decorate : element -> unit meth
   (** Returns the child with the given ID, or null if no such child exists. *)
   method getChild : js_string t -> component meth
+  (* Returns the child at the given index, or null if the index is out of 
+     bounds. *) 
+   method getChildAt : Js.number t -> component opt meth  
   (** Renders the component. If a parent element is supplied, it should already
      * be in the document and then the component's element will be appended to 
      * it. If there is no optional parent element and the element doesn't have 

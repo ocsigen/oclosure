@@ -38,10 +38,10 @@ class type prompt = object
 
  (** Causes the prompt to appear, centered on the screen, gives focus
      to the text box, and selects the text *)
-  method setVisible : bool -> unit meth
+  method setVisible : bool t -> unit meth
 
 end
 
-let prompt : (js_string t -> js_string t -> (js_string t -> unit)) constr = 
+let prompt : (js_string t -> js_string t -> (js_string t opt -> bool t) -> prompt t) constr = 
   Js.Unsafe.variable "goog.ui.Prompt"
   

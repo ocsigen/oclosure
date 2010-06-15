@@ -53,7 +53,7 @@ class type checkbox = object
     
     (**Fix for tabindex not being updated so that disabled checkbox is not
      * focusable. In particular this fails in Chrome.*)
-  method setEnabled : unit -> unit meth
+  method setEnabled : bool t -> unit meth
     
     (** @inheritDoc*)
   method handleKeyEventInternal : unit -> bool meth

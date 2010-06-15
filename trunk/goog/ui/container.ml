@@ -22,7 +22,7 @@ class type container = object
   (** Adds the specified control as the last child of this container. 
      * See goog.ui.Container#addChildAt for detailed semantics. 
   *)
-  method addChild: control t-> bool -> unit meth
+  method addChild_: control t -> bool t -> unit meth
 end
 
 let container : container t constr =

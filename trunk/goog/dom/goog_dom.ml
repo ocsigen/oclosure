@@ -7,9 +7,10 @@
    @author Bozman Cagdas 
    @version 0.1
 *)
+open Js
 
 (** Javascript Element *)
-type element = Dom.element
+type element = Dom.element Js.t
 
 (** Number *)
 type number 
@@ -29,8 +30,6 @@ type size
 (** The window associated with the given document *)
 type window
 
-open Js
-
 class type dom = object
   (** Appends a child to a node *)
   method appendChild: element -> element -> unit meth
@@ -41,16 +40,16 @@ class type dom = object
  (** Returns a dom node with a set of attributes. 
      This function accepts varargs for subsequent nodes to be added. 
      Subsequent nodes will be added to the first node as childNodes. *)
-  method createDom: js_string t -> js_string t -> js_string t -> element meth
+  method createDom: js_string Js.t -> js_string Js.t -> js_string Js.t -> element meth
  
  (**  Creates a new element *)
-  method createElement : js_string t -> element meth
+  method createElement : js_string Js.t -> element meth
  
  (** Create a table *)
   method createTable: number -> number -> bool -> element meth
 
  (** Creates a new text node *)
-  method createTextNode: js_string t -> node meth
+  method createTextNode: js_string Js.t -> node meth
 
  (** Finds the first descendant node that matches the filter function.
      This does a depth first search. *)
@@ -68,10 +67,10 @@ class type dom = object
      that has the passed tag name and/or class name. 
      If the passed element matches the specified criteria,
      the element itself is returned. *)
-  method getAncestorByTagNameAndClass: node -> js_string t -> js_string t -> node meth
+  method getAncestorByTagNameAndClass: node -> js_string Js.t -> js_string Js.t -> node meth
  
  (**  Returns the compatMode of the document *)
-  method getCompatMode: unit -> js_string t meth
+  method getCompatMode: unit -> js_string Js.t meth
 
  (** Returns the compatMode of the document *)
   method getDocument: unit -> document meth
@@ -89,14 +88,14 @@ class type dom = object
   method getDomHelper: node -> dom meth
  
  (** Return the element with the given ID **)
-  method getElement : js_string t -> element meth
+  method getElement : js_string Js.t -> element meth
  
  (** Looks up elements by both tag and class name, using browser native
      functions (querySelectorAll, getElementsByTagName or 
      getElementsByClassName) where possible. 
      The returned array is a live NodeList or a static list depending on
      the code path taken. *)
-  method getElementByTagNameAndClass: js_string t -> js_string t -> element -> number meth
+  method getElementByTagNameAndClass: js_string Js.t -> js_string Js.t -> element -> number meth
 
  (** Returns the first child node that is an element *)
   method getFirstElementChild: node -> node meth
@@ -140,7 +139,7 @@ class type dom = object
      In browsers that support it, innerText is used.
      Other browsers attempt to simulate it via node traversal.
      Line breaks are canonicalized in IE. *)
-  method getTextContent: node -> js_string t meth
+  method getTextContent: node -> js_string Js.t meth
 
  (** Gets the dimensions of the viewport. *)
   method getViewportSize: window -> size meth
@@ -148,8 +147,8 @@ class type dom = object
  (** Gets the window object associated with the document. *)
   method getWindow: unit -> window meth
  
- (** Converts an HTML js_string t into a document fragment. *)
-  method htmlToDocumentFragment: js_string t -> node meth
+ (** Converts an HTML js_string Js.t into a document fragment. *)
+  method htmlToDocumentFragment: js_string Js.t -> node meth
 
  (** Inserts a new node after an existing reference node
      (i.e., as the next sibling).
@@ -185,8 +184,8 @@ class type dom = object
   method setProperties: element -> element -> unit meth
  
  (** Cross browser function for setting the text content of an element. *)
-  method setTextContent: element -> js_string t -> unit meth
+  method setTextContent: element -> js_string Js.t -> unit meth
 end
 
-let dom : dom t constr = 
+let dom : dom Js.t constr = 
   Js.Unsafe.variable "goog.dom.DomHelper"

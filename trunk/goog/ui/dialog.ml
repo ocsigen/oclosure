@@ -40,8 +40,8 @@ class type dialog = object
   (** Sets the visibility of the dialog box and moves focus to the default button. 
    *  Lazily renders the component if needed. 
    *)
-  method setVisible : bool -> unit meth
+  method setVisible : bool t -> unit meth
 end
 
-let dialog : dialog t constr =
+let dialog : (js_string opt -> bool t opt -> dialog t) constr =
   Js.Unsafe.variable "goog.ui.Dialog"

@@ -98,7 +98,7 @@ class type menuButton = object
   (** Enables/disables the menu button based on the value of the argument, and
    * updates its CSS styling.  Also hides the popup menu if the button is being
    * disabled.*)
-  method setEnabled : bool -> unit meth
+  method setEnabled : bool t -> unit meth
   
   (** @return {boolean} Whether the menu is aligned to the start of the button
    * (left if the render direction is left-to-right, right if the render
