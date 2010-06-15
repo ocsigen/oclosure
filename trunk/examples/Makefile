@@ -13,12 +13,8 @@ all: $(TARGETS)
 	js_of_ocaml $^ -pretty
 
 clean:
-	rm *.cmo *.cmi $(TARGETS) $(EXECS)
-	rm .depend
-
-depend:$(SRC)
-	@ocamlfind ocamldep -I $(GOOG) $(OCAML_FLAGS) $^ > .depend
--include .depend
+	@echo "[CLEAN]"
+	-rm *.cmo *.cmi $(TARGETS)
 
 var: 
 	@echo $(TARGETS)
