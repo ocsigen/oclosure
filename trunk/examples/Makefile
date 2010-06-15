@@ -1,20 +1,25 @@
+SRC=$(wildcard *.ml)
+EXECS=$(SRC:.ml=.byte)
+TARGETS=$(SRC:.ml=.js)
+OCAML_FLAGS=-package js_of_ocaml -syntax camlp4o
+GOOG=../goog/
+all: $(TARGETS)
 
-LIB=$(JS_FROM_OCAML_PATH)/lib
-SRC=*.ml
-PP=-pp "camlp4o $(LIB)/pa_js.cmo"
-GOOG=../goog
-all: zippy.js
+%.byte: %.ml
+	@echo "[CC]" $@
+	ocamlfind ocamlc -I $(GOOG) goog.cmo events.cmo ui.cmo $(OCAML_FLAGS) -linkpkg -o $@ $^
 
-zippy: test_zippy.ml
-	ocamlc -I $(LIB) -I $(GOOG) $(PP) ocaml2js.cma goog.cmo events.cmo ui.cmo -o $@ test_zippy.ml
-
-zippy.js: zippy
-	$(JS_FROM_OCAML_PATH)/ocaml2js $(JS_FROM_OCAML_PATH)/runtime/runtime.js zippy -pretty
+%.js: %.byte
+	js_of_ocaml $^ -pretty
 
 clean:
-	rm *.cmo *.cmi *.js zippy
+	rm *.cmo *.cmi $(TARGETS) $(EXECS)
 	rm .depend
 
 depend:$(SRC)
-	@ocamldep -I $(LIB) -I $(GOOG) $(PP) $^ > .depend
+	@ocamlfind ocamldep -I $(GOOG) $(OCAML_FLAGS) $^ > .depend
 -include .depend
+
+var: 
+	@echo $(TARGETS)
+	@echo $(EXECS)

@@ -1,37 +1,73 @@
 <html>
-<head>
-  <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
-  <script src="/Users/Gabriel/Library/Google/closure-library-read-only/closure/goog/base.js"></script>
-  <script>
-    goog.require('goog.ui.AnimatedZippy');
-    goog.require('goog.ui.Toolbar');
-    goog.require('goog.ui.ToolbarButton');
-  </script>
-  <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/css/demo.css">
-  <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/toolbar.css">
-</head>
-
-<body>
-  <div id="header">Titre</div>
-  <div id="content">
-    Contenu du zippy, text ect
-    c<br />o<br />n<br />t<br />e<br />n<br />t<br /><br />h<br />
-    e<br />r<br />e
-  </div>
-  <div id="toolbar"></div>
-  <script src="zippy.js"></script>
-  <!--script>
-    myAnimatedZippy = function (header, content, speed){
-      goog.ui.AnimatedZippy.call(this, header, content);
-    };
-    goog.inherits(myAnimatedZippy, goog.ui.AnimatedZippy);
-    
-    myAnimatedZippy.prototype.setExpanded = function () {
-      myAnimatedZippy.superClass_.setExpanded.call(this);
-    };
-    var z = new myAnimatedZippy("header", "content");
-    //z.setExpanded(true);
-    //z.expand();
-  </script-->
-</body>
+  <head>
+    <script src="/Users/Gabriel/Library/Google/closure-library-read-only/closure/goog/base.js"></script>
+    <!--script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script-->
+    <script>
+      goog.require('goog.ui.AnimatedZippy');
+      goog.require('goog.ui.Toolbar');
+      goog.require('goog.ui.ToolbarButton');
+      goog.require('goog.ui.Dialog');
+    </script>
+    <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/css/demo.css">
+    <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/toolbar.css">
+    <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/dialog.css">
+    <style>
+      h2 {
+      background: #C0C0FF;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      cursor: pointer;
+      padding: 1px 3px;
+      }
+      div {
+      margin: 0px;
+      padding: 0px;
+      }
+      p {
+      background: #DEDEFF;
+      border: solid #C0C0FF;
+      border-width: 0px 3px 3px 3px;
+      margin-top: 0px;
+      padding: 3px;
+      text-align: justify;
+      overflow: hidden;
+      }
+      img {
+      width: 19px;
+      height: 16px;
+      }
+      .goog-zippy-expanded img {
+      background-image: url('minus.png');
+      }
+      .goog-zippy-collapsed img {
+      background-image: url('plus.png');
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2 id="header">Titre</h2>
+    <p id="content">
+      Contenu du zippy, text ect
+      c<br />o<br />n<br />t<br />e<br />n<br />t<br /><br />h<br />
+      e<br />r<br />e
+    </p>
+    <div id="toolbar"></div>
+    <script src="zippy.js"></script>
+    <script src="toolbar.js"></script>
+    <script src="dialog.js"></script>
+    <!--script>
+	myAnimatedZippy = function (header, content, speed){
+	goog.ui.AnimatedZippy.call(this, header, content);
+	};
+	goog.inherits(myAnimatedZippy, goog.ui.AnimatedZippy);
+	
+	myAnimatedZippy.prototype.setExpanded = function () {
+	myAnimatedZippy.superClass_.setExpanded.call(this);
+	};
+	var z = new myAnimatedZippy("header", "content");
+	//z.setExpanded(true);
+	//z.expand();
+	</script-->
+  </body>
 </html>
