@@ -1,10 +1,10 @@
-JS_FROM_OCAML_PATH?=$(shell ocamlfind query obrowser)
+JS_OF_OCAML?=$(shell ocamlfind query js_of_ocaml)
 LIB=$(JS_FROM_OCAML_PATH)/lib
 
 FILE=$(wildcard */*.ml */*/*.ml)
 INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
-OCAMLFLAGS=-I $(LIB) $(INCLUDES) -pp "camlp4o $(LIB)/pa_js.cmo"
+OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
 GOOG=goog.cmo
 PACKS=events.cmopack ui.cmopack 
 #CMOS=$(FILE:.ml=.cmo)
@@ -19,17 +19,17 @@ $(GOOG): $(PACKS)
 .SECONDEXPANSION:
 
 %.cmopack: $$(shell ls %/*.ml | sed s/.ml/.cmo/g)
-	ocamlc -pack -o $@ $^
+	@ocamlc -pack -o $@ $^
 
 events.cmopack: events/event.cmo events/eventTarget.cmo events/events.cmo
-	ocamlc -pack -o $@ $^
+	@ocamlc -pack -o $@ $^
 
 %.cmo: %.ml
-	echo "[CC] $@"
-	ocamlc $(OCAMLFLAGS) -c $<
+	@echo "[CC] $@"
+	@ocamlfind ocamlc $(OCAMLFLAGS) -c $<
 
 depend:$(FILE)
-	@ocamldep $(OCAMLFLAGS) $(FILE) > .depend
+	@ocamlfind ocamldep $(OCAMLFLAGS) $(FILE) > .depend
 
 clean:
 	-find . -name "*.cm[oix]" -exec rm {} \;
