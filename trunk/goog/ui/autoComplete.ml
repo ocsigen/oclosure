@@ -11,10 +11,10 @@
 *)
 open EventTarget
 open Event
-
-type obj
-
 open Js
+
+type obj = Dom_html.element t
+
 class type autocomplete = object
   inherit eventTarget
   
@@ -93,7 +93,7 @@ class type autocomplete = object
  
 end
 
-let autocomplete : (obj -> eventTarget -> obj) constr = 
+let autocomplete : (obj -> eventTarget -> obj -> autocomplete t) constr = 
   Js.Unsafe.variable "goog.ui.AutoComplete"
 
 (** A row has been highlighted by the renderer. *)

@@ -10,12 +10,12 @@
    * @see 'goog.ui.AutoComplete'
 *)
 open AutoComplete
-
 open Js
+
 class type basic = object
   inherit autocomplete
 
 end
 
-let basic : (js_string t array -> Dom.element -> bool) constr = 
+let basic : (string  js_array t -> Dom_html.element t -> bool t opt -> bool t opt -> basic t) constr = 
   Js.Unsafe.variable "goog.ui.AutoComplete.Basic"
