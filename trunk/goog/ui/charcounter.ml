@@ -11,16 +11,16 @@
     * @see 'goog.events.EventTarget'
 *)
 open EventTarget
+open Js
 
 (** JSOO.obj **)
-type elInput = Dom.element
+type elInput = Dom.element t
 
 (** JSOO.obj **)
-type elCount = Dom.element
+type elCount = Dom.element t
 
 type browserEvent 
 
-open Js
 class type charcounter = object
   inherit eventTarget
   (** Sets the maximum length. *)
@@ -40,11 +40,11 @@ class type charcounter = object
 
 end
 
-let charcounter : (elInput -> elCount -> float -> number -> charcounter t) constr =
+let charcounter : (Dom_html.element t -> Dom_html.element t -> number t -> number t opt -> charcounter t) constr =
   Js.Unsafe.variable "goog.ui.CharCounter"
 
 (** Widget displays the number of characters remaining (the default). **)
-let display_Remaining = 0
+let displayRemaining = Js.number_of_float (0.)
 
 (** Widget displays the number of characters entered. **)
-let display_Incremental = 1 
+let displayIncremental = Js.number_of_float (1.)
