@@ -97,5 +97,5 @@ class type colorPicker = object
   method setSize : size -> unit meth
 end
 
-let colorPicker : (dom t -> colorPalette t -> colorPicker t) constr = 
+let colorPicker : (domHelper t -> colorPalette t -> colorPicker t) constr = 
   Js.Unsafe.variable "goog.ui.ColorPicker"

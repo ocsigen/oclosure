@@ -10,16 +10,16 @@
 open Js
 
 (** Javascript Element *)
-type element = Dom.element Js.t
+type element = Dom_html.element Js.t
 
 (** Number *)
-type number 
+type number = Js.number t
 
 (** Node *) 
 type node = Dom.node
 
 (** Document object*)
-type document 
+type document = Dom_html.document t
 
 (** goog.math.Coordinate: Object with values 'x' and 'y' *) 
 type coordinate 
@@ -30,7 +30,7 @@ type size
 (** The window associated with the given document *)
 type window
 
-class type dom = object
+class type domHelper = object
   (** Appends a child to a node *)
   method appendChild: element -> element -> unit meth
  
@@ -85,10 +85,10 @@ class type dom = object
   method getDocumentScrollElement: unit -> element meth
 
  (** Gets the DomHelper object for the document where the element resides *)
-  method getDomHelper: node -> dom meth
+  method getDomHelper: node -> domHelper meth
  
  (** Return the element with the given ID **)
-  method getElement : js_string Js.t -> element meth
+  method getElement : Tools.element_or_id -> element meth
  
  (** Looks up elements by both tag and class name, using browser native
      functions (querySelectorAll, getElementsByTagName or 
@@ -187,5 +187,5 @@ class type dom = object
   method setTextContent: element -> js_string Js.t -> unit meth
 end
 
-let dom : dom Js.t constr = 
+let domHelper : domHelper Js.t constr = 
   Js.Unsafe.variable "goog.dom.DomHelper"

@@ -39,7 +39,7 @@ type corner = int
 open Js
 class type tooltip = object
     (** Returns the dom helper that is being used on this component.*)
-  method getDomHelper : unit -> dom meth
+  method getDomHelper : unit -> domHelper meth
       (** Attach to element. Tooltip will be displayed when the cursor is 
          over the element or when the element has been active for a 
          few milliseconds.*)

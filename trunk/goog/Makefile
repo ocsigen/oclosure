@@ -1,5 +1,5 @@
 JS_OF_OCAML?=$(shell ocamlfind query js_of_ocaml)
-LIB=$(JS_FROM_OCAML_PATH)/lib
+LIB=$(JS_OF_OCAML_PATH)/lib
 
 FILE=$(wildcard */*.ml */*/*.ml)
 INC_DIR=$(sort $(dir $(wildcard */ */*/)))
