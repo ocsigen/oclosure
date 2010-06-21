@@ -19,6 +19,12 @@ type config
 class type ['a] treeControl = object
   inherit ['a] baseNode
   method createNode : js_string t -> 'a treeNode t meth
+
+(**
+   Returns the tree.
+   @return {goog.ui.tree.TreeControl} The tree.
+*)      
+  method getTree : unit -> 'a treeControl t meth
 end
 
 let treeControl_ = Js.Unsafe.variable "goog.ui.tree.TreeControl"

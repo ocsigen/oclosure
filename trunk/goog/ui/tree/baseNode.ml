@@ -101,7 +101,6 @@ class type ['a] baseNode = object
 *)
   method getDepth : unit -> number t meth
 
-
   method setClientData : 'a opt -> unit meth      
 end
 
