@@ -10,7 +10,7 @@
    * @version 0.2
    * @see 'Js'
 *)
-
+open Goog
 module D = Dom_html
 let d = D.document
 
@@ -40,8 +40,8 @@ let _ =
   in
   let test = jsnew Ui.Charcounter.charcounter (input3,counter3,Js.number_of_float 10., Js.null) 
   in
-    set10##onclick <- Js.some (fun () -> test##setMaxLength(10.); Js.bool true);
-    set20##onclick <- Js.some (fun () -> test##setMaxLength(20.); Js.bool true);
+    set10##onclick <- D.handler (fun _ -> test##setMaxLength(10.); Js.bool true);
+    set20##onclick <- D.handler (fun _ -> test##setMaxLength(20.); Js.bool true);
 
   let input4 = Js.Opt.get (d##getElementById (Js.string "input4"))
     (fun () -> assert false)

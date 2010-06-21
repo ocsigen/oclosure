@@ -9,6 +9,7 @@
    * @see 'goog.events.EventTarget'
    * @see 'goog.events.Event'
 *)
+open Goog
 module D = Dom_html
 let d = D.document
 

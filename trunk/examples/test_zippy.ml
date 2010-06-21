@@ -1,3 +1,4 @@
+open Goog
 module D = Dom_html
 let d = D.document
 

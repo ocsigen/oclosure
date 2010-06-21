@@ -1,3 +1,6 @@
+# You can get js_of_ocaml with the command 
+# darcs get http://ocsigen.org/darcs/js_of_ocaml
+# (you need to install darcs first: http://darcs.net/)
 JS_OF_OCAML?=$(shell ocamlfind query js_of_ocaml)
 LIB=$(JS_OF_OCAML_PATH)/lib
 
@@ -6,7 +9,7 @@ INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
 OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
 GOOG=goog.cmo
-PACKS=events.cmopack ui.cmopack 
+PACKS=events.cmopack tree.cmopack ui.cmopack
 #CMOS=$(FILE:.ml=.cmo)
 
 all: $(GOOG)
@@ -18,8 +21,12 @@ $(GOOG): $(PACKS)
 
 .SECONDEXPANSION:
 
-%.cmopack: $$(shell ls %/*.ml | sed s/.ml/.cmo/g)
+%.cmopack: $$(shell find % -name "*.ml" -print | sed s/.ml/.cmo/g)
+	echo $^
 	@ocamlc -pack -o $@ $^
+
+tree.cmopack : $(wildcard ui/tree/*.cmo)
+	ocamlc -pack -o $@ $^
 
 events.cmopack: events/event.cmo events/eventTarget.cmo events/events.cmo
 	@ocamlc -pack -o $@ $^
@@ -31,10 +38,15 @@ events.cmopack: events/event.cmo events/eventTarget.cmo events/events.cmo
 depend:$(FILE)
 	@ocamlfind ocamldep $(OCAMLFLAGS) $(FILE) > .depend
 
+var:
+	@echo $(FILE)
+
+cleanall: clean
+	-rm .depend
+
 clean:
 	-find . -name "*.cm[oix]" -exec rm {} \;
 	-rm *.cmopack
-	-rm .depend
 
 -include .depend
 
