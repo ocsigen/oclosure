@@ -19,7 +19,7 @@ class type component = object
     *) 
   method addChild : component t -> bool t -> unit meth
   (** Decorates the element for the UI component. *)
-  method decorate : element -> unit meth
+  method decorate : element t -> unit meth
   (** Returns the child with the given ID, or null if no such child exists. *)
   method getChild : js_string t -> component meth
   (* Returns the child at the given index, or null if the index is out of 

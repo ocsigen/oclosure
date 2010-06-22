@@ -1,3 +1,0 @@
-cmo pour chaque ml
-une cmo pour chaque rep
-et goog.cmo

@@ -14,4 +14,3 @@ let z = jsnew Ui.Zippy.zippy (
   Js.null, Js.null)
 
 let _ = z##setExpanded(Js._true)
-  

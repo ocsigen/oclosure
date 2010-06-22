@@ -18,6 +18,11 @@ type config
 
 class type ['a] treeControl = object
   inherit ['a] baseNode
+(**
+   Creates a new tree node using the same config as the root.
+   @param {string} html The html content of the node label.
+   @return {goog.ui.tree.TreeNode} The new item.
+*)
   method createNode : js_string t -> 'a treeNode t meth
 
 (**

@@ -25,7 +25,7 @@ class type ['a] baseNode = object
    end.
    @return {goog.ui.tree.BaseNode} The added child.
 *)
-  method add : 'a baseNode t -> 'a baseNode t -> 'a baseNode t meth
+  method add : 'a baseNode t -> 'a baseNode t opt -> 'a baseNode t meth
    
   method collapse : unit -> unit meth
 
@@ -33,8 +33,8 @@ class type ['a] baseNode = object
 
 (** 
    Returns true if the node is a descendant of this node
-   @param {goog.ui.tree.BaseNode} node The node to check.
-   @return {boolean} True if the node is a descendant of this node, false
+   @param {Goog.Ui.Tree.BaseNode t} node The node to check.
+   @return {bool t} True if the node is a descendant of this node, false
    otherwise.
 *)
   method contains : 'a baseNode t -> bool t meth
@@ -100,6 +100,54 @@ class type ['a] baseNode = object
    @return {number} The non-negative depth of this node (the root is zero).
 *)
   method getDepth : unit -> number t meth
+
+(**
+   @return {Element} The element for the tree node.
+*)
+  method getElement : unit -> element t meth
+
+(**
+   @return {string} The src for the icon used for expanding the node.
+*)
+  method getExpandIconClass : unit -> js_string t meth
+
+(**
+   @return {Element} The expanded icon element.
+ *)
+  method getExpandIconElement : unit -> element t meth
+
+(**
+   @return {string} The source for the icon.
+ *)
+  method getExpandIconHtml : unit -> js_string t meth
+
+(**
+   @return {boolean} Whether the node is expanded.
+ *)
+  method getExpanded : unit -> bool t meth
+
+(**
+   Gets the icon class for when the node is expanded.
+   @return {string} The class.
+ *)
+  method getExpandedIconClass : unit -> js_string t meth
+
+(**
+   @return {goog.ui.tree.BaseNode?} The first child of this node.
+ *)
+  method getFirstChild : unit -> 'a baseNode t opt meth
+
+(**
+   Returns the html of the label.
+   @return {string} The html string of the label.
+ *)
+  method getHtml : unit -> js_string t meth
+
+(**
+   Gets the icon class for the node.
+   @return {string} s The icon source.
+ *)
+  method getIconClass : unit -> js_string t meth
 
   method setClientData : 'a opt -> unit meth      
 end
