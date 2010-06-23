@@ -16,16 +16,16 @@ type element = Dom.element
 open Js
 class type checkbox = object
   inherit control
-  method getChecked : unit -> bool meth
+  method getChecked : bool meth
 
     (** Whether the checkbox is checked.*)
-  method isChecked : unit -> bool meth
+  method isChecked : bool meth
     
     (** Whether the checkbox is not checked.*)
-  method isUnchecked : unit -> bool meth
+  method isUnchecked : bool meth
 
     (** Whether the checkbox is in partially checked state.*)
-  method isUndetermined : unit -> bool meth
+  method isUndetermined : bool meth
     
     (** Sets the checked state of the checkbox.*)
   method setChecked : bool -> unit meth
@@ -37,26 +37,26 @@ class type checkbox = object
   method setLabel : element -> unit meth
     
     (** Toggles the checkbox.*)
-  method toggle : unit -> unit meth
+  method toggle : unit meth
     
     (** @inheritDoc*)
-  method createDom : unit -> unit meth
+  method createDom : unit meth
     
     (** @inheritDoc*)
   method decorateInternal : element -> unit meth
     
     (** @inheritDoc*)
-  method enterDocument : unit -> unit meth
+  method enterDocument : unit meth
     
     (** Updates the CSS class names after the checked state has changed.*)
-  method updateView : unit -> unit meth
+  method updateView : unit meth
     
     (**Fix for tabindex not being updated so that disabled checkbox is not
      * focusable. In particular this fails in Chrome.*)
   method setEnabled : bool t -> unit meth
     
     (** @inheritDoc*)
-  method handleKeyEventInternal : unit -> bool meth
+  method handleKeyEventInternal : bool meth
 
 end
 

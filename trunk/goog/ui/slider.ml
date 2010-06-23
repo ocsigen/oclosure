@@ -21,7 +21,7 @@ class type slider = object
    * @protected
    *)
   method getCssClass:slidorient -> js_string t meth
-  method createThumbs : unit -> unit meth
+  method createThumbs : unit meth
 
 end
 

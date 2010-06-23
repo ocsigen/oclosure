@@ -36,7 +36,7 @@ class type bubble = object
   method getComputedAnchoredPosition: element -> anchoredPosition meth
  
   (** Whether the bubble is visible. *)
-  method isVisible : unit -> bool meth
+  method isVisible : bool meth
   
   (**  Sets whether the bubble should be automatically hidden 
        whenever user clicks outside the bubble element *)

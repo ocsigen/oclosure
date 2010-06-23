@@ -39,7 +39,7 @@ type corner = int
 open Js
 class type tooltip = object
     (** Returns the dom helper that is being used on this component.*)
-  method getDomHelper : unit -> domHelper meth
+  method getDomHelper : domHelper meth
       (** Attach to element. Tooltip will be displayed when the cursor is 
          over the element or when the element has been active for a 
          few milliseconds.*)
@@ -53,7 +53,7 @@ class type tooltip = object
 
     (** Returns the delay in milliseconds before tooltip is displayed for an
        * element.*)
-  method getShowDelayMs : unit -> number meth
+  method getShowDelayMs : number meth
 
     (** Sets delay in milliseconds before tooltip is hidden once the cursor 
        * leaves the element.*)
@@ -61,7 +61,7 @@ class type tooltip = object
 
     (** Returns the delay in milliseconds before tooltip is hidden once the
        * cursor leaves the element.*)
-  method getHideDelayMs : unit -> number meth
+  method getHideDelayMs : number meth
 
     (** Sets tooltip message as plain text.*)
   method setText : js_string t -> unit meth
@@ -73,13 +73,13 @@ class type tooltip = object
   method setElement : element -> unit meth
 
     (** Returns the tooltip message as plain text.*)
-  method getText : unit -> js_string t meth
+  method getText : js_string t meth
 
     (** The tooltip message as HTML.*)
-  method getHtml : unit -> js_string t meth
+  method getHtml : js_string t meth
 
     (** Returns current state of tooltip.*)
-  method getState : unit -> state meth
+  method getState : state meth
 
     (** Sets whether tooltip requires the mouse to have moved or 
        * the anchor receive focus before the tooltip will be shown.*)  
@@ -89,7 +89,7 @@ class type tooltip = object
   method isCoordinateInTooltip : coordinate -> bool meth
 
     (** Called before the popup is shown.*)
-  method onBeforeShow : unit -> bool meth
+  method onBeforeShow : bool meth
 
     (** Called by timer from mouse over handler. Shows tooltip if 
        * cursor is still over the same element.*)
@@ -106,7 +106,7 @@ class type tooltip = object
     (** Returns whether tooltip element contains an active child tooltip,
        * and should thus not be hidden. When the child tooltip is hidden, it
        * will check if the parent should be hidden too.*)
-  method hasActiveChild : unit -> bool meth
+  method hasActiveChild : bool meth
 
     (** Handler for mouse over events.*)
   method handleMouseOver : browserEvent -> unit meth
@@ -134,10 +134,10 @@ class type tooltip = object
   method startShowTimer : element (*-> abstractPosition (optional argument)*) -> unit meth
 
     (** Helper method called to clear the show timer.*)
-  method clearShowTimer : unit -> unit meth
+  method clearShowTimer : unit meth
 
     (** Destroys widget and removes all event listeners.*)
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 end
 
 let tooltip : (js_string t -> js_string t -> tooltip t) constr =

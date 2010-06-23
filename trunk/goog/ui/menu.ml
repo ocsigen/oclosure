@@ -21,7 +21,7 @@ type element = Dom.element
 open Js
 class type menu = object
   inherit component
-  method getCssClass : unit -> js_string t meth
+  method getCssClass : js_string t meth
 
   (** Returns whether the provided element is to be considered inside the menu for
    * purposes such as dismissing the menu on an event.*)
@@ -43,16 +43,16 @@ class type menu = object
   method getItemAt : float -> menuItem meth
   
   (** Returns the number of items in the menu (including separators).*)
-  method getItemCount : unit -> float meth
+  method getItemCount : float meth
   
   (** Returns the menu items contained in the menu.*)
-  method getItems : unit -> menuItem array meth
+  method getItems : menuItem array meth
   
   (** Sets the position of the menu relative to the view port.*)
   method setPosition : float -> (* float ->*) unit meth
   
   (** Gets the page offset of the menu, or null if the menu isn't visible*)
-  method getPosition : unit -> coordinate meth
+  method getPosition : coordinate meth
   
   (** Sets whether the menu can automatically move focus to its key event target
      when it is set to visible.*)
@@ -60,7 +60,7 @@ class type menu = object
   
   (** Return whether the menu can automatically move focus to its key
      event target when it is set to visible.*)
-  method getAllowAutoFocus : unit -> bool meth
+  method getAllowAutoFocus : bool meth
   
   (** Sets whether the menu will highlight disabled menu items or skip to the next
      active item.*)
@@ -68,7 +68,7 @@ class type menu = object
   
   (** Return whether the menu will highlight disabled menu items or skip
      to the next active item.*)
-  method getAllowHighlightDisabled : unit -> bool meth
+  method getAllowHighlightDisabled : bool meth
   
   (** Highlights the next item that begins with the specified js_string t.  If no
      (other) item begins with the given js_string t, the selection is unchanged.*)

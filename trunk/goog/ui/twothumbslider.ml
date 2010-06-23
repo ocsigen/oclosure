@@ -26,7 +26,7 @@ class type twoThumbSlider = object
   * (or 'goog-twothumbslider-extent-thumb', respectively), then that will be used
   * as the valueThumb (or as the extentThumb, respectively)
   *)
-  method createThumbs : unit -> unit meth
+  method createThumbs : unit meth
 
 end
 

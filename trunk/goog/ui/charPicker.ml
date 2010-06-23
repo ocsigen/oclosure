@@ -20,22 +20,22 @@ class type charPicker = object
   inherit component
 
   (** Gets the last selected character. **)
-  method getSelectedChar : unit -> js_string t meth
+  method getSelectedChar : js_string t meth
 
  (** Gets the list of characters user selected recently. **) 
-  method getRecentChars : unit -> js_string t array meth
+  method getRecentChars : js_string t array meth
 
  (** @inheritDoc **)
-  method createDom : unit -> unit meth
+  method createDom : unit meth
 
  (** @inheritDoc **)
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
  (** @inheritDoc **)
   method decorateInternal : element -> unit meth
 
  (** @inheritDoc **)
-  method enterDocument : unit -> unit meth
+  method enterDocument : unit meth
 
 end
 

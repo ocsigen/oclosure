@@ -26,25 +26,25 @@ open Js
 class type popup = object
   inherit popupBase
     (**  Returns the corner of the popup to used in the positioning algorithm.*)
-  method getPinnedCorner : unit -> corner meth
+  method getPinnedCorner : corner meth
 
     (** Sets the corner of the popup to used in the positioning algorithm.*)
   method setPinnedCorner : corner -> unit meth
 
     (** Returns the position helper object associated with the popup.*)
-  method getPosition : unit -> abstractPosition meth
+  method getPosition : abstractPosition meth
 
     (** Sets the position helper object associated with the popup.*)
   method setPosition : abstractPosition -> unit meth
 
     (** Returns the margin to place around the popup.*)
-  method getMargin : unit -> box meth
+  method getMargin : box meth
 
     (** Sets the margin to place around the popup*)
   method setMargin : number -> unit meth
 
     (** Repositions the popup according to the current state.*)
-  method reposition : unit -> unit meth
+  method reposition : unit meth
 
     (** Positions a movable element relative to an anchorElement. The caller  
      * specifies the corners that should touch. This functions then moves the        * movable element accordingly.*)

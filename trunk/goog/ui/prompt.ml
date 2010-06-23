@@ -22,10 +22,10 @@ open Js
 class type prompt = object
   inherit dialog
   (** Return the number of cols in the user input element. *)
-  method getCols : unit -> number meth
+  method getCols : number meth
  
  (** Return the number of rows in the user input element. *)
-  method getRows : unit -> number meth
+  method getRows : number meth
  
  (** Set the number of cols in the user input element. *)
   method setCols : int -> unit meth

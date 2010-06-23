@@ -19,13 +19,13 @@ class type ['a] treeNode = object
    Returns the source for the icon.
    @return {string} Src for the icon.
 *)
-  method getCalculatedIconClass : unit -> js_string t meth
+  method getCalculatedIconClass : js_string t meth
   
 (**
    Returns the tree
    @return {goog.ui.tree.TreeControl?} The tree.
 *)
-  method getTree : unit -> 'a baseNode t opt meth
+  method getTree : 'a baseNode t opt meth
 end
 
 let treeNode_ = Js.Unsafe.variable "goog.ui.tree.TreeNode"

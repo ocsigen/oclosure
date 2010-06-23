@@ -55,22 +55,22 @@ class type colorPicker = object
 
  (**  Gets the array of colors displayed by the color picker.
       Modifying this array will lead to unexpected behavior.*)
-  method getColors : unit -> colors meth
+  method getColors : colors meth
 
  (** Gets the color that is currently selected in this color picker. *)
-  method getSelectedColor : unit -> js_string t meth
+  method getSelectedColor : js_string t meth
 
  (** The index of the color selected. *)
-  method getSelectedIndex : unit -> number meth
+  method getSelectedIndex : number meth
 
  (**  Gets the number of columns displayed.*)
-  method getSize : unit -> size meth
+  method getSize : size meth
 
  (** Returns true if the component is focusable, false otherwise.
      The default is true. 
      Focusable components always have a tab index and 
      allocate a key handler to handle keyboard events while focused. *)
-  method isFocusable : unit -> bool meth
+  method isFocusable : bool meth
 
  (** Sets the array of colors to be displayed by the color picker. *)
   method setColors : colors -> unit meth

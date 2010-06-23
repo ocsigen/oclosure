@@ -29,7 +29,7 @@ class type ['a] treeControl = object
    Returns the tree.
    @return {goog.ui.tree.TreeControl} The tree.
 *)      
-  method getTree : unit -> 'a treeControl t meth
+  method getTree : 'a treeControl t meth
 end
 
 let treeControl_ = Js.Unsafe.variable "goog.ui.tree.TreeControl"

@@ -70,19 +70,19 @@ class type domHelper = object
   method getAncestorByTagNameAndClass: node -> js_string Js.t -> js_string Js.t -> node meth
  
  (**  Returns the compatMode of the document *)
-  method getCompatMode: unit -> js_string Js.t meth
+  method getCompatMode: js_string Js.t meth
 
  (** Returns the compatMode of the document *)
-  method getDocument: unit -> document meth
+  method getDocument: document meth
 
  (** Calculates the height of the document *)
-  method getDocumentHeight: unit -> number meth
+  method getDocumentHeight: number meth
 
  (** Gets the document scroll distance as a coordinate object **)
-  method getDocumentScroll: unit -> coordinate meth
+  method getDocumentScroll: coordinate meth
 
  (** Gets the document scroll element **)
-  method getDocumentScrollElement: unit -> element meth
+  method getDocumentScrollElement: element meth
 
  (** Gets the DomHelper object for the document where the element resides *)
   method getDomHelper: node -> domHelper meth
@@ -145,7 +145,7 @@ class type domHelper = object
   method getViewportSize: window -> size meth
 
  (** Gets the window object associated with the document. *)
-  method getWindow: unit -> window meth
+  method getWindow: window meth
  
  (** Converts an HTML js_string Js.t into a document fragment. *)
   method htmlToDocumentFragment: js_string Js.t -> node meth
@@ -162,7 +162,7 @@ class type domHelper = object
 
  (** Returns true if the browser is in "CSS1-compatible"
      (standards-compliant) mode, false otherwise. *)
-  method isCss1CompatMode: unit -> bool meth
+  method isCss1CompatMode: bool meth
 
  (** Whether the object looks like a DOM node. *)
   method isNodeLike: node -> bool meth
@@ -174,7 +174,7 @@ class type domHelper = object
   method removeNode: node -> node meth
 
  (** Replaces a node in the DOM tree. 
-     Will do nothing if {@code oldNode} has no parent. *)
+     Will do nothing if [oldNode] has no parent. *)
   method replaceNode: node -> node -> unit meth
  
  (** Sets the document object. *)

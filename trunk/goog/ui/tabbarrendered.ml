@@ -1,6 +1,6 @@
 (**
  * OClosure Project - 2010
- * Default renderer for {@link goog.ui.TabBar}s, based on the {@code TabPane}
+ * Default renderer for {@link goog.ui.TabBar}s, based on the [TabPane]
  * code.  The tab bar's DOM structure is determined by its orientation and
  * location relative to tab contents.  For example, a horizontal tab bar
  * located above tab contents looks like this:

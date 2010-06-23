@@ -27,9 +27,9 @@ class type ['a] baseNode = object
 *)
   method add : 'a baseNode t -> 'a baseNode t opt -> 'a baseNode t meth
    
-  method collapse : unit -> unit meth
+  method collapse : unit meth
 
-  method collapseAll : unit -> unit meth
+  method collapseAll : unit meth
 
 (** 
    Returns true if the node is a descendant of this node
@@ -43,31 +43,31 @@ class type ['a] baseNode = object
    Creates the element.
    @return {Element} The element.
 *)
-  method createDom : unit -> element t meth
+  method createDom : element t meth
 
-  method deselect : unit -> unit meth
+  method deselect : unit meth
 
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
-  method enterDocument : unit -> unit meth
+  method enterDocument : unit meth
 
-  method expand : unit -> unit meth
+  method expand : unit meth
 
-  method expandAll : unit -> unit meth
+  method expandAll : unit meth
 
-  method expandChildren : unit -> unit meth
+  method expandChildren : unit meth
 
 (**
    @return {Element} The element after the label.
 *)
-  method getAfterLabelElement : unit -> element t meth
+  method getAfterLabelElement : element t meth
 
 (**
    Returns the html that appears after the label. This is useful if you want to
    put extra UI on the row of the label but not inside the anchor tag.
    @return {string} The html.
 *)
-  method getAfterLabelHtml : unit -> js_string t meth
+  method getAfterLabelHtml : js_string t meth
 
 (** Abstract method... *)
 (*  method getCalculatedIconClass : unit -> unit*)
@@ -77,77 +77,77 @@ class type ['a] baseNode = object
    collection.
    @return {Array.<goog.ui.tree.BaseNode>} The children.
 *)
-  method getChildren : unit -> 'a baseNode t js_array t meth
+  method getChildren : 'a baseNode t js_array t meth
 
 (**
    @return {Element} The div containing the children.
 *)
-  method getChildrenElement : unit -> element t meth
+  method getChildrenElement : element t meth
 
 (**
    @return {Object} Data set by the client.
 *)
-  method getClientData : unit -> 'a opt meth
+  method getClientData : 'a opt meth
 
 (**
    @return {Object} The configuration for the tree.
 *)
-  method getConfig : unit -> config meth
+  method getConfig : config meth
 
 (**
    Returns the depth of the node in the tree.
    Should no longer be overridden; override computeDepth instead.
    @return {number} The non-negative depth of this node (the root is zero).
 *)
-  method getDepth : unit -> number t meth
+  method getDepth : number t meth
 
 (**
    @return {Element} The element for the tree node.
 *)
-  method getElement : unit -> element t meth
+  method getElement : element t meth
 
 (**
    @return {string} The src for the icon used for expanding the node.
 *)
-  method getExpandIconClass : unit -> js_string t meth
+  method getExpandIconClass : js_string t meth
 
 (**
    @return {Element} The expanded icon element.
  *)
-  method getExpandIconElement : unit -> element t meth
+  method getExpandIconElement : element t meth
 
 (**
    @return {string} The source for the icon.
  *)
-  method getExpandIconHtml : unit -> js_string t meth
+  method getExpandIconHtml : js_string t meth
 
 (**
    @return {boolean} Whether the node is expanded.
  *)
-  method getExpanded : unit -> bool t meth
+  method getExpanded : bool t meth
 
 (**
    Gets the icon class for when the node is expanded.
    @return {string} The class.
  *)
-  method getExpandedIconClass : unit -> js_string t meth
+  method getExpandedIconClass : js_string t meth
 
 (**
    @return {goog.ui.tree.BaseNode?} The first child of this node.
  *)
-  method getFirstChild : unit -> 'a baseNode t opt meth
+  method getFirstChild : 'a baseNode t opt meth
 
 (**
    Returns the html of the label.
    @return {string} The html string of the label.
  *)
-  method getHtml : unit -> js_string t meth
+  method getHtml : js_string t meth
 
 (**
    Gets the icon class for the node.
    @return {string} s The icon source.
  *)
-  method getIconClass : unit -> js_string t meth
+  method getIconClass : js_string t meth
 
   method setClientData : 'a opt -> unit meth      
 end

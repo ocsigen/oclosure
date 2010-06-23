@@ -11,9 +11,9 @@ open Js
 
 open Js
 class type disposable = object
-  method dispose: unit -> unit -> unit meth
-  method getDisposed: unit -> bool meth
-  method isDisposed: unit -> bool meth
+  method dispose: unit -> unit meth
+  method getDisposed: bool meth
+  method isDisposed: bool meth
 end
 
 let disposable : disposable t constr = 

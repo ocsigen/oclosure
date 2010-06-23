@@ -11,10 +11,10 @@
 
 open Js
 class type coordinate = object
-  method clone : unit -> coordinate meth
+  method clone : coordinate meth
   
   (** Returns a nice js_string t representing the coordinate.*)
-  method toString : unit -> js_string t meth
+  method toString : js_string t meth
   
   (** Compares coordinates for equality.*)
   method equals : coordinate -> coordinate -> bool meth

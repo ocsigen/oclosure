@@ -17,13 +17,13 @@ open Js
 class type subMenu = object
   inherit menuItem
   (** @inheritDoc *)
-  method enterDocument : unit -> unit meth
+  method enterDocument : unit meth
 
   (** @inheritDoc *)
-  method exitDocument : unit -> unit meth
+  method exitDocument : unit meth
 
   (** @inheritDoc *)
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
   (** Dismisses the submenu on a delay, with the result that the user needs less
    * accuracy when moving to submenus.  Alternate implementations could use
@@ -31,13 +31,13 @@ class type subMenu = object
   method setHighlighted : bool -> unit meth
 
   (** Show the submenu and ensure that all siblings are hidden.*)
-  method showSubMenu : unit -> unit meth
+  method showSubMenu : unit meth
 
   (** Dismisses the menu and all further submenus.*)
-  method dismissSubMenu : unit -> unit meth
+  method dismissSubMenu : unit meth
 
   (** Clears the show and hide timers for the sub menu.*)
-  method clearTimers : unit -> unit meth
+  method clearTimers : unit meth
 
   (** Sets the menu item to be visible or invisible.*)
   method setVisible : bool -> bool meth
@@ -60,7 +60,7 @@ class type subMenu = object
   method setAlignToEnd : bool -> unit meth
 
   (** Determines whether the submenu is aligned at the end of the parent menu.*)
-  method isAlignedToEnd : unit -> bool meth
+  method isAlignedToEnd : bool meth
 
   (** Adds a new menu item at the end of the menu.*)
   method addItem : menuItem -> unit meth
@@ -78,13 +78,13 @@ class type subMenu = object
   method getItemAt : float -> component meth
 
   (** Returns the number of items in the sub menu (including separators).*)
-  method getItemCount : unit -> float meth
+  method getItemCount : float meth
 
   (** Returns the menu items contained in the sub menu.*)
-  method getItems : unit -> menuItem array meth
+  method getItems : menuItem array meth
 
   (** Gets a reference to the submenu's actual menu.*)
-  method getMenu : unit -> menu meth
+  method getMenu : menu meth
 
   (** Sets the submenu to a specific menu.*)
   method setMenu : menu -> unit meth
@@ -98,7 +98,7 @@ class type subMenu = object
   method setPositionAdjustable : bool -> unit meth
 
   (** @return {boolean} Whether this submenu is adjustable.*)
-  method isPositionAdjustable : unit -> bool meth
+  method isPositionAdjustable : bool meth
 end
 
 let subMenu : (js_string t -> subMenu t) constr =

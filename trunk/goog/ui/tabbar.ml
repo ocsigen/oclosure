@@ -6,8 +6,8 @@
  * Clients may listen for all of the above events on the tab bar itself, and
  * refer to the event target to identify the tab that dispatched the event.
  * When an unselected tab is clicked for the first time, it dispatches both a
-  method * {@code SELECT} event and an {@code ACTION} event meth
- * already selected tab only result in {@code ACTION} events.
+  method * [SELECT] event and an [ACTION] event meth
+ * already selected tab only result in [ACTION] events.
  *
   method * @param {goog.ui.TabBar.Location=} opt_location Tab bar location meth
  *     {@link goog.ui.TabBar.Location.TOP}.
@@ -38,12 +38,12 @@ class type tabbar = object
    * by deselecting the tab being removed.  Since {@link #removeChildAt} uses
    * {@link #removeChild} internally, we only need to override this method.
    * @param {js_string t|goog.ui.Control} tab Tab to remove.
-   * @param {boolean=} opt_unrender Whether to call {@code exitDocument} on the
+   * @param {boolean=} opt_unrender Whether to call [exitDocument] on the
    *     removed tab, and detach its DOM from the document (defaults to false).
    * @return {goog.ui.Control} The removed tab, if any.*)
   method removeChild : js_string t array -> element meth
   (* @return {goog.ui.TabBar.Location} Tab bar location relative to tab contents.*)
-  method getLocation : unit -> js_string t meth
+  method getLocation : js_string t meth
   (* Sets the location of the tab bar relative to tab contents.
    * @param {goog.ui.TabBar.Location} location Tab bar location relative to tab
    *     contents.
@@ -51,7 +51,7 @@ class type tabbar = object
   method setLocation : js_string t -> unit meth
   (* @return {boolean} Whether keyboard navigation should change the selected tab,
    *     or just move the highlight.*)
-  method isAutoSelectTabs: unit->bool meth
+  method isAutoSelectTabs: bool meth
   (* Enables or disables auto-selecting tabs using the keyboard.  If auto-select
    * is enabled, keyboard navigation switches tabs immediately, otherwise it just
    * moves the highlight.
@@ -66,12 +66,12 @@ class type tabbar = object
    * @override*)
   method setHighlightedIndexFromKeyEvent : int->unit meth
   (* @return {goog.ui.Control?} The currently selected tab (null if none).*)
-  method getSelectedTab : unit -> element meth
+  method getSelectedTab : element meth
   (* Selects the given tab.
    * @param {goog.ui.Control?} tab Tab to select (null to select none).*)
   method setSelectedTab : element->unit meth
   (* @return {number} Index of the currently selected tab (-1 if none).*)
-  method getSelectedTabIndex : unit -> int meth
+  method getSelectedTabIndex : int meth
   (* Selects the tab at the given index.
    * @param {number} index Index of the tab to select (-1 to select none).*)
   method setSelectedTabIndex :int->unit meth
@@ -91,19 +91,19 @@ class type tabbar = object
    * @return {boolean} Whether the tab is selectable.
    * @protected*)
   method isSelectableTab : element -> bool meth
-  (* Handles {@code SELECT} events dispatched by tabs as they become selected.
+  (* Handles [SELECT] events dispatched by tabs as they become selected.
    * @param {goog.events.Event} e Select event to handle.
    * @protected*)
   method handleTabSelect : element -> unit meth
-  (* Handles {@code UNSELECT} events dispatched by tabs as they become deselected.
+  (* Handles [UNSELECT] events dispatched by tabs as they become deselected.
    * @param {goog.events.Event} e Unselect event to handle.
    * @protected*)
   method handleTabUnselect: element -> unit meth
-  (* Handles {@code DISABLE} events displayed by tabs.
+  (* Handles [DISABLE] events displayed by tabs.
    * @param {goog.events.Event} e Disable event to handle.
    * @protected*)
   method handleTabDisable:element->unit meth
-  (* Handles {@code HIDE} events displayed by tabs.
+  (* Handles [HIDE] events displayed by tabs.
    * @param {goog.events.Event} e Hide event to handle.
    * @protected*)
   method handleTabHide : element-> unit meth

@@ -18,13 +18,13 @@ open Js
 class type event = object
   inherit disposable
   (** @inheritDoc *)
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
   (** Stops event propagation. *)
-  method stopPropagation : unit -> unit meth
+  method stopPropagation : unit meth
 
   (** Prevents the default action, for example a link redirecting to a url.*)
-  method preventDefault : unit -> unit meth
+  method preventDefault : unit meth
 
 end
 

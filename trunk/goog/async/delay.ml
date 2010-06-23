@@ -11,13 +11,13 @@ open Js
 class type delay = object
   inherit Disposable.disposable
 
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
-  method fire : unit -> unit meth
+  method fire : unit meth
 
-  method fireIfActive : unit -> unit meth
+  method fireIfActive : unit meth
 
-  method isActive : unit -> bool t meth
+  method isActive : bool t meth
 
 (**
    Starts the delay timer. The provided listener function will be called after 
@@ -27,7 +27,7 @@ class type delay = object
 *)
   method start : number t opt -> unit meth
 
-  method stop : unit -> unit meth
+  method stop : unit meth
 end
 
 let delay : ((unit -> unit) -> number t opt -> 'a t opt -> delay t) constr = 

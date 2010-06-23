@@ -29,45 +29,45 @@ class type ratings = object
  
  (** Render the rating widget inside the provided element. This will override the
      current content of the element. **)
-  method enterDocument : unit -> unit meth
+  method enterDocument : unit meth
 
  (** Should be called when the widget is removed from the document but may be
      reused.  This removes all the listeners the widget has attached and destroys. **)
-  method exitDocument : unit -> unit meth
+  method exitDocument : unit meth
 
  (** @inheritDoc **)
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
  (** Returns the base CSS class used by subcomponents of this component. **)
-  method getCssClass : unit -> js_string t meth
+  method getCssClass : js_string t meth
 
  (** Sets the selected index. If the provided index is greater than the number of
      ratings then the max is set.  0 is the first item, -1 is no selection. **)
   method setSelectedIndex : float -> unit meth
 
  (** The index of the currently selected rating. **)
-  method getSelectedIndex : unit -> float meth
+  method getSelectedIndex : float meth
 
  (** Returns the rating value of the currently selected rating. **)
-  method getValue : unit -> js_string t meth
+  method getValue : js_string t meth
 
  (** Returns the index of the currently highlighted rating, -1 if the mouse isn't
      currently over the widget. **)
-  method getHighlightedIndex : unit -> float meth
+  method getHighlightedIndex : float meth
 
  (** Returns the value of the currently highlighted rating, null if the mouse
      isn't currently over the widget. **)
-  method getHighlightedValue : unit -> js_string t meth
+  method getHighlightedValue : js_string t meth
 
  (** Sets the array of ratings that the comonent. **)
   method setRatings : js_string t array -> unit meth
 
  (** Gets the array of ratings that the component. **)
-  method getRatings : unit -> js_string t array meth
+  method getRatings : js_string t array meth
 
  (** Attaches an input or select element to the ratings widget. The value or
      index of the field will be updated along with the ratings widget. **)
-  method setAttachedFormField : unit -> element meth
+  method setAttachedFormField : element meth
 
 end
 

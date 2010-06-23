@@ -15,34 +15,34 @@ open Js
 class type progressBar = object
   inherit component
   (** Creates the DOM nodes needed for the progress bar. *)
-  method createDom : unit -> unit meth
+  method createDom : unit meth
 
  (** Called when the DOM for the component is for sure in the document. *)
-  method enterDocument : unit -> unit meth
+  method enterDocument : unit meth
  
  (** Called when the DOM for the component is for sure in the document. *)
-  method exitDocument : unit -> unit meth
+  method exitDocument : unit meth
 
  (** Decorates an existing HTML DIV element as a progress bar input. If the element contains a child with a class name of 'progress-bar-thumb' that will be used as the thumb. *)
   method decorateInternal : element -> unit meth
 
  (** The value. *)
-  method getValue : unit -> float meth
+  method getValue : float meth
 
  (** Sets the value. *)
   method setValue : float -> unit meth
 
  (** Sets the state for a11y of the current value. *)
-  method setValueState_ : unit -> unit meth
+  method setValueState_ : unit meth
 
  (** The minimum value. *)
-  method getMinimum : unit -> float meth
+  method getMinimum : float meth
 
  (** Sets the minimum number. *)
   method setMinimum : float -> unit meth
 
  (** The maximum value. *)
-  method getMaximum : unit -> float meth
+  method getMaximum : float meth
 
  (** Sets the maximum number. *)
   method setMaximum : float -> unit meth
@@ -51,10 +51,10 @@ class type progressBar = object
   method setOrientation : js_string t -> unit meth
 
  (** The orientation of the progress bar. *)
-  method getOrientation : unit -> js_string t meth
+  method getOrientation : js_string t meth
 
  (** @inheritDoc *)
-  method disposableInternal : unit -> unit meth
+  method disposableInternal : unit meth
 
 end
 

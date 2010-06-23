@@ -15,25 +15,25 @@ open Js
 class type zippy = object
   inherit eventTarget
   (** Collapses content pane. *)
-  method collapse : unit -> unit meth
+  method collapse : unit meth
 
   (** Destroys widget and removes all event listeners. *)
-  method disposeInternal : unit -> unit  meth
+  method disposeInternal : unit  meth
 
   (** Expands content pane. *)
-  method expand : unit -> unit  meth
+  method expand : unit  meth
 
   (** Whether the zippy is in the process of being expanded or collapsed. *)
-  method isBusy : unit -> bool t meth
+  method isBusy : bool t meth
 
   (** Whether the zippy is expanded. *)
-  method isExpanded : unit -> bool t  meth
+  method isExpanded : bool t  meth
 
   (** Sets expanded state. *)
   method setExpanded : bool t -> unit meth
 
   (** Toggles expanded state. *)
-  method toggle : unit -> unit meth
+  method toggle : unit meth
 end
 
 type element_or_id = Tools.element_or_id

@@ -25,40 +25,40 @@ type type_ = js_string
 
 class type popupBase = object
     (** Returns the type of popup this is.*)
-  method getType : unit -> type_ meth
+  method getType : type_ meth
       
     (** Specifies the type of popup to use.*)
   method setType : type_ -> unit meth
       
     (** Returns whether the popup should hide itself asynchronously 
        * using a timeout instead of synchronously.*)
-  method shouldHideAsync : unit -> bool meth
+  method shouldHideAsync : bool meth
       
     (** Sets whether the popup should hide itself asynchronously 
        * using a timeout instead of synchronously.*)
   method setShouldHideAsync : bool -> unit meth
       
     (** Returns the dom element that should be used for the popup.*)
-  method getElement : unit -> element meth
+  method getElement : element meth
       
     (** Specifies the dom element that should be used for the popup.*)
   method setElement : element -> unit meth
       
     (** Returns whether the Popup dismisses itself when the user clicks
        * outside of it.*)
-  method getAutoHide : unit -> bool meth
+  method getAutoHide : bool meth
       
     (** Sets whether the Popup dismisses itself when the user clicks outside of it.*)
   method setAutoHide : bool -> unit meth
       
     (** Returns whether the Popup autohides on the escape key.*)
-  method getHideOnEscape : unit -> bool meth
+  method getHideOnEscape : bool meth
       
     (** Sets whether the Popup dismisses itself on the escape key.*)
   method setHideOnEscape : bool -> unit meth
       
     (** Returns whether cross iframe dismissal is enabled.*)
-  method getEnableCrossIframeDismissal : unit -> bool meth
+  method getEnableCrossIframeDismissal : bool meth
       
     (** Sets whether clicks in other iframes should dismiss this popup.  
        * In some cases it should be disabled, because it can cause spurious*)
@@ -66,7 +66,7 @@ class type popupBase = object
       
     (** Returns the region inside which the Popup dismisses itself when 
        * the user clicks, or null if it's the entire document.*)
-  method getAutoHideRegion : unit -> bool meth
+  method getAutoHideRegion : bool meth
       
     (** Sets the region inside which the Popup dismisses itself when 
        * the user clicks.*)
@@ -74,14 +74,14 @@ class type popupBase = object
       
     (** Returns the time when the popup was last shown. Time in ms since
        * epoch or -1 if the popup was never shown.*)
-  method getLastShowTime : unit -> number meth
+  method getLastShowTime : number meth
       
     (** Returns the time when the popup was last hidden. Time in ms since
        * epoch or -1 if the popup was never hidden or is currently showing.*)
-  method getLastHideTime : unit -> number meth
+  method getLastHideTime : number meth
       
     (** Returns whether the popup is currently visible.*)
-  method isVisible : unit -> bool meth
+  method isVisible : bool meth
       
     (** Returns whether the popup is currently visible or was visible 
        * within about 150 ms ago. This is used by clients to handle a 
@@ -98,18 +98,18 @@ class type popupBase = object
        *          ... (* code to position menu and initialize other state *)
        method *          menu.setVisible(true) meth
        *     }*)
-  method isOrWasRecentlyVisible : unit -> bool meth
+  method isOrWasRecentlyVisible : bool meth
       
     (** Sets whether the popup should be visible.*)
   method setVisible : bool -> unit meth
       
     (** Shows the popup element.*)
-  method showPopupElement : unit -> unit meth
+  method showPopupElement : unit meth
       
     (** Called before the popup is shown. Derived classes can 
        * override to hook this event but should make sure to call 
        * the parent class method.*)
-  method onBeforeShow : unit -> bool meth
+  method onBeforeShow : bool meth
 end
  
 let popubBase : (element -> popupBase t) constr =

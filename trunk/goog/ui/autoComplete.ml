@@ -19,7 +19,7 @@ class type autocomplete = object
   inherit eventTarget
   
   (** Returns the renderer that renders/shows/highlights/hides the autocomplete menu. *)
-  method getRenderer : unit -> eventTarget meth
+  method getRenderer : eventTarget meth
 
  (** Generic event handler that handles any events this object is listening to. **)
   method handleEvent : event -> unit meth
@@ -43,7 +43,7 @@ class type autocomplete = object
   method setToken : js_string t -> js_string t -> unit meth
 
  (** Gets the current target HTML node for displaying autocomplete UI. **)
-  method getTarget : unit -> js_string t meth
+  method getTarget : js_string t meth
 
  (** Sets the current target HTML node for displaying autocomplete UI.
     Can be an implementation specific definition of how to display UI in 
@@ -51,37 +51,37 @@ class type autocomplete = object
   method setTarget : js_string t -> unit meth
 
  (** Whether the autocomplete's renderer is open. **)
-  method isOpen : unit -> bool meth
+  method isOpen : bool meth
 
  (** Moves the hilite to the next row, or does nothing if we're already at the
  * end of the current set of matches.  Calls renderer.hiliteId() when there's
  * something to do.**)
-  method hiliteNext : unit -> bool meth
+  method hiliteNext : bool meth
 
  (** Moves the hilite to the previous row, or does nothing if we're already at
  * the beginning of the current set of matches.  Calls renderer.hiliteId()
  * when there's something to do.**)
-  method hilitePrev : unit -> bool meth
+  method hilitePrev : bool meth
 
  (** Hilites the id if it's valid, otherwise does nothing. **)
   method hiliteId : float -> bool meth
 
  (** If there are any current matches, this passes the hilited row data to
     <code>selectionHandler.selectRow()</code> **)
-  method selectHilited : unit -> bool meth
+  method selectHilited : bool meth
 
  (**Clears out the token, rows, and hilite, and calls
     <code>renderer.dismiss()</code> **)
- method dismiss : unit -> unit meth
+ method dismiss : unit meth
 
  (** Call a dismiss after a delay, if there's already a dismiss active, ignore. *)
-  method dismissOnDelay : unit -> unit meth
+  method dismissOnDelay : unit meth
 
  (** Call a dismiss after a delay, if there's already a dismiss active, ignore. *)
-  method cancelDelayedDismiss : unit -> unit meth
+  method cancelDelayedDismiss : unit meth
 
  (** Cleans up the autocomplete object. *)
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
  (** Renders the rows and adds highlighting. *)
   method renderRows : js_string t array -> bool -> unit meth

@@ -20,17 +20,17 @@ let orientation_horizontal = "horizontal"
 open Js
 class type sliderBase = object
   inherit component
-  method createDom : unit->unit meth
+  method createDom : unit meth
   method decorateInternal : element -> unit meth
   (* Called when the DOM for the component is for sure in the document.
    * Subclasses should override this method to set this element's role.*)
-  method enterDocument : unit -> unit meth
+  method enterDocument : unit meth
   (* Changes the orientation.
    * @param {goog.ui.SliderBase.Orientation} orient The orientation.*)
   method setOrientation : js_string t -> unit meth
   (*@return {goog.ui.SliderBase.Orientation} the orientation of the slider.
    *)
-  method getOrientation : unit -> js_string t meth
+  method getOrientation : js_string t meth
   (* Moves the thumbs by the specified delta as follows
    * - as long as both thumbs stay within [min,max], both thumbs are moved
    * - once a thumb reaches or exceeds min (or max, respectively), it stays
@@ -48,18 +48,18 @@ class type sliderBase = object
   method setValueAndExtent : int -> int -> unit meth
   (* @return {number} The minimum value.
    *)
-  method getMinimum : unit->int meth
+  method getMinimum : int meth
   (* Sets the minimum number.
   * @param {number} min The minimum value.
   *)
   method setMinimum : int -> unit meth
   (*@return {number} The maximum value.
    *)
-  method getMaximum : unit -> int meth
+  method getMaximum : int meth
   method setMaximum : int -> unit meth
   (* @return {number} The amount to increment/decrement for page up/down as well
    *     as when holding down the mouse button on the background.*)
-  method getBlockIncrement : unit -> int meth
+  method getBlockIncrement : int meth
   (* Sets the amount to increment/decrement for page up/down as well as when
    * holding down the mouse button on the background.
    * @param {number} value The value to set the block increment to.*)
@@ -71,7 +71,7 @@ class type sliderBase = object
   method setMinExtent : int -> unit meth
   (* @return {?number} The step value used to determine how to round the value.
    *)
-  method getStep : unit -> int meth
+  method getStep : int meth
   (* Sets the step value. The step value is used to determine how to round the
    * value.
    * @param {?number} step  The step size.
@@ -87,7 +87,7 @@ class type sliderBase = object
   method setMoveToPointEnabled : bool -> unit meth
   (* @return {number} The value of the underlying range model.
    *)
-  method getValue : unit -> int meth
+  method getValue : int meth
   (* Sets the value of the underlying range model. We enforce that
    * If this is not satisifed for the given value, the call is ignored and no
    * CHANGE event fires.
@@ -96,7 +96,7 @@ class type sliderBase = object
   method setValue : int -> unit meth
   (* @return {number} The value of the extent of the underlying range model.
   *)
-  method getExtent : unit -> int meth
+  method getExtent : int meth
   (* Sets the extent of the underlying range model. We enforce that
    * If this is not satisifed for the given extent, the call is ignored and no
    * CHANGE event fires.
@@ -110,7 +110,7 @@ class type sliderBase = object
   (* Set a11y roles and state.*)
   method setAriaRoles:unit -> unit  meth
   (* Set a11y roles and state when values change.*)
-  method updateAriaStates : unit -> unit meth
+  method updateAriaStates : unit meth
 end
 
 let sliderBase : sliderBase t constr =

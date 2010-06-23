@@ -27,16 +27,16 @@ class type charcounter = object
   method setMaxLength : float -> unit  meth
 
  (** Returns the maximum length. *)
-  method getMaxLength : unit -> float  meth
+  method getMaxLength : float  meth
 
  (** Sets the display mode. *)
   method setDisplayMode : int -> unit  meth
 
  (** Returns the display mode. *)
-  method getDisplayMode : unit -> int  meth
+  method getDisplayMode : int  meth
 
  (** @inheritDoc *)
-  method disposeInternal : unit -> unit  meth
+  method disposeInternal : unit  meth
 
 end
 

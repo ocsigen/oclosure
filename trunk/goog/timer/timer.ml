@@ -14,22 +14,22 @@ open Js
 class type timer = object
   inherit eventTarget
   (** Gets the interval of the timer. *)
-  method getInterval : unit -> float meth
+  method getInterval : float meth
 
  (** Sets the interval of the timer.*)
   method setInterval : float -> unit meth
 
  (** Dispatches the TICK event. This is its own method so subclasses can override. *)
-  method dispatchTick : unit -> unit meth
+  method dispatchTick : unit meth
 
  (** Starts the timer. *)
-  method start : unit -> unit meth
+  method start : unit meth
  
  (** Stops the timer. *)
-  method stop : unit -> unit meth
+  method stop : unit meth
 
  (** Disposes of the timer. *)
-  method disposeInternal : unit -> unit meth
+  method disposeInternal : unit meth
 
 end
 
