@@ -55,7 +55,7 @@ class type eventTarget = object
   method dispatchEvent : js_string t -> bool meth
 
  (** Returns the parent of this event target to use for bubbling. *)
-  method getParentEventTarget : unit -> eventTarget t meth
+  method getParentEventTarget : eventTarget t meth
 
  (** Sets the parent of this event target to use for bubbling. *)
   method setParentEventTarget : eventTarget t -> unit meth

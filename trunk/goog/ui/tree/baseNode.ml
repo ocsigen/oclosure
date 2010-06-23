@@ -154,3 +154,5 @@ end
 
 let baseNode_ = Js.Unsafe.variable "goog.ui.tree.BaseNode"
 let baseNode : (js_string t -> config opt -> domHelper t opt -> 'a baseNode t) constr = baseNode_
+
+let add (t : 'a #baseNode t) n1 n2 = ignore (t##add ((n1 : 'a #baseNode t :> 'a baseNode t), (n2 : 'a #baseNode t opt :> 'a baseNode t opt)))

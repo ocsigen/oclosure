@@ -5,7 +5,7 @@ OCAML_FLAGS=-package js_of_ocaml -syntax camlp4o
 GOOG=../goog/
 all: $(TARGETS)
 
-%.byte: %.ml
+%.byte: %.ml $(GOOG)/goog.cmo
 	@echo "[CC]" $@
 	ocamlfind ocamlc -I $(GOOG) goog.cmo tools.cmo $(OCAML_FLAGS) -linkpkg -o $@ $^
 

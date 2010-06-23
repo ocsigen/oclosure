@@ -36,11 +36,11 @@ class type conditionalDelay = object
 (**
    Starts the delay timer. The provided listener function will be called
    repeatedly after the specified interval until the function returns
-   {@code true} or the timeout is exceeded. Calling start on an active timer
+   [true] or the timeout is exceeded. Calling start on an active timer
    will stop the timer first.
-   @param {number=} opt_interval The time interval between the function
+   @paramnumber opt_interval The time interval between the function
    invocations (in milliseconds). Default is 0.
-   @param {number=} opt_timeout The timeout interval (in milliseconds). Takes
+   @param opt_timeout The timeout interval (in milliseconds). Takes
    precedence over the {@code opt_interval}, i.e. if the timeout is less
    than the invocation interval, the function will be called when the
    timeout is exceeded. A negative value means no timeout. Default is 0.
@@ -51,7 +51,6 @@ class type conditionalDelay = object
    Stops the delay timer if it is active. No action is taken if the timer is not
    in use.
 *)
-
   method stop : unit -> unit meth  
 end
 
