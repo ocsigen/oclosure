@@ -1,7 +1,7 @@
 (** OClosure Project - 2010
  * Class goog.ui.MenuButton
  * 
- * A menu button control.  Extends {@link goog.ui.Button} by composing a button
+ * A menu button control.  Extends by composing a button
  * with a dropdown arrow and a popup menu.
  * 
  * @author : Emmanuel CRESPIN
@@ -100,7 +100,7 @@ class type menuButton = object
    * disabled.*)
   method setEnabled : bool t -> unit meth
   
-  (** @return {boolean} Whether the menu is aligned to the start of the button
+  (** @return Whether the menu is aligned to the start of the button
    * (left if the render direction is left-to-right, right if the render
    * direction is right-to-left).*)
   method isAlignMenuToStart : bool meth
@@ -112,11 +112,11 @@ class type menuButton = object
    * the screen.  The css of the menu element should have overflow set to auto.*)
   method setScrollOnOverflow : bool -> unit meth
   
-  (** @return {boolean} Wether the menu will scroll when it's to big to fit
+  (** @return Wether the menu will scroll when it's to big to fit
    * vertically on the screen.*)
   method isScrollOnOverflow : bool meth
   
-  (** @return {boolean} Whether the attached menu is focusable.*)
+  (** @return Whether the attached menu is focusable.*)
   method isFocusablePopupMenu : bool meth
   
   (** Sets whether the attached popup menu is focusable.  If the popup menu is

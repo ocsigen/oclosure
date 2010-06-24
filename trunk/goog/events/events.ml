@@ -8,14 +8,14 @@ type key
    has implemented goog.events.EventTarget. A listener can only be added once to
    an object and if it is added again the key for the listener is returned. 
 
-   @param {EventTarget.eventTarget t} src The node to listen to
+   @param src The node to listen to
    events on.
-   @param {js_string t} type Event type.
-   @param {unit -> unit} listener Callback method, or an object with a
+   @param type Event type.
+   @param listener Callback method, or an object with a
    handleEvent function.
-   @param {bool t opt} opt_capt Whether to fire in capture phase (defaults to
+   @param opt_capt Whether to fire in capture phase (defaults to
    false).
-   @return {key} Unique key for the listener.
+   @return Unique key for the listener.
 *)
 let listen (src : #eventTarget t) (typ : js_string t) 
     (listener : (unit -> unit)) (capt : bool t) : key =

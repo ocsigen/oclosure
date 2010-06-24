@@ -1,9 +1,9 @@
 (**
  * OClosure Project - 2010
  * This creates a TwoThumbSlider object.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+ * @param opt_domHelper Optional DOM helper.
  * @constructor
- * @extends {goog.ui.SliderBase}
+ * @extends
  * @author Bourdin Pierre
 *)
 
@@ -16,8 +16,8 @@ type element = Dom.element
 class type twoThumbSlider = object
   inherit sliderBase
   (** Returns CSS class applied to the slider element.
-   * @param {goog.ui.SliderBase.Orientation} orient Orientation of the slider.
-   * @return {js_string t} The CSS class applied to the slider element.
+   * @param orient Orientation of the slider.
+   * @return The CSS class applied to the slider element.
    * @protected
    *)
   method getCssClass:slidorient -> js_string t meth

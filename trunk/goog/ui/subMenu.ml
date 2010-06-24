@@ -94,10 +94,10 @@ class type subMenu = object
    * make use of elements outside their own DOM.*)
   method containsElement : element -> bool meth
 
-  (** @param {boolean} isAdjustable Whether this submenu is adjustable.*)
+  (** @param isAdjustable Whether this submenu is adjustable.*)
   method setPositionAdjustable : bool -> unit meth
 
-  (** @return {boolean} Whether this submenu is adjustable.*)
+  (** @return Whether this submenu is adjustable.*)
   method isPositionAdjustable : bool meth
 end
 

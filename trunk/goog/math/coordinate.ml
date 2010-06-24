@@ -2,8 +2,8 @@
  * Class goog.math.Coordinate
  * 
  * Class for representing coordinates and positions.
- * @param {number=} opt_x Left, defaults to 0.
- * @param {number=} opt_y Top, defaults to 0.
+ * @param opt_x Left, defaults to 0.
+ * @param opt_y Top, defaults to 0.
  * 
  * @author : Emmanuel CRESPIN
  * @version 0.1

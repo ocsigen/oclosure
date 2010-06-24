@@ -2,8 +2,8 @@
  * Class goog.ui.Menu
  * 
  * A basic menu class.
- * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
- * @param {goog.ui.MenuRenderer=} opt_renderer Renderer used to render or
+ * @param opt_domHelper Optional DOM helper.
+ * @param opt_renderer Renderer used to render or
   method *     decorate the container meth
  *
  * @author : Emmanuel CRESPIN

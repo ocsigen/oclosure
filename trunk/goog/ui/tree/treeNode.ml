@@ -17,13 +17,13 @@ class type ['a] treeNode = object
   inherit ['a] baseNode
 (**
    Returns the source for the icon.
-   @return {string} Src for the icon.
+   @return Src for the icon.
 *)
   method getCalculatedIconClass : js_string t meth
   
 (**
    Returns the tree
-   @return {goog.ui.tree.TreeControl?} The tree.
+   @return The tree.
 *)
   method getTree : 'a baseNode t opt meth
 end

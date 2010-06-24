@@ -6,7 +6,7 @@
     * invariants runtime.
     * Methods in this package should be given special treatment by 
     * the compiler for type-inference.
-    * @extends {goog.debug.Error}
+    * @extends
     *
     * @author Bozman Cagdas 
     * @version 0.1

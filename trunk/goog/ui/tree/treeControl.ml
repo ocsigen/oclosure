@@ -20,14 +20,14 @@ class type ['a] treeControl = object
   inherit ['a] baseNode
 (**
    Creates a new tree node using the same config as the root.
-   @param {string} html The html content of the node label.
-   @return {goog.ui.tree.TreeNode} The new item.
+   @param html The html content of the node label.
+   @return The new item.
 *)
   method createNode : js_string t -> 'a treeNode t meth
 
 (**
    Returns the tree.
-   @return {goog.ui.tree.TreeControl} The tree.
+   @return The tree.
 *)      
   method getTree : 'a treeControl t meth
 end
