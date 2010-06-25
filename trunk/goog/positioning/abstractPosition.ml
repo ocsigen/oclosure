@@ -9,7 +9,7 @@
 *)
 
 (** JSOO.obj **)
-type element = Dom.element
+type element = Dom_html.element
 
 (** goog.math.Box **)
 type box

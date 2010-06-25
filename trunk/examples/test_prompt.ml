@@ -19,9 +19,8 @@ let prompt =
   jsnew Ui.Prompt.prompt(Js.string "Goog.ui.Prompt", Js.string "Question", 
 			 handler)
 
-let button = D.createLink document 
+let button = D.createButton document 
 let _ = 
-  button##href <- Js.string "#";
   button##onclick <- D.handler (fun _ -> show_prompt prompt; Js._true);
   Dom.appendChild(document##body) (D.createBr document);
   Dom.appendChild(document##body) button;

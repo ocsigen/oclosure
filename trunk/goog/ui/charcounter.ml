@@ -14,10 +14,10 @@ open EventTarget
 open Js
 
 (** JSOO.obj **)
-type elInput = Dom.element t
+type elInput = Dom_html.element t
 
 (** JSOO.obj **)
-type elCount = Dom.element t
+type elCount = Dom_html.element t
 
 type browserEvent 
 

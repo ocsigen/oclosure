@@ -9,7 +9,7 @@ INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
 OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
 GOOG=goog.cmo
-PACKS=events.cmopack math.cmopack spell.cmopack date.cmopack ui.cmopack tree.cmopack timer.cmopack
+PACKS=events.cmopack math.cmopack gdom.cmopack positioning.cmopack spell.cmopack date.cmopack timer.cmopack ui.cmopack tree.cmopack
 #CMOS=$(FILE:.ml=.cmo)
 
 all: $(GOOG)
@@ -26,9 +26,6 @@ $(GOOG): $(PACKS)
 	ocamlc -pack -o $@ $^
 
 tree.cmopack : ui/tree/baseNode.cmo ui/tree/treeNode.cmo ui/tree/treeControl.cmo
-	ocamlc -pack -o $@ $^
-
-timer.cmopack : timer/timer.cmo dom/goog_dom.cmo
 	ocamlc -pack -o $@ $^
 
 events.cmopack : events/event.cmo events/browserEvent.cmo events/eventTarget.cmo events/events.cmo

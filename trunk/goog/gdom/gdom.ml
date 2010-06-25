@@ -88,7 +88,7 @@ class type domHelper = object
   method getDomHelper: node -> domHelper meth
  
  (** Return the element with the given ID **)
-  method getElement : Tools.element_or_id -> element meth
+  method getElement : Tools.element_or_string -> element meth
  
  (** Looks up elements by both tag and class name, using browser native
      functions (querySelectorAll, getElementsByTagName or 

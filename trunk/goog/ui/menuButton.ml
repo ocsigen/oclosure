@@ -14,7 +14,7 @@ open Event
 open Menu
 open MenuItem
 
-type element = Dom.element
+type element = Dom_html.element
 
 open Js
 class type menuButton = object

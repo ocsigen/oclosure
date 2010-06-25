@@ -8,7 +8,7 @@
  * @version 0.1
 *)
 open Component
-type element = Dom.element
+type element = Dom_html.element
 
 
 open Js

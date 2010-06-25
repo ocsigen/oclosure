@@ -9,11 +9,11 @@
 *)
 open Palette
 open PaletteRenderer
-open Goog_dom
+open Gdom
 open Js
 class type colorPalette = object
   inherit palette
 end
 
-let colorPalette : (js_string t js_array t opt -> paletteRenderer t opt -> domHelper t opt -> colorPalette t) constr =
+let colorPalette : (js_string t js_array t opt -> paletteRenderer t opt -> Gdom.domHelper t opt -> colorPalette t) constr =
   Js.Unsafe.variable "goog.ui.ColorPalette"

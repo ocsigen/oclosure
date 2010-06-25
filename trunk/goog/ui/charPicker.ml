@@ -13,7 +13,7 @@
 open Component
 open CharPickerData
 
-type element = Dom.element
+type element = Dom_html.element
 
 open Js
 class type charPicker = object

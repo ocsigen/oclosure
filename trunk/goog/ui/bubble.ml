@@ -11,7 +11,7 @@
 *)
 
 (** JSOO.obj **)
-type element = Dom.element
+type element = Dom_html.element
 
 (** goog.ui.Popup.AnchoredPosition **)
 type anchoredPosition

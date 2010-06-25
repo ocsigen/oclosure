@@ -36,13 +36,13 @@ class type zippy = object
   method toggle : unit meth
 end
 
-type element_or_id = Tools.element_or_id
+type element_or_string = Tools.element_or_string
 type element = Dom_html.element
 
-let zippy : (element_or_id opt -> element_or_id opt -> bool t opt -> element_or_id opt -> zippy t) constr =
+let zippy : (element_or_string opt -> element_or_string opt -> bool t opt -> element_or_string opt -> zippy t) constr =
   Js.Unsafe.variable "goog.ui.Zippy"
 
-let zippy_lazy : (element_or_id opt -> (unit -> element t) callback -> bool t opt -> element_or_id opt -> zippy t) constr =
+let zippy_lazy : (element_or_string opt -> (unit -> element t) callback -> bool t opt -> element_or_string opt -> zippy t) constr =
   Js.Unsafe.variable "goog.ui.Zippy"
 
 
