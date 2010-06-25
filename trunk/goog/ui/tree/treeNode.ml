@@ -11,7 +11,7 @@
 open Js
 
 open BaseNode
-open Goog_dom
+open Gdom
 
 class type ['a] treeNode = object
   inherit ['a] baseNode
@@ -29,4 +29,4 @@ class type ['a] treeNode = object
 end
 
 let treeNode_ = Js.Unsafe.variable "goog.ui.tree.TreeNode"
-let treeNode : (js_string t -> config opt -> domHelper t opt -> 'a treeNode t) constr = treeNode_
+let treeNode : (js_string t -> config opt -> DomHelper.domHelper t opt -> 'a treeNode t) constr = treeNode_

@@ -9,7 +9,7 @@ INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
 OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
 GOOG=goog.cmo
-PACKS=events.cmopack math.cmopack gdom.cmopack positioning.cmopack spell.cmopack date.cmopack timer.cmopack ui.cmopack tree.cmopack
+PACKS=events.cmopack math.cmopack gdom.cmopack positioning.cmopack spell.cmopack timer.cmopack ui.cmopack tree.cmopack
 #CMOS=$(FILE:.ml=.cmo)
 
 all: $(GOOG)
@@ -22,7 +22,9 @@ $(GOOG): $(PACKS)
 .SECONDEXPANSION:
 
 %.cmopack: $$(shell find % -name "*.ml" -print | sed s/.ml/.cmo/g)
-	echo $^
+	ocamlc -pack -o $@ $^
+
+date.cmopack : date/date.ml date/dateRange.ml
 	ocamlc -pack -o $@ $^
 
 tree.cmopack : ui/tree/baseNode.cmo ui/tree/treeNode.cmo ui/tree/treeControl.cmo

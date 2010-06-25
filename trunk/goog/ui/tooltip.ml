@@ -10,9 +10,11 @@
     * @version 0.1
     * @see 'goog.dom.DomHelper'
 *)
-open Goog_dom
+open Gdom.DomHelper
 
 open Positioning.AbstractPosition
+
+open Tools
 
 type element = Dom_html.element
 type state =
@@ -22,7 +24,6 @@ type state =
   | WAITING_TO_HIDE
   | UPDATING
 type coordinate = Math.Coordinate.coordinate
-type browserEvent = Events.BrowserEvent.browserEvent
 type corner = 
     TOP_LEFT 
   | BOTTOM_LEFT
@@ -35,29 +36,30 @@ type corner =
 
 open Js
 class type tooltip = object
+  inherit Popup.popup
     (** Returns the dom helper that is being used on this component.*)
   method getDomHelper : domHelper meth
       (** Attach to element. Tooltip will be displayed when the cursor is 
          over the element or when the element has been active for a 
          few milliseconds.*)
-  method attach : element -> unit meth
+  method attach : (element t, js_string t) Union.t -> unit meth
 
     (** Detach from element(s).*)
-  method detach : element -> unit meth
+  method detach : (element t, js_string t) Union.t opt -> unit meth
 
     (** Sets delay in milliseconds before tooltip is displayed for an element.*)
   method setshowDelayMs : int -> unit meth
 
     (** Returns the delay in milliseconds before tooltip is displayed for an
-       * element.*)
+        element.*)
   method getShowDelayMs : int meth
 
     (** Sets delay in milliseconds before tooltip is hidden once the cursor 
-       * leaves the element.*)
+        leaves the element.*)
   method setHideDelayMs : int -> unit meth
 
     (** Returns the delay in milliseconds before tooltip is hidden once the
-       * cursor leaves the element.*)
+       cursor leaves the element.*)
   method getHideDelayMs : int meth
 
     (** Sets tooltip message as plain text.*)
@@ -67,7 +69,7 @@ class type tooltip = object
   method setHtml : js_string t -> unit meth
 
     (** Sets tooltip element.*)
-  method setElement : element -> unit meth
+  method setElement : element t -> unit meth
 
     (** Returns the tooltip message as plain text.*)
   method getText : js_string t meth
@@ -76,7 +78,7 @@ class type tooltip = object
   method getHtml : js_string t meth
 
     (** Returns current state of tooltip.*)
-  method getState : state t meth
+  method getState : state meth
 
     (** Sets whether tooltip requires the mouse to have moved or 
        * the anchor receive focus before the tooltip will be shown.*)  
@@ -84,9 +86,6 @@ class type tooltip = object
 
     (** Returns true if the coord is in the tooltip.*)
   method isCoordinateInTooltip : coordinate t -> bool t meth
-
-    (** Called before the popu p is shown.*)
-  method onBeforeShow : bool t meth
 
     (** Called by timer from mouse over handler. Shows tooltip if 
        * cursor is still over the same element.*)
@@ -105,40 +104,12 @@ class type tooltip = object
        * will check if the parent should be hidden too.*)
   method hasActiveChild : bool meth
 
-    (** Handler for mouse over events.*)
-  method handleMouseOver : browserEvent -> unit meth
-
-    (** Find anchor containing the given element, if any.*)
-  method getAnchorFromElement : element t -> element t meth
-
-    (** Handler for mouse move events.*)
-  method handleMouseMove : browserEvent -> unit meth
-
-    (** Handler for focus events.*)
-  method handleFocus : browserEvent -> unit meth
-
-    (** Handler for mouse out and blur events.*)
-  method handleMouseOutAndBlur : browserEvent -> unit meth
-
-    (** Handler for mouse over events for the tooltip element.*)
-  method handleTooltipMouseOver : browserEvent -> unit meth
-
-    (** Handler for mouse out events for the tooltip element.*)
-  method handleTooltipMouseOut : browserEvent -> unit meth
-
-    (** Helper method, starts timer that calls maybeShow. Parameters
-       * are passed to the maybeShow method.*)
-  method startShowTimer : element t -> abstractPosition t opt -> unit meth
-
-    (** Helper method called to clear the show timer.*)
-  method clearShowTimer : unit meth
-
-    (** Destroys widget and removes all event listeners.*)
+     (** Destroys widget and removes all event listeners.*)
   method disposeInternal : unit meth
 
 (** Css class name for tooltip *)
   method className : js_string t prop
 end
 
-let tooltip : (Tools.element_or_string opt -> js_string t opt -> Goog_dom.domHelper t opt -> tooltip t) constr =
+let tooltip : ((element t, js_string t) Union.t opt -> js_string t opt -> domHelper t opt -> tooltip t) constr =
   Js.Unsafe.variable "goog.ui.Tooltip"

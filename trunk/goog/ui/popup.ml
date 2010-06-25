@@ -19,10 +19,14 @@
 open PopupBase
 open AbstractPosition
 
-type coordinate (*goog.math.Coordinate *)
-type box (*goog.math.Box*)
+type coordinate = Math.Coordinate.coordinate
+
+type corner = int
 
 open Js
+
+open Tools
+
 class type popup = object
   inherit popupBase
     (**  Returns the corner of the popup to used in the positioning algorithm.*)
@@ -32,28 +36,20 @@ class type popup = object
   method setPinnedCorner : corner -> unit meth
 
     (** Returns the position helper object associated with the popup.*)
-  method getPosition : abstractPosition meth
+  method getPosition : abstractPosition t meth
 
     (** Sets the position helper object associated with the popup.*)
-  method setPosition : abstractPosition -> unit meth
+  method setPosition : abstractPosition t -> unit meth
 
     (** Returns the margin to place around the popup.*)
-  method getMargin : box meth
+  method getMargin : Math.Box.box t opt meth
 
     (** Sets the margin to place around the popup*)
-  method setMargin : number -> unit meth
+  method setMargin : (Math.Box.box t, int) Union.t opt -> int opt -> int opt -> int opt -> unit meth
 
     (** Repositions the popup according to the current state.*)
   method reposition : unit meth
-
-    (** Positions a movable element relative to an anchorElement. The caller  
-     * specifies the corners that should touch. This functions then moves the        * movable element accordingly.*)
-  method positionPopup : element -> corner -> element -> corner -> (* optional argument : numb  er ->*) bool meth
-  
-  (** Positions the specified corner of the movable element at the
-     specified coordinate.*)
-  method positionAtCoordinate : coordinate -> element -> corner -> (* optional argument : goog.math.B  ox -> *) bool meth
 end
 
-let popup : (element -> popup t) constr =
+let popup : (element t opt -> abstractPosition t -> popup t) constr =
   Js.Unsafe.variable "goog.ui.Popup"

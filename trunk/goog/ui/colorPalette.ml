@@ -15,5 +15,5 @@ class type colorPalette = object
   inherit palette
 end
 
-let colorPalette : (js_string t js_array t opt -> paletteRenderer t opt -> Gdom.domHelper t opt -> colorPalette t) constr =
+let colorPalette : (js_string t js_array t opt -> paletteRenderer t opt -> Gdom.DomHelper.domHelper t opt -> colorPalette t) constr =
   Js.Unsafe.variable "goog.ui.ColorPalette"

@@ -51,5 +51,5 @@ class type plainTextSpellChecker = object
   method resume : unit meth
 end
 
-let plainTextSpellChecker : (plainTextSpellChecker t Spell.SpellCheck.spellCheck t -> Goog_dom.domHelper t opt -> plainTextSpellChecker t) constr = 
+let plainTextSpellChecker : (plainTextSpellChecker t Spell.SpellCheck.spellCheck t -> Gdom.DomHelper.domHelper t opt -> plainTextSpellChecker t) constr = 
   Js.Unsafe.variable "goog.ui.PlainTextSpellChecker"

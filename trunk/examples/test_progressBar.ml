@@ -46,7 +46,7 @@ let _ =
   timer##addEventListener (Js.string "tick",handler);
   timer##start ();
 
-  let dom = jsnew Goog_dom.domHelper() in
+  let dom = jsnew Gdom.DomHelper.domHelper() in
     pB1##addEventListener(
       Ui.Component.EventType.change,
       fun() -> dom##setTextContent(out,Js.string (string_of_float (pB1##getValue())^"%"));Js._true)

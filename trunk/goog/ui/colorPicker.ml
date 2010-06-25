@@ -10,7 +10,7 @@
     @see 'goog.ui.ColorPalette'
     @see 'goog.ui.Component'
 *)
-open Gdom.Gdom
+open Gdom.DomHelper
 
 open ColorPalette
 

@@ -13,7 +13,7 @@
 
 open Js
 
-type element = Dom.element
+type element = Dom_html.element
 
 (**  Enumeration of type string
     goog.ui.PopupBase.Type = {
@@ -21,67 +21,67 @@ type element = Dom.element
     * MOVE_OFFSCREEN: 'move_offscreen'
    }
 *)
-type type_ = js_string
 
 class type popupBase = object
+  inherit EventTarget.eventTarget
     (** Returns the type of popup this is.*)
-  method getType : type_ meth
+  method getType : js_string t meth
       
     (** Specifies the type of popup to use.*)
-  method setType : type_ -> unit meth
+  method setType : js_string t -> unit meth
       
     (** Returns whether the popup should hide itself asynchronously 
        * using a timeout instead of synchronously.*)
-  method shouldHideAsync : bool meth
+  method shouldHideAsync : bool t meth
       
     (** Sets whether the popup should hide itself asynchronously 
        * using a timeout instead of synchronously.*)
-  method setShouldHideAsync : bool -> unit meth
+  method setShouldHideAsync : bool t -> unit meth
       
     (** Returns the dom element that should be used for the popup.*)
-  method getElement : element meth
+  method getElement : element t meth
       
     (** Specifies the dom element that should be used for the popup.*)
-  method setElement : element -> unit meth
+  method setElement : element t -> unit meth
       
     (** Returns whether the Popup dismisses itself when the user clicks
        * outside of it.*)
-  method getAutoHide : bool meth
+  method getAutoHide : bool t meth
       
     (** Sets whether the Popup dismisses itself when the user clicks outside of it.*)
-  method setAutoHide : bool -> unit meth
+  method setAutoHide : bool t -> unit meth
       
     (** Returns whether the Popup autohides on the escape key.*)
-  method getHideOnEscape : bool meth
+  method getHideOnEscape : bool t meth
       
     (** Sets whether the Popup dismisses itself on the escape key.*)
-  method setHideOnEscape : bool -> unit meth
+  method setHideOnEscape : bool t -> unit meth
       
     (** Returns whether cross iframe dismissal is enabled.*)
-  method getEnableCrossIframeDismissal : bool meth
+  method getEnableCrossIframeDismissal : bool t meth
       
     (** Sets whether clicks in other iframes should dismiss this popup.  
        * In some cases it should be disabled, because it can cause spurious*)
-  method setEnableCrossIframeDismissal : bool -> unit meth
+  method setEnableCrossIframeDismissal : bool t -> unit meth
       
     (** Returns the region inside which the Popup dismisses itself when 
        * the user clicks, or null if it's the entire document.*)
-  method getAutoHideRegion : bool meth
+  method getAutoHideRegion : bool t meth
       
     (** Sets the region inside which the Popup dismisses itself when 
        * the user clicks.*)
-  method setAutoHideRegion : bool -> unit meth
+  method setAutoHideRegion : bool t -> unit meth
       
     (** Returns the time when the popup was last shown. Time in ms since
        * epoch or -1 if the popup was never shown.*)
-  method getLastShowTime : number meth
+  method getLastShowTime : float t meth
       
     (** Returns the time when the popup was last hidden. Time in ms since
        * epoch or -1 if the popup was never hidden or is currently showing.*)
-  method getLastHideTime : number meth
+  method getLastHideTime : float meth
       
     (** Returns whether the popup is currently visible.*)
-  method isVisible : bool meth
+  method isVisible : bool t meth
       
     (** Returns whether the popup is currently visible or was visible 
        * within about 150 ms ago. This is used by clients to handle a 
@@ -98,10 +98,10 @@ class type popupBase = object
        *          ... (* code to position menu and initialize other state *)
        method *          menu.setVisible(true) meth
        *     }*)
-  method isOrWasRecentlyVisible : bool meth
+  method isOrWasRecentlyVisible : bool t meth
       
     (** Sets whether the popup should be visible.*)
-  method setVisible : bool -> unit meth
+  method setVisible : bool t -> unit meth
       
     (** Shows the popup element.*)
   method showPopupElement : unit meth
@@ -109,8 +109,8 @@ class type popupBase = object
     (** Called before the popup is shown. Derived classes can 
        * override to hook this event but should make sure to call 
        * the parent class method.*)
-  method onBeforeShow : bool meth
+  method onBeforeShow : bool t meth
 end
  
-let popubBase : (element -> popupBase t) constr =
+let popubBase : (element t -> popupBase t) constr =
   Js.Unsafe.variable "goog.ui.PopupBase"

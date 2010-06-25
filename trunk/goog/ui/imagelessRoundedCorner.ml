@@ -40,7 +40,7 @@ class type abstractImagelessRoundedCorner = object
   method setWidth : int -> unit meth
 end
 
-let create (e : element t) (w : int) (h : int) (bw : int) (r : int) (l : int) (bc : js_string t) (bgc : js_string t opt) (hp : Goog_dom.domHelper t opt) : abstractImagelessRoundedCorner t optdef =
+let create (e : element t) (w : int) (h : int) (bw : int) (r : int) (l : int) (bc : js_string t) (bgc : js_string t opt) (hp : Gdom.DomHelper.domHelper t opt) : abstractImagelessRoundedCorner t optdef =
   Js.Unsafe.fun_call
     (Js.Unsafe.variable "goog.ui.ImagelessRoundedCorner.create")
     [|Js.Unsafe.inject e; Js.Unsafe.inject w; Js.Unsafe.inject h; 

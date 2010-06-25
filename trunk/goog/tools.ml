@@ -10,6 +10,13 @@
 type element = Dom_html.element
 
 (* used in goog/dom/dom.ml, goog/ui/zippy.ml, goog/ui/animatedZippy.ml *)
+
+module Union = struct
+  type ('a, 'b) t
+  let i1 : 'a -> ('a, 'b) t = Obj.magic
+  let i2 : 'b -> ('a, 'b) t = Obj.magic 
+end
+
 module Element_or_string = 
   struct 
     type t

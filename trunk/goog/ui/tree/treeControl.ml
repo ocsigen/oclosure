@@ -12,7 +12,7 @@ open Js
 
 open BaseNode
 open TreeNode
-open Goog_dom
+open Gdom
 
 type config
 
@@ -33,4 +33,4 @@ class type ['a] treeControl = object
 end
 
 let treeControl_ = Js.Unsafe.variable "goog.ui.tree.TreeControl"
-let treeControl : (js_string t -> config opt -> domHelper t opt -> 'a treeControl t) constr = treeControl_
+let treeControl : (js_string t -> config opt -> DomHelper.domHelper t opt -> 'a treeControl t) constr = treeControl_

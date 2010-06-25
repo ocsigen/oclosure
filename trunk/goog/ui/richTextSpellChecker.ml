@@ -50,5 +50,5 @@ class type richTextSpellChecker = object
   method setExcludeMarker : Tools.regexp_or_string opt -> unit meth
 end
 
-let richTextSpellChecker : (richTextSpellChecker t Spell.SpellCheck.spellCheck t -> Goog_dom.domHelper t opt -> richTextSpellChecker t) constr = 
+let richTextSpellChecker : (richTextSpellChecker t Spell.SpellCheck.spellCheck t -> Gdom.DomHelper.domHelper t opt -> richTextSpellChecker t) constr = 
   Js.Unsafe.variable "goog.ui.RichTextSpellChecker"
