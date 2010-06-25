@@ -43,7 +43,7 @@ class type eventTarget = object
       it will only be called once when the event is dispatched.
       Supported for legacy but use 
       goog.events.listen(src, type, handler) instead. *)
-  method addEventListener : js_string t -> ( Event.event t -> bool t) -> unit meth
+  method addEventListener : js_string t -> ( unit -> bool t) -> unit meth
 
  (** Dispatches an event (or event like object) and calls all listeners
      listening for events of this type. The type of the event is decided by the

@@ -5,7 +5,7 @@
  * This creates a progress bar object.
  *
  * @author : Oran Charles
- * @version 0.1
+ * @version 0.2
  * @see 'goog.ui.Component'
  *)
 open Component
@@ -58,8 +58,16 @@ class type progressBar = object
 
 end
 
-let progressBar : (unit -> progressBar t) constr =
+let progressBar : progressBar t constr =
   Js.Unsafe.variable "goog.ui.ProgressBar"
 
-let vertical = "vertical" 
-let horizontal = "horizontal"
+(**
+   * Enum for representing the orientation of the progress bar.
+   *
+   * @enum string
+*)
+module Orientation = 
+  (struct
+     let vertical = Js.string "vertical"
+     let horizontal = Js.string "horizontal"
+   end)
