@@ -7,16 +7,26 @@
     * entered before the maximum length is reached.
     *
     * @author : Oran Charles
-    * @version 0.1
+    * @version 0.2
     * @see 'goog.events.EventTarget'
 *)
 open EventTarget
 open Js
 
-(** JSOO.obj **)
+(**
+   * Display mode for the charcounter.
+*)
+module Display = 
+  (struct
+     type t = 
+	 (** Widget displays the number of characters remaining (the default). *)
+	 REMAINING
+	   (** Widget displays the number of characters entered. *)
+       |INCREMENTAL
+   end)
+
 type elInput = Dom_html.element t
 
-(** JSOO.obj **)
 type elCount = Dom_html.element t
 
 type browserEvent 
@@ -24,10 +34,10 @@ type browserEvent
 class type charcounter = object
   inherit eventTarget
   (** Sets the maximum length. *)
-  method setMaxLength : float -> unit  meth
+  method setMaxLength : int -> unit  meth
 
  (** Returns the maximum length. *)
-  method getMaxLength : float  meth
+  method getMaxLength : int  meth
 
  (** Sets the display mode. *)
   method setDisplayMode : int -> unit  meth
@@ -40,11 +50,6 @@ class type charcounter = object
 
 end
 
-let charcounter : (Dom_html.element t -> Dom_html.element t -> number t -> number t opt -> charcounter t) constr =
+let charcounter : (elInput -> elCount -> int -> Display.t opt -> charcounter t) constr =
   Js.Unsafe.variable "goog.ui.CharCounter"
 
-(** Widget displays the number of characters remaining (the default). **)
-let displayRemaining = Js.number_of_float (0.)
-
-(** Widget displays the number of characters entered. **)
-let displayIncremental = Js.number_of_float (1.)

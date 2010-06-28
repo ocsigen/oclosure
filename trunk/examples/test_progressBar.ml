@@ -38,10 +38,10 @@ let timer = jsnew Timer.Timer.timer (20.)
 
 let _ =
   pB1##setOrientation (Ui.ProgressBar.Orientation.vertical);
-  pB1##render(div1);
+  (*pB1##render(div1);*)
 
   pB2##setOrientation (Ui.ProgressBar.Orientation.horizontal);
-  pB2##decorate(div2);
+  (*pB2##decorate(div2);*)
 
   timer##addEventListener (Js.string "tick",handler);
   timer##start ();

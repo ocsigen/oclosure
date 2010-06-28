@@ -5,14 +5,14 @@
     * A UI Control used for rating things, i.e. videos on Google Video.
     *
     * @author : Oran Charles
-    * @version 0.1
+    * @version 0.2
     * @see 'goog.ui.Component'
 *)
 open Component
+open Js
 
 type element = Dom.element
 
-open Js
 class type ratings = object
   inherit component
   (** Decorate a HTML structure already in the document.  Expects the structure:

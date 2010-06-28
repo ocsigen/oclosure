@@ -20,14 +20,14 @@ let _ =
   and counter1 = Js.Opt.get (d##getElementById (Js.string "counter1"))
     (fun () -> assert false)
   in
-    ignore(jsnew Ui.Charcounter.charcounter (input1,counter1,Js.number_of_float (160.),Js.null));
+    ignore(jsnew Ui.Charcounter.charcounter (input1,counter1,160,Js.null));
 
   let input2 = Js.Opt.get (d##getElementById (Js.string "input2"))
     (fun () -> assert false)
   and counter2 = Js.Opt.get (d##getElementById (Js.string "counter2"))
     (fun () -> assert false)
   in
-    jsnew Ui.Charcounter.charcounter (input2,counter2,Js.number_of_float (160.),Js.some Ui.Charcounter.displayIncremental);
+    jsnew Ui.Charcounter.charcounter (input2,counter2,160,Js.some Ui.Charcounter.Display.INCREMENTAL);
 
   let input3 = Js.Opt.get (d##getElementById (Js.string "input3"))
     (fun () -> assert false)
@@ -38,14 +38,14 @@ let _ =
   and set20 = Js.Opt.get (d##getElementById (Js.string "set2"))
     (fun () -> assert false)
   in
-  let test = jsnew Ui.Charcounter.charcounter (input3,counter3,Js.number_of_float 10., Js.null) 
+  let test = jsnew Ui.Charcounter.charcounter (input3,counter3,10, Js.null) 
   in
-    set10##onclick <- D.handler (fun _ -> test##setMaxLength(10.); Js.bool true);
-    set20##onclick <- D.handler (fun _ -> test##setMaxLength(20.); Js.bool true);
+    set10##onclick <- D.handler (fun _ -> test##setMaxLength(10); Js.bool true);
+    set20##onclick <- D.handler (fun _ -> test##setMaxLength(20); Js.bool true);
 
   let input4 = Js.Opt.get (d##getElementById (Js.string "input4"))
     (fun () -> assert false)
   and counter4 = Js.Opt.get (d##getElementById (Js.string "counter4"))
     (fun () -> assert false)
   in
-    ignore(jsnew Ui.Charcounter.charcounter (input4,counter4,Js.number_of_float (255.),Js.null))
+    ignore(jsnew Ui.Charcounter.charcounter (input4,counter4,255,Js.null))
