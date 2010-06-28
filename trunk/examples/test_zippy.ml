@@ -8,7 +8,7 @@ let header = Js.Opt.get (d##getElementById (Js.string "header"))
 let f () = Js.Opt.get (d##getElementById (Js.string "content"))
     (fun () -> assert false)
 
-let z = jsnew Ui.AnimatedZippy.animatedZippy (
+let z = jsnew Ui.animatedZippy (
   Js.some (Tools.Union.i1 header), 
   Js.some (Tools.Union.i2 (Js.string "content")),
   Js.null)

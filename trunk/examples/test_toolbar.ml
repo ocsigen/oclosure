@@ -3,12 +3,12 @@ open Goog
 module D = Dom_html
 let d = D.document
 
-let t = jsnew Ui.Toolbar.toolbar()
+let t = jsnew Ui.toolbar()
 let toolbar = Js.Opt.get (d##getElementById (Js.string "toolbar"))
     (fun () -> assert false)
 
-let button = jsnew Ui.ToolbarButton.toolbarButton(Js.string "Clik me!")
-let button2 = jsnew Ui.ToolbarButton.toolbarButton(Js.string "Disabled")
+let button = jsnew Ui.toolbarButton(Js.string "Clik me!")
+let button2 = jsnew Ui.toolbarButton(Js.string "Disabled")
 
 let _ = 
   Events.Events.listen 

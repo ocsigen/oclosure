@@ -2,7 +2,7 @@ open Goog
 
 module D = Dom_html
 
-let dialog = jsnew Ui.Dialog.dialog(Js.null, Js.null)
+let dialog = jsnew Ui.dialog(Js.null, Js.null)
 
 let button = D.createButton Dom_html.document
 let _ = 

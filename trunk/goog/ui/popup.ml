@@ -19,10 +19,6 @@
 open PopupBase
 open AbstractPosition
 
-type coordinate = Math.Coordinate.coordinate
-
-type corner = int
-
 open Js
 
 open Tools
@@ -30,10 +26,10 @@ open Tools
 class type popup = object
   inherit popupBase
     (**  Returns the corner of the popup to used in the positioning algorithm.*)
-  method getPinnedCorner : corner meth
+  method getPinnedCorner : Positioning.Corner.t meth
 
     (** Sets the corner of the popup to used in the positioning algorithm.*)
-  method setPinnedCorner : corner -> unit meth
+  method setPinnedCorner : Positioning.Corner.t -> unit meth
 
     (** Returns the position helper object associated with the popup.*)
   method getPosition : abstractPosition t meth
@@ -51,5 +47,5 @@ class type popup = object
   method reposition : unit meth
 end
 
-let popup : (element t opt -> abstractPosition t -> popup t) constr =
+let popup : (Dom_html.element t opt -> abstractPosition t -> popup t) constr =
   Js.Unsafe.variable "goog.ui.Popup"

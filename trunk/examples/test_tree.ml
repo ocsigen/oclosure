@@ -1,7 +1,4 @@
 open Goog.Tree
-open TreeControl
-open TreeNode
-open BaseNode
 open Js
 
 let d = Dom_html.document

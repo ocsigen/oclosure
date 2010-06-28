@@ -16,23 +16,12 @@ open Positioning.AbstractPosition
 
 open Tools
 
-type element = Dom_html.element
 type state =
   | INACTIVE
   | WAITING_TO_SHOW
   | SHOWING
   | WAITING_TO_HIDE
   | UPDATING
-type coordinate = Math.Coordinate.coordinate
-type corner = 
-    TOP_LEFT 
-  | BOTTOM_LEFT
-  | TOP_RIGHT 
-  | BOTTOM_RIGHT
-  | TOP_START
-  | TOP_END
-  | BOTTOM_START
-  | BOTTOM_END
 
 open Js
 class type tooltip = object
@@ -42,10 +31,10 @@ class type tooltip = object
       (** Attach to element. Tooltip will be displayed when the cursor is 
          over the element or when the element has been active for a 
          few milliseconds.*)
-  method attach : (element t, js_string t) Union.t -> unit meth
+  method attach : (Dom_html.element t, js_string t) Union.t -> unit meth
 
     (** Detach from element(s).*)
-  method detach : (element t, js_string t) Union.t opt -> unit meth
+  method detach : (Dom_html.element t, js_string t) Union.t opt -> unit meth
 
     (** Sets delay in milliseconds before tooltip is displayed for an element.*)
   method setshowDelayMs : int -> unit meth
@@ -69,7 +58,7 @@ class type tooltip = object
   method setHtml : js_string t -> unit meth
 
     (** Sets tooltip element.*)
-  method setElement : element t -> unit meth
+  method setElement : Dom_html.element t -> unit meth
 
     (** Returns the tooltip message as plain text.*)
   method getText : js_string t meth
@@ -85,19 +74,19 @@ class type tooltip = object
   method setRequireInteraction : bool t -> unit meth
 
     (** Returns true if the coord is in the tooltip.*)
-  method isCoordinateInTooltip : coordinate t -> bool t meth
+  method isCoordinateInTooltip : Math.Coordinate.coordinate t -> bool t meth
 
     (** Called by timer from mouse over handler. Shows tooltip if 
        * cursor is still over the same element.*)
-  method maybeShow : element t -> abstractPosition t opt -> unit meth
+  method maybeShow : Dom_html.element t -> abstractPosition t opt -> unit meth
 
     (** Shows tooltip for a specific element.*)
-  method showForElement : element t -> abstractPosition t opt -> unit meth
+  method showForElement : Dom_html.element t -> abstractPosition t opt -> unit meth
 
     (** Called by timer from mouse out handler. Hides tooltip if cursor 
        * is still outside element and tooltip, or if a child of tooltip has the
        * focus.*)
-  method maybeHide : element t -> unit meth
+  method maybeHide : Dom_html.element t -> unit meth
 
     (** Returns whether tooltip element contains an active child tooltip,
        * and should thus not be hidden. When the child tooltip is hidden, it
@@ -111,5 +100,5 @@ class type tooltip = object
   method className : js_string t prop
 end
 
-let tooltip : ((element t, js_string t) Union.t opt -> js_string t opt -> domHelper t opt -> tooltip t) constr =
+let tooltip : ((Dom_html.element t, js_string t) Union.t opt -> js_string t opt -> domHelper t opt -> tooltip t) constr =
   Js.Unsafe.variable "goog.ui.Tooltip"

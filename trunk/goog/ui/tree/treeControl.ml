@@ -14,8 +14,6 @@ open BaseNode
 open TreeNode
 open Gdom
 
-type config
-
 class type ['a] treeControl = object
   inherit ['a] baseNode
 (**

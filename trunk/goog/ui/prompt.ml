@@ -15,17 +15,14 @@
 *)
 open Dialog
 
-(** Number **)
-type number
-
 open Js
 class type prompt = object
   inherit dialog
   (** Return the number of cols in the user input element. *)
-  method getCols : number meth
+  method getCols : int meth
  
  (** Return the number of rows in the user input element. *)
-  method getRows : number meth
+  method getRows : int meth
  
  (** Set the number of cols in the user input element. *)
   method setCols : int -> unit meth

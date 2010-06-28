@@ -20,8 +20,8 @@ let div2 = Js.Opt.get (d##getElementById (Js.string "pb2"))
 let out = Js.Opt.get (d##getElementById (Js.string "out"))
   (fun () -> assert false)
 
-let pB1 = jsnew Ui.ProgressBar.progressBar ()
-let pB2 = jsnew Ui.ProgressBar.progressBar ()
+let pB1 = jsnew Ui.progressBar ()
+let pB2 = jsnew Ui.progressBar ()
 
 let last = ref 0.
 let delta = ref 1.

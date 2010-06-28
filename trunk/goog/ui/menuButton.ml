@@ -14,8 +14,6 @@ open Event
 open Menu
 open MenuItem
 
-type element = Dom_html.element
-
 open Js
 class type menuButton = object
   inherit button
@@ -32,68 +30,68 @@ class type menuButton = object
   (** Handles mousedown events. Invokes the superclass implementation to dispatch
    * an ACTIVATE event and activate the button.  Also toggles the visibility of
    * the attached menu.*)
-  method handleMouseDown : event -> unit meth
+  method handleMouseDown : event t -> unit meth
 
   (** Handles mouseup events. Invokes the superclass implementation to dispatch
    * an ACTION event and deactivate the button.*)
-  method handleMouseUp : event -> unit meth
+  method handleMouseUp : event t -> unit meth
   
   (** Performs the appropriate action when the menu button is activated by the
    * user.*)
-  method performActionInternal : event -> bool meth
+  method performActionInternal : event t -> bool t meth
   
   (** Handles mousedown events over the document.  If the mousedown happens over
    * an element unrelated to the component, hides the menu.*)
-  method handleDocumentMouseDown : event (**browserEvent*) -> unit meth
+  method handleDocumentMouseDown : event t (**browserEvent*) -> unit meth
   
   (** Returns true if the given element is to be considered part of the component,
    * even if it isn't a DOM descendant of the component's root element.*)
-  method containsElement : element -> bool meth
+  method containsElement : Dom_html.element t -> bool t meth
   
   (** @inheritDoc *)
-  method handleKeyEventInternal : event -> bool meth
+  method handleKeyEventInternal : event t -> bool t meth
   
   (** Handles [ACTION] events dispatched by an activated menu item.*)
-  method handleMenuAction : event -> bool meth
+  method handleMenuAction : event t -> bool t meth
 
   (** Handles [BLUR] events dispatched by the popup menu by closing it.
    * Only registered if the menu is focusable.*)
-  method handleMenuBlur : event -> unit meth
+  method handleMenuBlur : event t -> unit meth
   
   (** Handles blur events dispatched by the button's key event target when it
    * loses keyboard focus by closing the popup menu (unless it is focusable).
    * Only registered if the button is focusable.*)
-  method handleBur : event -> unit meth
+  method handleBur : event t -> unit meth
  
   (** Returns the menu attached to the button.  If no menu is attached, creates a
    * new empty menu.*)
-  method getMenu : menu meth
+  method getMenu : menu t meth
   
   (** Replaces the menu attached to the button with the argument, and returns the
    * previous menu (if any).*)
-  method setMenu : menu -> menu meth
+  method setMenu : menu t -> menu t meth
   
   (** Adds a new menu item at the end of the menu.*)
-  method addItem : menuItem -> unit meth
+  method addItem : menuItem t -> unit meth
   
   (** Adds a new menu item at the specific index in the menu.*)
-  method addItemAt : menuItem -> float -> unit meth
+  method addItemAt : menuItem t -> int -> unit meth
   
   (** Removes the item from the menu and disposes of it.*)
-  method removeItem : menuItem -> unit meth
+  method removeItem : menuItem t -> unit meth
 
   (** Removes the menu item at a given index in the menu and disposes of it.*)
-  method removeItemAt : float -> unit meth
+  method removeItemAt : int -> unit meth
   
   (** Returns the menu item at a given index.*)
-  method getItemAt : float -> menuItem meth
+  method getItemAt : int  -> menuItem meth
   
   (** Returns the number of items in the menu (including separators).*)
-  method getItemCount : float meth
+  method getItemCount : int meth
   
   (** Shows/hides the menu button based on the value of the argument.  Also hides
    * the popup menu if the button is being hidden.*)
-  method setVisible : bool -> bool meth
+  method setVisible : bool t -> bool t meth
   
   (** Enables/disables the menu button based on the value of the argument, and
    * updates its CSS styling.  Also hides the popup menu if the button is being
@@ -103,26 +101,26 @@ class type menuButton = object
   (** @return Whether the menu is aligned to the start of the button
    * (left if the render direction is left-to-right, right if the render
    * direction is right-to-left).*)
-  method isAlignMenuToStart : bool meth
+  method isAlignMenuToStart : bool t meth
   
   (** Sets whether the menu is aligned to the start or the end of the button.*)
-  method setAlignMenuToStart : bool -> unit meth
+  method setAlignMenuToStart : bool t -> unit meth
   
   (** Sets whether the menu should scroll when it's too big to fix vertically on
    * the screen.  The css of the menu element should have overflow set to auto.*)
-  method setScrollOnOverflow : bool -> unit meth
+  method setScrollOnOverflow : bool t -> unit meth
   
   (** @return Wether the menu will scroll when it's to big to fit
    * vertically on the screen.*)
-  method isScrollOnOverflow : bool meth
+  method isScrollOnOverflow : bool t meth
   
   (** @return Whether the attached menu is focusable.*)
-  method isFocusablePopupMenu : bool meth
+  method isFocusablePopupMenu : bool t meth
   
   (** Sets whether the attached popup menu is focusable.  If the popup menu is
    * focusable, it may steal keyboard focus from the menu button, so the button
    * will not hide the menu on blur.*)
-  method setFocusablePopupMenu : bool -> unit meth
+  method setFocusablePopupMenu : bool t -> unit meth
   
   (** Reveals the menu and hooks up menu-specific event handling.*)
   method showMenu : unit meth
@@ -131,20 +129,20 @@ class type menuButton = object
   method hideMenu : unit meth
   
   (** Opens or closes the attached popup menu.*)
-  method setOpen : bool -> unit meth
+  method setOpen : bool t -> unit meth
 
   (** Positions the menu under the button.  May be called directly in cases when
    * the menu size is known to change.*)
   method positionMenu : unit meth
   
   (** Handles [HIGHLIGHT] events dispatched by the attached menu.*)
-  method handleHighlightItem : event -> unit meth
+  method handleHighlightItem : event t -> unit meth
 
   (** Handles UNHIGHLIGHT events dispatched by the associated menu.*)
-  method handleUnHighlightItem : event -> unit meth
+  method handleUnHighlightItem : event t -> unit meth
   
 end
 
-let menuButton : (js_string t -> menu -> menuButton t) constr =
+let menuButton : (js_string t -> menu t -> menuButton t) constr =
   Js.Unsafe.variable "goog.ui.MenuButton"
   

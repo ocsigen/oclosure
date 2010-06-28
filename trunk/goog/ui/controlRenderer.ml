@@ -23,10 +23,8 @@
 *)
 open Js
 
-type element = Dom_html.element
-
 class type controlRenderer = object
-  method canDecorate : element t -> bool t meth
+  method canDecorate : Dom_html.element t -> bool t meth
 end
 
 let controlRenderer : controlRenderer t constr = 

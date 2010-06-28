@@ -9,7 +9,6 @@
  *)
 
 open Component
-type element = Dom.element
 
 open Js
 class type scrollFloater = object
@@ -19,7 +18,7 @@ class type scrollFloater = object
   method createDom : unit meth
   
   (** Decorates the floated element with the standard ScrollFloater CSS class.*)
-  method decorateInternal : element -> unit meth
+  method decorateInternal : Dom_html.element t -> unit meth
   
   (** @inheritDoc*)
   method enterDocument : unit meth
@@ -28,15 +27,15 @@ class type scrollFloater = object
   method diposeInternal : unit meth
   
   (** Sets whether the element should be floated if it scrolls out of view.*)
-  method setScrollingEnabled : bool -> unit meth
+  method setScrollingEnabled : bool t -> unit meth
   
   (** Whether the component is enabled for scroll-floating.*)
-  method isScrollingEnabled : bool meth
+  method isScrollingEnabled : bool t meth
   
   (** Whether the component is currently scroll-floating.*)
-  method isFloating : bool meth
+  method isFloating : bool t meth
 
 end
 
-let scrollFloater : (unit -> scrollFloater t) constr =
+let scrollFloater : scrollFloater t constr =
   Js.Unsafe.variable "goog.ui.ScrollFloater"

@@ -8,10 +8,9 @@
  * @version 0.1
 *)
 open Component
-type element = Dom_html.element
-
 
 open Js
+
 class type labelinput = object
   inherit component
   (* Creates the DOM nodes needed for the label input.*)
@@ -20,7 +19,7 @@ class type labelinput = object
   * has a "label" attribute then that will be used as the label property for the
   * label input object.
   * @param element The HTML input element to decorate.*)
-  method decorateInternal : element -> unit meth
+  method decorateInternal : Dom_html.element t -> unit meth
  (* Called when the DOM for the component is for sure in the document.*)
   method enterDocument : unit meth
  (* Called when the DOM for the component is removed from the document or

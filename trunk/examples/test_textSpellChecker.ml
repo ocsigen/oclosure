@@ -1,6 +1,5 @@
 open Js
 open Goog.Spell.SpellCheck
-open Goog.Ui.AbstractSpellChecker
 
 let dict = ["test"; "words"; "a"; "few"]
 let propose = Array.map Js.string [|"foo"; "bar"; "test"|]
@@ -20,7 +19,7 @@ let spell_checking words spell_checker callback =
 
 let handler = jsnew spellCheck(Js.wrap_callback spell_checking)
 
-let s = jsnew Goog.Ui.PlainTextSpellChecker.plainTextSpellChecker (handler, Js.null)
+let s = jsnew Goog.Ui.plainTextSpellChecker (handler, Js.null)
 
 let d = Dom_html.document
 let button txt h =

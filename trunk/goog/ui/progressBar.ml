@@ -66,8 +66,10 @@ let progressBar : progressBar t constr =
    *
    * @enum string
 *)
+module ProgressBar = struct
 module Orientation = 
   (struct
      let vertical = Js.string "vertical"
      let horizontal = Js.string "horizontal"
    end)
+end

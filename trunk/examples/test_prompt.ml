@@ -16,7 +16,7 @@ let handler s =
   Js._true
 
 let prompt = 
-  jsnew Ui.Prompt.prompt(Js.string "Goog.ui.Prompt", Js.string "Question", 
+  jsnew Ui.prompt(Js.string "Goog.ui.Prompt", Js.string "Question", 
 			 handler)
 
 let button = D.createButton document 

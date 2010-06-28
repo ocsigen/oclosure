@@ -11,8 +11,7 @@ open Js
 open Gdom
 open Component
 
-type element = Dom_html.element
-type config
+type config 
 
 class type ['a] baseNode = object
   inherit component
@@ -43,7 +42,7 @@ class type ['a] baseNode = object
    Creates the element.
    @return The element.
 *)
-  method createDom : element t meth
+  method createDom : Dom_html.element t meth
 
   method deselect : unit meth
 
@@ -60,7 +59,7 @@ class type ['a] baseNode = object
 (**
    @return The element after the label.
 *)
-  method getAfterLabelElement : element t meth
+  method getAfterLabelElement : Dom_html.element t meth
 
 (**
    Returns the html that appears after the label. This is useful if you want to
@@ -82,7 +81,7 @@ class type ['a] baseNode = object
 (**
    @return The div containing the children.
 *)
-  method getChildrenElement : element t meth
+  method getChildrenElement : Dom_html.element t meth
 
 (**
    @return Data set by the client.
@@ -104,7 +103,7 @@ class type ['a] baseNode = object
 (**
    @return The element for the tree node.
 *)
-  method getElement : element t meth
+  method getElement : Dom_html.element t meth
 
 (**
    @return The src for the icon used for expanding the node.
@@ -114,7 +113,7 @@ class type ['a] baseNode = object
 (**
    @return The expanded icon element.
  *)
-  method getExpandIconElement : element t meth
+  method getExpandIconElement : Dom_html.element t meth
 
 (**
    @return The source for the icon.
@@ -152,7 +151,9 @@ class type ['a] baseNode = object
   method setClientData : 'a opt -> unit meth      
 end
 
-let baseNode_ = Js.Unsafe.variable "goog.ui.tree.BaseNode"
-let baseNode : (js_string t -> config opt -> DomHelper.domHelper t opt -> 'a baseNode t) constr = baseNode_
+let baseNode = Js.Unsafe.variable "goog.ui.tree.BaseNode"
+let baseNode : (js_string t -> config opt -> DomHelper.domHelper t opt -> 'a baseNode t) constr = baseNode
 
+module BaseNode = struct
 let add (t : 'a #baseNode t) n1 n2 = ignore (t##add ((n1 : 'a #baseNode t :> 'a baseNode t), (n2 : 'a #baseNode t opt :> 'a baseNode t opt)))
+end

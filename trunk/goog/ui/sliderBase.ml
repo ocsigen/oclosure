@@ -10,18 +10,11 @@
 
 open Js 
 open Component
-type slidorient
-type element = Dom.element
 
-
-let orientation_vertical = "vertical"
-let orientation_horizontal = "horizontal"
-
-open Js
 class type sliderBase = object
   inherit component
   method createDom : unit meth
-  method decorateInternal : element -> unit meth
+  method decorateInternal : Dom_html.element t -> unit meth
   (* Called when the DOM for the component is for sure in the document.
    * Subclasses should override this method to set this element's role.*)
   method enterDocument : unit meth
@@ -76,10 +69,10 @@ class type sliderBase = object
    * value.
    * @param step  The step size.
    *)
-  method setStep: int -> unit  meth
+  method setStep : int -> unit meth
   (* @return Whether clicking on the backgtround should move directly to
    *     that point.*)
-  method getMoveToPointEnabled :unit -> bool  meth
+  method getMoveToPointEnabled : unit -> bool meth
   (* Sets whether clicking on the background should move directly to that point.
   * @param val Whether clicking on the background should move directly
    *     to that point.
@@ -106,9 +99,9 @@ class type sliderBase = object
   (* Change the visibility of the slider.
    * You must call this if you had set the slider's value when it was invisible.
    * @param visible Whether to show the slider.*)
-  method setVisible : bool -> unit meth
+  method setVisible : bool t -> unit meth
   (* Set a11y roles and state.*)
-  method setAriaRoles:unit -> unit  meth
+  method setAriaRoles: unit -> unit  meth
   (* Set a11y roles and state when values change.*)
   method updateAriaStates : unit meth
 end

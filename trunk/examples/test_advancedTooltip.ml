@@ -2,7 +2,7 @@ open Tools
 
 let id s = Tools.Union.i2 (Js.string s)
 
-let tooltip = jsnew Goog.Ui.AdvancedTooltip.advancedTooltip(
+let tooltip = jsnew Goog.Ui.advancedTooltip(
   Js.some (id "btn"), Js.null, Js.null)
 let _ =
   tooltip##className <- Js.string "tooltip";
@@ -26,11 +26,11 @@ open.</li></ul><hr/><div style=\"text-align: center;\">
     Js.null, Js.null, Js.null);
   tooltip##setHideDelayMs(250)
     
-let at = jsnew Goog.Ui.AdvancedTooltip.advancedTooltip(
+let at = jsnew Goog.Ui.advancedTooltip(
   Js.some (id "btn-nest"), Js.null, Js.null) in
 at##setHtml(
 Js.string "Clicking<br> this<br> button<br> has no effect.")
-let at1 = jsnew Goog.Ui.Tooltip.tooltip(
+let at1 = jsnew Goog.Ui.tooltip(
   Js.some (id "btn-close"), Js.some (Js.string "Closes tooltip"), Js.null)
 
 let bc = 
@@ -41,6 +41,6 @@ let _ =
   Goog.Events.Events.listen 
     (Tools.Union.i2 bc)
     (Js.string "click")
-    (fun () -> tooltip##setVisible(Js._false););
-  Dom_html.window##alert(Js.string "hi")
+    (fun () -> tooltip##setVisible(Js._false);)
+    Js._false
     

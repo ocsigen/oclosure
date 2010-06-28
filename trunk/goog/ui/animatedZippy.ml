@@ -24,8 +24,5 @@ class type animatedZippy = object
 
 end
 
-type element = Dom_html.element
-type element_or_string = (element t, js_string t) Union.t
-
-let animatedZippy : (element_or_string opt -> element_or_string opt -> bool t opt -> animatedZippy t) constr =
+let animatedZippy : ((Dom_html.element t, js_string t) Union.t opt -> (Dom_html.element t, js_string t) Union.t opt -> bool t opt -> animatedZippy t) constr =
   Js.Unsafe.variable "goog.ui.AnimatedZippy"

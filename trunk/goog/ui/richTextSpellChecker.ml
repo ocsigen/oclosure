@@ -9,8 +9,6 @@
 open Js
 open Tools
 
-type element = Dom_html.element
-
 class type richTextSpellChecker = object
   inherit AbstractSpellChecker.abstractSpellChecker
 
@@ -32,7 +30,7 @@ class type richTextSpellChecker = object
    
    @param {Element} element Element to decorate.
  *)
-  method decorateInternal : element t -> unit meth
+  method decorateInternal : Dom_html.element t -> unit meth
 
 (** @inheritDoc *)
   method disposeInternal : unit meth

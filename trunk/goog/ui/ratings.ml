@@ -11,8 +11,6 @@
 open Component
 open Js
 
-type element = Dom.element
-
 class type ratings = object
   inherit component
   (** Decorate a HTML structure already in the document.  Expects the structure:
@@ -25,7 +23,7 @@ class type ratings = object
       *
       The div can contain other elements for graceful degredation, but they will be 
       hidden when the decoration occurs. **)
-  method decoreInternal : element -> unit meth
+  method decoreInternal : Dom_html.element t -> unit meth
  
  (** Render the rating widget inside the provided element. This will override the
      current content of the element. **)
@@ -67,11 +65,11 @@ class type ratings = object
 
  (** Attaches an input or select element to the ratings widget. The value or
      index of the field will be updated along with the ratings widget. **)
-  method setAttachedFormField : element meth
+  method setAttachedFormField : Dom_html.element t meth
 
 end
 
-let ratings : (unit -> ratings t) constr =
+let ratings : ratings t constr =
   Js.Unsafe.variable "goog.ui.Ratings"
 
 (** Enums for Ratings event type **)

@@ -16,9 +16,7 @@ open AbstractPosition
 open Js
 class type anchoredPosition = object
   inherit abstractPosition
-  (** Repositions the movable element.*)
-  method  reposition : element -> corner-> box -> unit meth
 end
 
-let anchoredPosition : (element -> corner -> anchoredPosition t) constr =
+let anchoredPosition : (Dom_html.element t -> corner -> anchoredPosition t) constr =
   Js.Unsafe.variable "goog.positioning.AnchoredPosition"

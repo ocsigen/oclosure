@@ -8,21 +8,18 @@
     * @version 0.1
 *)
 
-(** JSOO.obj **)
-type element = Dom_html.element
-
 (** goog.math.Box **)
-type box
+type box = Math.Box.box
 
 (** goog.math.Size **)
-type size
+type size = Math.Size.size
 
-type corner
+type corner (*= Positioning.Corner.t*)
 
 open Js
 class type abstractPosition = object
   (**  Repositions the element. Abstract method, should be overloaded **)
-  method reposition: element -> corner -> box (*->  size*) -> unit meth
+  method reposition: Dom_html.element t -> corner -> box t opt -> size t opt -> unit meth
 end
 
 let abstractPosition : abstractPosition t constr =

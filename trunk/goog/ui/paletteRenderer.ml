@@ -16,7 +16,7 @@ open ControlRenderer
 
 class type paletteRenderer = object
     inherit controlRenderer
-    method canDecorate : element t -> bool t meth
+    method canDecorate : Dom_html.element t -> bool t meth
 end
 
 let paletteRenderer : paletteRenderer t constr = 

@@ -10,40 +10,31 @@
     * @version 0.1
 *)
 
-(** JSOO.obj **)
-type element = Dom_html.element
-
 (** goog.ui.Popup.AnchoredPosition **)
 type anchoredPosition
 
-(** goog.positioning.Corner **)
-type corner 
-
 (** goog.positioning.AbstractPosition **)
 type abstractPosition 
-
-(** Number **)
-type number
 
 open Js
 class type bubble = object
   (** Attaches the bubble to an anchor element. 
       Computes the positioning and orientation of the bubble *)
-  method attach : element -> unit meth
+  method attach : Dom_html.element t -> unit meth
 
  (** Returns an AnchoredPosition that will position the bubble optimally given 
      the position of the anchor element and the size of the viewport *)
-  method getComputedAnchoredPosition: element -> anchoredPosition meth
+  method getComputedAnchoredPosition: Dom_html.element t -> anchoredPosition meth
  
   (** Whether the bubble is visible. *)
-  method isVisible : bool meth
+  method isVisible : bool t meth
   
   (**  Sets whether the bubble should be automatically hidden 
        whenever user clicks outside the bubble element *)
-  method setAutoHide : bool -> unit meth
+  method setAutoHide : bool t -> unit meth
   
   (**  Sets the corner of the bubble to used in the positioning algorithm *)
-  method setPinnedCorner : corner -> unit meth
+  method setPinnedCorner : Positioning.Corner.t -> unit meth
 
   (**  Sets the position of the bubble.
        Pass null for corner in AnchoredPosition for 
@@ -54,7 +45,7 @@ class type bubble = object
   method setTimeout : int -> unit meth
   
   (**  Sets whether the bubble should be visible *)
-  method setVisible : bool -> unit meth
+  method setVisible : bool t -> unit meth
 
 end
 

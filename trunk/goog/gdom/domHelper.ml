@@ -10,17 +10,11 @@
 open Js
 open Tools
 
-(** Javascript Element *)
-type element = Dom_html.element Js.t
-
 (** Node *) 
 type node = Dom.node t
 
 (** Document object*)
 type document = Dom_html.document t
-
-(** goog.math.Coordinate: Object with values 'x' and 'y' *) 
-type coordinate = Math.Coordinate.coordinate t
 
 (** goog.math.Size *)
 type size 
@@ -38,10 +32,10 @@ class type domHelper = object
  (** Returns a dom node with a set of attributes. 
      This function accepts varargs for subsequent nodes to be added. 
      Subsequent nodes will be added to the first node as childNodes. *)
-  method createDom: js_string Js.t -> js_string Js.t Js.opt -> js_string Js.t -> element meth
+  method createDom: js_string Js.t -> js_string Js.t Js.opt -> js_string Js.t -> Dom_html.element t meth
  
  (**  Creates a new element *)
-  method createElement : js_string Js.t -> element meth
+  method createElement : js_string Js.t -> Dom_html.element t meth
  
  (** Creates a new text node *)
   method createTextNode: js_string Js.t -> node meth
@@ -52,7 +46,7 @@ class type domHelper = object
  
  (** Flattens an element. 
      That is, removes it and replace it with its children *)
-  method flattenElement: element -> element meth
+  method flattenElement: Dom_html.element t -> Dom_html.element t meth
  
  (** Walks up the DOM hierarchy returning the first ancestor
      that passes the matcher function. *)
@@ -74,35 +68,35 @@ class type domHelper = object
   method getDocumentHeight: int meth
 
  (** Gets the document scroll distance as a coordinate object **)
-  method getDocumentScroll: coordinate meth
+  method getDocumentScroll: Math.Coordinate.coordinate t meth
 
  (** Gets the document scroll element **)
-  method getDocumentScrollElement: element meth
+  method getDocumentScrollElement: Dom_html.element t meth
 
  (** Gets the DomHelper object for the document where the element resides *)
   method getDomHelper: node -> domHelper meth
  
  (** Return the element with the given ID **)
-  method getElement : (element, js_string t) Union.t -> element meth
+  method getElement : (Dom_html.element t, js_string t) Union.t -> Dom_html.element t meth
  
  (** Looks up elements by both tag and class name, using browser native
      functions (querySelectorAll, getElementsByTagName or 
      getElementsByClassName) where possible. 
      The returned array is a live NodeList or a static list depending on
      the code path taken. *)
-  method getElementByTagNameAndClass: js_string Js.t -> js_string Js.t -> element -> number meth
+  method getElementByTagNameAndClass: js_string Js.t -> js_string Js.t -> Dom_html.element t -> number meth
 
  (** Returns the first child node that is an element *)
   method getFirstElementChild: node -> node meth
 
  (** Cross browser function for getting the document element of an iframe *)
-  method getFrameContentDocument: element -> element meth
+  method getFrameContentDocument: Dom_html.element t -> Dom_html.element t meth
 
  (** Returns the last child node that is an element *)
-  method getLastElementChild: node -> element meth
+  method getLastElementChild: node -> Dom_html.element t meth
 
  (** Returns the first next sibling that is an element *)
-  method getNextElementSibling: node -> element meth
+  method getNextElementSibling: node -> Dom_html.element t meth
 
  (** Returns the next node in source order from the given node **)
   method getNextNode: node -> node meth
@@ -119,13 +113,13 @@ class type domHelper = object
   method getNodeTextOffset: node -> node -> number meth
 
  (** Returns the owner document for a node. *)
-  method getOwnerDocument: node -> element meth
+  method getOwnerDocument: node -> Dom_html.element t meth
    
  (** Returns the first previous sibling that is an element **)
-  method getPreviousElementSibling: node -> element meth
+  method getPreviousElementSibling: node -> Dom_html.element t meth
 
  (** Returns the previous node in source order from the given node. *)
-  method getPreviousNode: node -> element meth
+  method getPreviousNode: node -> Dom_html.element t meth
 
  (** Returns the text content of the current node, without markup 
      and invisible symbols.
@@ -176,10 +170,10 @@ class type domHelper = object
   method setDocument: document -> unit meth
 
  (** Sets a number of properties on a node. *)
-  method setProperties: element -> element -> unit meth
+  method setProperties: Dom_html.element t -> Dom_html.element t -> unit meth
  
  (** Cross browser function for setting the text content of an element. *)
-  method setTextContent: element -> js_string Js.t -> unit meth
+  method setTextContent: Dom_html.element t -> js_string Js.t -> unit meth
 end
 
 let domHelper : domHelper Js.t constr = 

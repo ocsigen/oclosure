@@ -16,22 +16,17 @@ open Js
 (**
    * Display mode for the charcounter.
 *)
-module Display = 
-  (struct
-     type t = 
-	 (** Widget displays the number of characters remaining (the default). *)
-	 REMAINING
-	   (** Widget displays the number of characters entered. *)
-       |INCREMENTAL
-   end)
+module CharCounter = struct
+  module Display = struct
+    type t = 
+      (** Widget displays the number of characters remaining (the default). *)
+      REMAINING
+      (** Widget displays the number of characters entered. *)
+     |INCREMENTAL
+  end
+end
 
-type elInput = Dom_html.element t
-
-type elCount = Dom_html.element t
-
-type browserEvent 
-
-class type charcounter = object
+class type charCounter = object
   inherit eventTarget
   (** Sets the maximum length. *)
   method setMaxLength : int -> unit  meth
@@ -50,6 +45,6 @@ class type charcounter = object
 
 end
 
-let charcounter : (elInput -> elCount -> int -> Display.t opt -> charcounter t) constr =
+let charCounter : (Dom_html.element t -> Dom_html.element t -> int -> CharCounter.Display.t opt -> charCounter t) constr =
   Js.Unsafe.variable "goog.ui.CharCounter"
 

@@ -40,5 +40,5 @@ end
    tooltip but can track the cursor position and direction to determine if the 
    tooltip should be dismissed or remain open.
 *)
-let advancedTooltip : ((element t, js_string t) Union.t opt -> js_string t opt -> domHelper t opt -> advancedTooltip t) constr = 
+let advancedTooltip : ((Dom_html.element t, js_string t) Union.t opt -> js_string t opt -> domHelper t opt -> advancedTooltip t) constr = 
   Js.Unsafe.variable "goog.ui.AdvancedTooltip"

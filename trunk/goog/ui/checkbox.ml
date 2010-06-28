@@ -11,7 +11,6 @@
  *)
 
 open Control
-type element = Dom_html.element
 
 open Js
 class type checkbox = object
@@ -34,7 +33,7 @@ class type checkbox = object
      * Behaves the same way as the 'label' HTML tag. The label element has to be the
      * direct or non-direct ancestor of the checkbox element because it will get the
      * focus when keyboard support is implemented.*)
-  method setLabel : element t -> unit meth
+  method setLabel : Dom_html.element t -> unit meth
     
     (** Toggles the checkbox.*)
   method toggle : unit meth
@@ -43,7 +42,7 @@ class type checkbox = object
   method createDom : unit meth
     
     (** @inheritDoc*)
-  method decorateInternal : element t -> unit meth
+  method decorateInternal : Dom_html.element t -> unit meth
     
     (** @inheritDoc*)
   method enterDocument : unit meth

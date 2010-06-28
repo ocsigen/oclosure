@@ -13,8 +13,6 @@
 
 open Js
 
-type element = Dom_html.element
-
 (**  Enumeration of type string
     goog.ui.PopupBase.Type = {
     * TOGGLE_DISPLAY: 'toggle_display',
@@ -39,10 +37,10 @@ class type popupBase = object
   method setShouldHideAsync : bool t -> unit meth
       
     (** Returns the dom element that should be used for the popup.*)
-  method getElement : element t meth
+  method getElement : Dom_html.element t meth
       
     (** Specifies the dom element that should be used for the popup.*)
-  method setElement : element t -> unit meth
+  method setElement : Dom_html.element t -> unit meth
       
     (** Returns whether the Popup dismisses itself when the user clicks
        * outside of it.*)
@@ -112,5 +110,5 @@ class type popupBase = object
   method onBeforeShow : bool t meth
 end
  
-let popubBase : (element t -> popupBase t) constr =
+let popubBase : (Dom_html.element t -> popupBase t) constr =
   Js.Unsafe.variable "goog.ui.PopupBase"

@@ -12,8 +12,6 @@
 open Js
 open Tools
 
-type element = Dom_html.element
-
 class type abstractSpellChecker = object ('self)
   inherit Component.component
 
@@ -50,7 +48,7 @@ class type abstractSpellChecker = object ('self)
    @param old Word that was replaced.
    @param word Word to replace with.
  *)
-  method replaceWord : element t -> js_string t -> js_string t -> unit meth
+  method replaceWord : Dom_html.element t -> js_string t -> js_string t -> unit meth
 
 (**
    Hides correction UI.
@@ -83,7 +81,7 @@ class type abstractSpellChecker = object ('self)
    display menu at relative to the viewport (in client coordinates), or a
    mouse event.
  *)
-  method showSuggestionsMenu : element t -> (Events.BrowserEvent.browserEvent t, Math.Coordinate.coordinate t) Union.t opt -> unit meth
+  method showSuggestionsMenu : Dom_html.element t -> (Events.BrowserEvent.browserEvent t, Math.Coordinate.coordinate t) Union.t opt -> unit meth
 
   method markCorrected : bool t prop
 end

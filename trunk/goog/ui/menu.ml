@@ -18,7 +18,6 @@ open Js
 open Component
 open MenuItem
 open Coordinate
-type element = Dom_html.element
 
 class type menu = object
   inherit component
@@ -26,7 +25,7 @@ class type menu = object
 
   (** Returns whether the provided element is to be considered inside the menu for
    * purposes such as dismissing the menu on an event.*)
-  method containsElement : element -> bool t meth
+  method containsElement : Dom_html.element t -> bool t meth
   
   (** Adds a new menu item at the end of the menu.*)
   method addItem : menuItem (* | goog.ui.MenuSeparator *)-> unit meth

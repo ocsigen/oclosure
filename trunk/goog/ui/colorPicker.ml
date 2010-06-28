@@ -20,21 +20,14 @@ open Js
 
 (** [Array.<string>]
     The array of colors to be added.*)
-type colors = js_string array
+type colors = js_string t js_array t
 
 (** [js_string t] Color*)
-type color = js_string
-
-(** JSOO.obj *)
-type element 
+type color = js_string t
 
 (** [oog.math.Size]
     The size of the grid. *)
 type size = int
-
-(** type number 
-    The index of the color selected. *)
-type number
 
 class type colorPicker = object
   inherit component
@@ -44,7 +37,7 @@ class type colorPicker = object
 
  (** ColorPickers cannot be used to decorate pre-existing html,
      since the structure they build is fairly complicated. *)
-  method canDecorate : element -> bool meth
+  method canDecorate : Dom_html.element t -> bool meth
 
 (** Renders the color picker inside the provided element.
      This will override the current content of the element. *)

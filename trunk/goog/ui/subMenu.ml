@@ -11,7 +11,6 @@ open Menu
 open MenuItem
 open Component
 open Event
-type element = Dom.element
 
 open Js
 class type subMenu = object
@@ -28,7 +27,7 @@ class type subMenu = object
   (** Dismisses the submenu on a delay, with the result that the user needs less
    * accuracy when moving to submenus.  Alternate implementations could use
    * geometry instead of a timer.*)
-  method setHighlighted : bool -> unit meth
+  method setHighlighted : bool t -> unit meth
 
   (** Show the submenu and ensure that all siblings are hidden.*)
   method showSubMenu : unit meth
@@ -40,13 +39,13 @@ class type subMenu = object
   method clearTimers : unit meth
 
   (** Sets the menu item to be visible or invisible.*)
-  method setVisible : bool -> bool meth
+  method setVisible : bool t -> bool t meth
 
   (**Handles a key event that is passed to the menu item from its parent because
    * it is highlighted.  If the right key is pressed the sub menu takes control
    * and delegates further key events to its menu until it is dismissed OR the
    * left key is pressed.*)
-  method handleKeyEvent : event (*KeyEvent*) -> bool meth
+  method handleKeyEvent : event (*KeyEvent*) -> bool t meth
 
   (** Sets a timer to show the submenu and then dispatches an ENTER event to the
    * parent menu.*)
@@ -54,13 +53,13 @@ class type subMenu = object
 
   (** Overrides the default mouseup event handler, so that the ACTION isn't
    * dispatched for the submenu itself, instead the submenu is shown instantly.*)
-  method performActionInternal : event (*BrowserEvent*) -> bool meth
+  method performActionInternal : event (*BrowserEvent*) -> bool t meth
 
   (** Sets whether the submenu is aligned at the end of the parent menu.*)
-  method setAlignToEnd : bool -> unit meth
+  method setAlignToEnd : bool t -> unit meth
 
   (** Determines whether the submenu is aligned at the end of the parent menu.*)
-  method isAlignedToEnd : bool meth
+  method isAlignedToEnd : bool t meth
 
   (** Adds a new menu item at the end of the menu.*)
   method addItem : menuItem -> unit meth
@@ -92,13 +91,13 @@ class type subMenu = object
   (** Returns true if the provided element is to be considered inside the menu for
    * purposes such as dismissing the menu on an event.  This is so submenus can
    * make use of elements outside their own DOM.*)
-  method containsElement : element -> bool meth
+  method containsElement : Dom_html.element t -> bool t meth
 
   (** @param isAdjustable Whether this submenu is adjustable.*)
-  method setPositionAdjustable : bool -> unit meth
+  method setPositionAdjustable : bool t -> unit meth
 
   (** @return Whether this submenu is adjustable.*)
-  method isPositionAdjustable : bool meth
+  method isPositionAdjustable : bool t meth
 end
 
 let subMenu : (js_string t -> subMenu t) constr =

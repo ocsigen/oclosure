@@ -10,8 +10,6 @@
 open Events.EventTarget
 open Js
 
-type element = Dom_html.element
-
 class type component = object
   inherit eventTarget
   (** Adds the specified component as the last child of this component. 
@@ -19,7 +17,7 @@ class type component = object
     *) 
   method addChild : component t -> bool t -> unit meth
   (** Decorates the element for the UI component. *)
-  method decorate : element t -> unit meth
+  method decorate : Dom_html.element t -> unit meth
   (** Returns the child with the given ID, or null if no such child exists. *)
   method getChild : js_string t -> component meth
   (* Returns the child at the given index, or null if the index is out of 
@@ -31,12 +29,13 @@ class type component = object
      * a parentNode then it will be appended to the document body. Throws an 
      * Error if the component is already rendered.
   *)
-  method render : element t -> unit meth
+  method render : Dom_html.element t -> unit meth
 end
 
 let component : component t constr =
   Js.Unsafe.variable "goog.ui.Component"
 
+module Component = struct
 (**
    * Common events fired by components so that event propagation is useful.  Not
    * all components are expected to dispatch or listen for all event types.
@@ -113,3 +112,4 @@ module EventType =
   (** Dispatched after the external-facing state of a component is changed. *)
   let change = Js.string "change"
    end)
+end

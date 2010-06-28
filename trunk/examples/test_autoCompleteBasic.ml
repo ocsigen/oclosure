@@ -23,5 +23,5 @@ let _ =
   and div2 = Js.Opt.get (d##getElementById (Js.string "input2"))
     (fun () -> assert false)
   in
-    ignore(jsnew Ui.AutoCompleteBasic.basic (Js.array array,div1,Js.some (Js.bool false),Js.null));
-    jsnew Ui.AutoCompleteBasic.basic (Js.array array,div2,Js.some (Js.bool true),Js.null)
+    ignore(jsnew Ui.basic (Js.array array,div1,Js.some (Js.bool false),Js.null));
+    jsnew Ui.basic (Js.array array,div2,Js.some (Js.bool true),Js.null)

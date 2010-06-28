@@ -8,8 +8,6 @@
 
 open Js
 
-type element = Dom_html.element
-
 class type plainTextSpellChecker = object
   inherit AbstractSpellChecker.abstractSpellChecker
 

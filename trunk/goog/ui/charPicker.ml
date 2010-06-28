@@ -13,8 +13,6 @@
 open Component
 open CharPickerData
 
-type element = Dom_html.element
-
 open Js
 class type charPicker = object
   inherit component
@@ -23,7 +21,7 @@ class type charPicker = object
   method getSelectedChar : js_string t meth
 
  (** Gets the list of characters user selected recently. **) 
-  method getRecentChars : js_string t array meth
+  method getRecentChars : js_string t js_array t meth
 
  (** @inheritDoc **)
   method createDom : unit meth
@@ -32,7 +30,7 @@ class type charPicker = object
   method disposeInternal : unit meth
 
  (** @inheritDoc **)
-  method decorateInternal : element -> unit meth
+  method decorateInternal : Dom_html.element t -> unit meth
 
  (** @inheritDoc **)
   method enterDocument : unit meth
