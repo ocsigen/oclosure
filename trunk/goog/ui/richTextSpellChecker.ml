@@ -7,6 +7,7 @@
 *)
 
 open Js
+open Tools
 
 type element = Dom_html.element
 
@@ -47,7 +48,7 @@ class type richTextSpellChecker = object
   method resume : unit meth
 
 (** @inheritDoc *)
-  method setExcludeMarker : Tools.regexp_or_string opt -> unit meth
+  method setExcludeMarker : (regExp t, js_string t) Union.t opt -> unit meth
 end
 
 let richTextSpellChecker : (richTextSpellChecker t Spell.SpellCheck.spellCheck t -> Gdom.DomHelper.domHelper t opt -> richTextSpellChecker t) constr = 

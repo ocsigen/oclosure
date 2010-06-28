@@ -12,6 +12,8 @@
 open Zippy
 
 open Js
+open Tools
+
 class type animatedZippy = object
   inherit zippy
   (**  Acceleration function for expand/collapse animation. *)
@@ -22,8 +24,8 @@ class type animatedZippy = object
 
 end
 
-type element_or_string = Tools.element_or_string
-type element = Dom_html.element t
+type element = Dom_html.element
+type element_or_string = (element t, js_string t) Union.t
 
 let animatedZippy : (element_or_string opt -> element_or_string opt -> bool t opt -> animatedZippy t) constr =
   Js.Unsafe.variable "goog.ui.AnimatedZippy"

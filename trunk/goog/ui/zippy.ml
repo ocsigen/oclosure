@@ -12,6 +12,8 @@
 open EventTarget
 
 open Js
+open Tools
+
 class type zippy = object
   inherit eventTarget
   (** Collapses content pane. *)
@@ -36,13 +38,11 @@ class type zippy = object
   method toggle : unit meth
 end
 
-type element_or_string = Tools.element_or_string
 type element = Dom_html.element
+type element_or_string = (element t, js_string t) Union.t
 
 let zippy : (element_or_string opt -> element_or_string opt -> bool t opt -> element_or_string opt -> zippy t) constr =
   Js.Unsafe.variable "goog.ui.Zippy"
 
 let zippy_lazy : (element_or_string opt -> (unit -> element t) callback -> bool t opt -> element_or_string opt -> zippy t) constr =
   Js.Unsafe.variable "goog.ui.Zippy"
-
-

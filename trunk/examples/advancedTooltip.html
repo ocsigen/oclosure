@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+Copyright 2009 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<html>
+<head>
+  <title>goog.ui.AdvancedTooltip</title>
+  <meta charset="utf-8">
+  <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+  <script>
+    goog.require('goog.ui.AdvancedTooltip');
+  </script>
+  <link rel="stylesheet" href="css/demo.css">
+  <style>
+    .goog-tooltip {
+      background: lightyellow;
+      color: black;
+      border: 1px solid black;
+      padding: 1px;
+      font: menu;
+    }
+    .tooltip {
+      background: lightyellow;
+      color: black;
+      border: 1px solid black;
+      padding: 5px;
+      font: menu;
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>goog.ui.AdvancedTooltip</h1>
+  <fieldset class="goog-debug-panel" style="display:none">
+    <legend>Event Log</legend>
+    <div id="log"></div>
+  </fieldset>
+
+  <p>
+    <button id="btn">Hover me</button>
+  </p>
+
+  <script src="test_advancedTooltip.js"></script>
+</body>
+</html>

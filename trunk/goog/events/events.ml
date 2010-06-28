@@ -1,5 +1,6 @@
 open Js
 open EventTarget
+open Tools
 
 type key
 
@@ -17,7 +18,7 @@ type key
    false).
    @return Unique key for the listener.
 *)
-let listen (src : #eventTarget t) (typ : js_string t) 
+let listen (src : (#eventTarget t, #Dom_html.eventTarget t) Union.t) (typ : js_string t) 
     (listener : (unit -> unit)) (capt : bool t) : key =
   Js.Unsafe.fun_call
     (Js.Unsafe.variable "goog.events.listen")

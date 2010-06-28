@@ -9,8 +9,8 @@ let f () = Js.Opt.get (d##getElementById (Js.string "content"))
     (fun () -> assert false)
 
 let z = jsnew Ui.AnimatedZippy.animatedZippy (
-  Js.some (Tools.elt header), 
-  Js.some (Tools.id (Js.string "content")),
+  Js.some (Tools.Union.i1 header), 
+  Js.some (Tools.Union.i2 (Js.string "content")),
   Js.null)
 
 let _ = z##setExpanded(Js._true)

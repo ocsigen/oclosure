@@ -8,52 +8,47 @@
    @version 0.1
 *)
 open Js
+open Tools
 
 (** Javascript Element *)
 type element = Dom_html.element Js.t
 
-(** Number *)
-type number = Js.number t
-
 (** Node *) 
-type node = Dom.node
+type node = Dom.node t
 
 (** Document object*)
 type document = Dom_html.document t
 
 (** goog.math.Coordinate: Object with values 'x' and 'y' *) 
-type coordinate 
+type coordinate = Math.Coordinate.coordinate t
 
 (** goog.math.Size *)
 type size 
 
 (** The window associated with the given document *)
-type window
+type window = Dom_html.window t
 
 class type domHelper = object
   (** Appends a child to a node *)
-  method appendChild: element -> element -> unit meth
+  method appendChild: node -> node -> unit meth
  
  (** Whether a node contains another node *)
-  method contains: node -> node -> bool meth
+  method contains: node -> node -> bool t meth
  
  (** Returns a dom node with a set of attributes. 
      This function accepts varargs for subsequent nodes to be added. 
      Subsequent nodes will be added to the first node as childNodes. *)
-  method createDom: js_string Js.t -> js_string Js.t -> js_string Js.t -> element meth
+  method createDom: js_string Js.t -> js_string Js.t Js.opt -> js_string Js.t -> element meth
  
  (**  Creates a new element *)
   method createElement : js_string Js.t -> element meth
  
- (** Create a table *)
-  method createTable: number -> number -> bool -> element meth
-
  (** Creates a new text node *)
   method createTextNode: js_string Js.t -> node meth
 
  (** Finds the first descendant node that matches the filter function.
      This does a depth first search. *)
-  method findNode: node -> (node -> bool) -> node meth
+  method findNode: node -> (node -> bool t) -> node meth
  
  (** Flattens an element. 
      That is, removes it and replace it with its children *)
@@ -61,7 +56,7 @@ class type domHelper = object
  
  (** Walks up the DOM hierarchy returning the first ancestor
      that passes the matcher function. *)
-  method getAncestor: node -> (node -> bool) -> bool -> number -> element meth
+  method getAncestor: node -> (node -> bool t) -> bool t -> int opt -> node meth
 
  (** Walks up the DOM hierarchy returning the first ancestor 
      that has the passed tag name and/or class name. 
@@ -76,7 +71,7 @@ class type domHelper = object
   method getDocument: document meth
 
  (** Calculates the height of the document *)
-  method getDocumentHeight: number meth
+  method getDocumentHeight: int meth
 
  (** Gets the document scroll distance as a coordinate object **)
   method getDocumentScroll: coordinate meth
@@ -88,7 +83,7 @@ class type domHelper = object
   method getDomHelper: node -> domHelper meth
  
  (** Return the element with the given ID **)
-  method getElement : Tools.element_or_string -> element meth
+  method getElement : (element, js_string t) Union.t -> element meth
  
  (** Looks up elements by both tag and class name, using browser native
      functions (querySelectorAll, getElementsByTagName or 
@@ -162,10 +157,10 @@ class type domHelper = object
 
  (** Returns true if the browser is in "CSS1-compatible"
      (standards-compliant) mode, false otherwise. *)
-  method isCss1CompatMode: bool meth
+  method isCss1CompatMode: bool t meth
 
  (** Whether the object looks like a DOM node. *)
-  method isNodeLike: node -> bool meth
+  method isNodeLike: node -> bool t meth
 
  (** Removes all the child nodes on a DOM node. *)
   method removeChildren: node -> unit meth

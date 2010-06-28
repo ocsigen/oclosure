@@ -37,7 +37,7 @@ let _ =
   slider##decorate(sliderDiv);
   slider##setMinimum(1);
   Goog.Events.Events.listen 
-    slider 
+    (Tools.Union.i1 slider)
     (Js.string "change")
     createRoundedCorners
     Js._false;

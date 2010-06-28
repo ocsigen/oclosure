@@ -10,6 +10,7 @@
 *)
 
 open Js
+open Tools
 
 type element = Dom_html.element
 
@@ -64,7 +65,7 @@ class type abstractSpellChecker = object ('self)
           the rich text spell checker for the elements to exclude from
           checking.
  *)
-  method setExcludeMarker : Tools.regexp_or_string opt -> unit meth
+  method setExcludeMarker : (Js.regExp t, js_string t) Union.t opt -> unit meth
 
 (**
    Sets the handler used for caching and lookups.
@@ -82,7 +83,7 @@ class type abstractSpellChecker = object ('self)
    display menu at relative to the viewport (in client coordinates), or a
    mouse event.
  *)
-  method showSuggestionsMenu : element t -> Tools.Event_or_coord.t opt -> unit meth
+  method showSuggestionsMenu : element t -> (Events.BrowserEvent.browserEvent t, Math.Coordinate.coordinate t) Union.t opt -> unit meth
 
   method markCorrected : bool t prop
 end

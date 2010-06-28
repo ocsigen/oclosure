@@ -23,7 +23,7 @@ class type advancedTooltip = object
 
   method isMouseInTooltip : bool t meth
 
-  method maybeHide : element t -> unit meth
+  method maybeHide : Dom_html.element t -> unit meth
 
   method resetHotSpot : unit meth
 
