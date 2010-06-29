@@ -27,7 +27,7 @@ class type abstractSpellChecker = object ('self)
 (**
    @return The handler used for caching and lookups.
  *)
-  method getHandler : 'self t Spell.SpellCheck.spellCheck t meth
+  method getHandler : 'self t Spell.spellCheck t meth
 
 (**
    Ignores spelling of word.
@@ -71,7 +71,7 @@ class type abstractSpellChecker = object ('self)
    @param handler The handler used for caching and
    lookups.
  *)
-  method setHandler : 'self t Spell.SpellCheck.spellCheck t -> unit meth
+  method setHandler : 'self t Spell.spellCheck t -> unit meth
 
 (**
    Displays suggestions menu.
@@ -81,7 +81,7 @@ class type abstractSpellChecker = object ('self)
    display menu at relative to the viewport (in client coordinates), or a
    mouse event.
  *)
-  method showSuggestionsMenu : Dom_html.element t -> (Events.BrowserEvent.browserEvent t, Math.Coordinate.coordinate t) Union.t opt -> unit meth
+  method showSuggestionsMenu : Dom_html.element t -> (Events.browserEvent t, Math.coordinate t) Union.t opt -> unit meth
 
   method markCorrected : bool t prop
 end

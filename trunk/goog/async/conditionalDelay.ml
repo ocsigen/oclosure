@@ -54,5 +54,5 @@ class type conditionalDelay = object
   method stop : unit meth  
 end
 
-let conditionalDelay : ((unit -> bool t) callback -> 'a t opt -> conditionalDelay t) constr = 
-  Js.Unsafe.variable "goog.async.ConditionalDelay"
+let conditionalDelay = Js.Unsafe.variable "goog.async.ConditionalDelay"
+let conditionalDelay : ((unit -> bool t) callback -> 'a t opt -> conditionalDelay t) constr = conditionalDelay

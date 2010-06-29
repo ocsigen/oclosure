@@ -1,5 +1,5 @@
 open Js
-open Goog.Spell.SpellCheck
+open Goog.Spell
 
 let dict = ["test"; "words"; "a"; "few"]
 let propose = Array.map Js.string [|"foo"; "bar"; "test"|]

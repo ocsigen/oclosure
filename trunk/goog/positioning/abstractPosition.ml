@@ -9,10 +9,10 @@
 *)
 
 (** goog.math.Box **)
-type box = Math.Box.box
+type box = Math.box
 
 (** goog.math.Size **)
-type size = Math.Size.size
+type size = Math.size
 
 type corner (*= Positioning.Corner.t*)
 

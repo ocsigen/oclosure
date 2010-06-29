@@ -24,5 +24,5 @@ class type twoThumbSlider = object
 
 end
 
-let twoThumbSlider : (Gdom.DomHelper.domHelper t -> twoThumbSlider t) constr =
+let twoThumbSlider : (Gdom.domHelper t -> twoThumbSlider t) constr =
   Js.Unsafe.variable "goog.ui.TwoThumbSlider"

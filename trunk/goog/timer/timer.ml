@@ -14,10 +14,10 @@ open Js
 class type timer = object
   inherit eventTarget
   (** Gets the interval of the timer. *)
-  method getInterval : float meth
+  method getInterval : int meth
 
  (** Sets the interval of the timer.*)
-  method setInterval : float -> unit meth
+  method setInterval : int -> unit meth
 
  (** Dispatches the TICK event. This is its own method so subclasses can override. *)
   method dispatchTick : unit meth
@@ -33,5 +33,5 @@ class type timer = object
 
 end
 
-let timer : (float  -> timer t) constr =
+let timer : (int  -> timer t) constr =
   Js.Unsafe.variable "goog.Timer"

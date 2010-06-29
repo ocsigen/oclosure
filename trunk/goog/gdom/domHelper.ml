@@ -11,23 +11,23 @@ open Js
 open Tools
 
 (** Node *) 
-type node = Dom.node t
+type node = Dom.node
 
 (** Document object*)
 type document = Dom_html.document t
 
 (** goog.math.Size *)
-type size 
+type size = Math.size
 
 (** The window associated with the given document *)
-type window = Dom_html.window t
+type window = Dom_html.window
 
 class type domHelper = object
   (** Appends a child to a node *)
-  method appendChild: node -> node -> unit meth
+  method appendChild: node t -> node t -> unit meth
  
- (** Whether a node contains another node *)
-  method contains: node -> node -> bool t meth
+ (** Whether a node contains another node t *)
+  method contains: node t -> node t -> bool t meth
  
  (** Returns a dom node with a set of attributes. 
      This function accepts varargs for subsequent nodes to be added. 
@@ -38,11 +38,11 @@ class type domHelper = object
   method createElement : js_string Js.t -> Dom_html.element t meth
  
  (** Creates a new text node *)
-  method createTextNode: js_string Js.t -> node meth
+  method createTextNode: js_string Js.t -> node t meth
 
  (** Finds the first descendant node that matches the filter function.
      This does a depth first search. *)
-  method findNode: node -> (node -> bool t) -> node meth
+  method findNode: node t -> (node t -> bool t) -> node t meth
  
  (** Flattens an element. 
      That is, removes it and replace it with its children *)
@@ -50,13 +50,13 @@ class type domHelper = object
  
  (** Walks up the DOM hierarchy returning the first ancestor
      that passes the matcher function. *)
-  method getAncestor: node -> (node -> bool t) -> bool t -> int opt -> node meth
+  method getAncestor: node t -> (node t -> bool t) -> bool t -> int opt -> node t meth
 
  (** Walks up the DOM hierarchy returning the first ancestor 
      that has the passed tag name and/or class name. 
      If the passed element matches the specified criteria,
      the element itself is returned. *)
-  method getAncestorByTagNameAndClass: node -> js_string Js.t -> js_string Js.t -> node meth
+  method getAncestorByTagNameAndClass: node t -> js_string Js.t -> js_string Js.t -> node t meth
  
  (**  Returns the compatMode of the document *)
   method getCompatMode: js_string Js.t meth
@@ -68,13 +68,13 @@ class type domHelper = object
   method getDocumentHeight: int meth
 
  (** Gets the document scroll distance as a coordinate object **)
-  method getDocumentScroll: Math.Coordinate.coordinate t meth
+  method getDocumentScroll: Math.coordinate t meth
 
  (** Gets the document scroll element **)
   method getDocumentScrollElement: Dom_html.element t meth
 
  (** Gets the DomHelper object for the document where the element resides *)
-  method getDomHelper: node -> domHelper meth
+  method getDomHelper: node t -> domHelper meth
  
  (** Return the element with the given ID **)
   method getElement : (Dom_html.element t, js_string t) Union.t -> Dom_html.element t meth
@@ -87,39 +87,39 @@ class type domHelper = object
   method getElementByTagNameAndClass: js_string Js.t -> js_string Js.t -> Dom_html.element t -> number meth
 
  (** Returns the first child node that is an element *)
-  method getFirstElementChild: node -> node meth
+  method getFirstElementChild: node t -> node t meth
 
  (** Cross browser function for getting the document element of an iframe *)
   method getFrameContentDocument: Dom_html.element t -> Dom_html.element t meth
 
  (** Returns the last child node that is an element *)
-  method getLastElementChild: node -> Dom_html.element t meth
+  method getLastElementChild: node t -> Dom_html.element t meth
 
  (** Returns the first next sibling that is an element *)
-  method getNextElementSibling: node -> Dom_html.element t meth
+  method getNextElementSibling: node t -> Dom_html.element t meth
 
  (** Returns the next node in source order from the given node **)
-  method getNextNode: node -> node meth
+  method getNextNode: node t -> node t meth
  
  (** Returns the text length of the text contained in a node, without markup. 
      This is equivalent to the selection length if the node was selected,
      or the number of cursor movements to traverse the node.
      Images & BRs take one space.  New lines are ignored. *)
-  method getNodeTextLength: node -> number meth
+  method getNodeTextLength: node t -> number meth
 
  (** Returns the text offset of a node relative to one of its ancestors.
      The text length is the same as the length calculated 
      by goog.dom.getNodeTextLength. *)
-  method getNodeTextOffset: node -> node -> number meth
+  method getNodeTextOffset: node t -> node t -> number meth
 
  (** Returns the owner document for a node. *)
-  method getOwnerDocument: node -> Dom_html.element t meth
+  method getOwnerDocument: node t -> Dom_html.element t meth
    
  (** Returns the first previous sibling that is an element **)
-  method getPreviousElementSibling: node -> Dom_html.element t meth
+  method getPreviousElementSibling: node t -> Dom_html.element t meth
 
  (** Returns the previous node in source order from the given node. *)
-  method getPreviousNode: node -> Dom_html.element t meth
+  method getPreviousNode: node t -> Dom_html.element t meth
 
  (** Returns the text content of the current node, without markup 
      and invisible symbols.
@@ -128,43 +128,43 @@ class type domHelper = object
      In browsers that support it, innerText is used.
      Other browsers attempt to simulate it via node traversal.
      Line breaks are canonicalized in IE. *)
-  method getTextContent: node -> js_string Js.t meth
+  method getTextContent: node t -> js_string Js.t meth
 
  (** Gets the dimensions of the viewport. *)
-  method getViewportSize: window -> size meth
+  method getViewportSize: window t -> size t meth
 
  (** Gets the window object associated with the document. *)
-  method getWindow: window meth
+  method getWindow: window t meth
  
  (** Converts an HTML js_string Js.t into a document fragment. *)
-  method htmlToDocumentFragment: js_string Js.t -> node meth
+  method htmlToDocumentFragment: js_string Js.t -> node t meth
 
  (** Inserts a new node after an existing reference node
      (i.e., as the next sibling).
      If the reference node has no parent, then does nothing. *)
-  method insertSiblingAfter: node -> node meth
+  method insertSiblingAfter: node t -> node t meth
  
  (** Inserts a new node before an existing reference node
      (i.e., as the next sibling).
      If the reference node has no parent, then does nothing. *)
-  method insertSiblingBefore: node -> node meth
+  method insertSiblingBefore: node t -> node t meth
 
  (** Returns true if the browser is in "CSS1-compatible"
      (standards-compliant) mode, false otherwise. *)
   method isCss1CompatMode: bool t meth
 
  (** Whether the object looks like a DOM node. *)
-  method isNodeLike: node -> bool t meth
+  method isNodeLike: node t -> bool t meth
 
  (** Removes all the child nodes on a DOM node. *)
-  method removeChildren: node -> unit meth
+  method removeChildren: node t -> unit meth
  
  (** Removes a node from its parent. *)
-  method removeNode: node -> node meth
+  method removeNode: node t -> node t meth
 
  (** Replaces a node in the DOM tree. 
      Will do nothing if [oldNode] has no parent. *)
-  method replaceNode: node -> node -> unit meth
+  method replaceNode: node t -> node t -> unit meth
  
  (** Sets the document object. *)
   method setDocument: document -> unit meth

@@ -1,6 +1,6 @@
 open Tools
 
-let id s = Tools.Union.i2 (Js.string s)
+let id s = Goog.Tools.Union.i2 (Js.string s)
 
 let tooltip = jsnew Goog.Ui.advancedTooltip(
   Js.some (id "btn"), Js.null, Js.null)
@@ -19,10 +19,10 @@ and see that it remains open.</li>
 open.</li></ul><hr/><div style=\"text-align: center;\">
   <button id=\"btn-nest\">Hover me</button>&nbsp;
   <button id=\"btn-close\">Close</button></div>");
-  tooltip##setHotSpotPadding(jsnew Goog.Math.Box.box(5, 5, 5, 5));
+  tooltip##setHotSpotPadding(jsnew Goog.Math.box(5, 5, 5, 5));
   tooltip##setCursorTracking(Js._true);
   tooltip##setMargin(
-  Js.some (Union.i1 (jsnew Goog.Math.Box.box(100, 0, 0, 100))), 
+  Js.some (Goog.Tools.Union.i1 (jsnew Goog.Math.box(100, 0, 0, 100))), 
     Js.null, Js.null, Js.null);
   tooltip##setHideDelayMs(250)
     
@@ -38,8 +38,8 @@ let bc =
     (fun () -> assert false)
  
 let _ =
-  Goog.Events.Events.listen 
-    (Tools.Union.i2 bc)
+  Goog.Events.listen 
+    (Goog.Tools.Union.i2 bc)
     (Js.string "click")
     (fun () -> tooltip##setVisible(Js._false);)
     Js._false

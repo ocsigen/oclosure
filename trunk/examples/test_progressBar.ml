@@ -34,7 +34,7 @@ let handler o =
   pB2##setValue(!last);
   Js._true
 
-let timer = jsnew Timer.Timer.timer (20.)
+let timer = jsnew Timer.timer (20)
 
 let _ =
   pB1##setOrientation (Ui.ProgressBar.Orientation.vertical);
@@ -43,13 +43,14 @@ let _ =
   pB2##setOrientation (Ui.ProgressBar.Orientation.horizontal);
   (*pB2##decorate(div2);*)
 
-  timer##addEventListener (Js.string "tick",handler);
+  timer##addEventListener (Js.string "tick",handler, Js.null);
   timer##start ();
 
-  let dom = jsnew Gdom.DomHelper.domHelper() in
-    pB1##addEventListener(
-      Ui.Component.EventType.change,
-      fun() -> dom##setTextContent(out,Js.string (string_of_float (pB1##getValue())^"%"));Js._true)
+  let dom = jsnew Gdom.domHelper() in
+  pB1##addEventListener(
+  Ui.Component.EventType.change,
+  (fun() -> dom##setTextContent(out,Js.string (string_of_float (pB1##getValue())^"%"));Js._true),
+  Js.null)
     
 
     

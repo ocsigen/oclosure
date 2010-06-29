@@ -11,7 +11,7 @@ let button = jsnew Ui.toolbarButton(Js.string "Clik me!")
 let button2 = jsnew Ui.toolbarButton(Js.string "Disabled")
 
 let _ = 
-  Events.Events.listen 
+  Events.listen 
     (Tools.Union.i1 button) 
     (Js.string "action") 
     (fun () -> D.window##alert(Js.string "Bravo!")) Js._false;

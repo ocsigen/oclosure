@@ -7,7 +7,7 @@
 *)
 
 open Js
-open Gdom.DomHelper
+open Gdom
 open Tools
 
 
@@ -19,7 +19,7 @@ class type advancedTooltip = object
 
   method getHideDelayMs : int meth
 
-  method getHotSpotPadding : Math.Box.box t meth
+  method getHotSpotPadding : Math.box t meth
 
   method isMouseInTooltip : bool t meth
 
@@ -31,7 +31,7 @@ class type advancedTooltip = object
 
   method setCursorTrackingHideDelayMs : int -> unit meth
 
-  method setHotSpotPadding : Math.Box.box t -> unit meth
+  method setHotSpotPadding : Math.box t -> unit meth
 end
 
 

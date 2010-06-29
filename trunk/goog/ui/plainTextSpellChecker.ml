@@ -41,7 +41,7 @@ class type plainTextSpellChecker = object
    @return The handled value.
 *)
   method handleOverlayKeyEvent : 
-      Events.BrowserEvent.browserEvent t -> bool t meth
+      Events.browserEvent t -> bool t meth
 
 (**
    Hides correction UI.
@@ -49,5 +49,5 @@ class type plainTextSpellChecker = object
   method resume : unit meth
 end
 
-let plainTextSpellChecker : (plainTextSpellChecker t Spell.SpellCheck.spellCheck t -> Gdom.DomHelper.domHelper t opt -> plainTextSpellChecker t) constr = 
+let plainTextSpellChecker : (plainTextSpellChecker t Spell.spellCheck t -> Gdom.domHelper t opt -> plainTextSpellChecker t) constr = 
   Js.Unsafe.variable "goog.ui.PlainTextSpellChecker"

@@ -23,7 +23,7 @@ let invokeCallback (cb : 'a callback) (o : 'a) (s : wordEntry js_array t) =
   Js.Unsafe.call cb o [|Js.Unsafe.inject s|]
 
 class type ['a] spellCheck = object
-  inherit Events.EventTarget.eventTarget
+  inherit Events.eventTarget
 
 (**
    Checks spelling for a block of text.

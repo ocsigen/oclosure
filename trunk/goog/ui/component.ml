@@ -7,7 +7,7 @@
    * @author Cardoso Gabriel
    * @version 0.1
 *)
-open Events.EventTarget
+open Events
 open Js
 
 class type component = object

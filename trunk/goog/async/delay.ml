@@ -25,10 +25,13 @@ class type delay = object
    delay interval.
    code 
 *)
-  method start : number t opt -> unit meth
+  method start : int opt -> unit meth
 
   method stop : unit meth
 end
 
-let delay : ((unit -> unit) -> number t opt -> 'a t opt -> delay t) constr = 
-  Js.Unsafe.variable "goog.async.Delay"
+let delay = Js.Unsafe.variable "goog.async.Delay"
+let delay : ((unit -> unit) -> int opt -> 'a t opt -> delay t) constr = delay
+
+
+

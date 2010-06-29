@@ -38,10 +38,10 @@ class type popup = object
   method setPosition : abstractPosition t -> unit meth
 
     (** Returns the margin to place around the popup.*)
-  method getMargin : Math.Box.box t opt meth
+  method getMargin : Math.box t opt meth
 
     (** Sets the margin to place around the popup*)
-  method setMargin : (Math.Box.box t, int) Union.t opt -> int opt -> int opt -> int opt -> unit meth
+  method setMargin : (Math.box t, int) Union.t opt -> int opt -> int opt -> int opt -> unit meth
 
     (** Repositions the popup according to the current state.*)
   method reposition : unit meth

@@ -10,9 +10,9 @@
     * @version 0.1
     * @see 'goog.dom.DomHelper'
 *)
-open Gdom.DomHelper
+open Gdom
 
-open Positioning.AbstractPosition
+open Positioning
 
 open Tools
 
@@ -74,7 +74,7 @@ class type tooltip = object
   method setRequireInteraction : bool t -> unit meth
 
     (** Returns true if the coord is in the tooltip.*)
-  method isCoordinateInTooltip : Math.Coordinate.coordinate t -> bool t meth
+  method isCoordinateInTooltip : Math.coordinate t -> bool t meth
 
     (** Called by timer from mouse over handler. Shows tooltip if 
        * cursor is still over the same element.*)

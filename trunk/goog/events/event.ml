@@ -11,9 +11,6 @@
 *)
 open Disposable
 
-(** object *)
-type target = Dom.element
-
 open Js
 class type event = object
   inherit disposable
@@ -28,5 +25,5 @@ class type event = object
 
 end
 
-let event : (js_string t -> target -> event t) constr =
+let event : (js_string t -> event t) constr =
   Js.Unsafe.variable "goog.events.Event"

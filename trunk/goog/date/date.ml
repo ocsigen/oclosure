@@ -10,66 +10,7 @@
    @version 0.2
 *)
 
-class type interval = object
-(**
-   Adds the Interval in the argument to this Interval field by field.
- 
-   @param interval The Interval to add.
-*)
-  method add : interval Js.t -> unit Js.meth
-
-(**
-  @return A clone of the interval object.
-*)
-  method clone : interval Js.t Js.meth
-
-(**
-   Tests whether the given interval is equal to this interval.
-   Note, this is a simple field-by-field comparison, it doesn't
-   account for comparisons like "12 months == 1 year".
-
-   @param other The interval to test.
-   @return Whether the intervals are equal.
-*)
-  method equals : interval Js.t -> bool Js.t Js.meth
-
-(**
-   @return Negative of this interval.
-*)
-  method getInverse : interval Js.t Js.meth
-
-(**
-   Serializes goog.date.Interval into XML Schema duration (ISO 8601 extended).
-   @see http://www.w3.org/TR/xmlschema-2/#duration
-
-   @param opt_verbose Include zero fields in the duration string.
-   @return An XML schema duration in ISO 8601 extended format,
-       or null if the interval contains both positive and negative fields.
-*)
-  method toIsoString : bool Js.t Js.opt -> Js.js_string Js.t Js.opt Js.meth
-end
-
-(**
-   Class representing a date/time interval. Used for date calculations.
-   <pre>
-   new goog.date.Interval(0, 1) // One month
-   new goog.date.Interval(0, 0, 3, 1) // Three days and one hour
-   new goog.date.Interval(goog.date.Interval.DAYS, 1) // One day
-   </pre>
-   
-   @param opt_years Years or string representing date 
-   part.
-   @param opt_months Months or number of whatever date part specified
-   by first parameter.
-   @param opt_days Days.
-   @param opt_hours Hours.
-   @param opt_minutes 
-   @param opt_seconds Seconds.
-   @constructor
-*)
-let interval : (Tools.int_or_string Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> interval Js.t) Js.constr = 
-  Js.Unsafe.variable "goog.date.Interval"
-
+include Interval
 
 class type date = object ('self)
 (**
@@ -361,7 +302,6 @@ end
 let date : (int Js.opt -> int Js.opt -> int Js.opt -> date Js.t) Js.constr = 
   Js.Unsafe.variable "goog.date.Date"
 
-
 class type dateTime = object ('self)
   inherit date
 (**
@@ -554,25 +494,27 @@ class type dateTime = object ('self)
 
 end
 
-(**
-   Class representing a date and time. Defaults to current date and time if none
-   is specified.
-   
-   Implements most methods of the native js Date object and can be used
-   interchangeably with it just as if goog.date.DateTime was a subclass of Date.
-
-   @param opt_year Four digit year. If not set, the created object 
-   will contain the date determined by goog.now().
-   @param opt_month Month, 0 = Jan, 11 = Dec.
-   @param opt_date Date of month, 1 - 31.
-   @param opt_hours Hours, 0 - 24.
-   @param opt_minutes Minutes, 0 - 59.
-   @param opt_seconds Seconds, 0 - 61.
-   @param opt_milliseconds Milliseconds, 0 - 999.
-   @constructor
-   @extends
-*)
 let dateTime : (int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> dateTime Js.t) Js.constr =
   Js.Unsafe.variable "goog.date.DateTime"
 
-include DateRange
+class type dateRange = object
+   method getEndDate : date Js.t Js.meth
+   method getStartDate : date Js.t Js.meth
+end
+
+(**
+   Constructs a date range.
+   @constructor
+   @param startDate The start date of the range.
+   @param endDate The end date of the range.
+*)
+let dateRange : (Js.date Js.t -> Js.date Js.t -> dateRange Js.t) Js.constr = 
+  Js.Unsafe.variable "goog.date.DateRange"
+
+
+class type standardDateRangeKeys = object
+
+end
+
+let standardDateRangeKeys : (standardDateRangeKeys Js.t) Js.constr = 
+  Js.Unsafe.variable "goog.date.DateRange.StandardDateRangeKeys"

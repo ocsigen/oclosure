@@ -1,10 +1,10 @@
 open Js
 
-let id = Tools.Union.i2 
+let id = Goog.Tools.Union.i2 
 
 let msg1 = "Tooltip widget. Appears next to the cursor when over an attached element or next to the element if it's active."
 let tooltip1 = jsnew Goog.Ui.tooltip(
-  Js.some (id (Js.string "btn1")), 
+ Js.some (id (Js.string "btn1")), 
   Js.some (Js.string msg1), Js.null)
   
 let tooltip2 = jsnew Goog.Ui.tooltip(

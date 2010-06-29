@@ -9,13 +9,8 @@
 
 open Js
 
-open Js
 class type disposable = object
-  method dispose: unit -> unit meth
-  method getDisposed: bool meth
-  method isDisposed: bool meth
+  method dispose: unit meth
+  method getDisposed: bool t meth
+  method isDisposed: bool t meth
 end
-
-let disposable : disposable t constr = 
-  Js.Unsafe.variable "goog.Disposable"
-  
