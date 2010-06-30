@@ -12,7 +12,7 @@ INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
 OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
 GOOG=goog.cmo
-FILES=$(shell find * -name "*.ml")
+FILES=$(shell find -E * -regex ".*\\.mli?")
 
 all: $(GOOG)
 
@@ -25,6 +25,9 @@ $(GOOG): $(CMOS)
 
 %.cmo: %.ml
 	@echo "[CC] $@"
+	ocamlfind ocamlc $(OCAMLFLAGS) -c $<
+
+%.cmi: %.mli
 	ocamlfind ocamlc $(OCAMLFLAGS) -c $<
 
 depend:

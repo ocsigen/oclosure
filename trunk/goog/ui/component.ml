@@ -29,7 +29,7 @@ class type component = object
      * a parentNode then it will be appended to the document body. Throws an 
      * Error if the component is already rendered.
   *)
-  method render : Dom_html.element t -> unit meth
+  method render : Dom_html.element t opt -> unit meth
 end
 
 let component : component t constr =

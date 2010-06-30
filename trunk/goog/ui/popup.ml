@@ -46,9 +46,3 @@ end
 
 let popup : (Dom_html.element t opt -> Positioning.abstractPosition t -> popup t) constr =
   Js.Unsafe.variable "goog.ui.Popup"
-
-module Popup = struct
-  class type anchoredPosition = object
-    inherit Positioning.abstractPosition
-  end
-end

@@ -11,12 +11,12 @@
     * @version 0.1
     * @see 'goog.positioning.AbstractPosition'
 *)
-open AbstractPosition
 
 open Js
 class type anchoredPosition = object
-  inherit abstractPosition
+  inherit AbstractPosition.abstractPosition
 end
 
-let anchoredPosition : (Dom_html.element t -> corner -> anchoredPosition t) constr =
-  Js.Unsafe.variable "goog.positioning.AnchoredPosition"
+let anchoredPosition = Js.Unsafe.variable "goog.positioning.AnchoredPosition"
+let anchoredPosition : (#Dom_html.element t -> Corner.corner opt -> anchoredPosition t) constr =
+  anchoredPosition
