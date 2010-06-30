@@ -29,6 +29,7 @@ include PopupBase
 include ProgressBar
 include Prompt
 include Ratings
+include RoundedPanel
 include RichTextSpellChecker
 include ScrollFloater
 include Slider
@@ -42,3 +43,4 @@ include Tooltip
 include Twothumbslider
 include Zippy
 module Tree = Tree
+include BidiInput

@@ -84,7 +84,7 @@ class type domHelper = object
      getElementsByClassName) where possible. 
      The returned array is a live NodeList or a static list depending on
      the code path taken. *)
-  method getElementByTagNameAndClass: js_string Js.t -> js_string Js.t -> Dom_html.element t -> number meth
+  method getElementByTagNameAndClass: js_string Js.t -> js_string Js.t -> Dom_html.element t -> int meth
 
  (** Returns the first child node that is an element *)
   method getFirstElementChild: node t -> node t meth

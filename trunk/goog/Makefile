@@ -44,5 +44,5 @@ cleanall: clean
 
 clean:
 	-find . -name "*.cm[oix]" -exec rm {} \;
-	-rm *.cmopack
+
 

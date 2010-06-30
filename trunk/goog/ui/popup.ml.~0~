@@ -16,23 +16,26 @@
     * @see 'goog.ui.PopupBase'
     * @see 'goog.positioning.AbstractPosition'
 *)
+open PopupBase
+open AbstractPosition
+
 open Js
 
 open Tools
 
 class type popup = object
-  inherit PopupBase.popupBase
+  inherit popupBase
     (**  Returns the corner of the popup to used in the positioning algorithm.*)
-  method getPinnedCorner : Positioning.corner meth
+  method getPinnedCorner : Positioning.Corner.t meth
 
     (** Sets the corner of the popup to used in the positioning algorithm.*)
-  method setPinnedCorner : Positioning.corner -> unit meth
+  method setPinnedCorner : Positioning.Corner.t -> unit meth
 
     (** Returns the position helper object associated with the popup.*)
-  method getPosition : Positioning.abstractPosition t meth
+  method getPosition : abstractPosition t meth
 
     (** Sets the position helper object associated with the popup.*)
-  method setPosition : Positioning.abstractPosition t -> unit meth
+  method setPosition : abstractPosition t -> unit meth
 
     (** Returns the margin to place around the popup.*)
   method getMargin : Math.box t opt meth
@@ -44,11 +47,5 @@ class type popup = object
   method reposition : unit meth
 end
 
-let popup : (Dom_html.element t opt -> Positioning.abstractPosition t -> popup t) constr =
+let popup : (Dom_html.element t opt -> abstractPosition t -> popup t) constr =
   Js.Unsafe.variable "goog.ui.Popup"
-
-module Popup = struct
-  class type anchoredPosition = object
-    inherit Positioning.abstractPosition
-  end
-end

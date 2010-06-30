@@ -10,21 +10,22 @@
     * @version 0.1
 *)
 
-(** goog.ui.Popup.AnchoredPosition **)
-type anchoredPosition
-
-(** goog.positioning.AbstractPosition **)
-type abstractPosition 
-
 open Js
+
 class type bubble = object
   (** Attaches the bubble to an anchor element. 
       Computes the positioning and orientation of the bubble *)
   method attach : Dom_html.element t -> unit meth
 
- (** Returns an AnchoredPosition that will position the bubble optimally given 
+  (** @inheritDoc *)
+  method createDom : unit meth
+
+  (** @inheritDoc *)
+  method disposeInternal : unit meth
+
+  (** Returns an AnchoredPosition that will position the bubble optimally given 
      the position of the anchor element and the size of the viewport *)
-  method getComputedAnchoredPosition: Dom_html.element t -> anchoredPosition meth
+  method getComputedAnchoredPosition : Dom_html.element t -> Popup.Popup.anchoredPosition t meth
  
   (** Whether the bubble is visible. *)
   method isVisible : bool t meth
@@ -34,19 +35,18 @@ class type bubble = object
   method setAutoHide : bool t -> unit meth
   
   (**  Sets the corner of the bubble to used in the positioning algorithm *)
-  method setPinnedCorner : Positioning.Corner.t -> unit meth
+  method setPinnedCorner : Positioning.corner -> unit meth
 
   (**  Sets the position of the bubble.
        Pass null for corner in AnchoredPosition for 
        corner to be computed automatically *)
-  method setPosition : abstractPosition -> unit meth
+  method setPosition : Positioning.abstractPosition t -> unit meth
   
   (**  Sets the timeout after which bubble hides itself *)
   method setTimeout : int -> unit meth
   
   (**  Sets whether the bubble should be visible *)
   method setVisible : bool t -> unit meth
-
 end
 
 let bubble : (js_string t -> bubble t) constr =
