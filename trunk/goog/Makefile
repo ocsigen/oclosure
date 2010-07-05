@@ -30,10 +30,12 @@ $(GOOG): $(CMOS)
 %.cmi: %.mli
 	ocamlfind ocamlc $(OCAMLFLAGS) -c $<
 
-depend:
+depend: ocamldsort
+
+ocamldep:
 	ocamlfind ocamldep $(OCAMLFLAGS) $(FILES) > .depend
 
-ocamldsort: depend
+ocamldsort: ocamldep
 	echo CMOS=`< .depend ocamldsort -byte $(FILES)` >.ocamldsort
 
 var:
@@ -43,7 +45,7 @@ doc:
 	ocamlfind ocamldoc -d ../doc $(OCAMLFLAGS) $(FILES)
 
 cleanall: clean
-	-rm .depend
+	-rm -f .depend .ocamldsort
 
 clean:
 	@echo "[CLEAN]"
