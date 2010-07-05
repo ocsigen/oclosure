@@ -12,7 +12,7 @@ open Goog
 module D = Dom_html
 let d = D.document
 
-let wikipedia = Js.Opt.get (Dom_html.CoerceTo.iframe (Js.Opt.get (d##getElementById (Js.string "wikipedia"))
+(*let wikipedia = Js.Opt.get (Dom_html.CoerceTo.iframe (Js.Opt.get (d##getElementById (Js.string "wikipedia"))
   (fun () -> assert false))) (fun () -> assert false)
 
 let makeRichRow_ item itemType itemClassName =
@@ -56,7 +56,7 @@ let _ =
       else
 	ac##setRowFilter((fun () -> ()))
   in
-    D.window##onload <- D.handler ( fun _ -> setFilter(); Js._true)*)
+    D.window##onload <- D.handler ( fun _ -> setFilter(); Js._true)*)*)
 
 		     
 		    
