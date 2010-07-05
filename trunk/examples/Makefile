@@ -3,7 +3,7 @@ EXECS=$(SRC:.ml=.byte)
 TARGETS=$(SRC:.ml=.js)
 LIB=
 OCAML_FLAGS=-package js_of_ocaml -syntax camlp4o
-GOOG=../goog/
+GOOG=../goog
 all: $(TARGETS)
 
 %.byte: %.ml $(GOOG)/goog.cmo
@@ -15,7 +15,7 @@ all: $(TARGETS)
 
 clean:
 	@echo "[CLEAN]"
-	-rm *.cmo *.cmi $(TARGETS)
+	-rm -f *.cmo *.cmi $(TARGETS)
 
 var: 
 	@echo $(TARGETS)

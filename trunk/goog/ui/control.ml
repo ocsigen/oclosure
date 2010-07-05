@@ -33,6 +33,8 @@ class type control = object
   inherit component
 
   method addClassName : js_string t -> unit meth
+
+  method setEnabled : bool t -> unit meth
 (* TODO !!!! *)
 
   method enterDocument : unit meth

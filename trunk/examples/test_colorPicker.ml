@@ -1,7 +1,14 @@
 let get_el s = Js.Opt.get (Dom_html.document##getElementById(Js.string s))
     (fun _ -> assert false)
 
-let cp = jsnew Goog.Ui.colorPicker (Js.null, Js.null) in 
-cp##setSize(1);
-cp##setColors(Js.array (Array.map Js.string [|"#FFFFFF"; "#CCCCCC"; "#C0C0C0"; "#999"; "#666"; "#333"; "#000"|]));
-cp##render(Js.some (get_el "colorPicker"))
+let sel = get_el "sel"
+
+let cp = jsnew Goog.Ui.colorPicker (Js.null, Js.null)
+let _ = 
+  cp##setSize(7);
+  cp##setColors(Goog.Ui.ColorPicker._SIMPLE_GRID_COLORS);
+  cp##addEventListener(Goog.Ui.ColorPicker.EventType._CHANGE, 
+		       (fun () -> sel##innerHTML <- cp##getSelectedColor();
+			 Js._true),
+		       Js.null);
+  cp##render(Js.some (get_el "colorPicker"))

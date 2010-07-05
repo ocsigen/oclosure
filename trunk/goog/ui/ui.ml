@@ -42,7 +42,6 @@ include Tooltip
 include Twothumbslider
 include Zippy
 module Tree = Tree
-include AutoComplete
 include BidiInput
 include ControlContent
 include CheckBoxMenuItem
@@ -54,3 +53,5 @@ include ContainerRenderer
 include MenuRenderer
 include ToggleButton
 include ToolbarToggleButton
+include ComboBoxItem
+include ComboBox

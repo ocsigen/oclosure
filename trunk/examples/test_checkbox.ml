@@ -27,17 +27,17 @@ let leafChanged e =
 let _ =
  ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 all)
-    Goog.Ui.Component.EventType.change 
+    Goog.Ui.Component.EventType._CHANGE 
     rootChanged
     Js.null);
   ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 leaf1)
-    Goog.Ui.Component.EventType.change 
+    Goog.Ui.Component.EventType._CHANGE 
     leafChanged
     Js.null);
   ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 leaf2)
-    Goog.Ui.Component.EventType.change 
+    Goog.Ui.Component.EventType._CHANGE 
     leafChanged
     Js.null);
   

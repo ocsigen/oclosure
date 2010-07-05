@@ -37,10 +37,10 @@ let handler o =
 let timer = jsnew Timer.timer (20)
 
 let _ =
-  pB1##setOrientation (Ui.ProgressBar.Orientation.vertical);
+  pB1##setOrientation (Ui.ProgressBar.Orientation._VERTICAL);
   pB1##render(Js.some div1);
 
-  pB2##setOrientation (Ui.ProgressBar.Orientation.horizontal);
+  pB2##setOrientation (Ui.ProgressBar.Orientation._HORIZONTAL);
   pB2##decorate(div2);
 
   timer##addEventListener (Js.string "tick",handler, Js.null);
@@ -48,8 +48,8 @@ let _ =
 
   let dom = jsnew Gdom.domHelper() in
   pB1##addEventListener(
-  Ui.Component.EventType.change,
-  (fun() -> dom##setTextContent(out,Js.string (string_of_float (pB1##getValue())^"%"));Js._true),
+  Ui.Component.EventType._CHANGE,
+  (fun() -> dom##setTextContent(out,Js.string (string_of_float (Js.to_float (pB1##getValue()))^"%"));Js._true),
   Js.null)
     
 

@@ -1,3 +1,4 @@
+open Js
 module A11y = struct
   type role =
       BUTTON 
@@ -42,18 +43,31 @@ module A11y = struct
   (* ARIA role for a toolbar element.*)
     | TOOLBAR 
 
-  type role_pre = string
+  type role_pre = js_string t
 	
   let role_pre_of_role = function
-    | BUTTON -> "button" | CHECKBOX -> "checkbox" | COMBOBOX -> "combobox" 
-    | DIALOG -> "dialog" | LINK -> "link" | LISTBOX -> "listbox" 
-    | MAIN -> "main" | MENU -> "menu" | MENUBAR -> "menubar" 
-    | MENU_ITEM -> "menuitem" | MENU_ITEM_CHECKBOX -> "menuitemcheckbox"
-    | MENU_ITEM_RADIO -> "menuitemradio" | NAVIGATION -> "navigation"
-    | OPTION -> "option" | GROUP -> "group" | SLIDER -> "slider" | TAB -> "tab"
-    | TAB_LIST -> "tablist" | TAB_PANEL -> "tabpanel" | TOOLBAR -> "toolbar"
+    | BUTTON -> Js.string "button" 
+    | CHECKBOX -> Js.string "checkbox" 
+    | COMBOBOX -> Js.string "combobox" 
+    | DIALOG -> Js.string "dialog" 
+    | LINK -> Js.string "link" 
+    | LISTBOX -> Js.string "listbox" 
+    | MAIN -> Js.string "main" 
+    | MENU -> Js.string "menu" 
+    | MENUBAR -> Js.string "menubar" 
+    | MENU_ITEM -> Js.string "menuitem" 
+    | MENU_ITEM_CHECKBOX -> Js.string "menuitemcheckbox"
+    | MENU_ITEM_RADIO -> Js.string "menuitemradio" 
+    | NAVIGATION -> Js.string "navigation"
+    | OPTION -> Js.string "option" 
+    | GROUP -> Js.string "group" 
+    | SLIDER -> Js.string "slider" 
+    | TAB -> Js.string "tab"
+    | TAB_LIST -> Js.string "tablist" 
+    | TAB_PANEL -> Js.string "tabpanel" 
+    | TOOLBAR -> Js.string "toolbar"
 	  
-  let role_of_role_pre = function
+  let role_of_role_pre s = match Js.to_string s with
     | "button" -> BUTTON | "checkbox" -> CHECKBOX | "combobox" -> COMBOBOX 
     | "dialog" -> DIALOG | "link" -> LINK | "listbox" -> LISTBOX 
     | "main" -> MAIN | "menu" -> MENU | "menubar" -> MENUBAR 

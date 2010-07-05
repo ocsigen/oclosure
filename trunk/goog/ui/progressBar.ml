@@ -9,7 +9,6 @@
  * @see 'goog.ui.Component'
  *)
 open Component
-open Dom
 
 open Js
 class type progressBar = object
@@ -24,10 +23,10 @@ class type progressBar = object
   method exitDocument : unit meth
 
  (** Decorates an existing HTML DIV element as a progress bar input. If the element contains a child with a class name of 'progress-bar-thumb' that will be used as the thumb. *)
-  method decorateInternal : element -> unit meth
+  method decorateInternal : Dom_html.element t -> unit meth
 
  (** The value. *)
-  method getValue : float meth
+  method getValue : float t meth
 
  (** Sets the value. *)
   method setValue : float -> unit meth
@@ -36,13 +35,13 @@ class type progressBar = object
   method setValueState_ : unit meth
 
  (** The minimum value. *)
-  method getMinimum : float meth
+  method getMinimum : float t meth
 
  (** Sets the minimum number. *)
   method setMinimum : float -> unit meth
 
  (** The maximum value. *)
-  method getMaximum : float meth
+  method getMaximum : float t meth
 
  (** Sets the maximum number. *)
   method setMaximum : float -> unit meth
@@ -67,9 +66,8 @@ let progressBar : progressBar t constr =
    * @enum string
 *)
 module ProgressBar = struct
-module Orientation = 
-  (struct
-     let vertical = Js.string "vertical"
-     let horizontal = Js.string "horizontal"
-   end)
+  module Orientation = struct
+    let _VERTICAL = Js.string "vertical"
+    let _HORIZONTAL = Js.string "horizontal"
+  end
 end

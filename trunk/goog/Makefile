@@ -46,6 +46,7 @@ cleanall: clean
 	-rm .depend
 
 clean:
+	@echo "[CLEAN]"
 	-find . -name "*.cm[oix]" -exec rm {} \;
 
 

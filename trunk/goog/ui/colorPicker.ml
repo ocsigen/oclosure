@@ -85,3 +85,26 @@ end
 
 let colorPicker : (domHelper t opt -> colorPalette t opt -> colorPicker t) constr = 
   Js.Unsafe.variable "goog.ui.ColorPicker"
+
+module ColorPicker = struct
+  let createSimpleColorGrid (dh : Gdom.domHelper t opt) : colorPicker t = 
+    Js.Unsafe.fun_call 
+      (Js.Unsafe.variable "goog.ui.ColorPicker.createSimpleColorGrid")
+      [|Js.Unsafe.inject dh|]
+
+  let _SIMPLE_GRID_COLORS = Js.array (Array.map Js.string [|
+  "#ffffff"; "#cccccc"; "#c0c0c0"; "#999999"; "#666666"; "#333333"; "#000000";
+  "#ffcccc"; "#ff6666"; "#ff0000"; "#cc0000"; "#990000"; "#660000"; "#330000";
+  "#ffcc99"; "#ff9966"; "#ff9900"; "#ff6600"; "#cc6600"; "#993300"; "#663300";
+  "#ffff99"; "#ffff66"; "#ffcc66"; "#ffcc33"; "#cc9933"; "#996633"; "#663333";
+  "#ffffcc"; "#ffff33"; "#ffff00"; "#ffcc00"; "#999900"; "#666600"; "#333300";
+  "#99ff99"; "#66ff99"; "#33ff33"; "#33cc00"; "#009900"; "#006600"; "#003300";
+  "#99ffff"; "#33ffff"; "#66cccc"; "#00cccc"; "#339999"; "#336666"; "#003333";
+  "#ccffff"; "#66ffff"; "#33ccff"; "#3366ff"; "#3333ff"; "#000099"; "#000066";
+  "#ccccff"; "#9999ff"; "#6666cc"; "#6633ff"; "#6600cc"; "#333399"; "#330099";
+  "#ffccff"; "#ff99ff"; "#cc66cc"; "#cc33cc"; "#993399"; "#663366"; "#330033"|])
+
+  module EventType = struct
+    let _CHANGE = Js.string "change"
+  end
+end
