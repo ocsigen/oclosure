@@ -52,10 +52,10 @@ class type ratings = object
   method getHighlightedValue : js_string t meth
 
  (** Sets the array of ratings that the comonent. *)
-  method setRatings : js_string t array -> unit meth
+  method setRatings : string js_array t  -> unit meth
 
  (** Gets the array of ratings that the component. *)
-  method getRatings : js_string t array meth
+  method getRatings : string js_array t meth
 
  (** Attaches an input or select element to the ratings widget. The value or index of the field will be updated along with the ratings widget. *)
   method setAttachedFormField : Dom_html.element t meth
@@ -69,12 +69,18 @@ end
     @constructor
 *)
 let ratings : ratings t constr =
-  Js.Unsafe.variable "goog.ui.Ratings"
+  Js.Unsafe.variable "goog.ui.Ratings" 
 
-(** Enums for Ratings event type **)
-let eventType_Change = "change" 
-let eventType_HighLightChange = "highlightchange"
-let eventType_HighLight = "highlight"
-let eventType_UnHighLight = "unhighlight"
+module Ratings = struct 
+  (** Enums for Ratings event type.
+      @enum *)
+  module Display = struct
+    let _CHANGE = Js.string "change"
+    let _HIGHLIGHT_CHANGE = Js.string "highlightchange"
+    let _HIGHLIGHT = Js.string "highlight"
+    let _UNHIGHLIGHT = Js.string "unhighlight"
+  end
+
+end
 
 
