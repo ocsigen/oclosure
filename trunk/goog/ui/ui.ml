@@ -2,7 +2,6 @@ include AbstractSpellChecker
 include AdvancedTooltip
 include AnimatedZippy
 include AutoComplete
-include AutoCompleteBasic
 include Bubble
 include Button
 include CharPicker
@@ -43,6 +42,7 @@ include Tooltip
 include Twothumbslider
 include Zippy
 module Tree = Tree
+include AutoComplete
 include BidiInput
 include ControlContent
 include CheckBoxMenuItem

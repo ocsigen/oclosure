@@ -12,7 +12,7 @@ INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
 OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
 GOOG=goog.cmo
-FILES=$(shell find -E * -regex ".*\\.mli?")
+FILES=$(shell find * -name "*.ml" && find * -name "*.mli")
 
 all: $(GOOG)
 
