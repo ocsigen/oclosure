@@ -40,5 +40,5 @@ let _ =
     (Goog.Tools.Union.i1 slider)
     (Js.string "change")
     createRoundedCorners
-    Js._false);
+    Js.null);
   createRoundedCorners()

@@ -17,7 +17,7 @@ open Js
 
 open Component
 open MenuItem
-open Coordinate
+open MenuSeparator
 
 class type menu = object
   inherit component
@@ -28,31 +28,31 @@ class type menu = object
   method containsElement : Dom_html.element t -> bool t meth
   
   (** Adds a new menu item at the end of the menu.*)
-  method addItem : menuItem (* | goog.ui.MenuSeparator *)-> unit meth
+  method addItem : (menuItem t, menuSeparator t) Tools.Union.t -> unit meth
   
   (** Adds a new menu item at a specific index in the menu.*)
-  method addItemAt : menuItem (* | goog.ui.MenuSeparator *) -> float -> unit meth
+  method addItemAt : (menuItem t, menuSeparator t) Tools.Union.t -> int -> unit meth
   
   (** Removes an item from the menu and disposes of it.*)
-  method removeItem : menuItem (* | goog.ui.MenuSeparator *) -> unit meth
+  method removeItem : (menuItem t, menuSeparator t) Tools.Union.t  -> unit meth
   
   (** Removes a menu item at a given index in the menu and disposes of it.*)
-  method removeItemAt : float -> unit meth
+  method removeItemAt : int -> unit meth
   
   (** Returns a reference to the menu item at a given index.*)
-  method getItemAt : float -> menuItem meth
+  method getItemAt : int -> (menuItem t, menuSeparator t) Tools.Union.t opt meth
   
   (** Returns the number of items in the menu (including separators).*)
-  method getItemCount : float meth
+  method getItemCount : int meth
   
   (** Returns the menu items contained in the menu.*)
-  method getItems : menuItem array meth
+  method getItems : menuItem t js_array t meth
   
   (** Sets the position of the menu relative to the view port.*)
-  method setPosition : float -> (* float ->*) unit meth
+  method setPosition : (int, Math.coordinate t) Tools.Union.t -> int opt -> unit meth
   
   (** Gets the page offset of the menu, or null if the menu isn't visible*)
-  method getPosition : coordinate meth
+  method getPosition : Math.coordinate t opt meth
   
   (** Sets whether the menu can automatically move focus to its key event target
      when it is set to visible.*)
@@ -73,9 +73,8 @@ class type menu = object
   (** Highlights the next item that begins with the specified js_string t.  If no
      (other) item begins with the given js_string t, the selection is unchanged.*)
   method highlightNextPrefix : js_string t -> bool t meth
-
 end
 
-let menu : menu t constr =
+let menu : (Gdom.domHelper t opt -> MenuRenderer.menuRenderer t opt -> menu t) constr =
   Js.Unsafe.variable "goog.ui.Menu"
 

@@ -44,3 +44,13 @@ include Twothumbslider
 include Zippy
 module Tree = Tree
 include BidiInput
+include ControlContent
+include CheckBoxMenuItem
+include ToolbarMenuButton
+include ButtonRenderer
+include Separator
+include MenuSeparator
+include ContainerRenderer
+include MenuRenderer
+include ToggleButton
+include ToolbarToggleButton

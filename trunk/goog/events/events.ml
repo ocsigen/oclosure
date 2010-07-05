@@ -17,7 +17,7 @@ open Tools
    @return Unique key for the listener.
 *)
 let listen (src : (#eventTarget t, #Dom_html.eventTarget t) Union.t) (typ : js_string t) 
-    (listener : (unit -> unit)) (capt : bool t) : int =
+    (listener : (unit -> unit)) (capt : bool t opt) : int =
   Js.Unsafe.fun_call
     (Js.Unsafe.variable "goog.events.listen")
     [|Js.Unsafe.inject src; Js.Unsafe.inject typ; Js.Unsafe.inject listener; 

@@ -42,5 +42,5 @@ let _ =
     (Goog.Tools.Union.i2 bc)
     (Js.string "click")
     (fun () -> tooltip##setVisible(Js._false);)
-    Js._false
+    Js.null
     

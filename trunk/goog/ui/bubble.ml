@@ -11,6 +11,13 @@
 *)
 
 open Js
+module Corner = struct 
+  type corner = 
+      TOP_LEFT
+    | BOTTOM_LEFT
+    | TOP_RIGHT
+    | BOTTOM_RIGHT
+end
 
 class type bubble = object
   inherit Component.component
@@ -27,7 +34,7 @@ class type bubble = object
   
   method setAutoHide : bool t -> unit meth
   
-  method setPinnedCorner : Positioning.corner -> unit meth
+  method setPinnedCorner : Corner.corner -> unit meth
 
   method setPosition : Positioning.abstractPosition t -> unit meth
 

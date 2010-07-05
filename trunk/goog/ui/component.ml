@@ -12,30 +12,49 @@ open Js
 
 class type component = object
   inherit eventTarget
-  (** Adds the specified component as the last child of this component. 
-    * See goog.ui.Component#addChildAt for detailed semantics. 
-    *) 
-  method addChild : component t -> bool t -> unit meth
+  (** 
+     Adds the specified component as the last child of this component. 
+     See goog.ui.Component#addChildAt for detailed semantics. 
+  *) 
+  method addChild : component t -> bool t opt -> unit meth
   (** Decorates the element for the UI component. *)
   method decorate : Dom_html.element t -> unit meth
   (** Returns the child with the given ID, or null if no such child exists. *)
-  method getChild : js_string t -> component meth
+  method getChild : js_string t -> component t opt meth
   (* Returns the child at the given index, or null if the index is out of 
      bounds. *) 
-   method getChildAt : Js.number t -> component opt meth  
-  (** Renders the component. If a parent element is supplied, it should already
-     * be in the document and then the component's element will be appended to 
-     * it. If there is no optional parent element and the element doesn't have 
-     * a parentNode then it will be appended to the document body. Throws an 
-     * Error if the component is already rendered.
+   method getChildAt : int -> component t opt meth  
+  (** 
+     Renders the component. If a parent element is supplied, it should already
+     be in the document and then the component's element will be appended to 
+     it. If there is no optional parent element and the element doesn't have 
+     a parentNode then it will be appended to the document body. Throws an 
+     Error if the component is already rendered.
   *)
   method render : Dom_html.element t opt -> unit meth
+
+  (** Gets the component's element. *)
+  method getElement : Dom_html.element t meth
+
+  (** Returns the component's parent, if any. *)
+  method getParent : component t opt meth
+
+(**
+   Called when the component's element is known to be in the document. Anything
+   using document.getElementById etc. should be done at this stage.
+   
+   If the component contains child components, this call is propagated to its
+   children.
+*)
+  method enterDocument : unit meth
 end
 
 let component : component t constr =
   Js.Unsafe.variable "goog.ui.Component"
 
 module Component = struct
+  let addChild (c : #component t) child (b : bool t opt) = 
+    c##addChild((child : #component t :> component t), b)
 (**
    * Common events fired by components so that event propagation is useful.  Not
    * all components are expected to dispatch or listen for all event types.

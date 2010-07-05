@@ -12,6 +12,14 @@
 
 open Js
 
+module Corner : sig
+  type corner = 
+      TOP_LEFT
+    | BOTTOM_LEFT
+    | TOP_RIGHT
+    | BOTTOM_RIGHT
+end
+
 class type bubble = object
   inherit Component.component
   (** Attaches the bubble to an anchor element. 
@@ -40,8 +48,13 @@ class type bubble = object
        whenever user clicks outside the bubble element *)
   method setAutoHide : bool t -> unit meth
   
-  (**  Sets the corner of the bubble to used in the positioning algorithm *)
-  method setPinnedCorner : Positioning.corner -> unit meth
+  (**  
+     Sets the corner of the bubble to used in the positioning algorithm 
+     @param corner Originally of type goog.positioning.Corner in Closure but
+     only worked with [TOP|BOTTOM]_[LEFT|RIGHT] (threw an error for other
+     constants)
+  *)
+  method setPinnedCorner : Corner.corner -> unit meth
 
   (**  Sets the position of the bubble.
        Pass null for corner in AnchoredPosition for 

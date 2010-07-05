@@ -10,7 +10,6 @@
  *)
 
 open Button
-open Event
 open Menu
 open MenuItem
 
@@ -21,47 +20,43 @@ class type menuButton = object
   method enterDocument : unit meth
 
  (** Removes event handlers specific to menu buttons, and ensures that the
-  * attached menu also exits the document.*)
+   attached menu also exits the document.*)
   method exitDocument : unit meth
   
   (** @inheritDoc *)
   method disposeInternal : unit meth
   
   (** Handles mousedown events. Invokes the superclass implementation to dispatch
-   * an ACTIVATE event and activate the button.  Also toggles the visibility of
-   * the attached menu.*)
-  method handleMouseDown : event t -> unit meth
+    an ACTIVATE event and activate the button.  Also toggles the visibility of
+    the attached menu.*)
+  method handleMouseDown : Event.event t -> unit meth
 
   (** Handles mouseup events. Invokes the superclass implementation to dispatch
-   * an ACTION event and deactivate the button.*)
-  method handleMouseUp : event t -> unit meth
+    an ACTION event and deactivate the button.*)
+  method handleMouseUp : Event.event t -> unit meth
   
   (** Performs the appropriate action when the menu button is activated by the
-   * user.*)
-  method performActionInternal : event t -> bool t meth
-  
-  (** Handles mousedown events over the document.  If the mousedown happens over
-   * an element unrelated to the component, hides the menu.*)
-  method handleDocumentMouseDown : event t (**browserEvent*) -> unit meth
+    user.*)
+  method performActionInternal : Event.event t -> bool t meth
   
   (** Returns true if the given element is to be considered part of the component,
-   * even if it isn't a DOM descendant of the component's root element.*)
+    even if it isn't a DOM descendant of the component's root element.*)
   method containsElement : Dom_html.element t -> bool t meth
   
   (** @inheritDoc *)
-  method handleKeyEventInternal : event t -> bool t meth
+  method handleKeyEventInternal : Event.event t -> bool t meth
   
   (** Handles [ACTION] events dispatched by an activated menu item.*)
-  method handleMenuAction : event t -> bool t meth
+  method handleMenuAction : Event.event t -> bool t meth
 
   (** Handles [BLUR] events dispatched by the popup menu by closing it.
    * Only registered if the menu is focusable.*)
-  method handleMenuBlur : event t -> unit meth
+  method handleMenuBlur : Event.event t -> unit meth
   
   (** Handles blur events dispatched by the button's key event target when it
    * loses keyboard focus by closing the popup menu (unless it is focusable).
    * Only registered if the button is focusable.*)
-  method handleBur : event t -> unit meth
+  method handleBur : Event.event t -> unit meth
  
   (** Returns the menu attached to the button.  If no menu is attached, creates a
    * new empty menu.*)
@@ -84,7 +79,7 @@ class type menuButton = object
   method removeItemAt : int -> unit meth
   
   (** Returns the menu item at a given index.*)
-  method getItemAt : int  -> menuItem meth
+  method getItemAt : int  -> menuItem t meth
   
   (** Returns the number of items in the menu (including separators).*)
   method getItemCount : int meth
@@ -136,10 +131,10 @@ class type menuButton = object
   method positionMenu : unit meth
   
   (** Handles [HIGHLIGHT] events dispatched by the attached menu.*)
-  method handleHighlightItem : event t -> unit meth
+  method handleHighlightItem : Event.event t -> unit meth
 
   (** Handles UNHIGHLIGHT events dispatched by the associated menu.*)
-  method handleUnHighlightItem : event t -> unit meth
+  method handleUnHighlightItem : Event.event t -> unit meth
   
 end
 

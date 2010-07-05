@@ -27,3 +27,20 @@ end
 
 let container : container t constr =
   Js.Unsafe.variable "goog.ui.Container"
+
+module Container = struct
+  type orientation = 
+    | HORIZONTAL
+    | VERTICAL
+	
+  type orientation_pre = js_string t
+
+  let orientation_pre_of_orientation = function
+    | VERTICAL -> Js.string "vertical"
+    | HORIZONTAL -> Js.string "horizontal"
+
+  let orientation_of_orientation_pre = function
+    | "vertical" -> VERTICAL
+    | "horizontal" -> HORIZONTAL
+end
+type orientation = Container.orientation

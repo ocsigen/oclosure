@@ -17,28 +17,45 @@ class type checkbox = object
   inherit control
   method getChecked : bool t opt meth
 
+    (** Whether the checkbox is checked.*)
   method isChecked : bool t meth
     
+    (** Whether the checkbox is enabled. *)
   method isEnabled : bool t meth
   
+    (** Whether the checkbox is not checked.*)
   method isUnchecked : bool t meth
 
+    (** Whether the checkbox is in partially checked state.*)
   method isUndetermined : bool t meth
     
+    (** Sets the checked state of the checkbox.*)
   method setChecked : bool t opt -> unit meth
     
+  (**
+     Binds an HTML element to the checkbox which if clicked toggles the 
+     checkbox. Behaves the same way as the 'label' HTML tag. The label element 
+     has to be the direct or non-direct ancestor of the checkbox element because
+     it will get the focus when keyboard support is implemented.
+  *)
   method setLabel : Dom_html.element t -> unit meth
     
+    (** Toggles the checkbox.*)
   method toggle : unit meth
     
+    (** @inheritDoc*)
   method createDom : unit meth
     
+    (** @inheritDoc*)
   method decorateInternal : Dom_html.element t -> unit meth
     
+    (** @inheritDoc*)
   method enterDocument : unit meth
-
+    
+    (**Fix for tabindex not being updated so that disabled checkbox is not
+     * focusable. In particular this fails in Chrome.*)
   method setEnabled : bool t -> unit meth
+
 end
 
-let checkbox : (bool t opt -> checkbox t) constr =
-  Js.Unsafe.variable "goog.ui.Checkbox"
+val checkbox : (bool t opt -> checkbox t) constr 
