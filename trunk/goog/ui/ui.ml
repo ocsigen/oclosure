@@ -55,3 +55,5 @@ include ToggleButton
 include ToolbarToggleButton
 include ComboBoxItem
 include ComboBox
+include GaugeTheme
+include Gauge

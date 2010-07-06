@@ -34,7 +34,7 @@ let handler o =
   pB2##setValue(!last);
   Js._true
 
-let timer = jsnew Timer.timer (20)
+let timer = jsnew Timer.timer (Js.some 20)
 
 let _ =
   pB1##setOrientation (Ui.ProgressBar.Orientation._VERTICAL);

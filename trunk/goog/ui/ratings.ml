@@ -21,7 +21,8 @@ class type ratings = object
       - option 3 #text = 3 stars
       - option N (where N is max number of ratings)
 
-      The div can contain other elements for graceful degredation, but they will be hidden when the decoration occurs. *)
+      The div can contain other elements for graceful degredation, but they will be hidden when the decoration occurs. 
+  @param el Div element to decorate. *)
   method decoreInternal : Dom_html.element t -> unit meth
     
   (** Render the rating widget inside the provided element. This will override the current content of the element. *)
@@ -33,39 +34,51 @@ class type ratings = object
   (** @inheritDoc *)
   method disposeInternal : unit meth
     
-  (** Returns the base CSS class used by subcomponents of this component. *)
+  (** Returns the base CSS class used by subcomponents of this component. 
+      @return Component-specific CSS class.*)
   method getCssClass : js_string t meth
-
- (** Sets the selected index. If the provided index is greater than the number of ratings then the max is set.  0 is the first item, -1 is no selection. *)
+    
+  (** Sets the selected index. If the provided index is greater than the number of ratings then the max is set.  0 is the first item, -1 is no selection. 
+     @param index The index of the rating to select.*)
   method setSelectedIndex : int -> unit meth
 
- (** The index of the currently selected rating. *)
+  (** @return The index of the currently selected rating. *)
   method getSelectedIndex : int meth
-
- (** Returns the rating value of the currently selected rating. *)
+    
+  (** Returns the rating value of the currently selected rating. 
+     @return The value of the currently selected rating (or null).*)
   method getValue : js_string t meth
 
- (** Returns the index of the currently highlighted rating, -1 if the mouse isn't currently over the widget. *)
+  (** Returns the index of the currently highlighted rating, -1 if the mouse isn't currently over the widget.
+     @return The index of the currently highlighted rating. *)
   method getHighlightedIndex : int meth
 
- (** Returns the value of the currently highlighted rating, null if the mouse isn't currently over the widget. *)
+  (** Returns the value of the currently highlighted rating, null if the mouse isn't currently over the widget. 
+     @return The value of the currently highlighted rating, or null.*)
   method getHighlightedValue : js_string t meth
-
- (** Sets the array of ratings that the comonent. *)
+    
+  (** Sets the array of ratings that the comonent.
+     @param ratings Array of value to use as ratings. *)
   method setRatings : string js_array t  -> unit meth
-
- (** Gets the array of ratings that the component. *)
+    
+  (** Gets the array of ratings that the component. 
+     @return Array of ratings. *)
   method getRatings : string js_array t meth
+    
+  (** Attaches an input or select element to the ratings widget. The value or index of the field will be updated along with the ratings widget. 
+     @param field The field to attach to.*)
+  method setAttachedFormField : Dom_html.element t -> unit meth
 
- (** Attaches an input or select element to the ratings widget. The value or index of the field will be updated along with the ratings widget. *)
-  method setAttachedFormField : Dom_html.element t meth
+  (** Returns the attached input or select element to the ratings widget.
+    @return The attached form field. *)
+  method getAttachedFormField : Dom_html.element t meth
 
 end
 
 (** 
     A UI Control used for rating things, i.e. videos on Google Video.
-    @param {Array.<string>=} opt_ratings Ratings. Default: [1,2,3,4,5].
-    @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
+    @param opt_ratings Ratings. Default: [1,2,3,4,5].
+    @param opt_domHelper Optional DOM helper.
     @constructor
 *)
 let ratings : ratings t constr =

@@ -1,71 +1,76 @@
 (**
- * OClosure Project - 2010
- * Class goog.ui.ProgressBar
- *
- * This creates a progress bar object.
- *
- * @author : Oran Charles
- * @version 0.2
- * @see 'goog.ui.Component'
+   OClosure Project - 2010
+
+   Class goog.ui.ProgressBar
+   
+   @author : Oran Charles
+   @version 0.2
+   @see 'goog.ui.Component'
  *)
 open Component
 
 open Js
 class type progressBar = object
   inherit component
-  (** Creates the DOM nodes needed for the progress bar. *)
+    (** Creates the DOM nodes needed for the progress bar. *)
   method createDom : unit meth
 
- (** Called when the DOM for the component is for sure in the document. *)
+  (** Called when the DOM for the component is for sure in the document. *)
   method enterDocument : unit meth
- 
- (** Called when the DOM for the component is for sure in the document. *)
+    
+  (** Called when the DOM for the component is for sure in the document. *)
   method exitDocument : unit meth
 
- (** Decorates an existing HTML DIV element as a progress bar input. If the element contains a child with a class name of 'progress-bar-thumb' that will be used as the thumb. *)
+  (** Decorates an existing HTML DIV element as a progress bar input. If the element contains a child with a class name of 'progress-bar-thumb' that will be used as the thumb. 
+      @param element  The HTML element to decorate.*)
   method decorateInternal : Dom_html.element t -> unit meth
 
- (** The value. *)
+  (** @return The value. *)
   method getValue : float t meth
 
- (** Sets the value. *)
+  (** Sets the value. 
+      @param v The value.*)
   method setValue : float -> unit meth
 
- (** Sets the state for a11y of the current value. *)
-  method setValueState_ : unit meth
-
- (** The minimum value. *)
+  (** @return The minimum value. *)
   method getMinimum : float t meth
 
- (** Sets the minimum number. *)
+  (** Sets the minimum number. 
+      @param v The minimum value.*)
   method setMinimum : float -> unit meth
 
- (** The maximum value. *)
+  (** @return The maximum value. *)
   method getMaximum : float t meth
-
- (** Sets the maximum number. *)
+    
+  (** Sets the maximum number. 
+      @param v The maximum value.*)
   method setMaximum : float -> unit meth
 
- (** Changes the orientation. *)
+  (** Changes the orientation. 
+      @param orient The orientation.*)
   method setOrientation : js_string t -> unit meth
 
- (** The orientation of the progress bar. *)
+  (** @param orient The orientation. *)
   method getOrientation : js_string t meth
-
- (** @inheritDoc *)
+    
+  (** @inheritDoc *)
   method disposableInternal : unit meth
+    
+  (** @return The step value used to determine how to round the value. *)
+  method getStep : int meth
+
+  (** Sets the step value. The step value is used to determine how to round the value.
+      @param step  The step size. *)
+  method setStep : int -> unit meth
 
 end
 
 let progressBar : progressBar t constr =
   Js.Unsafe.variable "goog.ui.ProgressBar"
 
-(**
-   * Enum for representing the orientation of the progress bar.
-   *
-   * @enum string
-*)
 module ProgressBar = struct
+
+  (** Enum for representing the orientation of the progress bar. *)
   module Orientation = struct
     let _VERTICAL = Js.string "vertical"
     let _HORIZONTAL = Js.string "horizontal"
