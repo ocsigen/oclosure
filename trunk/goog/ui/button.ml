@@ -37,6 +37,26 @@ class type button = object
   method setValue : js_string t -> unit meth
 end
 
-let button : ControlContent.controlContent -> ButtonRenderer.buttonRenderer t opt -> Gdom.domHelper t opt -> button t constr =
+and buttonRenderer = object
+  inherit Control.controlRenderer
+
+  method createDom_ : button t -> Dom_html.element t meth
+
+  method decorate_ : button t -> Dom_html.element t -> Dom_html.element t meth
+
+  method getAriaRole : Gdom.A11y.role_pre optdef -> unit meth
+
+  method getCssClass : js_string t meth
+
+  method getTooltip : Dom_html.element t -> js_string t optdef meth
+
+  method getValue : js_string t optdef meth
+end
+
+let buttonRenderer : buttonRenderer t constr = 
+  Js.Unsafe.variable "goog.ui.ButtonRenderer"
+
+
+let button : (ControlContent.controlContent -> buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr =
   Js.Unsafe.variable "goog.ui.Button"
 

@@ -21,7 +21,54 @@ open Control
 open Js
 class type palette = object
   inherit control
+
+  method disposeInternal : unit meth
+
+  method getCaption : js_string t opt meth
+
+  method getHighlightedIndex : int meth
+
+  method getHighlightedItem : Dom.node t meth
+
+  method getSelectedIndex : int meth
+
+  method getSelectedItem : Dom.node t meth
+
+  method getSize : Math.size t meth
+
+  method handleKeyEvent_ : Events.keyEvent t -> bool t meth
+
+  method handleMouseDown_ : Events.event t -> unit meth
+
+  method handleMouseOut_ : Events.browserEvent t -> unit meth
+
+  method handleMouseOver_ : Events.browserEvent t -> unit meth
+
+  method handleSelectionChange : Events.event t -> unit meth
+
+  method performActionInternal : Events.browserEvent t -> bool t meth
+
+  method setCaption : js_string t -> unit meth
+
+  method setHighlightedIndex : int -> unit meth
+
+  method setSelectedIndex : int -> unit meth
+
+  method setSelectedItem : Dom.node t -> unit meth
+
+  method setSize : (Math.size t, int) Tools.Union.t -> int opt -> unit meth
 end
 
-let palette : palette t constr = 
-  Js.Unsafe.variable "goog.ui.Palette"
+and paletteRenderer = object
+  inherit Control.controlRenderer
+  method canDecorate : Dom_html.element t -> bool t meth
+
+  method createDom_ : palette t -> Dom_html.element t meth
+end
+
+let paletteRenderer : paletteRenderer t constr = 
+  Js.Unsafe.variable "goog.ui.PaletteRenderer"
+
+let palette = Js.Unsafe.variable "goog.ui.Palette"
+let palette : (#Dom.node t js_array t -> paletteRenderer t opt -> Gdom.domHelper t opt -> palette t) constr = palette
+

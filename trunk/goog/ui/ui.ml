@@ -1,3 +1,14 @@
+open Js
+
+(** 
+   Decorates the element with a suitable goog.ui.Component instance, if a 
+   matching decorator is found.
+*)
+let decorate (e : Dom_html.element t) : #Component.component t opt =
+  Js.Unsafe.fun_call 
+    (Js.Unsafe.variable "goog.ui.decorate")
+    [|Js.Unsafe.inject e|]
+
 include AbstractSpellChecker
 include AdvancedTooltip
 include AnimatedZippy
@@ -12,7 +23,6 @@ include ColorPicker
 include Component
 include Container
 include Control
-include ControlRenderer
 include DatePicker
 include Dialog
 include ImagelessRoundedCorner
@@ -21,7 +31,6 @@ include Menu
 include MenuButton
 include MenuItem
 include Palette
-include PaletteRenderer
 include PlainTextSpellChecker
 include Popup
 include PopupBase
@@ -46,7 +55,6 @@ include BidiInput
 include ControlContent
 include CheckBoxMenuItem
 include ToolbarMenuButton
-include ButtonRenderer
 include Separator
 include MenuSeparator
 include ContainerRenderer
@@ -57,3 +65,7 @@ include ComboBoxItem
 include ComboBox
 include GaugeTheme
 include Gauge
+include CustomButton
+include CustomButtonRenderer
+include Css3ButtonRenderer
+include ContainerScroller

@@ -17,12 +17,12 @@ let _ =
 (*  leaf2##setLabel(leaf2.getElement().parentNode);*)
   
 let rootChanged e =
-  leaf1##setChecked(all##getChecked());
-  leaf2##setChecked(all##getChecked())
+  leaf1##setChecked_(all##getChecked());
+  leaf2##setChecked_(all##getChecked())
 
 let leafChanged e =
   let same = leaf1##getChecked() == leaf2##getChecked() in
-  all##setChecked(if same then leaf1##getChecked() else Js.null)
+  all##setChecked_(if same then leaf1##getChecked() else Js.null)
     
 let _ =
  ignore(Goog.Events.listen 

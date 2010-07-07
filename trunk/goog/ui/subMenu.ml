@@ -39,21 +39,23 @@ class type subMenu = object
   method clearTimers : unit meth
 
   (** Sets the menu item to be visible or invisible.*)
-  method setVisible : bool t -> bool t meth
+  method setVisible : bool t -> bool t opt -> bool t meth
 
-  (**Handles a key event that is passed to the menu item from its parent because
-   * it is highlighted.  If the right key is pressed the sub menu takes control
-   * and delegates further key events to its menu until it is dismissed OR the
-   * left key is pressed.*)
-  method handleKeyEvent : event (*KeyEvent*) -> bool t meth
+  (**
+     Handles a key event that is passed to the menu item from its parent because
+     it is highlighted.  If the right key is pressed the sub menu takes control
+     and delegates further key events to its menu until it is dismissed OR the
+     left key is pressed.*)
+  method handleKeyEvent_ : Events.keyEvent t -> bool t meth
 
-  (** Sets a timer to show the submenu and then dispatches an ENTER event to the
-   * parent menu.*)
-  method handleMouseOver : event (*BrowserEvent*) -> unit meth
+  (** 
+     Sets a timer to show the submenu and then dispatches an ENTER event to the
+     parent menu.*)
+  method handleMouseOver_ : Events.browserEvent t -> unit meth
 
   (** Overrides the default mouseup event handler, so that the ACTION isn't
-   * dispatched for the submenu itself, instead the submenu is shown instantly.*)
-  method performActionInternal : event (*BrowserEvent*) -> bool t meth
+    dispatched for the submenu itself, instead the submenu is shown instantly.*)
+  method performActionInternal_ : Events.browserEvent t  -> bool t meth
 
   (** Sets whether the submenu is aligned at the end of the parent menu.*)
   method setAlignToEnd : bool t -> unit meth
@@ -62,31 +64,31 @@ class type subMenu = object
   method isAlignedToEnd : bool t meth
 
   (** Adds a new menu item at the end of the menu.*)
-  method addItem : menuItem -> unit meth
+  method addItem : menuItem t -> unit meth
 
   (** Adds a new menu item at a specific index in the menu.*)
-  method addItemAt : menuItem -> float -> unit meth
+  method addItemAt : menuItem t -> float -> unit meth
 
   (** Removes an item from the menu and disposes it.*)
-  method removeItem : menuItem -> unit meth
+  method removeItem : menuItem t -> unit meth
 
   (** Removes a menu item at a given index in the menu and disposes it.*)
-  method removeItemAt: float -> unit meth
+  method removeItemAt : float -> unit meth
 
   (** Returns a reference to the menu item at a given index.*)
   method getItemAt : float -> component meth
 
   (** Returns the number of items in the sub menu (including separators).*)
-  method getItemCount : float meth
+  method getItemCount : float t meth
 
   (** Returns the menu items contained in the sub menu.*)
-  method getItems : menuItem array meth
+  method getItems : menuItem t js_array t meth
 
   (** Gets a reference to the submenu's actual menu.*)
-  method getMenu : menu meth
+  method getMenu : menu t meth
 
   (** Sets the submenu to a specific menu.*)
-  method setMenu : menu -> unit meth
+  method setMenu : menu t -> unit meth
   
   (** Returns true if the provided element is to be considered inside the menu for
    * purposes such as dismissing the menu on an event.  This is so submenus can

@@ -29,15 +29,15 @@ class type menuButton = object
   (** Handles mousedown events. Invokes the superclass implementation to dispatch
     an ACTIVATE event and activate the button.  Also toggles the visibility of
     the attached menu.*)
-  method handleMouseDown : Event.event t -> unit meth
+  method handleMouseDown : #Event.event t -> unit meth
 
   (** Handles mouseup events. Invokes the superclass implementation to dispatch
     an ACTION event and deactivate the button.*)
-  method handleMouseUp : Event.event t -> unit meth
+  method handleMouseUp : #Event.event t -> unit meth
   
   (** Performs the appropriate action when the menu button is activated by the
     user.*)
-  method performActionInternal : Event.event t -> bool t meth
+  method performActionInternal : #Event.event t -> bool t meth
   
   (** Returns true if the given element is to be considered part of the component,
     even if it isn't a DOM descendant of the component's root element.*)
@@ -86,7 +86,7 @@ class type menuButton = object
   
   (** Shows/hides the menu button based on the value of the argument.  Also hides
    * the popup menu if the button is being hidden.*)
-  method setVisible : bool t -> bool t meth
+  method setVisible : bool t -> bool t opt -> bool t meth
   
   (** Enables/disables the menu button based on the value of the argument, and
    * updates its CSS styling.  Also hides the popup menu if the button is being

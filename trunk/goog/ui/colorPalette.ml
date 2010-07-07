@@ -8,11 +8,18 @@
     @version 0.2
 *)
 open Palette
-open PaletteRenderer
 open Gdom
 open Js
 class type colorPalette = object
   inherit palette
+  
+  method getColors : js_string t js_array t meth
+
+  method getSelectedColor : js_string opt meth
+
+  method setColors : js_string t js_array t -> unit meth
+
+  method setSelectedColor : js_string t opt -> unit meth
 end
 
 let colorPalette : (js_string t js_array t opt -> paletteRenderer t opt -> Gdom.domHelper t opt -> colorPalette t) constr =

@@ -13,6 +13,7 @@
 open Control
 
 open Js
+
 class type checkbox = object
   inherit control
   method getChecked : bool t opt meth
@@ -30,7 +31,7 @@ class type checkbox = object
   method isUndetermined : bool t meth
     
     (** Sets the checked state of the checkbox.*)
-  method setChecked : bool t opt -> unit meth
+  method setChecked_ : bool t opt -> unit meth
     
   (**
      Binds an HTML element to the checkbox which if clicked toggles the 

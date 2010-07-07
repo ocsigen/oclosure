@@ -19,8 +19,8 @@ let _ =
   add_item cb (jsnew Goog.Ui.comboBoxItem(Js.string "Netflix"));
   add_item cb (jsnew Goog.Ui.comboBoxItem(Js.string "Personal"));
   add_item cb (jsnew Goog.Ui.comboBoxItem(Js.string "Photos"));
-  add_item cb (jsnew Goog.Ui.comboBoxItem(Js.string "Programming"))
-(*  add_item cb (jsnew Goog.Ui.menuSeparator(Js.null))*)
+  add_item cb (jsnew Goog.Ui.comboBoxItem(Js.string "Programming"));
+  add_item cb (jsnew Goog.Ui.menuSeparator(Js.null))
 
 let newfolder = jsnew Goog.Ui.comboBoxItem(Js.string "New Folder...")
 let _ =

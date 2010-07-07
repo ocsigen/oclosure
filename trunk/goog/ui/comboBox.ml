@@ -18,14 +18,14 @@ class type comboBox = object
      Adds a new menu item at the end of the menu.
      @param item Menu item to add to the menu.
   *)
-  method addItem : #MenuItem.menuItem t -> unit meth
+  method addItem : #Control.control t -> unit meth
  
   (**
      Adds a new menu item at a specific index in the menu.
      @param item Menu item to add to the menu.
      @param n Index at which to insert the menu item.
   *)
-  method addItemAt : #MenuItem.menuItem t -> int -> unit meth
+  method addItemAt : #Control.control t -> int -> unit meth
  
   (** 
      Sets the default text for the combo box.

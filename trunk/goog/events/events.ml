@@ -26,3 +26,4 @@ let listen (src : (#eventTarget t, #Dom_html.eventTarget t) Union.t) (typ : js_s
 include Event
 include BrowserEvent
 include EventTarget
+include KeyEvent

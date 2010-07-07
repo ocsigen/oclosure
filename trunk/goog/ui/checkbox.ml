@@ -25,7 +25,7 @@ class type checkbox = object
 
   method isUndetermined : bool t meth
     
-  method setChecked : bool t opt -> unit meth
+  method setChecked_ : bool t opt -> unit meth
     
   method setLabel : Dom_html.element t -> unit meth
     

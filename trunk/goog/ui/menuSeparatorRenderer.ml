@@ -9,11 +9,11 @@
 open Js
 
 class type menuSeparatorRenderer = object
-  inherit ControlRenderer.controlRenderer
+  inherit Control.controlRenderer
 
-  method createDom : #Separator.separator t -> Dom_html.element t meth
+  method createDom_ : #Separator.separator t -> Dom_html.element t meth
 
-  method decorate : #Separator.separator t -> Dom_html.element t -> Dom_html.element t meth
+  method decorate_ : #Separator.separator t -> Dom_html.element t -> Dom_html.element t meth
 
   method getCssClass : js_string t meth
 

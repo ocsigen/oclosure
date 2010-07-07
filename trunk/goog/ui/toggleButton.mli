@@ -25,4 +25,4 @@ end
    document interaction.
    @constructor
 *)
-val toggleButton : (ControlContent.controlContent -> ButtonRenderer.buttonRenderer t opt -> Gdom.domHelper t opt -> toggleButton t) constr
+val toggleButton : (ControlContent.controlContent -> Button.buttonRenderer t opt -> Gdom.domHelper t opt -> toggleButton t) constr

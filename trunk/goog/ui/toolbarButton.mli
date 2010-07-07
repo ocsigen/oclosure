@@ -12,4 +12,4 @@ class type toolbarButton = object
   inherit button
 end
 
-val toolbarButton : (ControlContent.controlContent -> ButtonRenderer.buttonRenderer t opt -> Gdom.domHelper t opt -> toolbarButton t) constr 
+val toolbarButton : (ControlContent.controlContent -> Button.buttonRenderer t opt -> Gdom.domHelper t opt -> toolbarButton t) constr 
