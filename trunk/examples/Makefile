@@ -2,16 +2,19 @@ SRC=$(wildcard *.ml)
 EXECS=$(SRC:.ml=.byte)
 TARGETS=$(SRC:.ml=.js)
 LIB=
-OCAML_FLAGS=-package js_of_ocaml -syntax camlp4o
+OCAMLFLAGS=-package js_of_ocaml -syntax camlp4o
 GOOG=../goog
 all: $(TARGETS)
 
 %.byte: %.ml $(GOOG)/goog.cmo
 	@echo "[CC]" $@
-	ocamlfind ocamlc $(LIB) -I $(GOOG) goog.cmo tools.cmo $(OCAML_FLAGS) -linkpkg -o $@ $^
+	ocamlfind ocamlc $(LIB) -I $(GOOG) goog.cmo tools.cmo $(OCAMLFLAGS) -linkpkg -o $@ $^
 
 %.js: %.byte
 	js_of_ocaml $^ -pretty
+
+ocamldep:
+	ocamlfind ocamldep -I $(GOOG) -I $(GOOG)/ui $(OCAMLFLAGS) $(SRC) 
 
 clean:
 	@echo "[CLEAN]"

@@ -7,15 +7,16 @@
     @author Bozman Cagdas
     @version 0.2
 *)
+
 open Palette
-open Gdom
 open Js
+
 class type colorPalette = object
   inherit palette
   
   method getColors : js_string t js_array t meth
 
-  method getSelectedColor : js_string opt meth
+  method getSelectedColor : js_string t opt meth
 
   method setColors : js_string t js_array t -> unit meth
 

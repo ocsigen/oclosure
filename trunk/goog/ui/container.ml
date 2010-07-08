@@ -1,17 +1,17 @@
 (**
-   * OClosure Project - 2010
-   * Class goog.ui.Container
-   * 
-   * Base class for containers. Extends goog.ui.Component by adding the 
-   * following:
-   *  - a goog.events.KeyHandler, to simplify keyboard handling,
-   *  - a pluggable renderer framework, to simplify the creation of containers 
-   *    without the need to subclass this class,
-   *  - methods to manage child controls hosted in the container,
-   *  - default mouse and keyboard event handling methods. 
-   * 
-   * @author Cardoso Gabriel
-   * @version 0.1
+   OClosure Project - 2010
+   Class goog.ui.Container
+   
+   Base class for containers. Extends goog.ui.Component by adding the 
+   following:
+   - a goog.events.KeyHandler, to simplify keyboard handling,
+   - a pluggable renderer framework, to simplify the creation of containers 
+   without the need to subclass this class,
+   - methods to manage child controls hosted in the container,
+   - default mouse and keyboard event handling methods. 
+   
+   @author Cardoso Gabriel
+   @version 0.1
 *)
 open Component
 open Control
@@ -42,5 +42,6 @@ module Container = struct
   let orientation_of_orientation_pre = function
     | "vertical" -> VERTICAL
     | "horizontal" -> HORIZONTAL
+    | _ -> invalid_arg "Goog.Ui.Container.orientation_of_orientation_pre"
 end
 type orientation = Container.orientation

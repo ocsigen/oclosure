@@ -1,6 +1,6 @@
 DIRS=goog examples
 
-all:
+all: 
 	@for D in $(DIRS);do\
 	(echo "-> ./$$D");\
 	(cd $$D; ${MAKE});\
@@ -14,5 +14,5 @@ clean:
 
 depend:
 	@echo "[MAKE] depend in goog"
-	@(cd goog; ${MAKE} ocamldsort);
+	@(cd goog; ${MAKE} depend);
 

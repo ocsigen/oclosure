@@ -69,3 +69,4 @@ include CustomButton
 include CustomButtonRenderer
 include Css3ButtonRenderer
 include ContainerScroller
+include CustomColorPalette

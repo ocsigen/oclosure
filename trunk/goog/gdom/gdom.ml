@@ -75,6 +75,7 @@ module A11y = struct
     | "menuitemradio" -> MENU_ITEM_RADIO | "navigation" -> NAVIGATION
     | "option" -> OPTION | "group" -> GROUP | "slider" -> SLIDER | "tab" -> TAB
     | "tablist" -> TAB_LIST | "tabpanel" -> TAB_PANEL | "toolbar" -> TOOLBAR
+    | _ -> invalid_arg "Goog.Gdom.role_of_role_pre"
 
 end
 
