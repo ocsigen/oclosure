@@ -9,7 +9,8 @@
 open Js
 
 class type size = object
-
+  method width : int prop
+  method height : int prop
 end
 
 let size : (int -> int -> size t) constr = 

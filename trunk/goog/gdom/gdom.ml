@@ -1,4 +1,9 @@
 open Js
+
+let setTextContent (e : #Dom_html.element t) (s : js_string t) = Unsafe.fun_call
+    (Unsafe.variable "goog.dom.setTextContent")
+    [| Unsafe.inject e; Unsafe.inject s|]
+
 module A11y = struct
   type role =
       BUTTON 

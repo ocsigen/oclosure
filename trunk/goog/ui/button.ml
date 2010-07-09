@@ -34,7 +34,7 @@ class type button = object
 
   method setTooltip : js_string t -> unit meth
 
-  method setValue : js_string t -> unit meth
+  method setValue : js_string t opt -> unit meth
 end
 
 and buttonRenderer = object

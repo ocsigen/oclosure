@@ -60,7 +60,7 @@ class type button = object
    Sets the value associated with the button, and updates its DOM.
    @param value New button value.
 *)
-  method setValue : js_string t -> unit meth
+  method setValue : js_string t opt -> unit meth
 end
 
 and buttonRenderer = object
