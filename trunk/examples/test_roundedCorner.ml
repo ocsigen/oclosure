@@ -18,13 +18,13 @@ let rec create_rounded_corner i =
   let _ = roundedDiv##innerHTML <- Js.string "" in
   let roundedCorner = Js.Optdef.get 
       (Goog.Ui.ImagelessRoundedCorner.create
-	 roundedDiv width height 1 (slider##getValue()) (pow 2 i) color 
+	 roundedDiv width height 1 (int_of_float (Js.to_float slider##getValue())) (pow 2 i) color 
 	 (Js.some bgColor) Js.null) 
       (fun () -> assert false) in
   roundedCorner##draw()
 
 let createRoundedCorners () =
-  let _ = slider##setMaximum(max height width) in
+  let _ = slider##setMaximum(float_of_int (max height width)) in
   let rec aux i = 
     create_rounded_corner i;
     if i>0 then aux (i-1)
@@ -35,7 +35,7 @@ let _ =
   let sliderDiv = Js.Opt.get (d##getElementById (Js.string "slider"))
       (fun () -> assert false) in
   slider##decorate(sliderDiv);
-  slider##setMinimum(1);
+  slider##setMinimum(1.);
   ignore (Goog.Events.listen 
     (Goog.Tools.Union.i1 slider)
     (Js.string "change")
