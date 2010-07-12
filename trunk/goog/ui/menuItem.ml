@@ -33,5 +33,6 @@ class type menuItem = object
   method setCheckable : bool t -> unit meth
 end
 
-let menuItem : (ControlContent.controlContent -> menuItem t) constr = 
+let menuItem : (ControlContent.controlContent -> Gdom.domHelper t opt 
+  -> MenuItemRenderer.menuItemRenderer t opt -> menuItem t) constr = 
    Js.Unsafe.variable "goog.ui.MenuItem"

@@ -49,7 +49,8 @@ module Component = struct
 	    
     let state_of_state_pre = function
 	255 -> ALL | 1 -> DISABLED | 2 -> HOVER | 4 -> ACTIVE | 8 -> SELECTED 
-      | 16 -> CHECKED | 32 -> FOCUSED | 64 -> OPENED | _ -> invalid_arg "Goog.Ui.Component.state_of_state_pre"
+      | 16 -> CHECKED | 32 -> FOCUSED | 64 -> OPENED 
+      | _ -> invalid_arg "Goog.Ui.Component.state_of_state_pre"
   end
 
   module EventType = struct   

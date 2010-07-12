@@ -7,7 +7,7 @@ let get_el s = Js.Opt.get (d##getElementById (to_s s)) (fun _ -> assert false)
 
 let body = get_el "body"
 
-let add_item s m = m##addItem(Goog.Tools.Union.i1 jsnew Goog.Ui.menuItem(ccs s))
+let add_item s m = m##addItem(Goog.Tools.Union.i1 jsnew Goog.Ui.menuItem(ccs s, Js.null, Js.null))
 
 let toolbar = jsnew Goog.Ui.toolbar()
 let code_button = jsnew Goog.Ui.toolbarToggleButton(ccs "Code")

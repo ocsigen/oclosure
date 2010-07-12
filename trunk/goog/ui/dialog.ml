@@ -37,11 +37,20 @@ class type dialog = object
   (** Sets the title. *)
   method setTitle : js_string t -> unit meth
 
-  (** Sets the visibility of the dialog box and moves focus to the default button. 
-   *  Lazily renders the component if needed. 
+  (** Sets the visibility of the dialog box and moves focus to the default 
+     button. 
+     Lazily renders the component if needed. 
    *)
   method setVisible : bool t -> unit meth
 end
 
-let dialog : (js_string opt -> bool t opt -> dialog t) constr =
+(**
+   @param opt_class CSS class name for the dialog element, also used
+   as a class name prefix for related elements; defaults to modal-dialog.
+   @param opt_useIframeMask Work around windowed controls z-index
+   issue by using an iframe instead of a div for bg element.
+   @param opt_domHelper Optional DOM helper; see {@link
+   goog.ui.Component} for semantics.
+*)
+let dialog : (js_string opt -> bool t opt -> Gdom.domHelper t opt -> dialog t) constr =
   Js.Unsafe.variable "goog.ui.Dialog"

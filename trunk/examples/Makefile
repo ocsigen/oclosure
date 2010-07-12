@@ -8,7 +8,7 @@ all: $(TARGETS)
 
 %.byte: %.ml $(GOOG)/goog.cmo
 	@echo "[CC]" $@
-	ocamlfind ocamlc $(LIB) -I $(GOOG) goog.cmo tools.cmo $(OCAMLFLAGS) -linkpkg -o $@ $^
+	ocamlfind ocamlc $(LIB) -I $(GOOG) goog.cmo tools.cmo $(OCAMLFLAGS) -linkpkg -o $@ $<
 
 %.js: %.byte
 	js_of_ocaml $^ -pretty

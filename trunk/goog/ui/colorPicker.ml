@@ -92,7 +92,9 @@ module ColorPicker = struct
       (Js.Unsafe.variable "goog.ui.ColorPicker.createSimpleColorGrid")
       [|Js.Unsafe.inject dh|]
 
-  let _SIMPLE_GRID_COLORS = Js.array (Array.map Js.string [|
+  let _SIMPLE_GRID_COLORS = Js.Unsafe.variable 
+      "goog.ui.ColorPicker.SIMPLE_GRID_COLORS"
+(*Js.array (Array.map Js.string [|
   "#ffffff"; "#cccccc"; "#c0c0c0"; "#999999"; "#666666"; "#333333"; "#000000";
   "#ffcccc"; "#ff6666"; "#ff0000"; "#cc0000"; "#990000"; "#660000"; "#330000";
   "#ffcc99"; "#ff9966"; "#ff9900"; "#ff6600"; "#cc6600"; "#993300"; "#663300";
@@ -103,7 +105,7 @@ module ColorPicker = struct
   "#ccffff"; "#66ffff"; "#33ccff"; "#3366ff"; "#3333ff"; "#000099"; "#000066";
   "#ccccff"; "#9999ff"; "#6666cc"; "#6633ff"; "#6600cc"; "#333399"; "#330099";
   "#ffccff"; "#ff99ff"; "#cc66cc"; "#cc33cc"; "#993399"; "#663366"; "#330033"|])
-
+*)
   module EventType = struct
     let _CHANGE = Js.string "change"
   end

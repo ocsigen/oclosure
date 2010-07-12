@@ -1,13 +1,16 @@
 open Goog.I18n
 
+let alert s = 
+  let dialog = jsnew Goog.Ui.dialog(Js.null, Js.null, Js.null) in
+  dialog##setContent(s);
+  dialog##setVisible(Js._true)
+
 let get_el s = Js.Opt.get (Dom_html.document##getElementById(Js.string s))
     (fun _ -> assert false)
 
 let get x = Js.Opt.get x (fun _ -> assert false)
 let get_input s = 
   get (Dom_html.CoerceTo.input (get_el s))
-
-let alert s = Dom_html.window##alert(Js.string s)
 
 let empty_date d = d##toIsoString(Js.some Js._true, Js.null) == (Js.string "")
 
@@ -19,10 +22,10 @@ let _ =
     (Goog.Tools.Union.i1 dp_iso_8601)
     (Js.string "change")
     (fun () ->
-      (get_el "label_iso_8601")##innerHTML <-
+      alert (
 	if (dp_iso_8601##getDate() != Js.null) 
 	then (get dp_iso_8601##getDate())##toIsoString(Js.some Js._true, Js.null)
-	else Js.string "none")
+	else Js.string "none"))
     Js.null
 
 let dp_custom = jsnew Goog.Ui.datePicker(Js.some (Goog.Tools.Union.i1
@@ -67,7 +70,7 @@ let _ =
     Js.null;
   (get_el "label_fr")##innerHTML <-
     (get dp_fr##getDate())##toIsoString(Js.some Js._true, Js.null)
-
+      
 
 let dp_ml = jsnew Goog.Ui.datePicker(Js.null, of_dateTimeSymbols DateTimeSymbols_ml)
 let _ =

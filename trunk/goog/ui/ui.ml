@@ -71,3 +71,6 @@ include Css3ButtonRenderer
 include ContainerScroller
 include CustomColorPalette
 include DimensionPicker
+include DrilldownRow
+include FilterObservingMenuItem
+include MenuItemRenderer
