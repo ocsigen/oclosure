@@ -74,3 +74,4 @@ include DimensionPicker
 include DrilldownRow
 include FilterObservingMenuItem
 include MenuItemRenderer
+include FilteredMenu
