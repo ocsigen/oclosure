@@ -12,6 +12,7 @@
 open Button
 open Menu
 open MenuItem
+open MenuSeparator
 
 open Js
 class type menuButton = object
@@ -47,7 +48,7 @@ class type menuButton = object
   method handleKeyEventInternal : Event.event t -> bool t meth
   
   (** Handles [ACTION] events dispatched by an activated menu item.*)
-  method handleMenuAction : Event.event t -> bool t meth
+  method handleMenuAction : Event.event t -> unit meth
 
   (** Handles [BLUR] events dispatched by the popup menu by closing it.
    * Only registered if the menu is focusable.*)
@@ -64,13 +65,13 @@ class type menuButton = object
   
   (** Replaces the menu attached to the button with the argument, and returns the
    * previous menu (if any).*)
-  method setMenu : menu t -> menu t meth
+  method setMenu : menu t -> menu t optdef meth
   
   (** Adds a new menu item at the end of the menu.*)
-  method addItem : menuItem t -> unit meth
+  method addItem : #Control.control t -> unit meth
   
   (** Adds a new menu item at the specific index in the menu.*)
-  method addItemAt : menuItem t -> int -> unit meth
+  method addItemAt : (#menuItem t,#menuSeparator t) Tools.Union.t -> int -> unit meth
   
   (** Removes the item from the menu and disposes of it.*)
   method removeItem : menuItem t -> unit meth

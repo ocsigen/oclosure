@@ -76,5 +76,7 @@ include FilteredMenu
 include FlatButtonRenderer
 include FlatMenuButtonRenderer
 include FormPost
+include Option
+include Select
 include TriStateMenuItemRenderer
 include TriStateMenuItem
