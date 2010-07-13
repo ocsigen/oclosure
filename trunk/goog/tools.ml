@@ -11,7 +11,7 @@
 open Js
 
 module Union = struct
-  type ('a, 'b) t
+  type (+'a, +'b) t
   let i1 : 'a -> ('a, 'b) t = Obj.magic
   let i2 : 'b -> ('a, 'b) t = Obj.magic 
 end

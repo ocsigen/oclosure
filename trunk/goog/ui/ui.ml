@@ -75,3 +75,5 @@ include DrilldownRow
 include FilterObservingMenuItem
 include MenuItemRenderer
 include FilteredMenu
+include TriStateMenuItemRenderer
+include TriStateMenuItem

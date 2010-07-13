@@ -51,7 +51,7 @@ class type filteredMenu = object
 
   method setVisible : bool t -> bool t opt -> bool t meth
 end
-
+	  
 let filteredMenu : (MenuRenderer.menuRenderer t opt -> Gdom.domHelper t opt 
   -> filteredMenu t) constr = 
   Js.Unsafe.variable "goog.ui.FilteredMenu"

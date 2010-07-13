@@ -15,10 +15,10 @@ module CharCounter = struct
   (** Display mode for the charcounter. *)
   module Display = struct
     type t =  
-      (** Widget displays the number of characters remaining (the default). *)
-      REMAINING
-      (** Widget displays the number of characters entered. *)
-     |INCREMENTAL
+	(** Widget displays the number of characters remaining (the default). *)
+	REMAINING
+	(** Widget displays the number of characters entered. *)
+      |INCREMENTAL
   end
 end
 

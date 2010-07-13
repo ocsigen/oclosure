@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>goog.ui.FilteredMenu</title> 
+<script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
+  <link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/demos/css/demo.css"> 
+<link rel="stylesheet" href="http://closure-library.googlecode.com/svn/trunk/closure/goog/css/menus.css"> 
+<script> 
+  goog.require('goog.events');
+  goog.require('goog.ui.Menu');
+  goog.require('goog.ui.MenuItem');
+  goog.require('goog.ui.CheckBoxMenuItem');
+  goog.require('goog.ui.FilteredMenu');
+  goog.require('goog.ui.TriStateMenuItem');
+  goog.require('goog.ui.FilterObservingMenuItem');
+</script> 
+<style> 
+ 
+.goog-menu {
+  width: 30ex;
+}
+ 
+.goog-menu-filter input {
+  width: 100%;
+ 
+  /* width: 100% interferes with the input event handler in IE6 */
+  width: expression('30ex');
+}
+</style> 
+</head> 
+<body> 
+ 
+<div id="menu1"></div> 
+ 
+<script type="text/javascript" src="test_filteredMenu.js"> </script> 
+ 
+</body> 
+</html> 

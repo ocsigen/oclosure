@@ -28,18 +28,18 @@ class type menu = object
   method containsElement : Dom_html.element t -> bool t meth
   
   (** Adds a new menu item at the end of the menu.*)
-  method addItem : (menuItem t, menuSeparator t) Tools.Union.t -> unit meth
+  method addItem : (#menuItem t, #menuSeparator t) Tools.Union.t -> unit meth
   
   (** Adds a new menu item at a specific index in the menu.*)
-  method addItemAt : (menuItem t, menuSeparator t) Tools.Union.t -> int -> unit meth
+  method addItemAt : (#menuItem t, #menuSeparator t) Tools.Union.t -> int -> unit meth
   
   (** Removes an item from the menu and disposes of it.*)
-  method removeItem : (menuItem t, menuSeparator t) Tools.Union.t  -> unit meth
+  method removeItem : (#menuItem t, #menuSeparator t) Tools.Union.t  -> unit meth
   
   (** Removes a menu item at a given index in the menu and disposes of it.*)
   method removeItemAt : int -> unit meth
   
-  (** Returns a reference to the menu item at a given index.*)
+  (** Returns a reference to the menu item at a given index. *)
   method getItemAt : int -> (menuItem t, menuSeparator t) Tools.Union.t opt meth
   
   (** Returns the number of items in the menu (including separators).*)
