@@ -1,17 +1,17 @@
 (** OClosure Project - 2010
-   Class goog.ui.Menu
-   
-   A basic menu class.
-   @param opt_domHelper Optional DOM helper.
-   @param opt_renderer Renderer used to render or
-   method *     decorate the container meth
-   
-   @author : Emmanuel CRESPIN
-   @version 0.1
-   @see 'goog.ui.Component'
-   @see 'goog.ui.MenuItem'
-   @see 'goog.math.Coordinate'
-*)
+ * Class goog.ui.Menu
+ * 
+ * A basic menu class.
+ * @param opt_domHelper Optional DOM helper.
+ * @param opt_renderer Renderer used to render or
+  method *     decorate the container meth
+ *
+ * @author : Emmanuel CRESPIN
+ * @version 0.1
+ * @see 'goog.ui.Component'
+ * @see 'goog.ui.MenuItem'
+ * @see 'goog.math.Coordinate'
+ *)
 
 open Js
 
@@ -38,7 +38,7 @@ class type menu = object
   (** Removes a menu item at a given index in the menu and disposes of it.*)
   method removeItemAt : int -> unit meth
   
-  (** Returns a reference to the menu item at a given index. *)
+  (** Returns a reference to the menu item at a given index.*)
   method getItemAt : int -> (menuItem t, menuSeparator t) Tools.Union.t opt meth
   
   (** Returns the number of items in the menu (including separators).*)
@@ -91,10 +91,7 @@ class type ['menu] menuRenderer = object
   method initializeDom : 'menu t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.MenuRenderer"
-let menuRenderer : (#menu menuRenderer t) constr = tmp
+val menuRenderer : (#menu menuRenderer t) constr
 
-let tmp = Js.Unsafe.variable "goog.ui.Menu"
-let menu : (Gdom.domHelper t opt -> menu #menuRenderer t opt -> menu t) constr =
-  tmp
+val menu : (Gdom.domHelper t opt -> menu #menuRenderer t opt -> menu t) constr
 

@@ -8,8 +8,8 @@
 
 open Js
 
-class type css3ButtonRenderer = object
-  inherit Button.buttonRenderer
+class type ['but] css3ButtonRenderer = object
+  inherit ['but] Button.buttonRenderer
 
 (**
    Returns true if this renderer can decorate the element.  Overrides
@@ -18,7 +18,7 @@ class type css3ButtonRenderer = object
    @param element Element to decorate.
    @return Whether the renderer can decorate the element.
 *)
-  method canDecorate : Dom_html.element t -> bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
 
 (**
    Returns the button's contents wrapped in the following DOM structure:
@@ -29,13 +29,13 @@ class type css3ButtonRenderer = object
    @param button Button to render.
    @return Root element for the button.
 *)
-  method createDom_ : Button.button t -> Dom_html.element t meth
+  method createDom : 'but t -> Dom_html.element t meth
 
 (** @inheritDoc *)
-  method decorate_ : Button.button t -> Dom_html.element t -> Dom_html.element t meth
+  method decorate : 'but t -> #Dom_html.element t -> Dom_html.element t meth
 
 (** @inheritDoc *)
-  method getContentElement : Dom_html.element t -> Dom_html.element t meth
+  method getContentElement : #Dom_html.element t -> Dom_html.element t meth
 
 (**
    Returns the CSS class to be applied to the root element of components
@@ -45,4 +45,4 @@ class type css3ButtonRenderer = object
   method getCssClass : js_string t meth
 end
 
-val css3ButtonRenderer : (css3ButtonRenderer t) constr
+val css3ButtonRenderer : (#Button.button css3ButtonRenderer t) constr

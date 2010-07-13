@@ -26,15 +26,8 @@ class type dimensionPicker = object
   method setValue : int -> int opt -> unit meth
 end
 
-and dimensionPickerRenderer = object
-  inherit Control.controlRenderer
-
-  method canDecorate : Dom_html.element t -> bool t meth
-
-  method createDom_ : dimensionPicker t -> Dom_html.element t meth
-
-  method decorate_ : dimensionPicker t -> Dom_html.element t 
-    -> Dom_html.element t meth
+class type ['dimPckr] dimensionPickerRenderer = object
+  inherit ['dimPckr] Control.controlRenderer
 
   method getCssClass : js_string t meth
 
@@ -53,8 +46,14 @@ and dimensionPickerRenderer = object
   method updateSize : dimensionPicker t -> Dom_html.element t -> unit meth
 end
 
-let dimensionPicker : (dimensionPickerRenderer t opt -> Gdom.domHelper t opt -> dimensionPicker t) constr = 
+let dimensionPicker : (dimensionPicker dimensionPickerRenderer t opt 
+		       -> Gdom.domHelper t opt 
+		       -> dimensionPicker t) constr = 
   Js.Unsafe.variable "goog.ui.DimensionPicker"
 
-let dimensionPickerRenderer : (dimensionPickerRenderer t) constr = 
+let dimensionPickerRenderer = 
   Js.Unsafe.variable "goog.ui.DimensionPickerRenderer"
+let dimensionPickerRenderer : 
+    (#dimensionPicker dimensionPickerRenderer t) constr = 
+  dimensionPickerRenderer
+  

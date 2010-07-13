@@ -63,14 +63,9 @@ class type button = object
   method setValue : js_string t opt -> unit meth
 end
 
-and buttonRenderer = object
-  inherit Control.controlRenderer
-
-(** @inheritDoc *)
-  method createDom_ : button t -> Dom_html.element t meth
-
-(** @inheritDoc *)
-  method decorate_ : button t -> Dom_html.element t -> Dom_html.element t meth
+class type ['but] buttonRenderer = object
+  constraint 'but = #button
+  inherit ['but] Control.controlRenderer
 
 (**
    Returns the ARIA role to be applied to buttons.
@@ -86,7 +81,7 @@ and buttonRenderer = object
    @param element The button's root element.
    @return The tooltip text.
 *)
-  method getTooltip : Dom_html.element t -> js_string t optdef meth
+  method getTooltip : #Dom_html.element t -> js_string t optdef meth
 
 (**
    Takes a button's root element, and returns the value associated with it.
@@ -94,7 +89,7 @@ and buttonRenderer = object
    @param element The button's root element.
    @return The button's value (undefined if none).
 *)
-  method getValue : js_string t optdef meth
+  method getValue : #Dom_html.element t -> js_string t opt meth
 end
 
 (**
@@ -112,7 +107,7 @@ end
    {@link goog.ui.CustomButtonRenderer}, and {@link goog.ui.FlatButtonRenderer}.
    @constructor
 *)
-val buttonRenderer : buttonRenderer t constr
+val buttonRenderer : #button buttonRenderer t constr
 
 
 (**
@@ -126,4 +121,4 @@ val buttonRenderer : buttonRenderer t constr
    document interaction.
    @constructor
 *)
-val button : (ControlContent.controlContent -> buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr
+val button : (ControlContent.controlContent -> button buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr

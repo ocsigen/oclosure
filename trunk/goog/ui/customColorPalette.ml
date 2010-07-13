@@ -15,5 +15,7 @@ class type customColorPalette = object
   method promptForCustomColor : unit meth
 end
 
-let customColorPalette : (js_string t js_array t -> Palette.paletteRenderer t opt -> Gdom.domHelper t opt -> customColorPalette t) constr = 
-  Js.Unsafe.variable "goog.ui.CustomColorPalette"
+let customColorPalette = Js.Unsafe.variable "goog.ui.CustomColorPalette"
+let customColorPalette : (js_string t js_array t -> 
+  customColorPalette #Palette.paletteRenderer t opt -> Gdom.domHelper t opt -> 
+    customColorPalette t) constr = customColorPalette

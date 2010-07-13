@@ -13,5 +13,7 @@ class type customButton = object
 end
 
 let customButton = Js.Unsafe.variable "goog.ui.CustomButton"
-let customButton : (ControlContent.controlContent -> #Button.buttonRenderer t opt -> Gdom.domHelper t opt -> customButton t) constr = customButton
+let customButton : (ControlContent.controlContent -> 
+customButton #Button.buttonRenderer t opt -> Gdom.domHelper t opt -> 
+customButton t) constr = customButton
 

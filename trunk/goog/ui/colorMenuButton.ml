@@ -64,5 +64,8 @@ end
        document interaction.
    @constructor
 *)
-let colorMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> MenuRenderer.menuRenderer t opt -> Gdom.domHelper t -> colorMenuButton t) constr = 
-  Js.Unsafe.variable "goog.ui.ColorMenuButton"
+
+let tmp = Js.Unsafe.variable "goog.ui.ColorMenuButton"
+let colorMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> 
+colorMenuButton #MenuButtonRenderer.menuButtonRenderer t opt ->
+Gdom.domHelper t -> colorMenuButton t) constr = tmp

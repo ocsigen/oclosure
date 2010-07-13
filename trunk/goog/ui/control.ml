@@ -139,16 +139,18 @@ class type control = object
   method setVisible : bool t -> bool t opt -> bool t meth
 end
 
-and controlRenderer = object
-  method canDecorate : Dom_html.element t -> bool t meth
+class type ['ctrl] controlRenderer = object
+  constraint 'ctrl = #control
+  method canDecorate : #Dom_html.element t -> bool t meth
 
-  method createDom : control t -> Dom_html.element t meth
+  method createDom : 'ctrl t -> Dom_html.element t meth
 
-  method decorate : control t -> Dom_html.element t -> Dom_html.element t meth
+  method decorate : 'ctrl t -> #Dom_html.element t -> Dom_html.element t meth
 end
 
-let controlRenderer : controlRenderer t constr = 
-  Js.Unsafe.variable "goog.ui.ControlRenderer"
+let controlRenderer = Js.Unsafe.variable "goog.ui.ControlRenderer"
+let controlRenderer : #control controlRenderer t constr = controlRenderer
 
-let control : ControlContent.controlContent -> controlRenderer t -> Gdom.domHelper t opt -> control t constr =
-  Js.Unsafe.variable "goog.ui.Control"
+let control = Js.Unsafe.variable "goog.ui.Control"
+let control : ControlContent.controlContent -> control #controlRenderer t -> 
+  Gdom.domHelper t opt -> control t constr = control

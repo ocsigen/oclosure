@@ -12,5 +12,7 @@ class type toggleButton = object
   inherit Button.button
 end
 
-let toggleButton : (ControlContent.controlContent -> Button.buttonRenderer t opt -> Gdom.domHelper t opt -> toggleButton t) constr = 
-  Js.Unsafe.variable "goog.ui.ToggleButton"
+let tmp = Js.Unsafe.variable "goog.ui.ToggleButton"
+let toggleButton : (ControlContent.controlContent 
+		    -> toggleButton #Button.buttonRenderer t opt 
+		    -> Gdom.domHelper t opt -> toggleButton t) constr = tmp

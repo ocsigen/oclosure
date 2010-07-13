@@ -7,7 +7,6 @@
    @version 0.2
 *)
 open Js
-open MenuItemRenderer
 open MenuItem
 
 module TriStateMenuItemRenderer = struct
@@ -19,8 +18,8 @@ module TriStateMenuItemRenderer = struct
 
 end
 
-class type triStateMenuItemRenderer = object
-  inherit menuItemRenderer
+class type ['menuIt] triStateMenuItemRenderer = object
+  inherit ['menuIt] menuItemRenderer
 
   (**
      Overrides goog.ui.ControlRenderer#decorate by initializing the
@@ -30,7 +29,7 @@ class type triStateMenuItemRenderer = object
      @param element Element to decorate.
      @return Decorated element.
   *)
-  method decorate_ : menuItem t -> Dom_html.element t -> Dom_html.element t meth
+  method decorate : 'menuIt t -> #Dom_html.element t -> Dom_html.element t meth
 
   (**
      Returns the CSS class to be applied to menu items rendered using this
@@ -50,6 +49,8 @@ end
    </div>
    @constructor
 *)
-let triStateMenuItemRenderer : triStateMenuItemRenderer t constr =
-  Js.Unsafe.variable "goog.ui.TriStateMenuItemRenderer"
+let tmp = Js.Unsafe.variable "goog.ui.TriStateMenuItemRenderer"
+let triStateMenuItemRenderer : #MenuItem.menuItem triStateMenuItemRenderer t 
+    constr = tmp
+
 

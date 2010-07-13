@@ -8,7 +8,6 @@
 *)
 open Js
 open MenuItem
-open MenuItemRenderer
 open Gdom
 open TriStateMenuItemRenderer
 open Event
@@ -57,5 +56,7 @@ end
    @param opt_renderer Optional renderer.
    @constructor
 *)
-let triStateMenuItem : (ControlContent.controlContent -> domHelper t opt -> menuItemRenderer t opt -> triStateMenuItem t ) constr = 
-  Js.Unsafe.variable "goog.ui.TriStateMenuItem"
+let tmp = Js.Unsafe.variable "goog.ui.TriStateMenuItem"
+let triStateMenuItem : (ControlContent.controlContent -> domHelper t opt -> 
+triStateMenuItem #menuItemRenderer t opt -> triStateMenuItem t ) constr = tmp
+ 

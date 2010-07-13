@@ -12,4 +12,6 @@ class type toolbarMenuButton = object
   inherit MenuButton.menuButton
 end
 
-val toolbarMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> Button.buttonRenderer t opt -> Gdom.domHelper t opt -> toolbarMenuButton t) constr
+val toolbarMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> 
+  toolbarMenuButton #Button.buttonRenderer t opt -> Gdom.domHelper t opt -> 
+    toolbarMenuButton t) constr

@@ -1,15 +1,41 @@
-(**
+(** 
    OClosure Project - 2010
-   Class goog.ui.MenuItemRenderer
+   Class goog.ui.MenuItem
    
-   @author Cardoso Gabriel 
+   Class representing an item in a menu.
+   
+   @author : Emmanuel CRESPIN
    @version 0.2
 *)
 
+open Control
+
 open Js
 
-class type menuItemRenderer = object
-  inherit Control.controlRenderer
+class type menuItem = object
+  inherit control
+
+  (** Sets the menu item to be selectable or not.*)
+  method setSelectable : bool t -> unit meth
+ 
+  (*
+     Returns the value associated with the menu item. The default implementation
+     returns the model object associated with the item (if any), or its caption.
+ 
+  method getValue : unit -> *
+  
+     Sets the value associated with the menu item.  The default implementation
+     stores the value as the model of the menu item. 
+  
+  method setValue : * -> unit meth
+  *)
+
+ (** Sets the menu item to be checkable or not.*)
+  method setCheckable : bool t -> unit meth
+end
+
+class type ['menuIt] menuItemRenderer = object
+  inherit ['menuIt] Control.controlRenderer
 
 (**
    Overrides goog.ui.ControlRenderer#createDom by adding extra markup
@@ -18,7 +44,7 @@ class type menuItemRenderer = object
    @return Root element for the item.
    @override
  *)
-  method createDom : Control.control t -> Dom_html.element t meth
+  method createDom : 'menuIt t -> Dom_html.element t meth
 
 (**
    Overrides goog.ui.ControlRenderer#decorate by initializing the
@@ -29,11 +55,12 @@ class type menuItemRenderer = object
    @return Decorated element.
    @override
  *)
-  method decorate : Control.control t -> Dom_html.element t 
+  method decorate : 'menuIt t -> #Dom_html.element t 
     -> Dom_html.element t meth
 
 (** @return The ARIA role. *)
   method getAriaRole : Gdom.A11y.role meth
+
 (**
    Takes a single goog.ui.Component.State, and returns the
    corresponding CSS class name (null if none).  Overrides the superclass
@@ -48,7 +75,7 @@ class type menuItemRenderer = object
     -> js_string t optdef meth
 
 (** @inheritDoc *)
-  method getContentElement : Dom_html.element t -> Dom_html.element t meth
+  method getContentElement : #Dom_html.element t -> Dom_html.element t meth
 
 (** @inheritDoc *)
   method getCssClass : js_string t meth
@@ -73,7 +100,7 @@ class type menuItemRenderer = object
        item hasn't been rendered yet).
    @param checkable Whether the item should be checkable.
  *)
-  method setCheckable : Control.control t -> Dom_html.element t opt -> bool t 
+  method setCheckable : 'menuIt t -> #Dom_html.element t opt -> bool t 
     -> unit meth
 
 (**
@@ -86,7 +113,7 @@ class type menuItemRenderer = object
        set as the item's content.
    @override
  *)
-  method setContent : Dom_html.element t -> ControlContent.controlContent
+  method setContent : #Dom_html.element t -> ControlContent.controlContent
     -> unit meth
 
 (**
@@ -96,8 +123,11 @@ class type menuItemRenderer = object
        item hasn't been rendered yet).
    @param selectable Whether the item should be selectable.
  *)
-  method setSelectable : Control.control t -> Dom_html.element t opt -> bool t 
+  method setSelectable : 'menuIt t -> #Dom_html.element t opt -> bool t 
     -> unit meth
 end
 
-val menuItemRenderer : (menuItemRenderer t) constr
+val menuItemRenderer : (#menuItem menuItemRenderer t) constr
+
+val menuItem : (ControlContent.controlContent -> Gdom.domHelper t opt 
+  -> menuItem #menuItemRenderer t opt -> menuItem t) constr

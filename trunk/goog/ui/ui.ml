@@ -58,7 +58,6 @@ include ToolbarMenuButton
 include Separator
 include MenuSeparator
 include ContainerRenderer
-include MenuRenderer
 include ToggleButton
 include ToolbarToggleButton
 include ComboBoxItem
@@ -73,7 +72,9 @@ include CustomColorPalette
 include DimensionPicker
 include DrilldownRow
 include FilterObservingMenuItem
-include MenuItemRenderer
 include FilteredMenu
+include FlatButtonRenderer
+include FlatMenuButtonRenderer
+include FormPost
 include TriStateMenuItemRenderer
 include TriStateMenuItem

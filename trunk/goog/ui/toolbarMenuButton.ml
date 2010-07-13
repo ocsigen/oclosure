@@ -12,5 +12,8 @@ class type toolbarMenuButton = object
   inherit MenuButton.menuButton
 end
 
-let toolbarMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> Button.buttonRenderer t opt -> Gdom.domHelper t opt -> toolbarMenuButton t) constr = 
-  Js.Unsafe.variable "goog.ui.ToolbarMenuButton"
+let tmp = Js.Unsafe.variable "goog.ui.ToolbarMenuButton"
+let toolbarMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> 
+toolbarMenuButton #Button.buttonRenderer t opt -> Gdom.domHelper t opt -> 
+toolbarMenuButton t) constr = tmp
+ 

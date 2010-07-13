@@ -8,8 +8,10 @@
 
 open Js
 
-class type colorMenuButtonRenderer = object
-  inherit MenuButtonRenderer.menuButtonRenderer
+open ColorMenuButton
+
+class type ['but] colorMenuButtonRenderer = object
+  inherit ['but] MenuButtonRenderer.menuButtonRenderer
 
 (**
    Overrides the superclass implementation by wrapping the caption text or DOM
@@ -35,7 +37,7 @@ class type colorMenuButtonRenderer = object
    @param button Button whose DOM is to be
        initialized as it enters the document.
  *)
-  method initializeDom : ColorMenuButton.colorMenuButton t -> unit meth
+  method initializeDom : 'but t -> unit meth
 
 (**
    Takes a color menu button control's root element and a value object
@@ -44,8 +46,8 @@ class type colorMenuButtonRenderer = object
    @param element The button control's root element (if rendered).
    @param value New value; assumed to be a color spec string.
  *)
-  method setValue : Dom_html.element t -> js_string t -> unit meth
+  method setValue : #Dom_html.element t -> js_string t -> unit meth
 end
 
-let colorMenuButtonRenderer : (colorMenuButtonRenderer t) constr = 
-  Js.Unsafe.variable "goog.ui.ColorMenuButtonRenderer"
+let colorMenuButtonRenderer : (colorMenuButton colorMenuButtonRenderer t) constr
+    = Js.Unsafe.variable "goog.ui.ColorMenuButtonRenderer"

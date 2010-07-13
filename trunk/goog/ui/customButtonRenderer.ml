@@ -8,21 +8,22 @@
 
 open Js
 
-class type customButtonRenderer = object
-  inherit Button.buttonRenderer
+class type ['but] customButtonRenderer = object
+  inherit ['but] Button.buttonRenderer
 
-  method canDecorate : Dom_html.element t -> bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
 
   method createButton : ControlContent.controlContent -> Gdom.domHelper t -> Dom_html.element t meth
 
-  method createDom_ : Button.button t -> Dom_html.element t meth
+  method createDom : 'but t -> Dom_html.element t meth
 
-  method decorate_ : Button.button t -> Dom_html.element t -> Dom_html.element t meth
+  method decorate : 'but t -> #Dom_html.element t -> Dom_html.element t meth
 
-  method getContentElement : Dom_html.element t -> Dom_html.element t meth
+  method getContentElement : #Dom_html.element t -> Dom_html.element t meth
 
   method getCssClass : js_string t meth
 end
 
-let customButtonRenderer : (customButtonRenderer t) constr = 
-  Js.Unsafe.variable "goog.ui.CustomButtonRenderer"
+let tmp = Js.Unsafe.variable "goog.ui.CustomButtonRenderer"
+let customButtonRenderer : (#Button.button customButtonRenderer t) constr = tmp
+

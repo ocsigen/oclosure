@@ -23,5 +23,6 @@ class type colorPalette = object
   method setSelectedColor : js_string t opt -> unit meth
 end
 
-let colorPalette : (js_string t js_array t opt -> paletteRenderer t opt -> Gdom.domHelper t opt -> colorPalette t) constr =
-  Js.Unsafe.variable "goog.ui.ColorPalette"
+let colorPalette = Js.Unsafe.variable "goog.ui.ColorPalette"
+let colorPalette : (js_string t js_array t opt -> palette #paletteRenderer t opt
+  -> Gdom.domHelper t opt -> colorPalette t) constr = colorPalette

@@ -8,8 +8,10 @@
 
 open Js
 
-class type menuSeparatorRenderer = object
-  inherit Control.controlRenderer
+open MenuSeparator
+
+class type ['sep] menuSeparatorRenderer = object
+  inherit ['sep] Control.controlRenderer
 
 (**
    Returns an empty, styled menu separator DIV.  Overrides {@link
@@ -17,7 +19,7 @@ class type menuSeparatorRenderer = object
    @param separator Separator to render.
    @return Root element for the separator.
 *)
-  method createDom_ : #Separator.separator t -> Dom_html.element t meth
+  method createDom : 'sep t -> Dom_html.element t meth
 
 (**
    Takes an existing element, and decorates it with the separator.  Overrides
@@ -26,7 +28,7 @@ class type menuSeparatorRenderer = object
    @param element Element to decorate.
    @return Decorated element.
 *)
-  method decorate_ : #Separator.separator t -> Dom_html.element t -> Dom_html.element t meth
+  method decorate : 'sep t -> #Dom_html.element t -> Dom_html.element t meth
 
 (**
    Returns the CSS class to be applied to the root element of components
@@ -42,7 +44,7 @@ class type menuSeparatorRenderer = object
    @param content Text caption or DOM structure to be
    set as the separators's content (ignored).
 *)
-  method setContent : Separator.separator t -> ControlContent.controlContent -> unit meth
+  method setContent : 'sep t -> ControlContent.controlContent -> unit meth
 end
 
-val menuSeparatorRenderer : (menuSeparatorRenderer t) constr
+val menuSeparatorRenderer : (menuSeparator menuSeparatorRenderer t) constr

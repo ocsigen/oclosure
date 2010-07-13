@@ -15,7 +15,7 @@ class type filteredMenu = object
   method createDom : unit meth
 
 (** @inheritDoc *)
-  method decorateInternal : Dom_html.element t -> unit meth
+  method decorateInternal : #Dom_html.element t -> unit meth
 
 (** @inheritDoc *)
   method disposeInternal : unit meth
@@ -87,7 +87,7 @@ class type filteredMenu = object
    Sets whether multiple items can be entered comma separated.
    @param b Whether multiple items can be entered.
  *)
-  method setAllowMultiple : bool t  -> unit meth
+  method setAllowMultiple : bool t -> unit meth
 
 (**
    Sets the filter string.
@@ -137,5 +137,5 @@ end
    @param opt_domHelper Optional DOM helper.
    @constructor
  *)
-val filteredMenu : (MenuRenderer.menuRenderer t opt -> Gdom.domHelper t opt 
-  -> filteredMenu t) constr
+val filteredMenu : (filteredMenu #Menu.menuRenderer t opt -> 
+  Gdom.domHelper t opt -> filteredMenu t) constr

@@ -8,17 +8,19 @@
 
 open Js
 
-class type menuSeparatorRenderer = object
-  inherit Control.controlRenderer
+open MenuSeparator
 
-  method createDom_ : #Separator.separator t -> Dom_html.element t meth
+class type ['sep] menuSeparatorRenderer = object
+  inherit ['sep] Control.controlRenderer
 
-  method decorate_ : #Separator.separator t -> Dom_html.element t -> Dom_html.element t meth
+  method createDom : 'sep t -> Dom_html.element t meth
+
+  method decorate : 'sep t -> #Dom_html.element t -> Dom_html.element t meth
 
   method getCssClass : js_string t meth
 
-  method setContent : Separator.separator t -> ControlContent.controlContent -> unit meth
+  method setContent : 'sep t -> ControlContent.controlContent -> unit meth
 end
 
-let menuSeparatorRenderer : (menuSeparatorRenderer t) constr = 
+let menuSeparatorRenderer : (menuSeparator menuSeparatorRenderer t) constr = 
   Js.Unsafe.variable "goog.ui.MenuSeparatorRenderer"

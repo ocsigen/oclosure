@@ -59,16 +59,16 @@ class type palette = object
   method setSize : (Math.size t, int) Tools.Union.t -> int opt -> unit meth
 end
 
-and paletteRenderer = object
-  inherit Control.controlRenderer
-  method canDecorate : Dom_html.element t -> bool t meth
+class type ['pal] paletteRenderer = object
+  inherit ['pal] Control.controlRenderer
+  method canDecorate : #Dom_html.element t -> bool t meth
 
-  method createDom_ : palette t -> Dom_html.element t meth
+  method createDom : 'pal t -> Dom_html.element t meth
 end
 
-let paletteRenderer : paletteRenderer t constr = 
-  Js.Unsafe.variable "goog.ui.PaletteRenderer"
+let paletteRenderer = Js.Unsafe.variable "goog.ui.PaletteRenderer"
+let paletteRenderer : #palette paletteRenderer t constr = paletteRenderer
 
 let palette = Js.Unsafe.variable "goog.ui.Palette"
-let palette : (#Dom.node t js_array t -> paletteRenderer t opt -> Gdom.domHelper t opt -> palette t) constr = palette
+let palette : (#Dom.node t js_array t -> palette #paletteRenderer t opt -> Gdom.domHelper t opt -> palette t) constr = palette
 

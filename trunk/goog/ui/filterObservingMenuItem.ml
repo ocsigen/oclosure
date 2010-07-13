@@ -8,6 +8,8 @@
 
 open Js
 
+open MenuItem
+
 class type filterObservingMenuItem = object
   inherit MenuItem.menuItem
 
@@ -19,8 +21,7 @@ class type filterObservingMenuItem = object
     -> unit meth
 end
 
-let filterObservingMenuItem : (ControlContent.controlContent 
-			       -> Gdom.domHelper t opt
-			       -> MenuItemRenderer.menuItemRenderer t opt
-			       -> filterObservingMenuItem t) constr = 
-  Js.Unsafe.variable "goog.ui.FilterObservingMenuItem"
+let tmp = Js.Unsafe.variable "goog.ui.FilterObservingMenuItem"
+let filterObservingMenuItem : (ControlContent.controlContent -> 
+  Gdom.domHelper t opt -> filterObservingMenuItem #menuItemRenderer t opt -> 
+    filterObservingMenuItem t) constr = tmp

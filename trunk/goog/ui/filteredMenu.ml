@@ -13,7 +13,7 @@ class type filteredMenu = object
 
   method createDom : unit meth
 
-  method decorateInternal : Dom_html.element t -> unit meth
+  method decorateInternal : #Dom_html.element t -> unit meth
 
   method disposeInternal : unit meth
 
@@ -52,6 +52,6 @@ class type filteredMenu = object
   method setVisible : bool t -> bool t opt -> bool t meth
 end
 	  
-let filteredMenu : (MenuRenderer.menuRenderer t opt -> Gdom.domHelper t opt 
-  -> filteredMenu t) constr = 
-  Js.Unsafe.variable "goog.ui.FilteredMenu"
+let tmp = Js.Unsafe.variable "goog.ui.FilteredMenu"
+let filteredMenu : (filteredMenu #Menu.menuRenderer t opt -> 
+  Gdom.domHelper t opt -> filteredMenu t) constr = tmp

@@ -8,8 +8,8 @@
 
 open Js
 
-class type menuButtonRenderer = object
-  inherit CustomButtonRenderer.customButtonRenderer
+class type ['but] menuButtonRenderer = object
+  inherit ['but] CustomButtonRenderer.customButtonRenderer
 
 (**
    Takes a text caption or existing DOM structure, and returns the content and
@@ -67,8 +67,7 @@ class type menuButtonRenderer = object
    @param element Element to decorate.
    @return Decorated element.
  *)
-  method decorate__ : MenuButton.menuButton t -> Dom_html.element t 
-    -> Dom_html.element t meth
+  method decorate : 'but t -> #Dom_html.element t -> Dom_html.element t meth
 
 (**
    Takes the button's root element and returns the parent element of the
@@ -78,7 +77,7 @@ class type menuButtonRenderer = object
        is to be returned.
    @return The button's content element.
  *)
-  method getContentElement : Dom_html.element t -> Dom_html.element t meth
+  method getContentElement : #Dom_html.element t -> Dom_html.element t meth
 
 (**
    Returns the CSS class to be applied to the root element of components
@@ -97,9 +96,14 @@ class type menuButtonRenderer = object
          structure to be set as the control's content.
      @override
    *)
-  method setContent : Dom_html.element t -> ControlContent.controlContent 
+  method setContent : #Dom_html.element t -> ControlContent.controlContent 
     -> unit meth
 end
 
-let menuButtonRenderer : (menuButtonRenderer t) constr = 
-  Js.Unsafe.variable "goog.ui.MenuButtonRenderer"
+let tmp = Js.Unsafe.variable "goog.ui.MenuButtonRenderer"
+let menuButtonRenderer : (#MenuButton.menuButton menuButtonRenderer t) constr = 
+  tmp
+
+module MenuButtonRenderer = struct
+  let getInstance () = Js.Unsafe.fun_call (Js.Unsafe.variable "goog.ui.MenuButtonRenderer.getInstance", [||])
+end
