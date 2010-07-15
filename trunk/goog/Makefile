@@ -50,5 +50,3 @@ cleanall: clean
 clean:
 	@echo "[CLEAN]"
 	-find . -name "*.cm[oix]" -exec rm {} \;
-
-

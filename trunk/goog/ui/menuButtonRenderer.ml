@@ -105,5 +105,5 @@ let menuButtonRenderer : (#MenuButton.menuButton menuButtonRenderer t) constr =
   tmp
 
 module MenuButtonRenderer = struct
-  let getInstance () = Js.Unsafe.fun_call (Js.Unsafe.variable "goog.ui.MenuButtonRenderer.getInstance", [||])
+  let getInstance () = Js.Unsafe.fun_call (Js.Unsafe.variable "goog.ui.MenuButtonRenderer.getInstance") [||]
 end

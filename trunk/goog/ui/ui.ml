@@ -9,6 +9,13 @@ let decorate (e : Dom_html.element t) : #Component.component t opt =
     (Js.Unsafe.variable "goog.ui.decorate")
     [|Js.Unsafe.inject e|]
 
+include InputDatePicker
+include ImagelessButtonRenderer
+include IdleTimer
+include ActivityMonitor
+include IdGenerator
+include HsvaPalette
+include HsvPalette
 include AbstractSpellChecker
 include AdvancedTooltip
 include AnimatedZippy
@@ -26,7 +33,7 @@ include Control
 include DatePicker
 include Dialog
 include ImagelessRoundedCorner
-include Labelinput
+include LabelInput
 include Menu
 include MenuButton
 include MenuItem
