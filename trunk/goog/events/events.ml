@@ -23,6 +23,7 @@ let listen (src : (#eventTarget t, #Dom_html.eventTarget t) Union.t) (typ : js_s
     [|Js.Unsafe.inject src; Js.Unsafe.inject typ; Js.Unsafe.inject listener; 
       Js.Unsafe.inject capt |]
 
+include EventType
 include Event
 include BrowserEvent
 include EventTarget

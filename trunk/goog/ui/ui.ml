@@ -9,6 +9,13 @@ let decorate (e : Dom_html.element t) : #Component.component t opt =
     (Js.Unsafe.variable "goog.ui.decorate")
     [|Js.Unsafe.inject e|]
 
+include TableSorter
+include PopupMenu
+include PopupDatePicker
+include NativeButtonRenderer
+include PopupColorPicker
+include KeyboardShortcutHandler
+include KeyboardShortcutEvent
 include InputDatePicker
 include ImagelessButtonRenderer
 include IdleTimer

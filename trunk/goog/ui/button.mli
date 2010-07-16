@@ -71,7 +71,7 @@ class type ['but] buttonRenderer = object
    Returns the ARIA role to be applied to buttons.
    @return ARIA role.
 *)
-  method getAriaRole : Gdom.A11y.role_pre optdef -> unit meth
+  method getAriaRole : Gdom.A11y.role_pre optdef meth
 
 (** @inheritDoc *)
   method getCssClass : js_string t meth

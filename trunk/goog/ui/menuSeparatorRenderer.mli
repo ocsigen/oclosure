@@ -44,7 +44,8 @@ class type ['sep] menuSeparatorRenderer = object
    @param content Text caption or DOM structure to be
    set as the separators's content (ignored).
 *)
-  method setContent : 'sep t -> ControlContent.controlContent -> unit meth
+  method setContent : #Dom_html.element t -> ControlContent.controlContent 
+    -> unit meth
 end
 
 val menuSeparatorRenderer : (menuSeparator menuSeparatorRenderer t) constr

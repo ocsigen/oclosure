@@ -41,7 +41,7 @@ class type ['but] buttonRenderer = object
   constraint 'but = #button
   inherit ['but] Control.controlRenderer
 
-  method getAriaRole : Gdom.A11y.role_pre optdef -> unit meth
+  method getAriaRole : Gdom.A11y.role_pre optdef meth
 
   method getCssClass : js_string t meth
 

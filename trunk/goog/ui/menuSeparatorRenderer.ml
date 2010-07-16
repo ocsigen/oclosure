@@ -19,7 +19,8 @@ class type ['sep] menuSeparatorRenderer = object
 
   method getCssClass : js_string t meth
 
-  method setContent : 'sep t -> ControlContent.controlContent -> unit meth
+  method setContent : #Dom_html.element  t -> ControlContent.controlContent 
+    -> unit meth
 end
 
 let menuSeparatorRenderer : (menuSeparator menuSeparatorRenderer t) constr = 

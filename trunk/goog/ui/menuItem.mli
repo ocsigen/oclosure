@@ -59,7 +59,7 @@ class type ['menuIt] menuItemRenderer = object
     -> Dom_html.element t meth
 
 (** @return The ARIA role. *)
-  method getAriaRole : Gdom.A11y.role meth
+  method getAriaRole : Gdom.A11y.role_pre optdef meth
 
 (**
    Takes a single goog.ui.Component.State, and returns the

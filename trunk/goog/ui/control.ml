@@ -146,6 +146,42 @@ class type ['ctrl] controlRenderer = object
   method createDom : 'ctrl t -> Dom_html.element t meth
 
   method decorate : 'ctrl t -> #Dom_html.element t -> Dom_html.element t meth
+
+  method enableClassName : ('ctrl t, #Dom_html.element t) Tools.Union.t ->
+    js_string t -> bool t -> unit meth
+
+  method enableExtraClassName : 'ctrl t -> js_string t -> bool t -> unit meth
+
+  method getAriaRole : Gdom.A11y.role_pre optdef meth
+
+  method getContentElement : #Dom_html.element t -> Dom_html.element t meth
+
+  method getCssClass : js_string t meth
+
+  method getIe6ClassCombinations : js_string t js_array t js_array t meth
+
+  method getKeyEventTarget : 'ctrl t -> Dom_html.element t meth
+
+  method getStructuralCssClass : js_string t meth
+
+  method initializeDom : 'ctrl t -> unit meth
+
+  method isFocusable : 'ctrl t -> bool t meth
+
+  method setAllowTextSelection : #Dom_html.element t -> bool t -> unit meth
+
+  method setAriaRole : #Dom_html.element t -> unit meth
+
+  method setContent : #Dom_html.element t -> ControlContent.controlContent ->
+    unit meth
+
+  method setFocusable : 'ctrl t -> bool t -> unit meth
+
+  method setRightToLeft : #Dom_html.element t -> bool t -> unit meth
+
+  method setState : 'ctrl t -> Component.State.state_pre -> bool t -> unit meth
+
+  method setVisible : #Dom_html.element t -> bool t -> unit meth
 end
 
 let controlRenderer = Js.Unsafe.variable "goog.ui.ControlRenderer"

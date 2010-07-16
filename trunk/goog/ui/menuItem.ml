@@ -41,7 +41,7 @@ class type ['menuIt] menuItemRenderer = object
   method decorate : 'menuIt t -> #Dom_html.element t 
     -> Dom_html.element t meth
 
-  method getAriaRole : Gdom.A11y.role meth
+  method getAriaRole : Gdom.A11y.role_pre optdef meth
 
   method getClassForState : Component.Component.State.state_pre 
     -> js_string t optdef meth
