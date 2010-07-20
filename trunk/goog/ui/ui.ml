@@ -92,5 +92,11 @@ include FlatMenuButtonRenderer
 include FormPost
 include Option
 include Select
+include ToolbarButtonRenderer
+include ToolbarColorMenuButton
+include ToolbarMenuButtonRenderer
+include ToolbarRenderer
+include ToolbarSeparator
+include ToolbarSelect
 include TriStateMenuItemRenderer
 include TriStateMenuItem

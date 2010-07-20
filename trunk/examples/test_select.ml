@@ -2,6 +2,8 @@ open Goog
 module D = Dom_html
 let d = D.document
 
+let dom = jsnew Gdom.domHelper()
+
 let get_el s = Js.Opt.get (d##getElementById (Js.string s)) (fun _ -> assert false)
 
 let add_item (select : Ui.select Js.t) name = 
@@ -13,6 +15,16 @@ let get_option ?(model = Js.null) name =
 
 let add_option (select : Ui.select Js.t) option = 
   select##addItem_(Tools.Union.i1 option)
+
+let listener select id sentence = 
+  Events.listen
+    (Tools.Union.i1 select)
+    Ui.Component.EventType._ACTION
+    (fun () -> 
+       let value = Js.string (sentence ^ (Js.to_string (Js.Optdef.get select##getValue() (fun _ -> assert false))) ^ "!") in
+	 dom##setTextContent(get_el id,value)  
+    )
+    Js.null 
 
 let _ =
   let select1 = jsnew Ui.select(Js.null,Js.null,Js.null,Js.null) in
@@ -38,5 +50,18 @@ let _ =
       add_option select3 (get_option ~model:t "enabled");
       add_option select3 (get_option ~model:f "disabled" );
       select3##render(Js.some (get_el "select3"));
-      select3##setSelectedIndex(0)
-    
+      select3##setSelectedIndex(0);
+      
+   ignore(listener select1 "value1" "Yeah ");
+   ignore(listener select2 "value2" "Boo ");
+   Events.listen
+     (Tools.Union.i1 select3)
+     Ui.Component.EventType._ACTION
+     (fun () -> 
+	let res = Js.to_string (Js.Optdef.get select3##getValue() (fun _ -> assert false)) in
+	  if res = "true" then
+	    select2##setEnabled(Js._true)
+	  else 
+	    select2##setEnabled(Js._false)
+     )
+     Js.null 
