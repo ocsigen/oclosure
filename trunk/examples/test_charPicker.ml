@@ -17,5 +17,5 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 picker)
     (Js.string "action")
-    (fun () -> selectionAction picker)
+    (Js.wrap_callback (fun () -> selectionAction picker))
     Js.null

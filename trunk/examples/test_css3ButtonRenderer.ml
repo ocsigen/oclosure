@@ -29,15 +29,15 @@ let customButtons = [
 			     Js.null)
     ]
 
-let f b =
+let f (b:Goog.Ui.customButton Js.t) =
   b##render(Js.some (get_el "cb1"));
   ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 b) 
     Goog.Ui.Component.EventType._ACTION
-    (fun () -> 
+    (Js.wrap_callback (fun () -> 
       let newCaption = D.window##prompt(
 	to_s"Enter new caption for button:", to_s"Where am I ?") in
-      b##setCaption(newCaption)) 
+      b##setCaption(newCaption)))
     Js.null)
 
 let _ = 
@@ -61,8 +61,8 @@ let cb2 = ref [] in
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 toggleEnable)
     Goog.Ui.Component.EventType._ACTION
-    (fun () -> 
-      (List.nth !cb2 1)##setEnabled(toggleEnable##isChecked()))
+    (Js.wrap_callback (fun () -> 
+      (List.nth !cb2 1)##setEnabled(toggleEnable##isChecked())))
     Js.null);
 
   let hideShowElem = get_el "hideShow" in
@@ -72,8 +72,8 @@ let cb2 = ref [] in
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 hideShow)
     Goog.Ui.Component.EventType._ACTION
-    (fun () ->
-      ignore((List.nth !cb2 1)##setVisible(hideShow##isChecked(), Js.null))
+    (Js.wrap_callback (fun () ->
+      ignore((List.nth !cb2 1)##setVisible(hideShow##isChecked(), Js.null)))
     )
     Js.null)
 

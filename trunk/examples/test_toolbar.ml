@@ -14,7 +14,7 @@ let _ =
   ignore (Events.listen 
     (Tools.Union.i1 button) 
     (Js.string "action") 
-    (fun () -> D.window##alert(Js.string "Bravo!")) Js.null);
+    (Js.wrap_callback (fun () -> D.window##alert(Js.string "Bravo!"))) Js.null);
   Ui.Component.addChild t button (Js.some Js._true);
   Ui.Component.addChild t button2 (Js.some Js._true);
   let c = Js.Opt.get (t##getChildAt(1)) (fun _ -> assert false) in

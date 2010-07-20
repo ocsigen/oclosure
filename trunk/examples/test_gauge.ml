@@ -53,6 +53,4 @@ let _ =
 	let button = Js.Opt.get (d##getElementById (Js.string "v1"))
     (fun () -> assert false) in
 	button##onkeyup <- D.handler (fun _ -> set_Value();Js._true)  
-	(*Events.listen (Tools.Union.i2 button) (Js.string "click") (set_Value) Js.null*)
-
 

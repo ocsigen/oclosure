@@ -8,11 +8,11 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 p1) 
     (Js.string "action")
-    (fun _ ->
+    (Js.wrap_callback (fun _ ->
       let size = p1##getValue() in
       Goog.Gdom.setTextContent (get_el "p1_value")
         (Js.string ((string_of_int size##width)^" x "^(string_of_int size##height)));
-      )
+      ))
     Js.null
   
 let p2 = jsnew Goog.Ui.dimensionPicker(Js.null, Js.null) in

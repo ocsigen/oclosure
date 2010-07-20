@@ -20,9 +20,9 @@ p1##render(Js.some (get_el "p1"));
 Goog.Events.listen 
   (Goog.Tools.Union.i1 p1)
   Goog.Ui.Component.EventType._ACTION
-  (fun () -> 
+  (Js.wrap_callback (fun () -> 
     (get_div (Dom_html.CoerceTo.div(get_el "p1_value")))##innerHTML <- 
-      get (p1##getSelectedItem())##nodeValue)
+      get (p1##getSelectedItem())##nodeValue))
   Js.null
 
 let onColorEvent palette =
@@ -41,7 +41,7 @@ let createColorPaletteDemo colors width caption =
   ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 cp)
     Goog.Ui.Component.EventType._ACTION 
-    (fun () -> onColorEvent cp) Js.null)
+    (Js.wrap_callback (fun () -> onColorEvent cp)) Js.null)
     
 let _ = 
   createColorPaletteDemo 
@@ -111,11 +111,11 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 cp)
     Goog.Ui.Component.EventType._ACTION
-    (fun () -> 
+    (Js.wrap_callback (fun () -> 
       let palette = cp in
       let color = get (palette##getSelectedColor()) in
       (get_el"ccp_value")##style##backgroundColor <- color;
       (get_el"ccp_value")##title <- color;
       (get_el"ccp_text")##innerHTML <- color
-	  )
+	  ))
     Js.null

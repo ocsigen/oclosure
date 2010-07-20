@@ -8,7 +8,7 @@ let _ =
   cp##setSize(7);
   cp##setColors(Goog.Ui.ColorPicker._SIMPLE_GRID_COLORS);
   cp##addEventListener(Goog.Ui.ColorPicker.EventType._CHANGE, 
-		       (fun () -> sel##innerHTML <- cp##getSelectedColor();
+		       Js.wrap_callback(fun () -> sel##innerHTML <- cp##getSelectedColor();
 			 Js._true),
 		       Js.null);
   cp##render(Js.some (get_el "colorPicker"))

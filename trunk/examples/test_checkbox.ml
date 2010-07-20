@@ -28,16 +28,16 @@ let _ =
  ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 all)
     Goog.Ui.Component.EventType._CHANGE 
-    rootChanged
+    (Js.wrap_callback rootChanged)
     Js.null);
   ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 leaf1)
     Goog.Ui.Component.EventType._CHANGE 
-    leafChanged
+    (Js.wrap_callback leafChanged)
     Js.null);
   ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 leaf2)
     Goog.Ui.Component.EventType._CHANGE 
-    leafChanged
+    (Js.wrap_callback leafChanged)
     Js.null);
   

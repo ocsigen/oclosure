@@ -24,7 +24,7 @@ let _ =
     s##decorate(el);
     s##addEventListener(
       Ui.Component.EventType._CHANGE,
-      (fun () -> 
+      Js.wrap_callback (fun () -> 
 	 let out =  Js.Opt.get (d##getElementById (Js.string "out1"))
 	   (fun () -> assert false) 
 	 and extent = s##getValue() +. s##getExtent() in
@@ -43,7 +43,7 @@ let _ =
       s2##setStep(Js.null);
       s2##addEventListener(
 	Ui.Component.EventType._CHANGE,
-	(fun () -> 
+	Js.wrap_callback (fun () -> 
 	   let out2 =  Js.Opt.get (d##getElementById (Js.string "out2"))
 	     (fun () -> assert false) 
 	   and extent = s2##getValue() +. s2##getExtent() in

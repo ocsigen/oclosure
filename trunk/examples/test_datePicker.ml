@@ -21,11 +21,11 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 dp_iso_8601)
     (Js.string "change")
-    (fun () ->
+    (Js.wrap_callback (fun () ->
       alert (
 	if (dp_iso_8601##getDate() != Js.null) 
 	then (get dp_iso_8601##getDate())##toIsoString(Js.some Js._true, Js.null)
-	else Js.string "none"))
+	else Js.string "none")))
     Js.null
 
 let dp_custom = jsnew Goog.Ui.datePicker(Js.some (Goog.Tools.Union.i1
@@ -36,11 +36,11 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 dp_custom)
     (Js.string "change")
-    (fun () -> 
+    (Js.wrap_callback (fun () -> 
       (get_el "label_custom")##innerHTML <-
 	if (dp_custom##getDate() != Js.null) 
 	then (get dp_custom##getDate())##toIsoString(Js.some Js._true, Js.null)
-	else Js.string "none")
+	else Js.string "none"))
     Js.null
 
 let dp_en_US = jsnew Goog.Ui.datePicker(Js.null, of_dateTimeSymbols DateTimeSymbols_en_US)
@@ -49,25 +49,25 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 dp_en_US)
     (Js.string "change")
-    (fun () -> 
+    (Js.wrap_callback (fun () -> 
       (get_el "label_en_US")##innerHTML <-
 	if (dp_en_US##getDate() != Js.null)
 	then (get dp_en_US##getDate())##toIsoString(Js.some Js._true, Js.null)
-	else Js.string "none")
+	else Js.string "none"))
     Js.null
 
 let dp_fr = jsnew Goog.Ui.datePicker(Js.null, of_dateTimeSymbols DateTimeSymbols_fr)
 let _ = 
   dp_fr##render(Js.some(get_el "widget_fr"));
-  Goog.Events.listen
+  ignore (Goog.Events.listen
     (Goog.Tools.Union.i1 dp_fr)
     (Js.string "change")
-    (fun () ->
+    (Js.wrap_callback (fun () ->
       (get_el "label_fr")##innerHTML <- 
 	if(dp_fr##getDate() != Js.null)
 	then (get dp_fr##getDate())##toIsoString(Js.some Js._true, Js.null) 
-	else (Js.string "none"))
-    Js.null;
+	else (Js.string "none")))
+    Js.null);
   (get_el "label_fr")##innerHTML <-
     (get dp_fr##getDate())##toIsoString(Js.some Js._true, Js.null)
       
@@ -75,15 +75,15 @@ let _ =
 let dp_ml = jsnew Goog.Ui.datePicker(Js.null, of_dateTimeSymbols DateTimeSymbols_ml)
 let _ =
   dp_ml##render(Js.some(get_el "widget_ml"));
-  Goog.Events.listen
+  ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 dp_ml) 
     (Js.string "change")
-    (fun () ->
+    (Js.wrap_callback (fun () ->
       (get_el "label_ml")##innerHTML <-
 	if (dp_ml##getDate() != Js.null) 
 	then (get dp_ml##getDate())##toIsoString(Js.some Js._true, Js.null) 
-	else (Js.string "none"))
-    Js.null;
+	else (Js.string "none")))
+    Js.null);
   (get_el "label_ml")##innerHTML <- 
     (get dp_ml##getDate())##toIsoString(Js.some Js._true, Js.null)
 

@@ -1,3 +1,5 @@
+include DragScrollSupport
+include DragListGroup
 include DragDropEvent
 include DragDropGroup
 include AnimationQueue

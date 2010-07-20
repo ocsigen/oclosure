@@ -39,6 +39,6 @@ let _ =
   ignore (Goog.Events.listen 
     (Goog.Tools.Union.i1 slider)
     (Js.string "change")
-    createRoundedCorners
+    (Js.wrap_callback createRoundedCorners)
     Js.null);
   createRoundedCorners()

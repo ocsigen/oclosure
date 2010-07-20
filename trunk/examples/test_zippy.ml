@@ -2,10 +2,10 @@ open Goog
 module D = Dom_html
 let d = D.document
 
-let header = Js.Opt.get (d##getElementById (Js.string "header"))
+let get_el s = Js.Opt.get (d##getElementById (Js.string s))
     (fun () -> assert false)
 
-let f () = Js.Opt.get (d##getElementById (Js.string "content"))
+let header = Js.Opt.get (d##getElementById (Js.string "header"))
     (fun () -> assert false)
 
 let z = jsnew Ui.animatedZippy (
@@ -13,4 +13,19 @@ let z = jsnew Ui.animatedZippy (
   Js.some (Tools.Union.i2 (Js.string "content")),
   Js.null)
 
+let z2 = jsnew Ui.animatedZippy (
+  Js.some (Tools.Union.i1 (get_el "header2")),
+  Js.some (Tools.Union.i2 (Js.string "content2")),
+  Js.null)
+
+let js_not b = Js.bool (not (Js.to_bool b))
+
+let _ = Goog.Events.listen
+    (Tools.Union.i1 z)
+    (Js.string "toggle")
+    (Js.wrap_callback (fun () -> z2##setExpanded(js_not z##isExpanded())))
+    Js.null
+(*
+    extract_react_event : #enventTarget t -> [<`Click| `Change |`Toto] list -> (unit -> unit) -> Event.id
+*)
 let _ = z##setExpanded(Js._true)
