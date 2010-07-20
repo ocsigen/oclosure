@@ -13,10 +13,6 @@ open Js
 class type component = object
   inherit eventTarget
 
-  method addChild : component t -> bool t opt -> unit meth
-
-  method addChildAt : component t -> int -> bool t opt -> unit meth
-
   method canDecorate : #Dom_html.element t -> bool t meth
 
   method createDom : unit meth
@@ -61,8 +57,8 @@ class type component = object
 
   method makeId : js_string t -> js_string t meth
 
-  method removeChild : (js_string t, component t) Tools.Union.t opt 
-    -> bool t opt -> component t  meth
+(*  method removeChild : (js_string t, component t) Tools.Union.t opt 
+    -> bool t opt -> component t  meth*)
 
   method removeChildAt : int -> bool t opt -> component t meth
 
@@ -88,7 +84,15 @@ let component : Gdom.domHelper t opt -> component t constr =
 
 module Component = struct
   let addChild (c : #component t) child (b : bool t opt) = 
-    c##addChild((child : #component t :> component t), b)
+    Js.Unsafe.meth_call c "addChild" 
+      [|Js.Unsafe.inject (child : #component t :> component t); 
+	Js.Unsafe.inject b|]
+
+  let addChildAt (c : #component t) child (i : int) (b : bool t opt) = 
+    Js.Unsafe.meth_call c "addChildAt" 
+      [|Js.Unsafe.inject (child : #component t :> component t); 
+	Js.Unsafe.inject i;
+	Js.Unsafe.inject b|]
 
   module State = struct 
     type state = 

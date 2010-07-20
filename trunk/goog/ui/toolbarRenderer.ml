@@ -8,10 +8,9 @@
     @see 'goog.ui.ContainerRenderer'
 *)
 open Js
-open ContainerRenderer
 
 class type ['cont] toolbarRenderer = object
-  inherit ['cont] containerRenderer
+  inherit ['cont] Container.containerRenderer
 
   (**
      Returns the ARIA role to be applied to toolbar/menubar.

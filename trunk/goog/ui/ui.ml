@@ -57,8 +57,6 @@ include ScrollFloater
 include Slider
 include SliderBase
 include SubMenu
-include TabBarRenderer
-(*include TabBar*)
 include Toolbar
 include ToolbarButton
 include Tooltip
@@ -71,7 +69,6 @@ include CheckBoxMenuItem
 include ToolbarMenuButton
 include Separator
 include MenuSeparator
-include ContainerRenderer
 include ToggleButton
 include ToolbarToggleButton
 include ComboBoxItem
@@ -92,6 +89,8 @@ include FlatMenuButtonRenderer
 include FormPost
 include Option
 include Select
+include Tab
+include TabBar
 include ToolbarButtonRenderer
 include ToolbarColorMenuButton
 include ToolbarMenuButtonRenderer

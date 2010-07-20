@@ -13,12 +13,6 @@ open Js
 class type component = object
   inherit eventTarget
 
-  (** 
-     Adds the specified component as the last child of this component. 
-     See goog.ui.Component#addChildAt for detailed semantics. 
-  *) 
-  method addChild : component t -> bool t opt -> unit meth
-
 (**
    Adds the specified component as a child of this component at the given
    0-based index.
@@ -57,7 +51,7 @@ class type component = object
       into the parent.
    @return
  *)
-  method addChildAt : component t -> int -> bool t opt -> unit meth
+  (*method addChildAt : component t -> int -> bool t opt -> unit meth*)
 
 (**
    Determines if a given element can be decorated by this type of component.
@@ -228,8 +222,8 @@ class type component = object
    @param rightToLeft Whether the component is rendered
        right-to-left.
  *)
-  method removeChild : (js_string t, component t) Tools.Union.t opt 
-    -> bool t opt -> component t  meth
+  (*method removeChild : (js_string t, component t) Tools.Union.t opt 
+    -> bool t opt -> component t  meth*)
 
 (**
    Set is right-to-left. This function should be used if the component needs

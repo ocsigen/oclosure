@@ -46,6 +46,13 @@ class type ['sep] toolbarSeparatorRenderer = object
 end
 
 (**
+   Renderer for toolbar separators.
+   @constructor
+*)
+let toolbarSeparatorRenderer : toolbarSeparator #toolbarSeparatorRenderer t constr =
+  Js.Unsafe.variable "goog.ui.ToolbarSeparatorRenderer"
+
+(**
    A separator control for a toolbar. 
    @param opt_renderer Renderer to render or decorate the separator; defaults to goog.ui.ToolbarSeparatorRenderer.
    @param opt_domHelper Optional DOM helper, used for document interaction.
@@ -53,10 +60,3 @@ end
 *)
 let tmp = Js.Unsafe.variable "goog.ui.ToolbarSeparator"
 let toolbarSeparator  : (toolbarSeparator #toolbarSeparatorRenderer t opt -> domHelper t opt -> toolbarSeparator t) constr = tmp
-
-(**
-   Renderer for toolbar separators.
-   @constructor
-*)
-let toolbarSeparatorRenderer : toolbarSeparator #toolbarSeparatorRenderer t constr =
-  Js.Unsafe.variable "goog.ui.ToolbarSeparatorRenderer"

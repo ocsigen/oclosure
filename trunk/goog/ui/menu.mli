@@ -75,7 +75,7 @@ class type menu = object
 end
 
 class type ['menu] menuRenderer = object
-  inherit ['menu] ContainerRenderer.containerRenderer
+  inherit ['menu] Container.containerRenderer
 	
   method canDecorate : #Dom_html.element t -> bool t meth
  

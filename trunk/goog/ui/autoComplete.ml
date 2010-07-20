@@ -53,7 +53,7 @@ class type autoComplete = object
 
   (** Sets the current target HTML node for displaying autocomplete UI. Can be an implementation specific definition of how to display UI in relation to the target node. 
       @param target The current target HTML node for displaying autocomplete UI. *)
-  method setTarget : Dom_html.element t -> unit meth
+  method setTarget : #Dom_html.element t -> unit meth
     
   (** Whether the autocomplete's renderer is open. 
       @return Whether the autocomplete's renderer is open. *)
