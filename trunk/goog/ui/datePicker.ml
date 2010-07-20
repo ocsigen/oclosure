@@ -20,7 +20,7 @@ class type datePicker = object
 
   method createDom : unit meth
 
-  method decorateInternal : Dom_html.element t -> unit meth
+  method decorateInternal : #Dom_html.element t -> unit meth
 
   method disposeInternal : unit meth
 

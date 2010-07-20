@@ -40,7 +40,7 @@ class type popupBase = object
   method getElement : Dom_html.element t meth
       
     (** Specifies the dom element that should be used for the popup.*)
-  method setElement : Dom_html.element t -> unit meth
+  method setElement : #Dom_html.element t -> unit meth
       
     (** Returns whether the Popup dismisses itself when the user clicks
        * outside of it.*)

@@ -58,7 +58,7 @@ include Slider
 include SliderBase
 include SubMenu
 include TabBarRenderer
-include Tabbar
+(*include TabBar*)
 include Toolbar
 include ToolbarButton
 include Tooltip

@@ -58,7 +58,7 @@ class type tooltip = object
   method setHtml : js_string t -> unit meth
 
     (** Sets tooltip element.*)
-  method setElement : Dom_html.element t -> unit meth
+  method setElement : #Dom_html.element t -> unit meth
 
     (** Returns the tooltip message as plain text.*)
   method getText : js_string t meth
@@ -78,15 +78,15 @@ class type tooltip = object
 
     (** Called by timer from mouse over handler. Shows tooltip if 
        * cursor is still over the same element.*)
-  method maybeShow : Dom_html.element t -> abstractPosition t opt -> unit meth
+  method maybeShow : #Dom_html.element t -> abstractPosition t opt -> unit meth
 
     (** Shows tooltip for a specific element.*)
-  method showForElement : Dom_html.element t -> abstractPosition t opt -> unit meth
+  method showForElement : #Dom_html.element t -> abstractPosition t opt -> unit meth
 
     (** Called by timer from mouse out handler. Hides tooltip if cursor 
        * is still outside element and tooltip, or if a child of tooltip has the
        * focus.*)
-  method maybeHide : Dom_html.element t -> unit meth
+  method maybeHide : #Dom_html.element t -> unit meth
 
     (** Returns whether tooltip element contains an active child tooltip,
        * and should thus not be hidden. When the child tooltip is hidden, it

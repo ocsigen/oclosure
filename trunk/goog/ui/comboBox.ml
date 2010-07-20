@@ -46,7 +46,7 @@ class type comboBox = object
      Combo box currently can't decorate elements.
      @return The value false.
   *)
-  method canDecorate : bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
   
   method disposeInternal : unit meth
   

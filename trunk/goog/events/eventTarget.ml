@@ -69,7 +69,7 @@ class type eventTarget = object
   method removeEventListener : js_string t -> (unit -> bool t) -> bool t opt -> unit meth
 
  (** Sets the parent of this event target to use for bubbling. *)
-  method setParentEventTarget : eventTarget t -> unit meth
+  method setParentEventTarget : eventTarget t opt -> unit meth
 end
 
 let eventTarget : eventTarget t constr =

@@ -18,7 +18,7 @@ class type drilldownRow = object
    @param index position to be occupied by the child.
    @param opt_render true to force immediate rendering.
  *)
-  method addChildAt : drilldownRow t -> int -> bool t opt -> unit meth
+  method addChildAt : Component.component t -> int -> bool t opt -> unit meth
 
 (**
    A top-level DrilldownRow decorates a TR element.
@@ -26,7 +26,7 @@ class type drilldownRow = object
    @param node The element to test for decorability.
    @return true iff the node is a TR.
  *)
-  method canDecorate : Dom_html.element t -> bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
 
 (** @inheritDoc *)
   method createDom : unit meth
@@ -64,7 +64,7 @@ class type drilldownRow = object
 
 (** @inheritDoc *)
   method removeChild : (js_string t, Component.component t) Tools.Union.t opt ->
-    bool t opt -> Component.component t
+    bool t opt -> Component.component t meth
 
 (**
    Rendering of DrilldownRow's is on need, do not call this directly

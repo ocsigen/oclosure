@@ -11,7 +11,7 @@ open Js
 class type tableSorter = object
   inherit Component.component
 
-  method canDecorate : #Dom_html.element -> bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
 
   method enterDocument : unit meth
 

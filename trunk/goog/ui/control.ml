@@ -34,7 +34,7 @@ class type control = object
 
   method addClassName : js_string t -> unit meth
 
-  method canDecorate : Dom_html.element t -> bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
 
   method createDom : unit meth
 

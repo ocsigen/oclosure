@@ -30,7 +30,7 @@ class type colorPicker = object
 
  (** ColorPickers cannot be used to decorate pre-existing html,
      since the structure they build is fairly complicated. *)
-  method canDecorate : Dom_html.element t -> bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
 
 (** Renders the color picker inside the provided element.
      This will override the current content of the element. *)

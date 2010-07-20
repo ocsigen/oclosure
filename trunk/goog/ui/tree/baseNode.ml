@@ -42,7 +42,7 @@ class type ['a] baseNode = object
    Creates the element.
    @return The element.
 *)
-  method createDom : Dom_html.element t meth
+  method createDom : unit meth
 
   method deselect : unit meth
 

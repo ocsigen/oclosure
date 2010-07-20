@@ -12,7 +12,7 @@ class type tableSorter = object
   inherit Component.component
 
 (** @inheritDoc *)
-  method canDecorate : #Dom_html.element -> bool t meth
+  method canDecorate : #Dom_html.element t -> bool t meth
 
 (** @inheritDoc *)
   method enterDocument : unit meth

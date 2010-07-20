@@ -26,7 +26,7 @@ class type baseRoundedPanel = object
    Returns the DOM element containing the actual content.
    @return The element containing the actual content (null if none).
 *)
-  method getContentElement : unit -> Dom_html.element t meth 
+  method getContentElement : Dom_html.element t meth 
 end
 
 (**
