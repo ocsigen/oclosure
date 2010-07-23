@@ -7,11 +7,12 @@
    @author Cardoso Gabriel
    @version 0.1
 *)
-open Events
+#ifndef UI
 open Js
+#endif
 
 class type component = object
-  inherit eventTarget
+  inherit Events.eventTarget
 
 (**
    Adds the specified component as a child of this component at the given

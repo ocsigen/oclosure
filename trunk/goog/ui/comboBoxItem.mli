@@ -5,11 +5,13 @@
    @author : Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open MenuItem
+#endif
 
 class type comboBoxItem = object
-  inherit MenuItem.menuItem
+  inherit menuItem
 
   (**
      Sets the menu item to be sticky or not sticky.

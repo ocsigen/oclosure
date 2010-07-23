@@ -6,7 +6,9 @@
    @version 0.2
 *)
 
+#ifndef FX
 open Js
+#endif
 
 class type dragScrollSupport = object
   inherit Disposable.disposable

@@ -5,11 +5,15 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open CustomButtonRenderer
+open Button
+open ControlContent
+#endif
 
 class type ['but] imagelessButtonRenderer = object
-  inherit ['but] CustomButtonRenderer.customButtonRenderer
+  inherit ['but] customButtonRenderer
 
 (**
    Takes a text caption or existing DOM structure, and returns the content
@@ -30,7 +34,7 @@ class type ['but] imagelessButtonRenderer = object
    @return Pseudo-rounded-corner box containing the content.
    @override
  *)
-  method createButton : ControlContent.controlContent -> Gdom.domHelper t 
+  method createButton : controlContent -> Gdom.domHelper t 
     -> Dom_html.element t meth
 
 (**
@@ -69,7 +73,7 @@ end
    almost arbitrary HTML content, will flow like inline elements, but can be
    styled like block-level elements.
  *)
-val imagelessButtonRenderer : (#Button.button imagelessButtonRenderer t) constr
+val imagelessButtonRenderer : (#button imagelessButtonRenderer t) constr
 
 module ImagelessButtonRenderer : sig
   val getInstance : unit -> 'a

@@ -2,14 +2,19 @@
    OClosure Project - 2010
    Class goog.ui.ToolbarToggleButton
    
-   @author : Cardoso Gabriel
+   @author Cardoso Gabriel
    @version 0.2
 *)
 
+#ifndef UI
 open Js
+open ToggleButton
+open ToolbarButtonRenderer
+open ControlContent
+#endif
 
 class type toolbarToggleButton = object
-  inherit ToggleButton.toggleButton
+  inherit toggleButton
 end
 
 (**
@@ -22,4 +27,7 @@ end
    document interaction.
    @constructor
 *)
-val toolbarToggleButton : (ControlContent.controlContent -> (*ToolbarButtonRenderer.toolbarButtonRenderer t opt -> Gdom.domHelper t opt ->*) toolbarToggleButton t) constr
+val toolbarToggleButton : 
+    (controlContent 
+     -> toolbarToggleButton #toolbarButtonRenderer t opt 
+     -> Gdom.domHelper t opt -> toolbarToggleButton t) constr

@@ -20,10 +20,10 @@ let listener select id sentence =
   Events.listen
     (Tools.Union.i1 select)
     Ui.Component.EventType._ACTION
-    (fun () -> 
+    (Js.wrap_callback (fun () -> 
        let value = Js.string (sentence ^ (Js.to_string (Js.Optdef.get select##getValue() (fun _ -> assert false))) ^ "!") in
 	 dom##setTextContent(get_el id,value)  
-    )
+    ))
     Js.null 
 
 let _ =
@@ -57,11 +57,11 @@ let _ =
    Events.listen
      (Tools.Union.i1 select3)
      Ui.Component.EventType._ACTION
-     (fun () -> 
+     (Js.wrap_callback (fun () -> 
 	let res = Js.to_string (Js.Optdef.get select3##getValue() (fun _ -> assert false)) in
 	  if res = "true" then
 	    select2##setEnabled(Js._true)
 	  else 
 	    select2##setEnabled(Js._false)
-     )
+     ))
      Js.null 

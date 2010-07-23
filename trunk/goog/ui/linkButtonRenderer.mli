@@ -5,11 +5,14 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open FlatButtonRenderer
+open Button
+#endif
 
 class type ['but] linkButtonRenderer = object
-  inherit ['but] FlatButtonRenderer.flatButtonRenderer
+  inherit ['but] flatButtonRenderer
 
   method getCssClass : js_string t meth
 
@@ -20,5 +23,5 @@ end
    almost arbitrary HTML content, will flow like inline elements, but can be
    styled like block-level elements.
 *)
-val linkButtonRenderer : (#Button.button linkButtonRenderer t) constr
+val linkButtonRenderer : (#button linkButtonRenderer t) constr
   

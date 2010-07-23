@@ -5,8 +5,9 @@
    @author Cardoso Gabriel
    @version 0.2
  *)
+#ifndef UI
 open Js
-
+#endif
 class type keyboardShortcutEvent = object
   inherit Events.event
 end

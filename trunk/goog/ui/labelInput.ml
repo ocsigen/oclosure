@@ -1,10 +1,9 @@
 (**
- * OClosure Project - 2010
- * This creates the label input object.
- * @param opt_label The text to show as the label.
- * @param opt_domHelper Optional DOM helper.
- * @author Bourdin Piere
- * @version 0.2
+   OClosure Project - 2010
+   Class goog.ui.LabelInput
+   
+   @author Bourdin Piere
+   @version 0.2
 *)
 
 open Js
@@ -22,7 +21,7 @@ class type labelInput = object
 
   method disposeInternal : unit meth
 
-  method hasChanged: bool t meth
+  method hasChanged : bool t meth
 
   method clear : unit meth
 

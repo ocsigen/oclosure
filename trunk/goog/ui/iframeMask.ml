@@ -16,7 +16,7 @@ class type iframeMask = object
 
   method hideMask : unit meth
 
-  method listenOnTarget : Events.eventTarget t -> js_string t -> js_string t
+  method listenOnTarget : #Events.eventTarget t -> js_string t -> js_string t
     -> #Dom_html.element t -> unit meth
 
   method removeHandlers : unit meth

@@ -6,10 +6,13 @@
     @version 0.2
 *)
 
+#ifndef UI
 open Js
+open Component
+#endif
 
 class type tableSorter = object
-  inherit Component.component
+  inherit component
 
 (** @inheritDoc *)
   method canDecorate : #Dom_html.element t -> bool t meth

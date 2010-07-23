@@ -5,11 +5,13 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open Button
+#endif
 
 class type ['but] flatButtonRenderer = object
-  inherit ['but] Button.buttonRenderer
+  inherit ['but] buttonRenderer
 
 (**
    Returns true if this renderer can decorate the element.  Overrides
@@ -65,4 +67,4 @@ end
    styled like block-level elements.
    @constructor
  *)
-val flatButtonRenderer : (#Button.button flatButtonRenderer t) constr
+val flatButtonRenderer : (#button flatButtonRenderer t) constr

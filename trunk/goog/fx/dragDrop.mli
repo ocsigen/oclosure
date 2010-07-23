@@ -5,8 +5,11 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef FX
 open Js
+open DragEvent
+open Dragger
+#endif
 
 class type abstractDragDrop = object
   inherit Events.eventTarget
@@ -48,7 +51,7 @@ class type abstractDragDrop = object
 
    @param event Drag event.
  *)
-  method endDrag : DragEvent.dragEvent t -> unit meth
+  method endDrag : dragEvent t -> unit meth
 
 (**
    Returns the position for the drag element.
@@ -67,7 +70,7 @@ class type abstractDragDrop = object
    @return The dragger object used by this drag and drop
        instance.
  *)
-  method getDragger : Dragger.dragger t meth
+  method getDragger : dragger t meth
 
 (**
    Initialize drag and drop functionality for sources/targets already added.

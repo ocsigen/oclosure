@@ -5,11 +5,15 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open Menu
+open Component
+open MenuItem
+#endif
 
 class type filteredMenu = object
-  inherit Menu.menu
+  inherit menu
 
 (** @inheritDoc *)
   method createDom : unit meth
@@ -81,7 +85,7 @@ class type filteredMenu = object
    @param child Menu item to check.
    @return Whether the menu item is persistent.
  *)
-  method hasPersistentVisibility : #Component.component t -> bool t meth
+  method hasPersistentVisibility : #component t -> bool t meth
 
 (**
    Sets whether multiple items can be entered comma separated.
@@ -123,7 +127,7 @@ class type filteredMenu = object
    @param child Menu item to change.
    @param persistent Whether the menu item should be persistent.
  *)
-  method setPersistentVisibility : #MenuItem.menuItem t -> bool t -> unit meth
+  method setPersistentVisibility : #menuItem t -> bool t -> unit meth
 
 
 (** @inheritDoc *)
@@ -137,5 +141,5 @@ end
    @param opt_domHelper Optional DOM helper.
    @constructor
  *)
-val filteredMenu : (filteredMenu #Menu.menuRenderer t opt -> 
+val filteredMenu : (filteredMenu #menuRenderer t opt -> 
   Gdom.domHelper t opt -> filteredMenu t) constr

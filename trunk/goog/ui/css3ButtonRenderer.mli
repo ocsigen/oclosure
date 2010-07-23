@@ -5,11 +5,13 @@
    @author : Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open Button
+#endif
 
 class type ['but] css3ButtonRenderer = object
-  inherit ['but] Button.buttonRenderer
+  inherit ['but] buttonRenderer
 
 (**
    Returns true if this renderer can decorate the element.  Overrides
@@ -45,4 +47,4 @@ class type ['but] css3ButtonRenderer = object
   method getCssClass : js_string t meth
 end
 
-val css3ButtonRenderer : (#Button.button css3ButtonRenderer t) constr
+val css3ButtonRenderer : (#button css3ButtonRenderer t) constr

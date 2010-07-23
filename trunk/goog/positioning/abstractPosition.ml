@@ -17,7 +17,7 @@ type size = Math.size
 open Js
 class type abstractPosition = object
   (**  Repositions the element. Abstract method, should be overloaded **)
-  method reposition: Dom_html.element t -> Corner.corner -> box t opt -> size t opt -> unit meth
+  method reposition: #Dom_html.element t -> Corner.corner -> box t opt -> size t opt -> unit meth
 end
 
 let abstractPosition : abstractPosition t constr =

@@ -1,4 +1,4 @@
-open Goog
+
 module D = Dom_html
 let d = D.document
 
@@ -8,20 +8,20 @@ let get_el s = Js.Opt.get (d##getElementById (Js.string s))
 let header = Js.Opt.get (d##getElementById (Js.string "header"))
     (fun () -> assert false)
 
-let z = jsnew Ui.animatedZippy (
-  Js.some (Tools.Union.i1 header), 
-  Js.some (Tools.Union.i2 (Js.string "content")),
+let z = jsnew Goog.Ui.animatedZippy (
+  Js.some (Goog.Tools.Union.i1 header), 
+  Js.some (Goog.Tools.Union.i2 (Js.string "content")),
   Js.null)
 
-let z2 = jsnew Ui.animatedZippy (
-  Js.some (Tools.Union.i1 (get_el "header2")),
-  Js.some (Tools.Union.i2 (Js.string "content2")),
+let z2 = jsnew Goog.Ui.animatedZippy (
+  Js.some (Goog.Tools.Union.i1 (get_el "header2")),
+  Js.some (Goog.Tools.Union.i2 (Js.string "content2")),
   Js.null)
 
 let js_not b = Js.bool (not (Js.to_bool b))
 
 let _ = Goog.Events.listen
-    (Tools.Union.i1 z)
+    (Goog.Tools.Union.i1 z)
     (Js.string "toggle")
     (Js.wrap_callback (fun () -> z2##setExpanded(js_not z##isExpanded())))
     Js.null

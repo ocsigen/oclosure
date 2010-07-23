@@ -6,12 +6,14 @@
    @version 0.2
 *)
 
+#ifndef UI
 open Js
-
 open MenuItem
+open ControlContent
+#endif
 
 class type filterObservingMenuItem = object
-  inherit MenuItem.menuItem
+  inherit menuItem
 
 (**
    Calls the observer function if one has been specified.
@@ -27,8 +29,8 @@ class type filterObservingMenuItem = object
    Sets the observer functions.
    @param f function(goog.ui.FilterObservingMenuItem, string).
 *)
-  method setObserver : (filterObservingMenuItem t -> js_string t -> unit) 
-    -> unit meth
+  method setObserver : 
+      (filterObservingMenuItem t -> js_string t -> unit) callback -> unit meth
 end
 
 (**
@@ -42,6 +44,6 @@ end
    @param opt_renderer Optional renderer.
    @constructor
  *)
-val filterObservingMenuItem : (ControlContent.controlContent -> 
+val filterObservingMenuItem : (controlContent -> 
   Gdom.domHelper t opt-> filterObservingMenuItem #menuItemRenderer t opt -> 
   filterObservingMenuItem t) constr

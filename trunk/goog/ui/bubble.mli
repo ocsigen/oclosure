@@ -10,18 +10,23 @@
     * @version 0.1
 *)
 
+#ifndef UI
 open Js
+open Component
+#endif
 
-module Corner : sig
-  type corner = 
-      TOP_LEFT
-    | BOTTOM_LEFT
-    | TOP_RIGHT
-    | BOTTOM_RIGHT
+module Bubble : sig
+  module Corner : sig
+    type corner = 
+	TOP_LEFT
+      | BOTTOM_LEFT
+      | TOP_RIGHT
+      | BOTTOM_RIGHT
+  end
 end
 
 class type bubble = object
-  inherit Component.component
+  inherit component
   (** Attaches the bubble to an anchor element. 
       Computes the positioning and orientation of the bubble *)
   method attach : #Dom_html.element t -> unit meth
@@ -54,7 +59,7 @@ class type bubble = object
      only worked with [TOP|BOTTOM]_[LEFT|RIGHT] (threw an error for other
      constants)
   *)
-  method setPinnedCorner : Corner.corner -> unit meth
+  method setPinnedCorner : Bubble.Corner.corner -> unit meth
 
   (**  Sets the position of the bubble.
        Pass null for corner in AnchoredPosition for 

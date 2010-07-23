@@ -5,13 +5,17 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
-open Button
 
+#ifndef UI
+open ControlContent
+open Button
 open Js
+#endif
+
 class type toolbarButton = object
   inherit button
 end
 
-val toolbarButton : (ControlContent.controlContent 
+val toolbarButton : (controlContent 
 		     -> toolbarButton #buttonRenderer t opt 
 		     -> Gdom.domHelper t opt -> toolbarButton t) constr 

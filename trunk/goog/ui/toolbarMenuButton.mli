@@ -6,12 +6,18 @@
    @version 0.2
 *)
 
+#ifndef UI
 open Js
+open ControlContent
+open Button
+open MenuButton
+open Menu
+#endif
 
 class type toolbarMenuButton = object
-  inherit MenuButton.menuButton
+  inherit menuButton
 end
 
-val toolbarMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> 
-  toolbarMenuButton #Button.buttonRenderer t opt -> Gdom.domHelper t opt -> 
+val toolbarMenuButton : (controlContent -> menu t opt -> 
+  toolbarMenuButton #buttonRenderer t opt -> Gdom.domHelper t opt -> 
     toolbarMenuButton t) constr

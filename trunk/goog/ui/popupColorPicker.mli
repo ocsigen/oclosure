@@ -5,10 +5,15 @@
     @author Cardoso Gabriel
     @version 0.2
 *)
+#ifndef UI
 open Js
+open Component
+open PopupBase
+open ColorPicker
+#endif
 
 class type popupColorPicker = object
-  inherit Component.component
+  inherit component
 
 (**
    Add an array of colors to the colors displayed by the color picker.
@@ -73,7 +78,7 @@ class type popupColorPicker = object
 (**
    @return The color picker instance.
  *)
-  method getColorPicker : ColorPicker.colorPicker t meth
+  method getColorPicker : colorPicker t meth
 
 (**
    @return The last element that triggered the popup.
@@ -87,7 +92,7 @@ class type popupColorPicker = object
    this should return null.
    @return The popup or null if it hasn't been created.
  *)
- method getPopup : PopupBase.popupBase t opt meth
+ method getPopup : popupBase t opt meth
 
 (**
    @return Whether the picker remembers the last selected color
@@ -171,5 +176,5 @@ end
        for this popup.
    @constructor
  *)
-val popupColorPicker : (Gdom.domHelper t opt -> ColorPicker.colorPicker t opt 
+val popupColorPicker : (Gdom.domHelper t opt -> colorPicker t opt 
 			  -> popupColorPicker t) constr 

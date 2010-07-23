@@ -1,13 +1,9 @@
 (** 
-    * OClosure Project - 2010
-    * Class goog.ui.DatePicker
-    *
-    * DatePicker widget. 
-    * Allows a single date to be selected from a calendar like view.
-    * 
-    * @author Bozman Cagdas
-    * @version 0.1
-    * @see 'goog.ui.Component' 
+   OClosure Project - 2010
+   Class goog.ui.DatePicker
+   
+   @author Bozman Cagdas
+   @version 0.1
 *)
 
 open Component
@@ -85,8 +81,10 @@ class type datePicker = object
   method setUseSimpleNavigationMenu : bool t -> unit meth
 
   method setWeekdayClass : int -> js_string t -> unit meth
+
 end
 
-let datePicker = Js.Unsafe.variable "goog.ui.DatePicker"
 let datePicker : ((Date.date t, Js.date t) Tools.Union.t opt -> 
-  I18n.dateTimeSymbols_pre opt -> datePicker t) constr = datePicker
+  I18n.dateTimeSymbols_pre opt -> datePicker t) constr = 
+  Js.Unsafe.variable "goog.ui.DatePicker"
+    

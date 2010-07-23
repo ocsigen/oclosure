@@ -5,7 +5,10 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
+#ifndef UI
 open Js
+open ActivityMonitor
+#endif
 
 class type idleTimer = object
   inherit Events.eventTarget
@@ -17,7 +20,7 @@ class type idleTimer = object
    @return the activity monitor keeping track of user
        interaction.
  *)
-  method getActivityMonitor : ActivityMonitor.activityMonitor t meth
+  method getActivityMonitor : activityMonitor t meth
 
 (**
    @return the amount of time at which we consider the user has gone
@@ -45,5 +48,5 @@ end
        will dispose of it. If an activity monitor is passed in then the caller
        remains responsible for disposing of it.
  *)
-val idleTimer : float t -> ActivityMonitor.activityMonitor t opt 
+val idleTimer : float t -> activityMonitor t opt 
   -> idleTimer t constr

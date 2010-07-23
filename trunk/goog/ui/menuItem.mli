@@ -8,9 +8,12 @@
    @version 0.2
 *)
 
-open Control
-
+#ifndef UI
 open Js
+open Component
+open Control
+open ControlContent
+#endif
 
 class type menuItem = object
   inherit control
@@ -35,7 +38,7 @@ class type menuItem = object
 end
 
 class type ['menuIt] menuItemRenderer = object
-  inherit ['menuIt] Control.controlRenderer
+  inherit ['menuIt] controlRenderer
 
 (**
    Overrides goog.ui.ControlRenderer#createDom by adding extra markup
@@ -71,7 +74,7 @@ class type ['menuIt] menuItemRenderer = object
        (undefined if none).
    @override
  *)
-  method getClassForState : Component.Component.State.state_pre 
+  method getClassForState : Component.State.state_pre 
     -> js_string t optdef meth
 
 (** @inheritDoc *)
@@ -91,7 +94,7 @@ class type ['menuIt] menuItemRenderer = object
        to the given CSS class (0x00 if none).
    @override
  *)
-  method getStateFromClass : js_string t -> Component.Component.State.state_pre meth
+  method getStateFromClass : js_string t -> Component.State.state_pre meth
 
 (**
    Enables/disables checkbox semantics on the menu item.
@@ -113,8 +116,7 @@ class type ['menuIt] menuItemRenderer = object
        set as the item's content.
    @override
  *)
-  method setContent : #Dom_html.element t -> ControlContent.controlContent
-    -> unit meth
+  method setContent : #Dom_html.element t -> controlContent -> unit meth
 
 (**
    Enables/disables radio button semantics on the menu item.
@@ -129,5 +131,5 @@ end
 
 val menuItemRenderer : (#menuItem menuItemRenderer t) constr
 
-val menuItem : (ControlContent.controlContent -> Gdom.domHelper t opt 
+val menuItem : (controlContent -> Gdom.domHelper t opt 
   -> menuItem #menuItemRenderer t opt -> menuItem t) constr

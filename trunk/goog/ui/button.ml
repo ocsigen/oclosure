@@ -8,13 +8,9 @@
 
 module Side = struct
    type side =   
-     (** Neither side. *)
        NONE
-     (** Left for LTR, right for RTL. *)
      | START
-     (** Right for LTR, left for RTL. *) 
      | END
-     (** Both sides. *)
      | BOTH
 end
 

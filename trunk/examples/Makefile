@@ -6,9 +6,9 @@ OCAMLFLAGS=-package js_of_ocaml -syntax camlp4o
 GOOG=../goog
 all: $(TARGETS)
 
-%.byte: %.ml $(GOOG)/goog.cmo
+%.byte: %.ml $(GOOG)/oclosure.cma
 	@echo "[CC]" $@
-	ocamlfind ocamlc $(LIB) -I $(GOOG) goog.cmo tools.cmo $(OCAMLFLAGS) -linkpkg -o $@ $<
+	ocamlfind ocamlc $(LIB) -I $(GOOG) oclosure.cma $(OCAMLFLAGS) -linkpkg -o $@ $<
 
 %.js: %.byte
 	js_of_ocaml $^ -pretty
@@ -18,7 +18,7 @@ ocamldep:
 
 clean:
 	@echo "[CLEAN]"
-	-rm -f *.cmo *.cmi $(TARGETS)
+	-rm -f *.cmo *.cmi $(TARGETS) $(EXECS)
 
 var: 
 	@echo $(TARGETS)

@@ -1,13 +1,9 @@
 (**
-   * OClosure Project - 2010
-   * Class goog.ui.AnimatedZippy
-   *
-   * Zippy widget. Expandable/collapsible container, 
-   * clicking the header toggles the visibility of the content.
-   *
-   * @author : Oran Charles, Cardoso Gabriel
-   * @version 0.2
-   * @see 'goog.ui.Zippy'
+   OClosure Project - 2010
+   Class goog.ui.AnimatedZippy
+
+   @author Oran Charles, Cardoso Gabriel
+   @version 0.2
 *)
 open Zippy
 
@@ -16,13 +12,15 @@ open Tools
 
 class type animatedZippy = object
   inherit zippy
-  (**  Acceleration function for expand/collapse animation. *)
-  method animationAcceleration : number t -> number t meth
+
+  method animationAcceleration : float -> float t meth
   
-  (** Sets expanded state.*)
   method setExpanded : bool t -> unit meth
 
 end
 
-let animatedZippy : ((Dom_html.element t, js_string t) Union.t opt -> (Dom_html.element t, js_string t) Union.t opt -> bool t opt -> animatedZippy t) constr =
-  Js.Unsafe.variable "goog.ui.AnimatedZippy"
+let unit x = Js.Unsafe.variable (String.sub x 2 (String.length x - 4))
+
+let tmp = unit "<<goog.ui.AnimatedZippy>>"
+let animatedZippy : ((#Dom_html.element t, js_string t) Union.t opt -> (#Dom_html.element t, js_string t) Union.t opt -> bool t opt -> animatedZippy t) constr =
+  tmp

@@ -31,7 +31,8 @@ class type delay = object
 end
 
 let delay = Js.Unsafe.variable "goog.async.Delay"
-let delay : ((unit -> unit) -> int opt -> 'a t opt -> delay t) constr = delay
+let delay : ((unit -> unit) callback -> int opt -> 'a t opt 
+  -> delay t) constr = delay
 
 
 

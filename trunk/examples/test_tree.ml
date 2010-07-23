@@ -1,4 +1,4 @@
-open Goog.Tree
+open Goog.Ui.Tree
 open Js
 
 let d = Dom_html.document

@@ -5,11 +5,14 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef UI
+open Component
+open DatePicker
 open Js
+#endif
 
 class type inputDatePicker = object
-  inherit Component.component
+  inherit component
   
   method createDom : unit meth
 
@@ -23,7 +26,7 @@ class type inputDatePicker = object
 
   method getDate : Date.date t opt meth
 
-  method getDatePicker : DatePicker.datePicker t meth
+  method getDatePicker : datePicker t meth
 
   method getInputValue : js_string t meth
 
@@ -39,5 +42,5 @@ class type inputDatePicker = object
 end
 
 val inputDatePicker : (I18n.dateTimeFormat t -> I18n.dateTimeParse t ->
-		       DatePicker.datePicker t opt -> Gdom.domHelper t opt ->
+		       datePicker t opt -> Gdom.domHelper t opt ->
 		       inputDatePicker t) constr

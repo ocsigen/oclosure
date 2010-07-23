@@ -5,11 +5,14 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open Button
+open Component
+#endif
 
 class type ['but] nativeButtonRenderer = object
-  inherit ['but] Button.buttonRenderer
+  inherit ['but] buttonRenderer
 
 (**
    Overrides goog.ui.ButtonRenderer#canDecorate by returning true only
@@ -77,7 +80,7 @@ class type ['but] nativeButtonRenderer = object
    Native buttons also expose the DISABLED state in the HTML button's
    [disabled] attribute.
  *)
-  method setState : 'but t -> Component.Component.State.state_pre -> bool t 
+  method setState : 'but t -> Component.State.state_pre -> bool t 
     -> unit meth
 
 (**
@@ -102,5 +105,5 @@ end
    be no-ops.
    @constructor
  *)
-val nativeButtonRenderer : #Button.button nativeButtonRenderer t constr
+val nativeButtonRenderer : #button nativeButtonRenderer t constr
 

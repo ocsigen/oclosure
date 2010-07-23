@@ -5,8 +5,9 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef FX
 open Js
+#endif
 
 class type dragger = object
   inherit Events.eventTarget

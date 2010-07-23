@@ -6,7 +6,10 @@
    @version 0.2
 *)
 
+#ifndef I18N
 open Js
+open DateTimeFormat
+#endif
 
 class type dateTimeParse = object
 
@@ -35,5 +38,5 @@ end
    Construct a DateTimeParse based on current locale.
    @param pattern pattern specification or pattern type.
 *)
-val dateTimeParse : ((js_string t, DateTimeFormat.DateTimeFormat.format) Tools.Union.t 
+val dateTimeParse : ((js_string t, DateTimeFormat.format) Tools.Union.t 
 		      -> dateTimeParse t) constr

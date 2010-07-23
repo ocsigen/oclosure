@@ -6,7 +6,10 @@
    @version 0.2
 *)
 
+#ifndef I18N
 open Js
+open TimeZone
+#endif
 
 module DateTimeFormat : sig
 (**
@@ -38,7 +41,7 @@ class type dateTimeFormat = object
    that really need time zone service will create a default one.
    @return Formatted string for the given date.
 *)
-  method format : Js.date t -> TimeZone.timeZone t opt -> js_string t meth
+  method format : Js.date t -> timeZone t opt -> js_string t meth
 end
 
 (**

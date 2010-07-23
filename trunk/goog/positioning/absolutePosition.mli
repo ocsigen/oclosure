@@ -5,11 +5,13 @@
    @author : Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef POSITIONING 
 open Js
-
+open Corner
+open AbstractPosition
+#endif
 class type absolutePosition = object
-  inherit AbstractPosition.abstractPosition
+  inherit abstractPosition
 
 (**
    Repositions the popup according to the current state.
@@ -21,7 +23,7 @@ class type absolutePosition = object
    @param opt_preferredSize Prefered size of the
    movableElement.
  *)
-  method reposition : Dom_html.element t -> Corner.corner -> Math.box t opt -> Math.size t opt -> unit meth
+  method reposition : #Dom_html.element t -> Corner.corner -> Math.box t opt -> Math.size t opt -> unit meth
 end
 
 (**

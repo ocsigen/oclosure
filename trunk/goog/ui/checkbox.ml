@@ -1,12 +1,8 @@
 (** 
    OClosure Project - 2010
-   Class goog.ui.CheckBox
+   Class goog.ui.Checkbox
    
-   3-state checkbox widget. Fires CHECK or UNCHECK events before toggled and
-   CHANGE event after toggled by user.
-   The checkbox can also be enabled/disabled and get focused and highlighted.
-   
-   @author : Emmanuel CRESPIN
+   @author Emmanuel CRESPIN
    @version 0.2
 *)
 
@@ -27,13 +23,13 @@ class type checkbox = object
     
   method setChecked_ : bool t opt -> unit meth
     
-  method setLabel : Dom_html.element t -> unit meth
+  method setLabel : #Dom_html.element t -> unit meth
     
   method toggle : unit meth
     
   method createDom : unit meth
     
-  method decorateInternal : Dom_html.element t -> unit meth
+  method decorateInternal : #Dom_html.element t -> unit meth
     
   method enterDocument : unit meth
 

@@ -6,10 +6,14 @@
    @version 0.2
 *)
 
+#ifndef UI
 open Js
+open Button
+open ControlContent
+#endif
 
 class type toggleButton = object
-  inherit Button.button
+  inherit button
 end
 
 (**
@@ -25,6 +29,6 @@ end
    document interaction.
    @constructor
 *)
-val toggleButton : (ControlContent.controlContent 
-		    -> toggleButton #Button.buttonRenderer t opt 
+val toggleButton : (controlContent 
+		    -> toggleButton #buttonRenderer t opt 
 		    -> Gdom.domHelper t opt -> toggleButton t) constr

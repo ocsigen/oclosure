@@ -5,11 +5,14 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef EVENTS
 open Js
+open EventTarget
+open BrowserEvent
+#endif
 
 class type keyHandler = object
-  inherit EventTarget.eventTarget
+  inherit eventTarget
 
 (**
    Adds the proper key event listeners to the element.
@@ -36,7 +39,7 @@ class type keyHandler = object
   method getElement : 
       (#Dom_html.element t, #Dom_html.document t) Tools.Union.t opt meth
 
-  method handleEvent : BrowserEvent.browserEvent t meth
+  method handleEvent : browserEvent t meth
 end
 
 (**

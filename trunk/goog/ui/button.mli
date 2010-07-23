@@ -6,7 +6,11 @@
    @version 0.2
 *)
 
+#ifndef UI
+open Control
+open ControlContent
 open Js
+#endif
 
 module Side : sig
    type side =   
@@ -21,7 +25,7 @@ module Side : sig
 end
 
 class type button = object
-  inherit Control.control
+  inherit control
 
 (** @inheritDoc *)
   method disposeInternal : unit meth
@@ -65,7 +69,7 @@ end
 
 class type ['but] buttonRenderer = object
   constraint 'but = #button
-  inherit ['but] Control.controlRenderer
+  inherit ['but] controlRenderer
 
 (**
    Returns the ARIA role to be applied to buttons.
@@ -121,4 +125,4 @@ val buttonRenderer : #button buttonRenderer t constr
    document interaction.
    @constructor
 *)
-val button : (ControlContent.controlContent -> button buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr
+val button : (controlContent -> button buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr

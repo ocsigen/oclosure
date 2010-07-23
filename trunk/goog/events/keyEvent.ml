@@ -12,5 +12,6 @@ class type keyEvent = object
   inherit BrowserEvent.browserEvent
 end
 
-let keyEvent : (int -> int -> bool t -> Dom_html.event t -> keyEvent t) constr = 
-  Js.Unsafe.variable "goog.events.KeyEvent"
+let tmp = Js.Unsafe.variable "goog.events.KeyEvent"
+let keyEvent : (int -> int -> bool t -> #Dom_html.event t 
+  -> keyEvent t) constr = tmp

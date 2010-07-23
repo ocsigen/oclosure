@@ -5,7 +5,9 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
+#ifndef UI
 open Js
+#endif
 
 class type iframeMask = object
   inherit Disposable.disposable
@@ -36,7 +38,7 @@ class type iframeMask = object
        automatically snap to this element. If no element is specified, it will
        use the default snap element.
  *)
-  method listenOnTarget : Events.eventTarget t -> js_string t -> js_string t
+  method listenOnTarget : #Events.eventTarget t -> js_string t -> js_string t
     -> #Dom_html.element t -> unit meth
 
 (**

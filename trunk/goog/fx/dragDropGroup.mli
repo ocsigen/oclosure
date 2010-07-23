@@ -5,11 +5,13 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef FX
 open Js
+open DragDrop
+#endif
 
 class type dragDropGroup = object
-  inherit DragDrop.abstractDragDrop
+  inherit abstractDragDrop
 
 (**
    Add DragDropItem to drag object.
@@ -17,7 +19,7 @@ class type dragDropGroup = object
    @param item DragDropItem being added to the
    drag object.
 *)
-  method addDragDropItem : #DragDrop.dragDropItem t -> unit meth
+  method addDragDropItem : #dragDropItem t -> unit meth
 
 (**
    Add item to drag object.

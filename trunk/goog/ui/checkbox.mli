@@ -10,9 +10,10 @@
    @version 0.2
 *)
 
-open Control
-
+#ifndef UI
 open Js
+open Control
+#endif
 
 class type checkbox = object
   inherit control
@@ -39,7 +40,7 @@ class type checkbox = object
      has to be the direct or non-direct ancestor of the checkbox element because
      it will get the focus when keyboard support is implemented.
   *)
-  method setLabel : Dom_html.element t -> unit meth
+  method setLabel : #Dom_html.element t -> unit meth
     
     (** Toggles the checkbox.*)
   method toggle : unit meth
@@ -48,7 +49,7 @@ class type checkbox = object
   method createDom : unit meth
     
     (** @inheritDoc*)
-  method decorateInternal : Dom_html.element t -> unit meth
+  method decorateInternal : #Dom_html.element t -> unit meth
     
     (** @inheritDoc*)
   method enterDocument : unit meth

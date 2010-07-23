@@ -5,13 +5,15 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef FX
 open Js
+open Dragger
+#endif
 
 class type dragEvent = object
   inherit Events.event
 end
 
-val dragEvent : (js_string t -> Dragger.dragger t -> int -> int -> 
+val dragEvent : (js_string t -> dragger t -> int -> int -> 
   Events.browserEvent t -> int opt -> int opt -> bool t opt 
     -> dragEvent t) constr 

@@ -1,3 +1,12 @@
+(**
+   OClosure Project - 2010
+   Class goog.ui.ToolbarButton
+   
+   @author Cardoso Gabriel
+   @version 0.2
+*)
+
+
 open Button
 
 open Js

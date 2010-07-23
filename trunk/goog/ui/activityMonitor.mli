@@ -5,7 +5,9 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
+#ifndef UI
 open Js
+#endif
 
 class type activityMonitor = object
   inherit Events.eventTarget

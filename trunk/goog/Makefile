@@ -11,38 +11,48 @@ LIB=$(JS_OF_OCAML_PATH)/lib
 INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
 OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
+OCAMLIFLAGS=$(INCLUDES) -package js_of_ocaml -pp cpp
 GOOG=goog.cmo
-FILES=$(shell find * -name "*.ml" && find * -name "*.mli")
+OCLOSURE=oclosure.cma
+MLS=$(shell find * -name "*.ml")
+MLIS=$(shell find * -name "*.mli")
+OCAMLC=ocamlc.opt
+OCAMLFIND=ocamlfind
+OCAMLDOC=ocamldoc
 
-all: $(GOOG)
+all: $(OCLOSURE)
 
 -include .depend .ocamldsort
 
-$(GOOG): $(CMOS)
-	ocamlc -pack -o $@ $(CMOS)
+$(OCLOSURE):$(CMOS) $(GOOG)
+	$(OCAMLFIND) ocamlc -a -o $@ $^
+
+#$(GOOG): $(CMOS)
+#	$(OCAMLFIND) ocamlc -pack -o $@ $(CMOS)
 
 .SECONDEXPANSION:
 
 %.cmo: %.ml
 	@echo "[CC] $@"
-	ocamlfind ocamlc $(OCAMLFLAGS) -c $<
+	$(OCAMLFIND) ocamlc $(OCAMLFLAGS) -c $<
 
 %.cmi: %.mli
-	ocamlfind ocamlc $(OCAMLFLAGS) -c $<
+	$(OCAMLFIND) ocamlc $(OCAMLIFLAGS) -c $<
 
 depend: ocamldsort
 
 ocamldep:
-	ocamlfind ocamldep $(OCAMLFLAGS) $(FILES) > .depend
+	($(OCAMLFIND) ocamldep $(OCAMLFLAGS) $(MLS); \
+	$(OCAMLFIND) ocamldep $(OCAMLIFLAGS) $(MLIS) )> .depend
 
 ocamldsort: ocamldep
-	echo CMOS=`< .depend ocamldsort -byte $(FILES)` >.ocamldsort
+	echo CMOS=`< .depend ocamldsort -byte $(MLS) $(MLIS)` >.ocamldsort
 
 var:
 	@echo $(FILES)
 
 doc:
-	ocamlfind ocamldoc -d ../doc $(OCAMLFLAGS) $(FILES)
+	$(OCAMLFIND) $(OCAMLDOC) -d ../doc $(OCAMLFLAGS) $(FILES)
 
 cleanall: clean
 	-rm -f .depend .ocamldsort

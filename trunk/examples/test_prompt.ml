@@ -17,7 +17,7 @@ let handler s =
 
 let prompt = 
   jsnew Ui.prompt(Js.string "Goog.ui.Prompt", Js.string "Question", 
-			 handler)
+			 Js.wrap_callback handler)
 
 let button = D.createButton document 
 let _ = 

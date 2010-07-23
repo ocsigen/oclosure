@@ -2,8 +2,6 @@
     OClosure Project - 2010
     Class goog.ui.ColorPalette
     
-    Create a new, empty color picker. 
-    
     @author Bozman Cagdas
     @version 0.2
 *)

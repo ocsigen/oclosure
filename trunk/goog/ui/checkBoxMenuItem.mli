@@ -5,11 +5,14 @@
    @author : Cardoso Gabriel
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open ControlContent
+open MenuItem
+#endif
 
 class type checkBoxMenuItem = object
-  inherit MenuItem.menuItem
+  inherit menuItem
 end
 
 (**
@@ -21,4 +24,4 @@ end
    menus).
    @constructor
 *)
-val checkBoxMenuItem : (ControlContent.controlContent -> checkBoxMenuItem t) constr
+val checkBoxMenuItem : (controlContent -> checkBoxMenuItem t) constr

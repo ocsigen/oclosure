@@ -17,8 +17,8 @@ class type filterObservingMenuItem = object
 
   method enterDocument : unit meth
 
-  method setObserver : (filterObservingMenuItem t -> js_string t -> unit) 
-    -> unit meth
+  method setObserver : 
+      (filterObservingMenuItem t -> js_string t -> unit) callback -> unit meth
 end
 
 let tmp = Js.Unsafe.variable "goog.ui.FilterObservingMenuItem"

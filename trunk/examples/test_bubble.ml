@@ -45,7 +45,7 @@ let doCustom () =
   in
   let c = jsnew Goog.Ui.bubble(internalElement) in
   c##setAutoHide(Js.bool (autoHide##value == Js.string "true"));
-  c##setPinnedCorner(Goog.Bubble.Corner.TOP_LEFT);
+  c##setPinnedCorner(Goog.Ui.Bubble.Corner.TOP_LEFT);
   c##setPosition(
   jsnew Goog.Positioning.absolutePosition(
     Goog.Tools.Union.i1 (int_of_string (Js.to_string xcoord##value)), 

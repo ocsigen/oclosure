@@ -12,7 +12,6 @@ class type ['but] linkButtonRenderer = object
   inherit ['but] FlatButtonRenderer.flatButtonRenderer
 
   method getCssClass : js_string t meth
-
 end
 
 let tmp = Js.Unsafe.variable "goog.ui.LinkButtonRenderer"

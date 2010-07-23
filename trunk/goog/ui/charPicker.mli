@@ -1,18 +1,14 @@
 (**
- * OClosure Project - 2010
- * Class goog.ui.CharPicker
- *
- * Character Picker Class. This widget can be used to pick any Unicode
- * character by traversing a category-subcategory structure or by inputing its
-   hex value.
- *
- * @author : Oran Charles
- * @version 0.1
- * @see 'goog.ui.Component'
- *)
+   OClosure Project - 2010
+   Class goog.ui.CharPicker
+   
+   @author : Oran Charles
+   @version 0.1
+*)
+#ifndef UI
 open Component
-
 open Js
+#endif
 class type charPicker = object
   inherit component
 
@@ -29,7 +25,7 @@ class type charPicker = object
   method disposeInternal : unit meth
 
  (** @inheritDoc **)
-  method decorateInternal : Dom_html.element t -> unit meth
+  method decorateInternal : #Dom_html.element t -> unit meth
 
  (** @inheritDoc **)
   method enterDocument : unit meth

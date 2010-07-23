@@ -10,7 +10,6 @@ open Js
 open Gdom
 open Tools
 
-
 class type advancedTooltip = object
   inherit Tooltip.tooltip
   method getCursorTracking : bool t meth
@@ -34,11 +33,8 @@ class type advancedTooltip = object
   method setHotSpotPadding : Math.box t -> unit meth
 end
 
-
-(**
-   Advanced tooltip widget with cursor tracking abilities. Works like a regular
-   tooltip but can track the cursor position and direction to determine if the 
-   tooltip should be dismissed or remain open.
-*)
-let advancedTooltip : ((Dom_html.element t, js_string t) Union.t opt -> js_string t opt -> domHelper t opt -> advancedTooltip t) constr = 
-  Js.Unsafe.variable "goog.ui.AdvancedTooltip"
+let tmp = Js.Unsafe.variable "goog.ui.AdvancedTooltip"
+let advancedTooltip : ((#Dom_html.element t, js_string t) Union.t opt 
+		       -> js_string t opt -> domHelper t opt 
+		       -> advancedTooltip t) constr = tmp
+  

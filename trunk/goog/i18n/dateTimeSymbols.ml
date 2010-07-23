@@ -1,3 +1,5 @@
+open Js
+
 type dateTimeSymbols = 
   | DateTimeSymbols_am
   | DateTimeSymbols_ar
@@ -78,7 +80,7 @@ type dateTimeSymbols =
   | DateTimeSymbols_zh_HK
   | DateTimeSymbols_zh_TW
 
-type dateTimeSymbols_pre
+type dateTimeSymbols_pre = js_string t
 
 let of_dateTimeSymbols = function 
   | DateTimeSymbols_am -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_am"

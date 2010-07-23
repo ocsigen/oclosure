@@ -4,12 +4,14 @@
    
    @author Cardoso Gabriel
    @version 0.2
-   @see 'goog.events.EventTarget'
 *)
+#ifndef UI
+open HsvPalette
 open Js
+#endif
 
 class type hsvaPalette = object
-  inherit HsvPalette.hsvPalette
+  inherit hsvPalette
 
 (** @inheritDoc *)
   method createDom : unit meth

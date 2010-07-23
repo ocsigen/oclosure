@@ -6,7 +6,9 @@
    @version 0.2
 *)
 
+#ifndef I18N
 open Js
+#endif
 
 class type timeZone = object
 

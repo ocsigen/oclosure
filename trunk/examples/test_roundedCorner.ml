@@ -8,7 +8,7 @@ let color = Js.string "#000"
 let bgColor = Js.string "#FFE"
 let lineW = 1
 
-let slider = jsnew Goog.Ui.slider()
+let slider = jsnew Goog.Ui.slider(Js.null)
 
 let rec pow n k = if k=0 then 1 else n*(pow n (k-1)) 
 

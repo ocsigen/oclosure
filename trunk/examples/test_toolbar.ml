@@ -3,7 +3,7 @@ open Goog
 module D = Dom_html
 let d = D.document
 
-let t = jsnew Ui.toolbar()
+let t = jsnew Ui.toolbar(Js.null, Js.null, Js.null)
 let toolbar = Js.Opt.get (d##getElementById (Js.string "toolbar"))
     (fun () -> assert false)
 

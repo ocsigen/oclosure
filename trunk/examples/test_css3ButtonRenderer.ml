@@ -6,7 +6,7 @@ let ccs s = Goog.Ui.ControlContent.string (Js.string s)
 
 let get_el s = Js.Opt.get (D.document##getElementById (Js.string s))
     (fun _ -> D.window##alert (Js.string (s^": element not found!")); assert false)
-let get x : Goog.Ui.button Js.t = Js.Opt.get x (fun _ -> assert false) 
+let get x : Goog.Ui.button Js.t = Js.Unsafe.coerce (Js.Opt.get x (fun _ -> assert false))
 
 let js_string_of_bool_t b = to_s (string_of_bool (Js.to_bool b))
 

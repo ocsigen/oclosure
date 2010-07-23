@@ -5,8 +5,10 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef FX
 open Js
+open Animation
+#endif
 
 class type animationEvent = object
   inherit Events.event
@@ -24,5 +26,5 @@ end
    @param type Event type.
    @param anim An animation object.
 *)
-val animationEvent : (js_string t -> #Animation.animation t 
+val animationEvent : (js_string t -> animation t 
   -> animationEvent t) constr

@@ -5,10 +5,13 @@
     @author Gabriel Cardoso
     @version 0.2
 *)
+#ifndef UI
 open Js
+open Menu
+#endif
 
 class type popupMenu = object
-  inherit Menu.menu
+  inherit menu
 
 (**
    Attaches the menu to a new popup position and anchor element.  A menu can
@@ -110,7 +113,7 @@ class type popupMenu = object
        menu.
  *)
   method showWithPosition : Positioning.abstractPosition t -> 
-    Positioning.corner opt -> Math.box t opt -> Dom_html.element t opt ->
+    Positioning.corner opt -> Math.box t opt -> #Dom_html.element t opt ->
     unit meth
 end
 
@@ -121,6 +124,6 @@ end
        decorate the container; defaults to goog.ui.MenuRenderer.
    @constructor
  *)
-val popupMenu : (Gdom.domHelper t opt -> popupMenu #Menu.menuRenderer t opt 
+val popupMenu : (Gdom.domHelper t opt -> popupMenu #menuRenderer t opt 
 		   -> popupMenu t) constr
   

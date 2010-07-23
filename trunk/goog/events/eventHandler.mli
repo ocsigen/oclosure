@@ -5,8 +5,11 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef EVENTS
 open Js
+open Event
+open EventTarget
+#endif
 
 class type eventHandler = object
   inherit Disposable.disposable
@@ -20,7 +23,7 @@ class type eventHandler = object
    Default event handler
    @param e Event object.
  *)
-  method handleEvent : Event.event t -> unit meth
+  method handleEvent : event t -> unit meth
 
 (**
    Listen to an event on a DOM node or EventTarget.  If the function is omitted
@@ -35,7 +38,7 @@ class type eventHandler = object
        calls.
  *)
   method listen : 
-      (EventTarget.eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
+      (eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
       -> (js_string t, js_string t js_array t) Tools.Union.t
       -> (unit -> unit) opt -> bool t opt -> eventHandler t meth
 
@@ -54,7 +57,7 @@ class type eventHandler = object
        calls.
  *)
   method listenOnce : 
-      (EventTarget.eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
+      (eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
       -> (js_string t, js_string t js_array t) Tools.Union.t
       -> (unit -> unit) opt -> bool t opt -> eventHandler t meth
 
@@ -74,7 +77,7 @@ class type eventHandler = object
        calls.
  *)
   method listenWithWrapper : 
-      (EventTarget.eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
+      (eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
       -> eventWrapper t -> (unit -> unit) opt -> bool t opt 
       -> eventHandler t meth
 
@@ -94,7 +97,7 @@ class type eventHandler = object
        calls.
  *)
   method unlisten : 
-      (EventTarget.eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
+      (eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
       -> (js_string t, js_string t js_array t) Tools.Union.t
       -> (unit -> unit) opt -> bool t opt -> eventHandler t meth
 
@@ -112,7 +115,7 @@ class type eventHandler = object
        calls.
  *)
   method unlistenWithWrapper : 
-      (EventTarget.eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
+      (eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
       -> eventWrapper t -> (unit -> unit) opt -> bool t opt 
       -> eventHandler t meth
 end
@@ -133,7 +136,7 @@ and eventWrapper = object
    listener to.
  *)
   method listen : 
-      (EventTarget.eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
+      (eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
       -> (unit -> unit) opt -> bool t opt -> eventHandler t opt -> unit meth
 
 (**
@@ -149,7 +152,7 @@ and eventWrapper = object
        listener from.
 *)
   method unlisten : 
-      (EventTarget.eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
+      (eventTarget t, Dom_html.eventTarget t) Tools.Union.t 
       -> (unit -> unit) opt -> bool t opt -> eventHandler t opt-> unit meth
 end
 

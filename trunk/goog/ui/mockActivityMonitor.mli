@@ -5,10 +5,14 @@
    @author Cardoso Gabriel
    @version 0.2
 *)
+
+#ifndef UI
 open Js
+open ActivityMonitor
+#endif
 
 class type mockActivityMonitor = object
-  inherit ActivityMonitor.activityMonitor
+  inherit activityMonitor
 
 (**
    Simulates an event that updates the user to being non-idle.

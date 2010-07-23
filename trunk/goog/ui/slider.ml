@@ -1,21 +1,16 @@
 (**
- * OClosure Project - 2010
- * This creates a slider object.
- * @param opt_domHelper Optional DOM helper.
- * @constructor
- * @author Bourdin Pierre
- * @extends*)
+   OClosure Project - 2010
+
+   @author Bourdin Pierre
+*)
 
 open Js
 open SliderBase
 
 class type slider = object
   inherit sliderBase
-
-(** @inheritDoc *)
   method createThumbs : unit meth
-
 end
 
-let slider : slider t constr =
+let slider : (Gdom.domHelper t opt -> slider t) constr =
   Js.Unsafe.variable "goog.ui.Slider"

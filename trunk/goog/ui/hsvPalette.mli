@@ -6,10 +6,13 @@
    @version 0.2
    @see 'goog.events.EventTarget'
 *)
+#ifndef UI
+open Component
 open Js
+#endif
 
 class type hsvPalette = object
-  inherit Component.component
+  inherit component
 
 (**
    HsvPalettes cannot be used to decorate pre-existing html, since the

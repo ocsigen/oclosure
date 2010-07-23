@@ -1,30 +1,27 @@
-(** OClosure Project - 2010
- * Class goog.ui.Menu
- * 
- * A basic menu class.
- * @param opt_domHelper Optional DOM helper.
- * @param opt_renderer Renderer used to render or
-  method *     decorate the container meth
- *
- * @author : Emmanuel CRESPIN
- * @version 0.1
- * @see 'goog.ui.Component'
- * @see 'goog.ui.MenuItem'
- * @see 'goog.math.Coordinate'
- *)
+(** 
+   OClosure Project - 2010
+   Class goog.ui.Menu
+   
+   @author Emmanuel CRESPIN
+   @version 0.1
+*)
 
 open Js
 
+#ifndef UI
+open Container
 open MenuItem
-open MenuSeparator
+open Separator
+open Control
+#endif
 
 class type menu = object
-  inherit Container.container
+  inherit container
   method getCssClass : js_string t meth
 
   (** Returns whether the provided element is to be considered inside the menu for
    * purposes such as dismissing the menu on an event.*)
-  method containsElement : Dom_html.element t -> bool t meth
+  method containsElement : #Dom_html.element t -> bool t meth
   
   (** Adds a new menu item at the end of the menu.*)
   method addItem : (#menuItem t, #menuSeparator t) Tools.Union.t -> unit meth
@@ -75,7 +72,7 @@ class type menu = object
 end
 
 class type ['menu] menuRenderer = object
-  inherit ['menu] Container.containerRenderer
+  inherit ['menu] containerRenderer
 	
   method canDecorate : #Dom_html.element t -> bool t meth
  
@@ -86,7 +83,7 @@ class type ['menu] menuRenderer = object
   method getCssClass : js_string t meth
 
   method getDecoratorForChild : #Dom_html.element t -> 
-    Control.control t opt meth
+    control t opt meth
 
   method initializeDom : 'menu t -> unit meth
 end

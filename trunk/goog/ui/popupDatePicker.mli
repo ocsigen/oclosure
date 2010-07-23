@@ -5,10 +5,15 @@
     @author Gabriel Cardoso
     @version 0.2
 *)
+#ifndef UI
+open Component
 open Js
+open DatePicker
+#endif
+
 
 class type popupDatePicker = object
-  inherit Component.component
+  inherit component
 
 (**
    Attaches the popup date picker to an element.
@@ -54,7 +59,7 @@ class type popupDatePicker = object
 (**
    @return The date picker instance.
  *)
-  method getDatePicker : DatePicker.datePicker t meth
+  method getDatePicker : datePicker t meth
 
 (**
    @return The last element that triggered the popup.
@@ -94,5 +99,5 @@ end
    @param opt_domHelper Optional DOM helper.
    @constructor
  *)
-val popupDatePicker : (DatePicker.datePicker t opt -> Gdom.domHelper t opt
+val popupDatePicker : (datePicker t opt -> Gdom.domHelper t opt
 			 -> popupDatePicker t) constr

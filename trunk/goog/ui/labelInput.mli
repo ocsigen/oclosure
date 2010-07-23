@@ -1,16 +1,18 @@
 (**
- * OClosure Project - 2010
- * This creates the label input object.
- * @param opt_label The text to show as the label.
- * @param opt_domHelper Optional DOM helper.
- * @author Bourdin Piere
- * @version 0.2
-*)
+   OClosure Project - 2010
 
+   Class goog.ui.LabelInput
+   
+   @author Bourdin Piere
+   @version 0.2
+*)
+#ifndef UI
 open Js
+open Component
+#endif
 
 class type labelInput = object
-  inherit Component.component
+  inherit component
 
   (** Creates the DOM nodes needed for the label input.*)
   method createDom : unit meth
@@ -31,7 +33,7 @@ class type labelInput = object
   method disposeInternal : unit meth
 
  (** @return Whether the value has changed been changed by the user.*)
-  method hasChanged: bool t meth
+  method hasChanged : bool t meth
 
  (** Clears the value of the input element without resetting the default text.*)
   method clear : unit meth

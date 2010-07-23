@@ -5,11 +5,15 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef UI
 open Js
+open ControlContent
+open Button
+open FlatButtonRenderer
+#endif
 
 class type ['but] flatMenuButtonRenderer = object
-  inherit ['but] FlatButtonRenderer.flatButtonRenderer
+  inherit ['but] flatButtonRenderer
 
 (**
    Takes a text caption or existing DOM structure, and returns it wrapped in
@@ -22,7 +26,7 @@ class type ['but] flatMenuButtonRenderer = object
    @param dom DOM helper, used for document interaction.
    @return Caption element.
  *)
-  method createCaption : ControlContent.controlContent -> Gdom.domHelper t 
+  method createCaption : controlContent -> Gdom.domHelper t 
       -> Dom_html.element t meth
 
 (**
@@ -88,4 +92,4 @@ end
    a traditional <select> element.
    @constructor
  *)
-val flatMenuButtonRenderer : (#Button.button flatMenuButtonRenderer t) constr
+val flatMenuButtonRenderer : (#button flatMenuButtonRenderer t) constr

@@ -9,8 +9,8 @@ let body = get_el "body"
 
 let add_item s (m : Goog.Ui.menu Js.t) = m##addItem(Goog.Tools.Union.i1 jsnew Goog.Ui.menuItem(ccs s, Js.null, Js.null))
 
-let toolbar = jsnew Goog.Ui.toolbar()
-let code_button = jsnew Goog.Ui.toolbarToggleButton(ccs "Code")
+let toolbar = jsnew Goog.Ui.toolbar(Js.null, Js.null, Js.null)
+let code_button = jsnew Goog.Ui.toolbarToggleButton(ccs "Code", Js.null, Js.null)
 let _ = code_button##setTooltip(to_s "Show/hide Ocaml code for the example")
 
 (*let fill_examples_menu m = 

@@ -1,22 +1,20 @@
 (** 
-    * OClosure Project - 2010
-    * Class goog.ui.Bubble
-    *
-    * The Bubble provides a general purpose bubble implementation 
-    * that can be anchored to a particular element and
-    * displayed for a period of time.
-    * 
-    * @author Bozman Cagdas
-    * @version 0.1
+   OClosure Project - 2010
+   Class goog.ui.Bubble
+   
+   @author Bozman Cagdas
+   @version 0.1
 *)
 
 open Js
-module Corner = struct 
-  type corner = 
-      TOP_LEFT
-    | BOTTOM_LEFT
-    | TOP_RIGHT
-    | BOTTOM_RIGHT
+module Bubble = struct 
+  module Corner = struct 
+    type corner = 
+	TOP_LEFT
+      | BOTTOM_LEFT
+      | TOP_RIGHT
+      | BOTTOM_RIGHT
+  end
 end
 
 class type bubble = object
@@ -34,7 +32,7 @@ class type bubble = object
   
   method setAutoHide : bool t -> unit meth
   
-  method setPinnedCorner : Corner.corner -> unit meth
+  method setPinnedCorner : Bubble.Corner.corner -> unit meth
 
   method setPosition : Positioning.abstractPosition t -> unit meth
 

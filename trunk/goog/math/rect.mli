@@ -5,8 +5,12 @@
    @author Cardoso Gabriel 
    @version 0.2
 *)
-
+#ifndef MATH
 open Js
+open Coordinate
+open Size
+open Box
+#endif
 
 class type rect = object
 (**
@@ -30,7 +34,7 @@ class type rect = object
    @return Whether this rectangle contains given rectangle or
        coordinate.
  *)
-  method contains : (rect t, Coordinate.coordinate t) Tools.Union.t 
+  method contains : (rect t, coordinate t) Tools.Union.t 
     -> bool t meth
 
 (**
@@ -47,7 +51,7 @@ class type rect = object
    Returns the size of this rectangle.
    @return The size of this rectangle.
  *)
-  method getSize : Size.size t meth
+  method getSize : size t meth
 
 (**
    Computes the intersection of this rectangle and the rectangle parameter.  If
@@ -69,7 +73,7 @@ class type rect = object
    rectangle.
    @return A new Box representation of this Rectangle.
 *)
-  method toBox : Box.box t meth
+  method toBox : box t meth
       
  (**
     Returns a nice string representing size and dimensions of rectangle.

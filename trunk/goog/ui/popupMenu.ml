@@ -37,7 +37,7 @@ class type popupMenu = object
     Positioning.corner opt -> unit meth
 
   method showWithPosition : Positioning.abstractPosition t -> 
-    Positioning.corner opt -> Math.box t opt -> Dom_html.element t opt ->
+    Positioning.corner opt -> Math.box t opt -> #Dom_html.element t opt ->
     unit meth
 end
 

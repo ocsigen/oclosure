@@ -2,7 +2,7 @@
    OClosure Project - 2010
    Class goog.events.BrowserEvent
    
-   @author : 
+   @author Cardoso Gabriel
    @version 0.2
 *)
 
@@ -19,7 +19,7 @@ class type browserEvent = object
 
   method getBrowserEvent : Dom_html.event t meth
 
-  method init : Dom_html.event t -> Dom.node t opt -> unit meth
+  method init : #Dom_html.event t -> #Dom.node t opt -> unit meth
 
   method isButton : BrowserEvent.mouseButton -> bool t meth
   
@@ -28,5 +28,7 @@ class type browserEvent = object
   method stopPropagation : unit meth
 end
 
-let browserEvent : (Dom_html.event t opt -> Dom.node t opt -> browserEvent t) constr = 
-  Js.Unsafe.variable "goog.events.BrowserEvent"
+let tmp = Js.Unsafe.variable "goog.events.BrowserEvent"
+let browserEvent : (#Dom_html.event t opt -> #Dom.node t opt 
+  -> browserEvent t) constr = tmp
+  
