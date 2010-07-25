@@ -174,7 +174,6 @@ end
    @param opt_domHelper Optional DOM helper.
    @param opt_colorPicker Optional color picker to use
        for this popup.
-   @constructor
  *)
 val popupColorPicker : (Gdom.domHelper t opt -> colorPicker t opt 
 			  -> popupColorPicker t) constr 

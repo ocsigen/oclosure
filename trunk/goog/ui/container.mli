@@ -95,8 +95,8 @@ class type container = object
 
 
   (**
-     Decorates the given element with this container. Overrides {@link
-     goog.ui.Component#decorateInternal}.  Considered protected.
+     Decorates the given element with this container. Overrides
+     goog.ui.Component#decorateInternal.  Considered protected.
      @param element Element to decorate.
   *)
   method decorateInternal : #Dom_html.element t -> unit meth 
@@ -271,7 +271,7 @@ class type container = object
      uses #removeChild internally, we only need to override this method.
      @param control The ID of the child to remove, or
      the control itself.
-     @param {booleanµ} opt_unrender Whether to call [exitDocument] on the
+     @param opt_unrender Whether to call [exitDocument] on the
      removed control, and detach its DOM from the document (defaults to
      false).
      @return The removed control, if any.

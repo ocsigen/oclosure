@@ -22,16 +22,13 @@ class type richTextSpellChecker = object
 
 (**
    Creates the initial DOM representation for the component.
-   
-   @throws {Error} Not supported. Use decorate.
-   @see #decorate
- *)
+*)
   method createDom : unit meth
 
 (**
    Decorates the element for the UI component.
    
-   @param {Element} element Element to decorate.
+   @param element Element to decorate.
  *)
   method decorateInternal : #Dom_html.element t -> unit meth
 

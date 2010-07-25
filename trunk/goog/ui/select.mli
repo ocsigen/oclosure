@@ -151,13 +151,12 @@ class type select = object
 end
 
 (**
-   A selection control.  Extends {@link goog.ui.MenuButton} by composing a
+   A selection control.  Extends goog.ui.MenuButton by composing a
    menu with a selection model, and automatically updating the button's caption based on the current selection.
    @param caption Default caption or existing DOM structure to display as the button's caption when nothing is selected.
    @param opt_menu Menu containing selection options.
    @param opt_renderer Renderer used to render or decorate the control; defaults to goog.ui.MenuButtonRenderer.
    @param opt_domHelper Optional DOM hepler, used for document interaction.
-   @constructor
 *)
 val select : (controlContent opt -> menu t opt 
   -> select #buttonRenderer t opt -> domHelper t opt -> select t) constr

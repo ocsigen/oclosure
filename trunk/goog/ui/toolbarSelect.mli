@@ -26,6 +26,5 @@ end
    @param opt_menu Menu containing selection options.
    @param opt_renderer Renderer used to render or decorate the control; defaults to goog.ui.ToolbarMenuButtonRenderer.
    @param opt_domHelper Optional DOM hepler, used for document interaction.
-   @constructor
 *)
 val toolbarSelect : (controlContent opt -> menu t -> toolbarSelect #menuButtonRenderer t opt -> domHelper t opt -> toolbarSelect t) constr

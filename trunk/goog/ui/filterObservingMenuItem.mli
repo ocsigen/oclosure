@@ -42,7 +42,6 @@ end
    @param opt_domHelper Optional DOM helper used for
    document interactions.
    @param opt_renderer Optional renderer.
-   @constructor
  *)
 val filterObservingMenuItem : (controlContent -> 
   Gdom.domHelper t opt-> filterObservingMenuItem #menuItemRenderer t opt -> 

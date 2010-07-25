@@ -52,7 +52,7 @@ var:
 	@echo $(FILES)
 
 doc:
-	$(OCAMLFIND) $(OCAMLDOC) -d ../doc $(OCAMLFLAGS) $(FILES)
+	$(OCAMLFIND) $(OCAMLDOC) -stars -html -d ../doc $(OCAMLIFLAGS) goog.mli
 
 cleanall: clean
 	-rm -f .depend .ocamldsort

@@ -34,6 +34,5 @@ end
    @param content Text caption or DOM structure to display as the content of the item (use to add icons or styling to menus).
    @param  opt_model Data/model associated with the menu item.
    @param opt_domHelper Optional DOM helper used for document interactions.
-   @constructor
 *)
 val option : (controlContent -> bool t opt -> domHelper t opt -> option t ) constr 

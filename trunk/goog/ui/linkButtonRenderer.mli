@@ -19,7 +19,7 @@ class type ['but] linkButtonRenderer = object
 end
 
 (**
-   Link renderer for {@link goog.ui.Button}s.  Link buttons can contain
+   Link renderer for goog.ui.Buttons.  Link buttons can contain
    almost arbitrary HTML content, will flow like inline elements, but can be
    styled like block-level elements.
 *)

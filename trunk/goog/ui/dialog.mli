@@ -31,7 +31,7 @@ end
    as a class name prefix for related elements; defaults to modal-dialog.
    @param opt_useIframeMask Work around windowed controls z-index
    issue by using an iframe instead of a div for bg element.
-   @param opt_domHelper Optional DOM helper; see {@link
-   goog.ui.Component} for semantics.
+   @param opt_domHelper Optional DOM helper; see goog.ui.Component for 
+   semantics.
 *)
 val dialog : (js_string opt -> bool t opt -> Gdom.domHelper t opt -> dialog t) constr

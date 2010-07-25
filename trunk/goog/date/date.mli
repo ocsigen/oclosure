@@ -16,7 +16,7 @@ class type date = object ('self)
 (**
    Performs date calculation by adding the supplied interval to the date.
 
-   @param interval Date interval to add.
+   @param interval Date interval to add
 *)
   method add : interval Js.t -> unit Js.meth
 
@@ -30,7 +30,7 @@ class type date = object ('self)
    Note: This ignores units more precise than days (hours and below)
    and also ignores timezone considerations.
  
-   @param other The date to compare.
+   @param other The date to compare
    @return Whether the given date is equal to this one.
 *) 
   method equals : 'self Js.t -> bool Js.t Js.meth
@@ -163,49 +163,48 @@ class type date = object ('self)
    Alias for getFullYear.
  
    @return The four digit year of date.
-   @see #getFullyear
 *)
   method getYear : int Js.meth
 
 (**
    Sets the date.
    
-   @param date Date object to set date from.
+   @param date Date object to set date from
 *)
   method set : date Js.t -> unit Js.meth
 
 (**
    Sets the day part of the date.
 
-   @param date The day part.
+   @param date The day part
 *)
   method setDate : int -> float Js.t Js.meth
 
 (**
    Sets the first day of week.
 
-   @param day 0 = Mon, 6 = Sun.
+   @param day 0 = Mon, 6 = Sun
 *)
   method setFirstDayOfWeek : int -> unit Js.meth
 
 (**
    Sets cut off weekday used for week number calculations. 0 = Mon, 6 = Sun.
 
-   @param day The cut off weekday.
+   @param day The cut off weekday
 *)
   method setFirstWeekCutOffDay : int -> unit Js.meth
 
 (**
    Sets the year part of the date.
 
-   @param year Four digit year.
+   @param year Four digit year
 *)
   method setFullYear : int -> float Js.t Js.meth
 
 (**
    Sets the month part of the date.
 
-   @param month The month, where 0 = Jan, 11 = Dec.
+   @param month The month, where 0 = Jan, 11 = Dec
 *)
   method setMonth : int -> float Js.t Js.meth
 
@@ -213,36 +212,35 @@ class type date = object ('self)
    Sets the value of the date object as expressed in the number of milliseconds
    since 1 January 1970 00:00:00.
 
-   @param ms Number of milliseconds since 1 Jan 1970.
+   @param ms Number of milliseconds since 1 Jan 1970
 *)
   method setTime : float -> float Js.t Js.meth
 
 (**
    Sets the day part of the date according to universal time.
 
-   @param date The UTC date.
+   @param date The UTC date
 *)
   method setUTCDate : int -> float Js.t Js.meth
 
 (**
    Sets the year part of the date according to universal time.
 
-   @param year Four digit year.
+   @param year Four digit year
 *)
   method setUTCFullYear : int -> float Js.t Js.meth
 
 (**
    Sets the month part of the date according to universal time.
 
-   @param month The month, where 0 = Jan, 11 = Dec.
+   @param month The month, where 0 = Jan, 11 = Dec
 *)
   method setUTCMonth : int -> float Js.t Js.meth
 
 (**
    Alias for setFullYear.
 
-   @param year Four digit year.
-   @see #setFullYear
+   @param year Four digit year
 *)
   method setYear : int -> unit Js.meth
 
@@ -250,9 +248,9 @@ class type date = object ('self)
    Returns ISO 8601 string representation of date.
 
    @param opt_verbose Whether the verbose format should be used
-       instead of the default compact one.
+   instead of the default compact one
    @param opt_tz Whether the timezone offset should be included
-       in the string.
+   in the string
    @return ISO 8601 string representation of date.
 *)
   method toIsoString : bool Js.t Js.opt -> bool Js.t Js.opt -> Js.js_string Js.t Js.meth
@@ -267,11 +265,11 @@ class type date = object ('self)
    Returns ISO 8601 string representation of date according to universal time.
 
    @param opt_verbose Whether the verbose format should be used
-       instead of the default compact one.
+   instead of the default compact one
    @param opt_tz Whether the timezone offset should be included in
-       the string.
+   the string
    @return ISO 8601 string representation of date according to
-       universal time.
+   universal time.
 *)
   method toUTCIsoString : bool Js.t Js.opt -> bool Js.t Js.opt -> Js.js_string Js.t Js.meth
 
@@ -290,14 +288,10 @@ end
    passed as arguments to methods expecting Date objects this class is marked as
    extending the built in Date object even though that's not strictly true.
 
-   @param opt_year Four digit year. If
-   not set, the created object will contain the date determined by
-   goog.now().
+   @param opt_year Four digit year. If not set, the created object will 
+   contain the date determined by goog.now().
    @param opt_month Month, 0 = Jan, 11 = Dec.
    @param opt_date Date of month, 1 - 31.
-   @constructor
-   @extends
-   @see goog.date.DateTime
 *)
 val date : (int Js.opt -> int Js.opt -> int Js.opt -> date Js.t) Js.constr 
 
@@ -477,8 +471,8 @@ class type dateTime = object ('self)
                  locales, need Chinese characters for hour and minute units.
    @param opt_padHours Whether to pad hours, e.g., '05:30' vs '5:30'.
    @param opt_showAmPm Whether to show the 'am' and 'pm' suffix.
-   @param opt_omitZeroMinutes E.g., '5:00pm' becomes '5pm',
-                                        but '5:01pm' remains '5:01pm'.
+   @param opt_omitZeroMinutes E.g., '5:00pm' becomes '5pm', but '5:01pm' 
+   remains '5:01pm'.
    @return The time label.
 *)
   method toUsTimeString : bool Js.t Js.opt -> bool Js.t Js.opt -> bool Js.t Js.opt -> Js.js_string Js.t Js.meth 
@@ -503,7 +497,6 @@ end
 
 (**
    Constructs a date range.
-   @constructor
    @param startDate The start date of the range.
    @param endDate The end date of the range.
 *)

@@ -16,7 +16,7 @@ class type keyHandler = object
 
 (**
    Adds the proper key event listeners to the element.
-   @param element The element to listen on.
+   @param element The element to listen on
 *)
   method attach : (#Dom_html.element t, #Dom_html.document t) Tools.Union.t 
     -> unit meth
@@ -33,8 +33,7 @@ class type keyHandler = object
 
 (**
    Returns the element listened on for the real keyboard events.
-   @return The element listened on for the real
-       keyboard events.
+   @return The element listened on for the real keyboard events.
 *)
   method getElement : 
       (#Dom_html.element t, #Dom_html.document t) Tools.Union.t opt meth
@@ -44,8 +43,7 @@ end
 
 (**
    A wrapper around an element that you want to listen to keyboard events on.
-   @param opt_element The element or document to listen on.
-   @constructor
+   @param opt_element The element or document to listen on
 *)
 val keyHandler : ((#Dom_html.element t, #Dom_html.document t) Tools.Union.t opt 
 		  ->keyHandler t) constr

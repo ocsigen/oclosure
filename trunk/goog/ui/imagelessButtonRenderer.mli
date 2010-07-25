@@ -26,7 +26,7 @@ class type ['but] imagelessButtonRenderer = object
         </div>
       </div>
     </div>
-   Used by both #createDom} and {@link #decorate.  To be overridden
+   Used by both #createDom and #decorate.  To be overridden
    by subclasses.
    @param content Text caption or DOM structure to wrap
        in a box.

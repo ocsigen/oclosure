@@ -5,7 +5,6 @@
    
    @author : Oran Charles
    @version 0.2
-   @see 'goog.events.EventTarget'
  *)
 
 open Js
@@ -46,7 +45,8 @@ class type timer = object
 end
 
 (** Class for handling timing events.
-    @param opt_interval Number of ms between ticks (Default: 1ms).
-    @param opt_timerObject  An object that has setTimeout, setInterval, clearTimeout and clearInterval (eg Window).
-    @constructor *)
+   @param opt_interval Number of ms between ticks (Default: 1ms).
+   @param opt_timerObject  An object that has setTimeout, setInterval, 
+   clearTimeout and clearInterval (eg Window).
+*)
 val timer : (int opt -> timer t) constr

@@ -65,6 +65,5 @@ end
    Flat renderer for goog.ui.Buttons.  Flat buttons can contain
    almost arbitrary HTML content, will flow like inline elements, but can be
    styled like block-level elements.
-   @constructor
  *)
 val flatButtonRenderer : (#button flatButtonRenderer t) constr

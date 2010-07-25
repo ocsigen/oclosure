@@ -18,16 +18,15 @@ end
 
 (**
    A toggle button, with checkbox-like semantics.  Rendered using
-   {@link goog.ui.CustomButtonRenderer} by default, though any
-   {@link goog.ui.ButtonRenderer} would work.
+   goog.ui.CustomButtonRenderer by default, though any
+   goog.ui.ButtonRenderer would work.
    
    @param content Text caption or existing DOM
    structure to display as the button's caption.
    @param opt_renderer Renderer used to render or
-   decorate the button; defaults to {@link goog.ui.CustomButtonRenderer}.
+   decorate the button; defaults to goog.ui.CustomButtonRenderer.
    @param opt_domHelper Optional DOM hepler, used for
    document interaction.
-   @constructor
 *)
 val toggleButton : (controlContent 
 		    -> toggleButton #buttonRenderer t opt 

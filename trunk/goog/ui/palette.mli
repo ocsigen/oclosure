@@ -14,7 +14,6 @@
     
     @author Bozman Cagdas
     @version 0.1
-    @see 'goog.ui.Control'
 *)
 
 #ifndef UI

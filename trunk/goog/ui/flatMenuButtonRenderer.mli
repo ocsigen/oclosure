@@ -90,6 +90,5 @@ end
    that doesn't look like a button and
    doesn't have rounded corners. Uses just a <div> and looks more like
    a traditional <select> element.
-   @constructor
  *)
 val flatMenuButtonRenderer : (#button flatMenuButtonRenderer t) constr

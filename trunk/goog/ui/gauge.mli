@@ -5,7 +5,6 @@
 
     @author : Oran Charles
     @version 0.2
-    @see 'goog.ui.Component'
 *)
 #ifndef UI
 open Component
@@ -23,7 +22,6 @@ end
    @param fromValue The range start (minimal) value.
    @param toValue The range end (maximal) value.
    @param backgroundColor Color to fill the range background with.
-   @constructor
 *)
 val gaugeColoredRange : (int -> int -> js_string t -> gaugeColoredRange t) constr
 
@@ -79,9 +77,9 @@ class type gauge = object
   method setTheme : gaugeTheme t -> unit meth
 
   (** Set the background color for a range of values on the gauge.
-      @param {number} fromValue The lower (start) value of the colored range.
-      @param {number} toValue The higher (end) value of the colored range.
-      @param {string} color The color name to paint the range with. For example 'red', '#ffcc00' or constants like goog.ui.Gauge.RED. *)
+      @param fromValue The lower (start) value of the colored range.
+      @param toValue The higher (end) value of the colored range.
+      @param color The color name to paint the range with. For example 'red', '#ffcc00' or constants like goog.ui.Gauge.RED. *)
   method addBackgroundColor : int -> int -> js_string t -> unit meth
 
   (** Creates the DOM representation of the graphics area. *)
@@ -106,8 +104,8 @@ end
    A gauge displayes a current value within a round axis that represents a given range. The gauge is built from an external border, and internal border inside it, ticks and labels inside the internal border, and a needle that points to the current value.
    @param width The width in pixels.
    @param height The height in pixels.
-   @param opt_domHelper The DOM helper object for the document we want to render in.
-   @constructor *)
+   @param opt_domHelper The DOM helper object for the document we want to render
+   in. *)
 val gauge : (int -> int -> domHelper t opt -> gauge t) constr
 
 module Gauge : sig

@@ -15,7 +15,7 @@ class type ['but] css3ButtonRenderer = object
 
 (**
    Returns true if this renderer can decorate the element.  Overrides
-   {@link goog.ui.ButtonRenderer#canDecorate} by returning true if the
+   goog.ui.ButtonRenderer#canDecorate by returning true if the
    element is a DIV, false otherwise.
    @param element Element to decorate.
    @return Whether the renderer can decorate the element.
@@ -27,7 +27,7 @@ class type ['but] css3ButtonRenderer = object
       <div class="goog-inline-block goog-css3-button">
         Contents...
       </div>
-   Overrides {@link goog.ui.ButtonRenderer#createDom}.
+   Overrides goog.ui.ButtonRenderer#createDom.
    @param button Button to render.
    @return Root element for the button.
 *)

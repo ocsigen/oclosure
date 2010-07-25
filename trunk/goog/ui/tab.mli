@@ -88,13 +88,11 @@ end
    @param content Text caption or DOM structure to display as the tab's caption (if any).
    @param opt_renderer Optional renderer used to render or decorate the tab.
    @param opt_domHelper Optional DOM hepler, used for document interaction.
-   @constructor
 *)
 val tab : (controlContent -> tab #tabRenderer t opt -> Gdom.domHelper t opt -> tab t) constr
 
 (**
    Default renderer for goog.ui.Tab, based on the TabPane code.
-   @constructor
 *)
 val tabRenderer : tab tabRenderer t constr
 

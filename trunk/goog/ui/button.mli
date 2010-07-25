@@ -49,7 +49,7 @@ class type button = object
    Collapses the border on one or both sides of the button, allowing it to be
    combined with the adjancent button(s), forming a single UI componenet with
    multiple targets.
-   @param sides Bitmap of one or more {@link goog.ui.Button.Side}s for
+   @param sides Bitmap of one or more goog.ui.Button.Sides for
    which borders should be collapsed.
 *)
   method setCollapsed : Side.side -> unit meth
@@ -97,19 +97,17 @@ class type ['but] buttonRenderer = object
 end
 
 (**
-   Default renderer for {@link goog.ui.Button}s.  Extends the superclass with
+   Default renderer for goog.ui.Buttons.  Extends the superclass with
    the following button-specific API methods:
-   <ul>
-   <li>{@code getValue} - returns the button element's value
-   <li>{@code setValue} - updates the button element to reflect its new value
-   <li>{@code getTooltip} - returns the button element's tooltip text
-   <li>{@code setTooltip} - updates the button element's tooltip text
-   <li>{@code setCollapsed} - removes one or both of the button element's
+   - [getValue] - returns the button element's value
+   - [setValue] - updates the button element to reflect its new value
+   - [getTooltip] - returns the button element's tooltip text
+   - [setTooltip] - updates the button element's tooltip text
+   - [setCollapsed] - removes one or both of the button element's
    borders
-   </ul>
-   For alternate renderers, see {@link goog.ui.NativeButtonRenderer},
-   {@link goog.ui.CustomButtonRenderer}, and {@link goog.ui.FlatButtonRenderer}.
-   @constructor
+
+   For alternate renderers, see goog.ui.NativeButtonRenderer,
+   goog.ui.CustomButtonRenderer, and goog.ui.FlatButtonRenderer.
 *)
 val buttonRenderer : #button buttonRenderer t constr
 
@@ -120,9 +118,8 @@ val buttonRenderer : #button buttonRenderer t constr
    @param content Text caption or existing DOM
    structure to display as the button's caption.
    @param opt_renderer Renderer used to render or
-   decorate the button; defaults to {@link goog.ui.NativeButtonRenderer}.
+   decorate the button; defaults to goog.ui.NativeButtonRenderer.
    @param opt_domHelper Optional DOM hepler, used for
    document interaction.
-   @constructor
 *)
 val button : (controlContent -> button buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr

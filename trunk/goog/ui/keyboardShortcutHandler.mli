@@ -20,7 +20,6 @@ class type keyboardShortcutHandler = object
 (**
    Returns whether all shortcuts (including modifier shortcuts) are treated as
    if the keys had been passed to the setGlobalKeys function.
-   @see #setAllShortcutsAreGlobal
    @return Whether all shortcuts are treated as globals.
  *)
   method getAllShortcutsAreGlobal : bool t meth
@@ -28,7 +27,6 @@ class type keyboardShortcutHandler = object
 (**
    Returns whether the default action will always be prevented when a shortcut
    event is fired. The default value is true.
-   @see #setAlwaysPreventDefault
    @return Whether preventDefault will always be called.
  *)
   method getAlwaysPreventDefault : bool t meth
@@ -36,7 +34,6 @@ class type keyboardShortcutHandler = object
 (**
    Returns whether the event will always be stopped from propagating beyond its
    target when a shortcut event is fired. The default value is false.
-   @see #setAlwaysStopPropagation
    @return Whether stopPropagation will always be called.
  *)
   method getAlwaysStopPropagation : bool t meth
@@ -59,7 +56,6 @@ class type keyboardShortcutHandler = object
    passed to the setGlobalKeys function.  Ignored if you have called
    setAllShortcutsAreGlobal(true).  Applies only to form elements (not
    content-editable).
-   @see #setModifierShortcutsAreGlobal
    @return Whether shortcuts with modifiers are treated as globals.
  *)
   method getModifierShortcutsAreGlobal : bool t meth
@@ -174,7 +170,6 @@ end
    @param keyTarget Event target that the
        key event listener is attached to, typically the applications root
        container.
-   @constructor
  *)
 val keyboardShortcutHandler :
     ((#Events.eventTarget t, #Dom_html.eventTarget t) Tools.Union.t opt 

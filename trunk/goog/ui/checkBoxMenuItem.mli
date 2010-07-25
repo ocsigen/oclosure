@@ -17,11 +17,10 @@ end
 
 (**
    Class representing a checkbox menu item.  This is just a convenience class
-   that extends {@link goog.ui.MenuItem} by making it checkable.
+   that extends goog.ui.MenuItem by making it checkable.
    
    @param content Text caption or DOM structure to
    display as the content of the item (use to add icons or styling to
    menus).
-   @constructor
 *)
 val checkBoxMenuItem : (controlContent -> checkBoxMenuItem t) constr

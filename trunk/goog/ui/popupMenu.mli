@@ -122,7 +122,6 @@ end
    @param opt_domHelper Optional DOM helper.
    @param opt_renderer Renderer used to render or
        decorate the container; defaults to goog.ui.MenuRenderer.
-   @constructor
  *)
 val popupMenu : (Gdom.domHelper t opt -> popupMenu #menuRenderer t opt 
 		   -> popupMenu t) constr

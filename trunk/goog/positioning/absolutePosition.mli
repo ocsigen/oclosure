@@ -35,8 +35,6 @@ end
    
    @param arg1 Left position or coordinate.
    @param opt_arg2 Top position.
-   @constructor
-   @extends {goog.positioning.AbstractPosition}
 *)
 
 val absolutePosition : ((int, Math.coordinate) Tools.Union.t -> int opt ->absolutePosition t) constr

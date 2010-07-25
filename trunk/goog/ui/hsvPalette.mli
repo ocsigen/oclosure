@@ -4,7 +4,6 @@
    
    @author Cardoso Gabriel
    @version 0.2
-   @see 'goog.events.EventTarget'
 *)
 #ifndef UI
 open Component
@@ -71,8 +70,6 @@ end
    @param opt_color Optional initial color (default is red).
    @param opt_class Optional base for creating classnames (default is
        goog.getCssName('goog-hsv-palette')).
-   @extends
-   @constructor
  *)
 val hsvPalette : (Gdom.domHelper t opt -> js_string t opt -> js_string t opt ->
 	       hsvPalette t) constr

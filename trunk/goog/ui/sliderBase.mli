@@ -200,7 +200,6 @@ end
 (**
    This creates a SliderBase object.
    @param opt_domHelper Optional DOM helper.
-   @constructor
 *)
 val sliderBase : (Gdom.domHelper t opt -> sliderBase t) constr
     

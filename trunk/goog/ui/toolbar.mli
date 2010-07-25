@@ -50,7 +50,6 @@ end
 
 (**
    Default renderer for goog.ui.Toolbar, based on goog.ui.ContainerRenderer.
-   @constructor
 *)
 val toolbarRenderer : (toolbar #toolbarRenderer t) constr
 

@@ -13,6 +13,5 @@ open Js
 class type fill = object
 end
 
-(** Creates a fill object
-    @constructor *)
+(** Creates a fill object *)
 val fill : fill t constr

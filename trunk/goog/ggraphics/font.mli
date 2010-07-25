@@ -22,5 +22,5 @@ end
 (** This class represents a font to be used with a renderer.
     @param size  The font size.
     @param family  The font family.
-    @constructor *)
+*)
 val font : (int -> js_string t -> font t) constr

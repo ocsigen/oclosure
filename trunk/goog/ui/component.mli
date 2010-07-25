@@ -20,12 +20,10 @@ class type component = object
 
    Both [addChild] and [addChildAt] assume the following contract
    between parent and child components:
-    <ul>
-      <li>the child component's element must be a descendant of the parent
-          component's element, and
-      <li>the DOM state of the child component must be consistent with the DOM
+   - the child component's element must be a descendant of the parent
+   component's element, and
+   - the DOM state of the child component must be consistent with the DOM
           state of the parent component (see [isInDocument]).
-    </ul>
 
    In particular, [parent.addChild(child)] will throw an error if the
    child component is already in the document, but the parent isn't.
@@ -35,12 +33,10 @@ class type component = object
    methods will automatically render the child component's element into the
    parent component's element.  However, [parent.addChild(child, true)]
    will throw an error if:
-    <ul>
-      <li>the parent component has no DOM (i.e. [parent.getElement()] is
-          null), or
-      <li>the child component is already in the document, regardless of the
-          parent's DOM state.
-    </ul>
+   - the parent component has no DOM (i.e. [parent.getElement()] is
+   null), or
+   - the child component is already in the document, regardless of the
+   parent's DOM state.
 
    Finally, this method also throws an error if the new child already has a
    different parent, or the given index is out of bounds.

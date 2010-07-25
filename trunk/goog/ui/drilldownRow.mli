@@ -93,6 +93,5 @@ end
    Builds a DrilldownRow component, which can overlay a tree
    structure onto sections of an HTML table.
 
-   @constructor
 *)
 val drilldownRow : (drilldownRow t) constr 

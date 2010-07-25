@@ -40,10 +40,12 @@ class type tabBar = object
   method disposeInternal : unit meth
 
   (**
-     Removes the tab from the tab bar.  Overrides the superclass implementation by deselecting the tab being removed.  Since #removeChildAt uses
+     Removes the tab from the tab bar.  Overrides the superclass implementation 
+     by deselecting the tab being removed.  Since #removeChildAt uses
      #removeChild internally, we only need to override this method.
      @param tab Tab to remove.
-     @param opt_unrender Whether to call {@code exitDocument} on the removed tab, and detach its DOM from the document (defaults to false).
+     @param opt_unrender Whether to call [exitDocument] on the removed tab, and 
+     detach its DOM from the document (defaults to false).
      @return The removed tab, if any.
   *)
   method removeChild : (js_string t, #control t) Union.t -> bool t opt -> control t meth
@@ -203,12 +205,10 @@ val tabBarRenderer : tabBar #tabBarRenderer t constr
    Tab bar UI component.  A tab bar contains tabs, rendered above, below,
    before, or after tab contents.  Tabs in tab bars dispatch the following
    events:
-   <ul>
-   <li>goog.ui.Component.EventType.ACTION when activated via the
+   - goog.ui.Component.EventType.ACTION when activated via the
    keyboard or the mouse,
-   <li>goog.ui.Component.EventType.SELECT when selected, and
-   <li>goog.ui.Component.EventType.UNSELECT when deselected.
-   </ul>
+   - goog.ui.Component.EventType.SELECT when selected, and
+   - goog.ui.Component.EventType.UNSELECT when deselected.
    Clients may listen for all of the above events on the tab bar itself, and
    refer to the event target to identify the tab that dispatched the event.
    When an unselected tab is clicked for the first time, it dispatches both a
@@ -218,7 +218,6 @@ val tabBarRenderer : tabBar #tabBarRenderer t constr
    @param opt_location Tab bar location; defaults to goog.ui.TabBar.Location.TOP.
    @param opt_renderer Renderer used to render or decorate the container; defaults to goog.ui.TabBarRenderer.
    @param opt_domHelper DOM helper, used for document interaction.
-   @constructor
 *)
 val tabBar : (TabBar.location_pre opt -> tabBar #tabBarRenderer t opt -> Gdom.domHelper t opt -> tabBar t) constr 
     

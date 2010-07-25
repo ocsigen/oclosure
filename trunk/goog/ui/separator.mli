@@ -26,8 +26,8 @@ class type ['sep] menuSeparatorRenderer = object
   inherit ['sep] controlRenderer
 
 (**
-   Returns an empty, styled menu separator DIV.  Overrides {@link
-   goog.ui.ControlRenderer#createDom}.
+   Returns an empty, styled menu separator DIV.  Overrides 
+   [goog.ui.ControlRenderer#createDom].
    @param separator Separator to render.
    @return Root element for the separator.
 *)
@@ -35,7 +35,7 @@ class type ['sep] menuSeparatorRenderer = object
 
 (**
    Takes an existing element, and decorates it with the separator.  Overrides
-   {@link goog.ui.ControlRenderer#decorate}.
+   goog.ui.ControlRenderer#decorate.
    @param separator Separator to decorate the element.
    @param element Element to decorate.
    @return Decorated element.

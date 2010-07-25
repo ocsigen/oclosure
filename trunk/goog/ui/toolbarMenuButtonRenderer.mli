@@ -26,6 +26,5 @@ end
 
 (**
    Toolbar-specific renderer for goog.ui.MenuButton, based on goog.ui.MenuButtonRenderer.
-   @constructor
 *)
 val toolbarMenuButtonRenderer : (toolbarMenuButton #toolbarMenuButtonRenderer t) constr

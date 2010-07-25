@@ -97,7 +97,6 @@ end
    @param opt_datePicker Optional DatePicker.  This
        enables the use of a custom date-picker instance.
    @param opt_domHelper Optional DOM helper.
-   @constructor
  *)
 val popupDatePicker : (datePicker t opt -> Gdom.domHelper t opt
 			 -> popupDatePicker t) constr

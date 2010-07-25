@@ -50,7 +50,6 @@ end
    <div class="goog-tristatemenuitem-checkbox"></div>
    <div>...(content)...</div>
    </div>
-   @constructor
 *)
 val triStateMenuItemRenderer : #menuItem triStateMenuItemRenderer t constr
 

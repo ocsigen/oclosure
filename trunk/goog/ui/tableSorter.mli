@@ -28,7 +28,7 @@ class type tableSorter = object
     (js_string t -> js_string t -> int) callback meth
 
 (**
-   @return {number} The current sort column of the table, or -1 if none.
+   @return The current sort column of the table, or -1 if none.
  *)
   method getSortColumn : int meth
 
@@ -79,7 +79,6 @@ end
    headers.
    @param opt_domHelper Optional DOM helper, used for
        document interaction.
-   @constructor
  *)
 val tableSorter : (Gdom.domHelper t opt -> tableSorter t) constr
 

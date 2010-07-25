@@ -57,9 +57,7 @@ class type ['a] spellCheck = object
 (**
    Processes pending words unless a lookup operation has already been queued or
    is in progress.
- 
-   @throws {Error}
-*)
+ *)
   method processPending : unit meth
 
 (**

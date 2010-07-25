@@ -83,7 +83,6 @@ end
    A whole set of time zone information array was available under
    http://go/js_locale_data. It is generated based on CLDR and
    Olson time zone data base (through pytz), and will be updated timely.
-   @constructor
  *)
 val timeZone : timeZone t constr
 
@@ -96,17 +95,15 @@ module TimeZone : sig
    @param timeZoneData If this parameter is a number, it should
        indicate minutes WEST of UTC to be used as a constant time zone offset.
        Otherwise, it should be an object with these four fields:
-       <ul>
-       <li>id: A string ID for the time zone.
-       <li>std_offset: The standard time zone offset in minutes EAST of UTC.
-       <li>names: An array of four names (standard short name, standard long
+       - id: A string ID for the time zone.
+       - std_offset: The standard time zone offset in minutes EAST of UTC.
+       - names: An array of four names (standard short name, standard long
              name, daylight short name, daylight long, name)
-       <li>transitions: An array of numbers which are interpreted in pairs:
+       - transitions: An array of numbers which are interpreted in pairs:
              [time1, adjustment1, time2, adjustment2, ...] where each time is
              a DST transition point given as a number of hours since 00:00 UTC,
              January 1, 1970, and each adjustment is the adjustment to apply
              for times after the DST transition, given as minutes EAST of UTC.
-       </ul>
    @return A goog.i18n.TimeZone object for the given
        time zone data.
  *)

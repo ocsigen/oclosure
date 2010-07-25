@@ -49,7 +49,6 @@ end
 
 (**
    Renderer for toolbar separators.
-   @constructor
 *)
 val toolbarSeparatorRenderer : toolbarSeparator #toolbarSeparatorRenderer t constr
 
@@ -57,6 +56,5 @@ val toolbarSeparatorRenderer : toolbarSeparator #toolbarSeparatorRenderer t cons
    A separator control for a toolbar. 
    @param opt_renderer Renderer to render or decorate the separator; defaults to goog.ui.ToolbarSeparatorRenderer.
    @param opt_domHelper Optional DOM helper, used for document interaction.
-   @constructor
 *)
 val toolbarSeparator  : (toolbarSeparator #toolbarSeparatorRenderer t opt -> domHelper t opt -> toolbarSeparator t) constr 

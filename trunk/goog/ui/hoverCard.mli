@@ -85,7 +85,6 @@ end
        you are sure that none of your triggering elements have child elements.
        Default is true.
    @param opt_domHelper Optional DOM helper.
-   @constructor
  *)
 val hoverCard : ((#Dom_html.element t -> bool t) -> bool t opt -> 
   Gdom.domHelper t opt -> hoverCard t) constr 

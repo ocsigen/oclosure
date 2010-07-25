@@ -91,12 +91,12 @@ class type popupBase = object
        * button thinks it's hidden and this should show it again. This method 
        * provides a good heuristic for clients. Typically in their event 
        * handler they will have code that is:
-       *     if (menu.isOrWasRecentlyVisible()) {
-       method *       menu.setVisible(false) meth
-       *     } else {
+       *     if (menu.isOrWasRecentlyVisible()) then
+               menu.setVisible(false) meth
+       *     else 
        *          ... (* code to position menu and initialize other state *)
-       method *          menu.setVisible(true) meth
-       *     }*)
+               menu.setVisible(true) meth
+       *     *)
   method isOrWasRecentlyVisible : bool t meth
       
     (** Sets whether the popup should be visible.*)

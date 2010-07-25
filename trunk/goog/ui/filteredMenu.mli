@@ -139,7 +139,6 @@ end
    @param opt_renderer Renderer used to render filtered
    menu; defaults to goog.ui.MenuRenderer.
    @param opt_domHelper Optional DOM helper.
-   @constructor
  *)
 val filteredMenu : (filteredMenu #menuRenderer t opt -> 
   Gdom.domHelper t opt -> filteredMenu t) constr

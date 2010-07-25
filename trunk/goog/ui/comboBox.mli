@@ -77,7 +77,7 @@ class type comboBox = object
  
   (**
     Sets the field name for the combo box.
-    @param {js_string t} fieldName The field name for the combo box.
+    @param fieldName The field name for the combo box.
   *)
   method getFieldName : js_string t meth
  
@@ -96,7 +96,7 @@ class type comboBox = object
   method setValue : js_string t -> unit meth
  
   (**
-     @return {js_string t} The current value of the combo box.
+     @return The current value of the combo box.
   *)
   method getValue : js_string t meth
 end

@@ -66,7 +66,6 @@ end
    @param opt_alpha Optional initial alpha (default is 1).
    @param opt_class Optional base for creating classnames (default is
        'goog-hsva-palette').
-   @constructor
  *)
 val hsvaPalette : (Gdom.domHelper t opt -> js_string t opt -> float opt -> 
 		     js_string t opt -> hsvaPalette t) constr

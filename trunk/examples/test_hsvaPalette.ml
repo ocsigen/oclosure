@@ -5,13 +5,13 @@ let _ =
   p##render(Js.null);
   pSmall##render(Js.null);
   
-  Goog.Events.listen
+  ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 p)
     Goog.Ui.Component.EventType._ACTION
     (Js.wrap_callback (fun () -> pSmall##setColorRgbaHex(p##getColorRgbaHex())))
-    Js.null;
-  Goog.Events.listen
+    Js.null);
+  ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 pSmall)
     Goog.Ui.Component.EventType._ACTION
     (Js.wrap_callback (fun () -> p##setColorRgbaHex(pSmall##getColorRgbaHex())))
-    Js.null;
+    Js.null);

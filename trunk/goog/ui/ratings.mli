@@ -5,7 +5,6 @@
     
     @author : Oran Charles
     @version 0.2
-    @see 'goog.ui.Component'
 *)
 #ifndef UI
 open Component
@@ -68,7 +67,7 @@ class type ratings = object
   method getRatings : string js_array t meth
     
   (** Attaches an input or select element to the ratings widget. The value or index of the field will be updated along with the ratings widget. 
-     @param field The field to attach to.*)
+     @param field The field to attach to. *)
   method setAttachedFormField : #Dom_html.element t -> unit meth
 
   (** Returns the attached input or select element to the ratings widget.
@@ -81,13 +80,11 @@ end
     A UI Control used for rating things, i.e. videos on Google Video.
     @param opt_ratings Ratings. Default: [1,2,3,4,5].
     @param opt_domHelper Optional DOM helper.
-    @constructor
 *)
 val ratings : ratings t constr
 
 module Ratings : sig
-  (** Enums for Ratings event type.
-      @enum *)
+  (** Enums for Ratings event type. *)
   module Display : sig
     val _CHANGE : js_string t 
     val _HIGHLIGHT_CHANGE : js_string t

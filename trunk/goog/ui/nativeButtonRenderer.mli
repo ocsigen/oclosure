@@ -103,7 +103,6 @@ end
    button elements.  Since native HTML buttons have built-in support for many
    features, overrides many expensive (and redundant) superclass methods to
    be no-ops.
-   @constructor
  *)
 val nativeButtonRenderer : #button nativeButtonRenderer t constr
 

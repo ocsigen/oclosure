@@ -143,7 +143,6 @@ module AutoComplete : sig
   end
 	    
   (** Basic class for matching words in an array. 
-      @constructor
       @param rows Dictionary of items to match.  Can be objects if they have a toString method that returns the value to match against.
       @param opt_noSimilar if true, do not do similarity matches for the input token against the dictionary. *)
   val arrayMatcher : (js_string t array -> bool t opt -> arrayMatcher t) constr
@@ -259,11 +258,12 @@ module AutoComplete : sig
 
   (** Class for managing the interaction between an auto-complete object and a text-input or textarea.
       
-      @param opt_separators Separators to split multiple entries.
-      @param opt_literals Characters used to delimit text literals.
-      @param opt_multi Whether to allow multiple entries (Default: true).
-      @param opt_throttleTime Number of milliseconds to throttle keyevents with (Default: 150). Use -1 to disable updates on typing. Note that typing the separator will update autocomplete suggestions.
-      @constructor *)
+     @param opt_separators Separators to split multiple entries.
+     @param opt_literals Characters used to delimit text literals.
+     @param opt_multi Whether to allow multiple entries (Default: true).
+     @param opt_throttleTime Number of milliseconds to throttle keyevents with 
+     (Default: 150). Use -1 to disable updates on typing. Note that typing the 
+     separator will update autocomplete suggestions. *)
   val inputHandler : (js_string t opt -> js_string t opt -> bool t opt -> int -> inputHandler t) constr
 
   module InputHandler : sig
@@ -283,8 +283,7 @@ module AutoComplete : sig
       @param data Data array.
       @param input Input element or text area.
       @param opt_multi Whether to allow multiple entries separated with semi-colons or colons.
-      @param opt_useSimilar use similar matches. e.g. "gost" => "ghost".
-      @constructor *)  
+      @param opt_useSimilar use similar matches. e.g. "gost" => "ghost". *)
   val basic : (string js_array t -> #Dom_html.element t -> bool t opt -> bool t opt -> basic t) constr 
 
   (**  Class goog.ui.AutoComplete.Remote *)
@@ -315,30 +314,34 @@ module AutoComplete : sig
     method setTimeoutInterval : float -> unit meth  
   end
 
-  (** Factory class for building a remote autocomplete widget that autocompletes an inputbox or text area from a data array provided via ajax. 
+  (** Factory class for building a remote autocomplete widget that autocompletes
+     an inputbox or text area from a data array provided via ajax. 
       
-      @param url The Uri which generates the auto complete matches.
-      @param input Input element or text area.
-      @param opt_multi Whether to allow multiple entries; defaults to false.
-      @param opt_useSimilar Whether to use similar matches; e.g. "gost" => "ghost".
-      @constructor *)	    
+     @param url The Uri which generates the auto complete matches.
+     @param input Input element or text area.
+     @param opt_multi Whether to allow multiple entries; defaults to false.
+     @param opt_useSimilar Whether to use similar matches; e.g. 
+     "gost" => "ghost". *)
   val remote : (js_string t -> #Dom_html.element t -> bool t opt -> bool t opt -> remote t) constr 
 
   (**  Class goog.ui.AutoComplete.Remote *)
   class type richRemote = object 
     inherit autoComplete
       (** Set the filter that is called before the array matches are returned.
-	  @param {Function} rowFilter A function(rows) that returns an array of rows as a subset of the rows input array. *)
+	  @param rowFilter A function(rows) that returns an array of rows as a subset of the rows input array. *)
     method setRowFilter : (unit -> unit) callback -> unit meth
       
   end
 
-  (** Factory class to create a rich autocomplete widget that autocompletes an inputbox or textarea from data provided via ajax.  The server returns a complex data structure that is used with client-side javascript functions to render the results.
-      @param {string} url The Uri which generates the auto complete matches.
-      @param {Element} input Input element or text area.
-      @param {boolean=} opt_multi Whether to allow multiple entries; defaults to false.
-      * @param {boolean=} opt_useSimilar Whether to use similar matches; e.g. "gost" => "ghost".
-      @constructor *)
+  (** Factory class to create a rich autocomplete widget that autocompletes an 
+     inputbox or textarea from data provided via ajax.  The server returns a 
+     complex data structure that is used with client-side javascript functions 
+     to render the results.
+     @param url The Uri which generates the auto complete matches.
+     @param input Input element or text area.
+     @param opt_multi Whether to allow multiple entries; defaults to false.
+     @param opt_useSimilar Whether to use similar matches; 
+     e.g. "gost" => "ghost". *)
   val richRemote : (js_string t -> #Dom_html.element t -> bool t opt -> bool t opt -> richRemote t) constr
  
 end

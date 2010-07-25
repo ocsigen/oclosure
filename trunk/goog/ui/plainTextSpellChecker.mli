@@ -20,10 +20,7 @@ class type plainTextSpellChecker = object
 
 (**
    Creates the initial DOM representation for the component.
-   
-   @throws {Error} Not supported. Use decorate.
-   @see #decorate
- *)
+*)
   method createDom : unit meth
 
 (** @inheritDoc *)

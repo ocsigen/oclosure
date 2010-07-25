@@ -57,7 +57,6 @@ end
    @param opt_model Data/model associated with the menu item.
    @param opt_domHelper Optional DOM helper used for document interactions.
    @param opt_renderer Optional renderer.
-   @constructor
 *)
 
 val triStateMenuItem : (controlContent -> domHelper t opt -> 

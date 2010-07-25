@@ -33,7 +33,6 @@ class type ['but] toolbarColorMenuButtonRenderer = object
      @param content Text caption or DOM structure.
      @param dom DOM helper, used for document interaction.
      @return Caption element.
-     @see goog.ui.ToolbarColorMenuButtonRenderer#createColorIndicator
   *)
   method createCaption : controlContent -> Gdom.domHelper t -> Dom_html.element t meth
 
@@ -60,7 +59,6 @@ end
    @param opt_renderer Optional renderer used to render or decorate the button; defaults to goog.ui.ToolbarColorMenuButtonRenderer.
    @param opt_domHelper Optional DOM hepler, used for
    document interaction.
-   @constructor
 *)
 val toolbarColorMenuButton : (controlContent -> menu t opt 
   -> colorMenuButton #colorMenuButtonRenderer t 
@@ -68,7 +66,6 @@ val toolbarColorMenuButton : (controlContent -> menu t opt
 
 (**
    Toolbar-style renderer for goog.ui.ColorMenuButton.
-   @constructor
 *)
 val toolbarColorMenuButtonRenderer : (toolbarColorMenuButton #toolbarColorMenuButtonRenderer t) constr
   

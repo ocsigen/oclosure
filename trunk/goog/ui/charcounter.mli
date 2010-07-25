@@ -5,7 +5,6 @@
 
     @author : Oran Charles
     @version 0.2
-    @see 'goog.events.EventTarget'
 *)
 #ifndef UI
 open EventTarget
@@ -51,8 +50,8 @@ end
     @param elInput Input or text area element to count the number of characters in.
     @param elCount HTML element to display the remaining number of characters in.
     @param maxLength The maximum length.
-    @param opt_displayMode Display mode for this charcounter. Defaults to goog.ui.CharCounter.Display.REMAINING.
-    @constructor*)
+    @param opt_displayMode Display mode for this charcounter. Defaults to 
+   goog.ui.CharCounter.Display.REMAINING. *)
 val charCounter : (#Dom_html.element t -> #Dom_html.element t -> int 
   -> CharCounter.Display.t opt -> charCounter t) constr
 

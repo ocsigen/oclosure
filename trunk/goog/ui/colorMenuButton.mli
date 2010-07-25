@@ -67,7 +67,6 @@ end
        defaults to goog.ui.ColorMenuButtonRenderer.
    @param opt_domHelper Optional DOM hepler, used for
        document interaction.
-   @constructor
 *)
 val colorMenuButton : (controlContent -> menu t opt -> 
 colorMenuButton #menuButtonRenderer t opt ->

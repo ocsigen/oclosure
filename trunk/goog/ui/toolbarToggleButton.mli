@@ -22,10 +22,9 @@ end
    @param content Text caption or existing DOM
    structure to display as the button's caption.
    @param opt_renderer Renderer used to render or
-   decorate the button; defaults to {@link goog.ui.ToolbarButtonRenderer}.
+   decorate the button; defaults to goog.ui.ToolbarButtonRenderer.
    @param opt_domHelper Optional DOM hepler, used for
    document interaction.
-   @constructor
 *)
 val toolbarToggleButton : 
     (controlContent 

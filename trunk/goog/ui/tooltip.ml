@@ -1,14 +1,13 @@
 (** 
-    * OClosure Project - 2010 
-    * Class goog.ui.Tooltip
-    *
-    * Tooltip widget. Can be attached to one or more elements 
-    * and is shown, with a slight delay, when the the cursor is over 
-    * the element or the element gains focus.
-    *
-    * @author Esther Baruk
-    * @version 0.1
-    * @see 'goog.dom.DomHelper'
+   OClosure Project - 2010 
+   Class goog.ui.Tooltip
+   
+   Tooltip widget. Can be attached to one or more elements 
+   and is shown, with a slight delay, when the the cursor is over 
+   the element or the element gains focus.
+   
+   @author Esther Baruk
+   @version 0.1
 *)
 open Gdom
 

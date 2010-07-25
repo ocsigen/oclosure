@@ -6,9 +6,6 @@
     
     @author Bozman Cagdas
     @version 0.1
-    @see 'goog.dom.DomHelper'
-    @see 'goog.ui.ColorPalette'
-    @see 'goog.ui.Component'
 *)
 open Gdom
 #ifndef UI

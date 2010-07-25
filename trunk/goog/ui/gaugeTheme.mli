@@ -5,7 +5,6 @@
 
     @author : Oran Charles
     @version 0.2
-    @see 'goog.ui.Component'
 *)
 #ifndef UI
 open Js
@@ -104,6 +103,7 @@ class type gaugeTheme = object
 
 end
 
-(**  A class for the default color theme for a Gauge. Users can extend this class to provide a custom color theme, and apply the custom color theme by calling goog.ui.Gauge#setTheme.
-     @constructor *)
+(**  A class for the default color theme for a Gauge. Users can extend this 
+   class to provide a custom color theme, and apply the custom color theme by 
+   calling goog.ui.Gauge#setTheme. *)
 val gaugeTheme : gaugeTheme t constr

@@ -23,7 +23,7 @@ end
 (** Creates an immutable stroke object.
     @param width The width of the stroke.
     @param color The color of the stroke.
-    @constructor *)
+*)
 val stroke : ((int, js_string t) Union.t opt -> js_string t -> stroke t) constr
 
 
