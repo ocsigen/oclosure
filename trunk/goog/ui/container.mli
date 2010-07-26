@@ -439,8 +439,9 @@ class type container = object
   method canHighlightItem : #control t -> bool t meth 
 
   (**
-     Helper method that sets the highlighted index to the given index in response to a keyboard event.  The base class implementation simply calls the
-     #setHighlightedIndex method, but subclasses can override this
+     Helper method that sets the highlighted index to the given index in 
+     response to a keyboard event.  The base class implementation simply calls 
+     the setHighlightedIndex method, but subclasses can override this
      behavior as needed.
      @param index Index of item to highlight.
      

@@ -16,7 +16,6 @@ GOOG=goog.cmo
 OCLOSURE=oclosure.cma
 MLS=$(shell find * -name "*.ml")
 MLIS=$(shell find * -name "*.mli")
-OCAMLC=ocamlc.opt
 OCAMLFIND=ocamlfind
 OCAMLDOC=ocamldoc
 
@@ -43,10 +42,10 @@ depend: ocamldsort
 
 ocamldep:
 	($(OCAMLFIND) ocamldep $(OCAMLFLAGS) $(MLS); \
-	$(OCAMLFIND) ocamldep $(OCAMLIFLAGS) $(MLIS) )> .depend
+	$(OCAMLFIND) ocamldep $(OCAMLIFLAGS) $(MLIS)) > .depend
 
 ocamldsort: ocamldep
-	echo CMOS=`< .depend ocamldsort -byte $(MLS) $(MLIS)` >.ocamldsort
+	echo CMOS=`< .depend ocamldsort -byte $(MLS) $(MLIS)` > .ocamldsort
 
 var:
 	@echo $(FILES)

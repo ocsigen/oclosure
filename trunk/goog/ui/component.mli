@@ -119,20 +119,17 @@ class type component = object
   method getChildIds : js_string t js_array t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Returns the DOM element into which child components are to be rendered,
+   or null if the component itself hasn't been rendered yet.  This default
+   implementation returns the component's root element.  Subclasses with
+   complex DOM structures must override this method.
+   @return Element to contain child elements (null if none).
+*)
   method getContentElement : Dom_html.element t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
+   Returns the dom helper that is being used on this component.
+   @return The dom helper used on this component.
  *)
   method getDomHelper : Gdom.domHelper t meth
 
@@ -140,21 +137,20 @@ class type component = object
   method getElement : Dom_html.element t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Helper function for returning an element in the document with a unique id
+   generated using makeId().
+   @param idFragment The partial id.
+   @return The element with the unique id, or null if it cannot be
+   found.
+*)
   method getElementByFragment : js_string t -> Dom_html.element t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Helper function for returning the fragment portion of an id generated using
+   makeId().
+   @param id Id generated with makeId().
+   @return Fragment.
+*)
   method getFragmentFromId : js_string t -> js_string t meth
 
 (**
@@ -168,47 +164,39 @@ class type component = object
   method getParent : component t opt meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Returns true if the component has children.
+   @return True if the component has children.
+*)
   method hasChildren : bool t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Returns the 0-based index of the given child component, or -1 if no such
+   child is found.
+   @param child The child component.
+   @return 0-based index of the child component; -1 if not found.
+*)
   method indexOfChild : component t opt -> int meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Determines whether the component has been added to the document.
+   @return {boolean} TRUE if rendered. Otherwise, FALSE.
+*)
   method isInDocument : bool t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Returns true if the component is rendered right-to-left, false otherwise.
+   The first time this function is invoked, the right-to-left rendering property
+   is set if it has not been already.
+   @return Whether the control is rendered right-to-left.
+*)
   method isRightToLeft : bool t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
+   Helper function for subclasses that gets a unique id for a given fragment,
+   this can be used by components to
+   generate unique string ids for DOM elements
+   @param idFragment A partial id.
+   @return Unique element id.
  *)
   method makeId : js_string t -> js_string t meth
 
@@ -223,21 +211,24 @@ class type component = object
     -> bool t opt -> component t  meth*)
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Removes the child at the given index from this component, and returns it.
+   Throws an error if the argument is out of bounds, or if the specified child
+   isn't found in the parent.  See goog.ui.Component#removeChild for
+   detailed semantics.
+   
+   @param index 0-based index of the child to remove.
+   @param opt_unrender If true, calls [exitDocument] on the
+   removed child component, and detaches its DOM from the document.
+   @return The removed component, if any.
+*)
   method removeChildAt : int -> bool t opt -> component t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Removes every child component attached to this one.
+   
+   @param opt_unrender If true, calls #exitDocument on the
+   removed child components, and detaches their DOM from the document.
+*)
   method removeChildren : bool t opt -> unit meth
 
   (** 
@@ -250,11 +241,12 @@ class type component = object
   method render : #Dom_html.element t opt -> unit meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
+   Renders the component before another element. The other element should be in
+   the document already.
+   
+   Throws an Error if the component is already rendered.
+   
+   @param siblingElement  Element to render the component before.
  *)
   method renderBefore : #Dom_html.element t -> unit meth
 
