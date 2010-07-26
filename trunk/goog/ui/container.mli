@@ -257,7 +257,7 @@ class type container = object
      Adds the control as a child of this container at the given 0-based index.
      Overrides goog.ui.Component#addChildAt by also updating the
      container's highlight index.  Since goog.ui.Component#addChild uses
-     #addChildAt internally, we only need to override this method.
+     addChildAt internally, we only need to override this method.
      @param control New child.
      @param index Index at which the new child is to be added.
      @param opt_render Whether the new child should be rendered

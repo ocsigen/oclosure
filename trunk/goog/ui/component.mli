@@ -201,12 +201,22 @@ class type component = object
   method makeId : js_string t -> js_string t meth
 
 (**
-   Set is right-to-left. This function should be used if the component needs
-   to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
-   @param rightToLeft Whether the component is rendered
-       right-to-left.
- *)
+   Removes the given child from this component, and returns it.  Throws an error
+   if the argument is invalid or if the specified child isn't found in the
+   parent component.  The argument can either be a string (interpreted as the
+   ID of the child component to remove) or the child component itself.
+   
+   If [opt_unrender] is true, calls goog.ui.component#exitDocument
+   on the removed child, and subsequently detaches the child's DOM from the
+   document.  Otherwise it is the caller's responsibility to clean up the child
+   component's DOM.
+   
+   @param child The ID of the child to remove,
+   or the child component itself.
+   @param opt_unrender If true, calls [exitDocument] on the
+   removed child component, and detaches its DOM from the document.
+   @return The removed component, if any.
+*)
   (*method removeChild : (js_string t, component t) Tools.Union.t opt 
     -> bool t opt -> component t  meth*)
 
@@ -281,7 +291,7 @@ class type component = object
 (**
    Set is right-to-left. This function should be used if the component needs
    to know the rendering direction during dom creation (i.e. before
-   #enterDocument is called and is right-to-left is set).
+   enterDocument is called and is right-to-left is set).
    @param rightToLeft Whether the component is rendered
        right-to-left.
  *)
