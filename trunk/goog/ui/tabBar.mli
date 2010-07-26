@@ -42,7 +42,7 @@ class type tabBar = object
   (**
      Removes the tab from the tab bar.  Overrides the superclass implementation 
      by deselecting the tab being removed.  Since #removeChildAt uses
-     #removeChild internally, we only need to override this method.
+     removeChild internally, we only need to override this method.
      @param tab Tab to remove.
      @param opt_unrender Whether to call [exitDocument] on the removed tab, and 
      detach its DOM from the document (defaults to false).
@@ -76,7 +76,7 @@ class type tabBar = object
   (**
      Highlights the tab at the given index in response to a keyboard event.
      Overrides the superclass implementation by also selecting the tab if
-     #isAutoSelectTabs returns true.
+     isAutoSelectTabs returns true.
      @param index Index of tab to highlight.
   *)
   method setHighlightedIndexFromKeyEvent : int -> unit meth
@@ -220,4 +220,4 @@ val tabBarRenderer : tabBar #tabBarRenderer t constr
    @param opt_domHelper DOM helper, used for document interaction.
 *)
 val tabBar : (TabBar.location_pre opt -> tabBar #tabBarRenderer t opt -> Gdom.domHelper t opt -> tabBar t) constr 
-    
+
