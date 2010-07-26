@@ -57,9 +57,6 @@ class type component = object
 
   method makeId : js_string t -> js_string t meth
 
-(*  method removeChild : (js_string t, component t) Tools.Union.t opt 
-    -> bool t opt -> component t  meth*)
-
   method removeChildAt : int -> bool t opt -> component t meth
 
   method removeChildren : bool t opt -> unit meth
@@ -83,16 +80,18 @@ let component : Gdom.domHelper t opt -> component t constr =
   Js.Unsafe.variable "goog.ui.Component"
 
 module Component = struct
+
   let addChild (c : #component t) child (b : bool t opt) = 
-    Js.Unsafe.meth_call c "addChild" 
-      [|Js.Unsafe.inject (child : #component t :> component t); 
-	Js.Unsafe.inject b|]
+    (Js.Unsafe.coerce c)##addChild(child,b)
 
   let addChildAt (c : #component t) child (i : int) (b : bool t opt) = 
-    Js.Unsafe.meth_call c "addChildAt" 
-      [|Js.Unsafe.inject (child : #component t :> component t); 
-	Js.Unsafe.inject i;
-	Js.Unsafe.inject b|]
+    (Js.Unsafe.coerce c)##addChildAt(child,i,b)
+
+  let removeChild (c : #component t) child (b : bool t opt) =
+    (Js.Unsafe.coerce c)##removedChild(child,b)
+
+  let removeChild_id (c : #component t) id (b : bool t opt) =
+    (Js.Unsafe.coerce c)##removeChild_id(id,b)
 
   module State = struct 
     type state = 
