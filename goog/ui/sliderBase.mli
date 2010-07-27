@@ -1,4 +1,4 @@
-(**
+(*
    OClosure Project - 2010
 
    Class goog.ui.SliderBase

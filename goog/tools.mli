@@ -1,4 +1,4 @@
-(**
+(*
    Tools module
    
    Provide some tools for the OClosure library

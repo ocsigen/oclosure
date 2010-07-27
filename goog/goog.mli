@@ -4,7 +4,7 @@
   OClosure is a binding of the Google Closure javascript library
   It uses the Js_of_ocaml compiler
 
-  @authors Gabriel Cardoso, Charles Oran
+  @author Gabriel Cardoso, Charles Oran
   @version 0.2 
 *)
 #define GOOG

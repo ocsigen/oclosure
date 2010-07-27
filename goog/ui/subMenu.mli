@@ -1,4 +1,4 @@
-(** 
+(* 
    Oclosure Project - 2010
    Class goog.ui.SubMenu
    
