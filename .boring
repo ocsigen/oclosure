@@ -1,0 +1,4 @@
+\.cm[io]$
+\.byte$
+^examples/test_.*\.js$
+~$
