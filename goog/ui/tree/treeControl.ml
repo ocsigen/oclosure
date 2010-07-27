@@ -30,5 +30,6 @@ class type ['a] treeControl = object
   method getTree : 'a treeControl t meth
 end
 
-let treeControl_ = Js.Unsafe.variable "goog.ui.tree.TreeControl"
+let treeControl_ = 
+  Tools.variable "[oclosure]goog.ui.tree.TreeControl[/oclosure]"
 let treeControl : (js_string t -> config opt -> DomHelper.domHelper t opt -> 'a treeControl t) constr = treeControl_

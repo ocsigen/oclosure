@@ -19,4 +19,4 @@ class type dialog = object
 end
 
 let dialog : (js_string opt -> bool t opt -> Gdom.domHelper t opt -> dialog t) constr =
-  Js.Unsafe.variable "goog.ui.Dialog"
+  Tools.variable "[oclosure]goog.ui.Dialog[/oclosure]"

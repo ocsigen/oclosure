@@ -41,4 +41,4 @@ end
 
 let popupDatePicker : (DatePicker.datePicker t opt -> Gdom.domHelper t opt
 			 -> popupDatePicker t) constr =
-  Js.Unsafe.variable "goog.ui.PopupDatePicker"
+  Tools.variable "[oclosure]goog.ui.PopupDatePicker[/oclosure]"

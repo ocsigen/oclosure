@@ -85,6 +85,6 @@ class type datePicker = object
 end
 
 let datePicker : ((Date.date t, Js.date t) Tools.Union.t opt -> 
-  I18n.dateTimeSymbols_pre opt -> datePicker t) constr = 
-  Js.Unsafe.variable "goog.ui.DatePicker"
+  I18n.dateTimeSymbols opt -> datePicker t) constr = 
+  Tools.variable "[oclosure]goog.ui.DatePicker[/oclosure]"
     

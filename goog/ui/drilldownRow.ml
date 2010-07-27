@@ -35,4 +35,4 @@ class type drilldownRow = object
 end
 
 let drilldownRow : (drilldownRow t) constr = 
-  Js.Unsafe.variable "goog.ui.DrilldownRow"
+  Tools.variable "[oclosure]goog.ui.DrilldownRow[/oclosure]"

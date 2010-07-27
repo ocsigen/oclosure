@@ -12,4 +12,4 @@ class type fill = object
 end
 
 let fill : fill t constr = 
-  Js.Unsafe.variable "goog.graphics.Fill" 
+  Tools.variable "[oclosure]goog.graphics.Fill[/oclosure]" 

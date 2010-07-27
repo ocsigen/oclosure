@@ -25,10 +25,10 @@ class type ['ctrl] tabRenderer = object
   method setTooltip : #Dom_html.element t -> js_string t optdef -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.Tab"
+let tmp = Tools.variable "[oclosure]goog.ui.Tab[/oclosure]"
 let tab : (ControlContent.controlContent -> tab #tabRenderer t opt -> Gdom.domHelper t opt -> tab t) constr = tmp
 
-let tmp = Js.Unsafe.variable "goog.ui.TabRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.TabRenderer[/oclosure]"
 let tabRenderer : tab tabRenderer t constr = tmp
 
 

@@ -23,7 +23,7 @@ class type colorMenuButton = object
 end
 
 
-let tmp = Js.Unsafe.variable "goog.ui.ColorMenuButton"
+let tmp = Tools.variable "[oclosure]goog.ui.ColorMenuButton[/oclosure]"
 let colorMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> 
 colorMenuButton #MenuButtonRenderer.menuButtonRenderer t opt ->
 Gdom.domHelper t -> colorMenuButton t) constr = tmp

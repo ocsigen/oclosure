@@ -53,7 +53,7 @@ class type popupBase = object
   method onBeforeShow : bool t meth
 end
  
-let tmp = Js.Unsafe.variable "goog.ui.PopupBase"
+let tmp = Tools.variable "[oclosure]goog.ui.PopupBase[/oclosure]"
 let popubBase : (#Dom_html.element t -> PopupBase.type_pre opt 
   -> popupBase t) constr = tmp
   

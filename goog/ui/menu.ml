@@ -61,10 +61,10 @@ class type ['menu] menuRenderer = object
   method initializeDom : 'menu t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.MenuRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.MenuRenderer[/oclosure]"
 let menuRenderer : (#menu menuRenderer t) constr = tmp
 
-let tmp = Js.Unsafe.variable "goog.ui.Menu"
+let tmp = Tools.variable "[oclosure]goog.ui.Menu[/oclosure]"
 let menu : (Gdom.domHelper t opt -> menu #menuRenderer t opt -> menu t) constr =
   tmp
 

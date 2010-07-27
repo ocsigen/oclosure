@@ -14,5 +14,5 @@ class type mockActivityMonitor = object
 end
 
 let mockActivityMonitor : mockActivityMonitor t constr = 
-  Js.Unsafe.variable "goog.ui.MockActivityMonitor"
+  Tools.variable "[oclosure]goog.ui.MockActivityMonitor[/oclosure]"
 

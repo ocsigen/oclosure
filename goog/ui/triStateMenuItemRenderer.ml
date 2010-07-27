@@ -21,7 +21,7 @@ class type ['menuIt] triStateMenuItemRenderer = object
   method getCssClass : js_string t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.TriStateMenuItemRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.TriStateMenuItemRenderer[/oclosure]"
 let triStateMenuItemRenderer : #MenuItem.menuItem triStateMenuItemRenderer t 
     constr = tmp
 

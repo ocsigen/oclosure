@@ -29,4 +29,4 @@ class type timer = object
 end
 
 let timer : (int opt -> timer t) constr =
-  Js.Unsafe.variable "goog.Timer"
+  Tools.variable "[oclosure]goog.Timer[/oclosure]"

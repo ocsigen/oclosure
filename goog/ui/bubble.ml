@@ -41,6 +41,6 @@ class type bubble = object
   method setVisible : bool t -> unit meth
 end
 
-let bubble = Js.Unsafe.variable "goog.ui.Bubble"
+let bubble = Tools.variable "[oclosure]goog.ui.Bubble[/oclosure]"
 let bubble : ((js_string t, #Dom_html.element t) Tools.Union.t -> bubble t) constr =
   bubble

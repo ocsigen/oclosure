@@ -14,6 +14,6 @@ class type animationEvent = object
   method coordAsInts : int js_array t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.fx.AnimationEvent"
+let tmp = Tools.variable "[oclosure]goog.fx.AnimationEvent[/oclosure]"
 let animationEvent : (js_string t -> #Animation.animation t -> animationEvent t)
     constr = tmp

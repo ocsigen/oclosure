@@ -15,4 +15,4 @@ class type containerScroller = object
 end
 
 let containerScroller : (Container.container t -> containerScroller t) constr = 
-  Js.Unsafe.variable "goog.ui.ContainerScroller"
+  Tools.variable "[oclosure]goog.ui.ContainerScroller[/oclosure]"

@@ -1,83 +1,80 @@
-type dateTimeSymbols = 
-  | DateTimeSymbols_am
-  | DateTimeSymbols_ar
-  | DateTimeSymbols_bg
-  | DateTimeSymbols_bn
-  | DateTimeSymbols_ca
-  | DateTimeSymbols_cs
-  | DateTimeSymbols_da
-  | DateTimeSymbols_de
-  | DateTimeSymbols_de_AT
-  | DateTimeSymbols_de_CH
-  | DateTimeSymbols_el
-  | DateTimeSymbols_en
-  | DateTimeSymbols_en_AU
-  | DateTimeSymbols_en_GB
-  | DateTimeSymbols_en_IE
-  | DateTimeSymbols_en_IN
-  | DateTimeSymbols_en_ISO
-  | DateTimeSymbols_en_SG
-  | DateTimeSymbols_en_US
-  | DateTimeSymbols_en_ZA
-  | DateTimeSymbols_es
-  | DateTimeSymbols_et
-  | DateTimeSymbols_eu
-  | DateTimeSymbols_fa
-  | DateTimeSymbols_fi
-  | DateTimeSymbols_fil
-  | DateTimeSymbols_fr
-  | DateTimeSymbols_fr_CA
-  | DateTimeSymbols_gl
-  | DateTimeSymbols_gsw
-  | DateTimeSymbols_gu
-  | DateTimeSymbols_he
-  | DateTimeSymbols_hi
-  | DateTimeSymbols_hr
-  | DateTimeSymbols_hu
-  | DateTimeSymbols_id
-  | DateTimeSymbols_in
-  | DateTimeSymbols_is
-  | DateTimeSymbols_it
-  | DateTimeSymbols_iw
-  | DateTimeSymbols_ja
-  | DateTimeSymbols_kn
-  | DateTimeSymbols_ko
-  | DateTimeSymbols_ln
-  | DateTimeSymbols_lt
-  | DateTimeSymbols_lv
-  | DateTimeSymbols_ml
-  | DateTimeSymbols_mo
-  | DateTimeSymbols_mr
-  | DateTimeSymbols_ms
-  | DateTimeSymbols_mt
-  | DateTimeSymbols_nl
-  | DateTimeSymbols_no
-  | DateTimeSymbols_or
-  | DateTimeSymbols_pl
-  | DateTimeSymbols_pt
-  | DateTimeSymbols_pt_BR
-  | DateTimeSymbols_pt_PT
-  | DateTimeSymbols_ro
-  | DateTimeSymbols_ru
-  | DateTimeSymbols_sk
-  | DateTimeSymbols_sl
-  | DateTimeSymbols_sq
-  | DateTimeSymbols_sr
-  | DateTimeSymbols_sv
-  | DateTimeSymbols_sw
-  | DateTimeSymbols_ta
-  | DateTimeSymbols_te
-  | DateTimeSymbols_th
-  | DateTimeSymbols_tl
-  | DateTimeSymbols_tr
-  | DateTimeSymbols_uk
-  | DateTimeSymbols_ur
-  | DateTimeSymbols_vi
-  | DateTimeSymbols_zh
-  | DateTimeSymbols_zh_CN
-  | DateTimeSymbols_zh_HK
-  | DateTimeSymbols_zh_TW
+type dateTimeSymbols
 
-type dateTimeSymbols_pre
-
-val of_dateTimeSymbols : dateTimeSymbols -> dateTimeSymbols_pre
+val dateTimeSymbols_am : dateTimeSymbols
+val dateTimeSymbols_ar : dateTimeSymbols
+val dateTimeSymbols_bg : dateTimeSymbols
+val dateTimeSymbols_bn : dateTimeSymbols
+val dateTimeSymbols_ca : dateTimeSymbols
+val dateTimeSymbols_cs : dateTimeSymbols
+val dateTimeSymbols_da : dateTimeSymbols
+val dateTimeSymbols_de : dateTimeSymbols
+val dateTimeSymbols_de_AT : dateTimeSymbols
+val dateTimeSymbols_de_CH : dateTimeSymbols
+val dateTimeSymbols_el : dateTimeSymbols
+val dateTimeSymbols_en : dateTimeSymbols
+val dateTimeSymbols_en_AU : dateTimeSymbols
+val dateTimeSymbols_en_GB : dateTimeSymbols
+val dateTimeSymbols_en_IE : dateTimeSymbols
+val dateTimeSymbols_en_IN : dateTimeSymbols
+val dateTimeSymbols_en_ISO : dateTimeSymbols
+val dateTimeSymbols_en_SG : dateTimeSymbols
+val dateTimeSymbols_en_US : dateTimeSymbols
+val dateTimeSymbols_en_ZA : dateTimeSymbols
+val dateTimeSymbols_es : dateTimeSymbols
+val dateTimeSymbols_et : dateTimeSymbols
+val dateTimeSymbols_eu : dateTimeSymbols
+val dateTimeSymbols_fa : dateTimeSymbols
+val dateTimeSymbols_fi : dateTimeSymbols
+val dateTimeSymbols_fil : dateTimeSymbols
+val dateTimeSymbols_fr : dateTimeSymbols
+val dateTimeSymbols_fr_CA : dateTimeSymbols
+val dateTimeSymbols_gl : dateTimeSymbols
+val dateTimeSymbols_gsw : dateTimeSymbols
+val dateTimeSymbols_gu : dateTimeSymbols
+val dateTimeSymbols_he : dateTimeSymbols
+val dateTimeSymbols_hi : dateTimeSymbols
+val dateTimeSymbols_hr : dateTimeSymbols
+val dateTimeSymbols_hu : dateTimeSymbols
+val dateTimeSymbols_id : dateTimeSymbols
+val dateTimeSymbols_in : dateTimeSymbols
+val dateTimeSymbols_is : dateTimeSymbols
+val dateTimeSymbols_it : dateTimeSymbols
+val dateTimeSymbols_iw : dateTimeSymbols
+val dateTimeSymbols_ja : dateTimeSymbols
+val dateTimeSymbols_kn : dateTimeSymbols
+val dateTimeSymbols_ko : dateTimeSymbols
+val dateTimeSymbols_ln : dateTimeSymbols
+val dateTimeSymbols_lt : dateTimeSymbols
+val dateTimeSymbols_lv : dateTimeSymbols
+val dateTimeSymbols_ml : dateTimeSymbols
+val dateTimeSymbols_mo : dateTimeSymbols
+val dateTimeSymbols_mr : dateTimeSymbols
+val dateTimeSymbols_ms : dateTimeSymbols
+val dateTimeSymbols_mt : dateTimeSymbols
+val dateTimeSymbols_nl : dateTimeSymbols
+val dateTimeSymbols_no : dateTimeSymbols
+val dateTimeSymbols_or : dateTimeSymbols
+val dateTimeSymbols_pl : dateTimeSymbols
+val dateTimeSymbols_pt : dateTimeSymbols
+val dateTimeSymbols_pt_BR : dateTimeSymbols
+val dateTimeSymbols_pt_PT : dateTimeSymbols
+val dateTimeSymbols_ro : dateTimeSymbols
+val dateTimeSymbols_ru : dateTimeSymbols
+val dateTimeSymbols_sk : dateTimeSymbols
+val dateTimeSymbols_sl : dateTimeSymbols
+val dateTimeSymbols_sq : dateTimeSymbols
+val dateTimeSymbols_sr : dateTimeSymbols
+val dateTimeSymbols_sv : dateTimeSymbols
+val dateTimeSymbols_sw : dateTimeSymbols
+val dateTimeSymbols_ta : dateTimeSymbols
+val dateTimeSymbols_te : dateTimeSymbols
+val dateTimeSymbols_th : dateTimeSymbols
+val dateTimeSymbols_tl : dateTimeSymbols
+val dateTimeSymbols_tr : dateTimeSymbols
+val dateTimeSymbols_uk : dateTimeSymbols
+val dateTimeSymbols_ur : dateTimeSymbols
+val dateTimeSymbols_vi : dateTimeSymbols
+val dateTimeSymbols_zh : dateTimeSymbols
+val dateTimeSymbols_zh_CN : dateTimeSymbols
+val dateTimeSymbols_zh_HK : dateTimeSymbols
+val dateTimeSymbols_zh_TW : dateTimeSymbols

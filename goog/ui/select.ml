@@ -36,7 +36,7 @@ class type select = object
   method setOpen : bool t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.Select"
+let tmp = Tools.variable "[oclosure]goog.ui.Select[/oclosure]"
 let select : (ControlContent.controlContent opt -> menu t opt 
   -> select #Button.buttonRenderer t opt -> domHelper t opt 
   -> select t) constr = tmp 

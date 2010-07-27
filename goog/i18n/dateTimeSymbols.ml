@@ -1,163 +1,82 @@
 open Js
 
-type dateTimeSymbols = 
-  | DateTimeSymbols_am
-  | DateTimeSymbols_ar
-  | DateTimeSymbols_bg
-  | DateTimeSymbols_bn
-  | DateTimeSymbols_ca
-  | DateTimeSymbols_cs
-  | DateTimeSymbols_da
-  | DateTimeSymbols_de
-  | DateTimeSymbols_de_AT
-  | DateTimeSymbols_de_CH
-  | DateTimeSymbols_el
-  | DateTimeSymbols_en
-  | DateTimeSymbols_en_AU
-  | DateTimeSymbols_en_GB
-  | DateTimeSymbols_en_IE
-  | DateTimeSymbols_en_IN
-  | DateTimeSymbols_en_ISO
-  | DateTimeSymbols_en_SG
-  | DateTimeSymbols_en_US
-  | DateTimeSymbols_en_ZA
-  | DateTimeSymbols_es
-  | DateTimeSymbols_et
-  | DateTimeSymbols_eu
-  | DateTimeSymbols_fa
-  | DateTimeSymbols_fi
-  | DateTimeSymbols_fil
-  | DateTimeSymbols_fr
-  | DateTimeSymbols_fr_CA
-  | DateTimeSymbols_gl
-  | DateTimeSymbols_gsw
-  | DateTimeSymbols_gu
-  | DateTimeSymbols_he
-  | DateTimeSymbols_hi
-  | DateTimeSymbols_hr
-  | DateTimeSymbols_hu
-  | DateTimeSymbols_id
-  | DateTimeSymbols_in
-  | DateTimeSymbols_is
-  | DateTimeSymbols_it
-  | DateTimeSymbols_iw
-  | DateTimeSymbols_ja
-  | DateTimeSymbols_kn
-  | DateTimeSymbols_ko
-  | DateTimeSymbols_ln
-  | DateTimeSymbols_lt
-  | DateTimeSymbols_lv
-  | DateTimeSymbols_ml
-  | DateTimeSymbols_mo
-  | DateTimeSymbols_mr
-  | DateTimeSymbols_ms
-  | DateTimeSymbols_mt
-  | DateTimeSymbols_nl
-  | DateTimeSymbols_no
-  | DateTimeSymbols_or
-  | DateTimeSymbols_pl
-  | DateTimeSymbols_pt
-  | DateTimeSymbols_pt_BR
-  | DateTimeSymbols_pt_PT
-  | DateTimeSymbols_ro
-  | DateTimeSymbols_ru
-  | DateTimeSymbols_sk
-  | DateTimeSymbols_sl
-  | DateTimeSymbols_sq
-  | DateTimeSymbols_sr
-  | DateTimeSymbols_sv
-  | DateTimeSymbols_sw
-  | DateTimeSymbols_ta
-  | DateTimeSymbols_te
-  | DateTimeSymbols_th
-  | DateTimeSymbols_tl
-  | DateTimeSymbols_tr
-  | DateTimeSymbols_uk
-  | DateTimeSymbols_ur
-  | DateTimeSymbols_vi
-  | DateTimeSymbols_zh
-  | DateTimeSymbols_zh_CN
-  | DateTimeSymbols_zh_HK
-  | DateTimeSymbols_zh_TW
+type dateTimeSymbols
 
-type dateTimeSymbols_pre = js_string t
-
-let of_dateTimeSymbols = function 
-  | DateTimeSymbols_am -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_am"
-  | DateTimeSymbols_ar -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ar"
-  | DateTimeSymbols_bg -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_bg"
-  | DateTimeSymbols_bn -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_bn"
-  | DateTimeSymbols_ca -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ca"
-  | DateTimeSymbols_cs -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_cs"
-  | DateTimeSymbols_da -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_da"
-  | DateTimeSymbols_de -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_de"
-  | DateTimeSymbols_de_AT -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_de_AT"
-  | DateTimeSymbols_de_CH -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_de_CH"
-  | DateTimeSymbols_el -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_el"
-  | DateTimeSymbols_en -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en"
-  | DateTimeSymbols_en_AU -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_AU"
-  | DateTimeSymbols_en_GB -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_GB"
-  | DateTimeSymbols_en_IE -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_IE"
-  | DateTimeSymbols_en_IN -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_IN"
-  | DateTimeSymbols_en_ISO -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_ISO"
-  | DateTimeSymbols_en_SG -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_SG"
-  | DateTimeSymbols_en_US -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_US"
-  | DateTimeSymbols_en_ZA -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_en_ZA"
-  | DateTimeSymbols_es -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_es"
-  | DateTimeSymbols_et -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_et"
-  | DateTimeSymbols_eu -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_eu"
-  | DateTimeSymbols_fa -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_fa"
-  | DateTimeSymbols_fi -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_fi"
-  | DateTimeSymbols_fil -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_fil"
-  | DateTimeSymbols_fr -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_fr"
-  | DateTimeSymbols_fr_CA -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_fr_CA"
-  | DateTimeSymbols_gl -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_gl"
-  | DateTimeSymbols_gsw -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_gsw"
-  | DateTimeSymbols_gu -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_gu"
-  | DateTimeSymbols_he -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_he"
-  | DateTimeSymbols_hi -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_hi"
-  | DateTimeSymbols_hr -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_hr"
-  | DateTimeSymbols_hu -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_hu"
-  | DateTimeSymbols_id -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_id"
-  | DateTimeSymbols_in -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_in"
-  | DateTimeSymbols_is -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_is"
-  | DateTimeSymbols_it -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_it"
-  | DateTimeSymbols_iw -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_iw"
-  | DateTimeSymbols_ja -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ja"
-  | DateTimeSymbols_kn -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_kn"
-  | DateTimeSymbols_ko -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ko"
-  | DateTimeSymbols_ln -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ln"
-  | DateTimeSymbols_lt -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_lt"
-  | DateTimeSymbols_lv -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_lv"
-  | DateTimeSymbols_ml -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ml"
-  | DateTimeSymbols_mo -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_mo"
-  | DateTimeSymbols_mr -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_mr"
-  | DateTimeSymbols_ms -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ms"
-  | DateTimeSymbols_mt -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_mt"
-  | DateTimeSymbols_nl -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_nl"
-  | DateTimeSymbols_no -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_no"
-  | DateTimeSymbols_or -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_or"
-  | DateTimeSymbols_pl -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_pl"
-  | DateTimeSymbols_pt -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_pt"
-  | DateTimeSymbols_pt_BR -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_pt_BR"
-  | DateTimeSymbols_pt_PT -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_pt_PT"
-  | DateTimeSymbols_ro -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ro"
-  | DateTimeSymbols_ru -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ru"
-  | DateTimeSymbols_sk -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_sk"
-  | DateTimeSymbols_sl -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_sl"
-  | DateTimeSymbols_sq -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_sq"
-  | DateTimeSymbols_sr -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_sr"
-  | DateTimeSymbols_sv -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_sv"
-  | DateTimeSymbols_sw -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_sw"
-  | DateTimeSymbols_ta -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ta"
-  | DateTimeSymbols_te -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_te"
-  | DateTimeSymbols_th -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_th"
-  | DateTimeSymbols_tl -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_tl"
-  | DateTimeSymbols_tr -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_tr"
-  | DateTimeSymbols_uk -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_uk"
-  | DateTimeSymbols_ur -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_ur"
-  | DateTimeSymbols_vi -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_vi"
-  | DateTimeSymbols_zh -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_zh"
-  | DateTimeSymbols_zh_CN -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_zh_CN"
-  | DateTimeSymbols_zh_HK -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_zh_HK"
-  | DateTimeSymbols_zh_TW -> Js.Unsafe.variable "goog.i18n.DateTimeSymbols_zh_TW"
+let dateTimeSymbols_am = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_am[/oclosure]"
+let dateTimeSymbols_ar = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ar[/oclosure]"
+let dateTimeSymbols_bg = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_bg[/oclosure]"
+let dateTimeSymbols_bn = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_bn[/oclosure]"
+let dateTimeSymbols_ca = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ca[/oclosure]"
+let dateTimeSymbols_cs = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_cs[/oclosure]"
+let dateTimeSymbols_da = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_da[/oclosure]"
+let dateTimeSymbols_de = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_de[/oclosure]"
+let dateTimeSymbols_de_AT = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_de_AT[/oclosure]"
+let dateTimeSymbols_de_CH = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_de_CH[/oclosure]"
+let dateTimeSymbols_el = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_el[/oclosure]"
+let dateTimeSymbols_en = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en[/oclosure]"
+let dateTimeSymbols_en_AU = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_AU[/oclosure]"
+let dateTimeSymbols_en_GB = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_GB[/oclosure]"
+let dateTimeSymbols_en_IE = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_IE[/oclosure]"
+let dateTimeSymbols_en_IN = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_IN[/oclosure]"
+let dateTimeSymbols_en_ISO = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_ISO[/oclosure]"
+let dateTimeSymbols_en_SG = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_SG[/oclosure]"
+let dateTimeSymbols_en_US = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_US[/oclosure]"
+let dateTimeSymbols_en_ZA = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_en_ZA[/oclosure]"
+let dateTimeSymbols_es = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_es[/oclosure]"
+let dateTimeSymbols_et = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_et[/oclosure]"
+let dateTimeSymbols_eu = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_eu[/oclosure]"
+let dateTimeSymbols_fa = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_fa[/oclosure]"
+let dateTimeSymbols_fi = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_fi[/oclosure]"
+let dateTimeSymbols_fil = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_fil[/oclosure]"
+let dateTimeSymbols_fr = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_fr[/oclosure]"
+let dateTimeSymbols_fr_CA = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_fr_CA[/oclosure]"
+let dateTimeSymbols_gl = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_gl[/oclosure]"
+let dateTimeSymbols_gsw = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_gsw[/oclosure]"
+let dateTimeSymbols_gu = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_gu[/oclosure]"
+let dateTimeSymbols_he = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_he[/oclosure]"
+let dateTimeSymbols_hi = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_hi[/oclosure]"
+let dateTimeSymbols_hr = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_hr[/oclosure]"
+let dateTimeSymbols_hu = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_hu[/oclosure]"
+let dateTimeSymbols_id = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_id[/oclosure]"
+let dateTimeSymbols_in = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_in[/oclosure]"
+let dateTimeSymbols_is = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_is[/oclosure]"
+let dateTimeSymbols_it = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_it[/oclosure]"
+let dateTimeSymbols_iw = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_iw[/oclosure]"
+let dateTimeSymbols_ja = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ja[/oclosure]"
+let dateTimeSymbols_kn = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_kn[/oclosure]"
+let dateTimeSymbols_ko = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ko[/oclosure]"
+let dateTimeSymbols_ln = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ln[/oclosure]"
+let dateTimeSymbols_lt = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_lt[/oclosure]"
+let dateTimeSymbols_lv = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_lv[/oclosure]"
+let dateTimeSymbols_ml = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ml[/oclosure]"
+let dateTimeSymbols_mo = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_mo[/oclosure]"
+let dateTimeSymbols_mr = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_mr[/oclosure]"
+let dateTimeSymbols_ms = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ms[/oclosure]"
+let dateTimeSymbols_mt = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_mt[/oclosure]"
+let dateTimeSymbols_nl = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_nl[/oclosure]"
+let dateTimeSymbols_no = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_no[/oclosure]"
+let dateTimeSymbols_or = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_or[/oclosure]"
+let dateTimeSymbols_pl = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_pl[/oclosure]"
+let dateTimeSymbols_pt = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_pt[/oclosure]"
+let dateTimeSymbols_pt_BR = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_pt_BR[/oclosure]"
+let dateTimeSymbols_pt_PT = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_pt_PT[/oclosure]"
+let dateTimeSymbols_ro = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ro[/oclosure]"
+let dateTimeSymbols_ru = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ru[/oclosure]"
+let dateTimeSymbols_sk = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_sk[/oclosure]"
+let dateTimeSymbols_sl = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_sl[/oclosure]"
+let dateTimeSymbols_sq = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_sq[/oclosure]"
+let dateTimeSymbols_sr = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_sr[/oclosure]"
+let dateTimeSymbols_sv = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_sv[/oclosure]"
+let dateTimeSymbols_sw = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_sw[/oclosure]"
+let dateTimeSymbols_ta = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ta[/oclosure]"
+let dateTimeSymbols_te = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_te[/oclosure]"
+let dateTimeSymbols_th = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_th[/oclosure]"
+let dateTimeSymbols_tl = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_tl[/oclosure]"
+let dateTimeSymbols_tr = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_tr[/oclosure]"
+let dateTimeSymbols_uk = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_uk[/oclosure]"
+let dateTimeSymbols_ur = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_ur[/oclosure]"
+let dateTimeSymbols_vi = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_vi[/oclosure]"
+let dateTimeSymbols_zh = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_zh[/oclosure]"
+let dateTimeSymbols_zh_CN = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_zh_CN[/oclosure]"
+let dateTimeSymbols_zh_HK = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_zh_HK[/oclosure]"
+let dateTimeSymbols_zh_TW = Tools.variable "[oclosure]goog.i18n.DateTimeSymbols_zh_TW[/oclosure]"

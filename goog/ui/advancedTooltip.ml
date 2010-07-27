@@ -33,7 +33,7 @@ class type advancedTooltip = object
   method setHotSpotPadding : Math.box t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.AdvancedTooltip"
+let tmp = Tools.variable "[oclosure]goog.ui.AdvancedTooltip[/oclosure]"
 let advancedTooltip : ((#Dom_html.element t, js_string t) Union.t opt 
 		       -> js_string t opt -> domHelper t opt 
 		       -> advancedTooltip t) constr = tmp

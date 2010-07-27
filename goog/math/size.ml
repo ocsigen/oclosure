@@ -14,4 +14,4 @@ class type size = object
 end
 
 let size : (int -> int -> size t) constr = 
-  Js.Unsafe.variable "goog.math.Size"
+  Tools.variable "[oclosure]goog.math.Size[/oclosure]"

@@ -96,12 +96,6 @@ include ToolbarSelect
 include ColorMenuButtonRenderer
 include ToolbarColorMenuButton
 
-(** 
-   Decorates the element with a suitable goog.ui.Component instance, if a 
-   matching decorator is found.
-*)
-let decorate (e : #Dom_html.element t) : component t opt =
-  Js.Unsafe.fun_call 
-    (Js.Unsafe.variable "goog.ui.decorate")
-    [|Js.Unsafe.inject e|]
+let ui = Tools.variable "[oclosure]goog.ui[/oclosure]"
+let decorate (e : #Dom_html.element t) : component t opt = ui##decorate(e)
 

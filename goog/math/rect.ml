@@ -30,4 +30,4 @@ class type rect = object
 end
 
 let rect : (int -> int -> int -> int -> rect t) constr = 
-  Js.Unsafe.variable "goog.math.Rect"
+  Tools.variable "[oclosure]goog.math.Rect[/oclosure]"

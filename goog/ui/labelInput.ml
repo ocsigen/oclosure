@@ -32,5 +32,6 @@ class type labelInput = object
   method focusAndSelect : unit meth 
 end
 
-let labelInput : (js_string t opt -> Gdom.domHelper t opt -> 
-  labelInput t) constr = Js.Unsafe.variable "goog.ui.LabelInput"
+let labelInput : (js_string t opt -> Gdom.domHelper t opt 
+  -> labelInput t) constr = 
+  Tools.variable "[oclosure]goog.ui.LabelInput[/oclosure]"

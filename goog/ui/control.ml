@@ -163,9 +163,9 @@ class type ['ctrl] controlRenderer = object
   method setVisible : #Dom_html.element t -> bool t -> unit meth
 end
 
-let controlRenderer = Js.Unsafe.variable "goog.ui.ControlRenderer"
+let controlRenderer = Tools.variable "[oclosure]goog.ui.ControlRenderer[/oclosure]"
 let controlRenderer : #control controlRenderer t constr = controlRenderer
 
-let control = Js.Unsafe.variable "goog.ui.Control"
+let control = Tools.variable "[oclosure]goog.ui.Control[/oclosure]"
 let control : ControlContent.controlContent -> control #controlRenderer t -> 
   Gdom.domHelper t opt -> control t constr = control

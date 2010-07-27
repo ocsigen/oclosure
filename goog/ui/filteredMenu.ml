@@ -52,6 +52,6 @@ class type filteredMenu = object
   method setVisible : bool t -> bool t opt -> bool t meth
 end
 	  
-let tmp = Js.Unsafe.variable "goog.ui.FilteredMenu"
+let tmp = Tools.variable "[oclosure]goog.ui.FilteredMenu[/oclosure]"
 let filteredMenu : (filteredMenu #Menu.menuRenderer t opt -> 
   Gdom.domHelper t opt -> filteredMenu t) constr = tmp

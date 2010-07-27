@@ -30,4 +30,4 @@ end
 
 let hsvaPalette : (Gdom.domHelper t opt -> js_string t opt -> float opt
 		     -> js_string t opt ->  hsvaPalette t) constr = 
-  Js.Unsafe.variable "goog.ui.HsvaPalette"
+  Tools.variable "[oclosure]goog.ui.HsvaPalette[/oclosure]"

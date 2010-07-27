@@ -26,4 +26,4 @@ class type tableSorter = object
 end
 
 let tableSorter : (Gdom.domHelper t opt -> tableSorter t) constr = 
-  Js.Unsafe.variable "goog.ui.TableSorter"
+  Tools.variable "[oclosure]goog.ui.TableSorter[/oclosure]"

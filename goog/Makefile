@@ -11,7 +11,7 @@ LIB=$(JS_OF_OCAML_PATH)/lib
 INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
 OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
-OCAMLIFLAGS=$(INCLUDES) -package js_of_ocaml -pp "cpp -traditional-cpp" 
+OCAMLIFLAGS=$(INCLUDES) -package js_of_ocaml -pp "cpp -traditional-cpp"
 GOOG=goog.cmo
 OCLOSURE=oclosure.cma
 MLS=$(shell find * -name "*.ml")
@@ -50,8 +50,7 @@ ocamldsort: ocamldep
 var:
 	@echo $(FILES)
 
-doc:	
-	mkdir -p ../doc
+doc:
 	$(OCAMLFIND) $(OCAMLDOC) -stars -html -d ../doc $(OCAMLIFLAGS) goog.mli
 
 cleanall: clean
@@ -59,4 +58,5 @@ cleanall: clean
 
 clean:
 	@echo "[CLEAN]"
+	-rm -f $(OCLOSURE)
 	-find . -name "*.cm[oix]" -exec rm {} \;

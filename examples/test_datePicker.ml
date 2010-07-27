@@ -43,7 +43,7 @@ let _ =
 	else Js.string "none"))
     Js.null
 
-let dp_en_US = jsnew Goog.Ui.datePicker(Js.null, Js.some (of_dateTimeSymbols DateTimeSymbols_en_US))
+let dp_en_US = jsnew Goog.Ui.datePicker(Js.null, Js.some (dateTimeSymbols_en_US))
 let _ = 
   dp_en_US##render(Js.some(get_el "widget_en_US"));
   Goog.Events.listen
@@ -56,7 +56,7 @@ let _ =
 	else Js.string "none"))
     Js.null
 
-let dp_fr = jsnew Goog.Ui.datePicker(Js.null, Js.some (of_dateTimeSymbols DateTimeSymbols_fr))
+let dp_fr = jsnew Goog.Ui.datePicker(Js.null, Js.some (dateTimeSymbols_fr))
 let _ = 
   dp_fr##render(Js.some(get_el "widget_fr"));
   ignore (Goog.Events.listen
@@ -72,7 +72,7 @@ let _ =
     (get dp_fr##getDate())##toIsoString(Js.some Js._true, Js.null)
       
 
-let dp_ml = jsnew Goog.Ui.datePicker(Js.null, Js.some (of_dateTimeSymbols DateTimeSymbols_ml))
+let dp_ml = jsnew Goog.Ui.datePicker(Js.null, Js.some (dateTimeSymbols_ml))
 let _ =
   dp_ml##render(Js.some(get_el "widget_ml"));
   ignore(Goog.Events.listen

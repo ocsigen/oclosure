@@ -16,4 +16,4 @@ class type box = object
 end
 
 let box : (int -> int -> int -> int -> box t) constr = 
-  Js.Unsafe.variable "goog.math.Box"
+  Tools.variable "[oclosure]goog.math.Box[/oclosure]"

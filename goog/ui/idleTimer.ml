@@ -21,5 +21,5 @@ end
 
 let idleTimer : float t -> ActivityMonitor.activityMonitor t opt 
   -> idleTimer t constr = 
-  Js.Unsafe.variable "goog.ui.IdleTimer"
+  Tools.variable "[oclosure]goog.ui.IdleTimer[/oclosure]"
 

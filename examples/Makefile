@@ -2,6 +2,7 @@ SRC=$(wildcard *.ml)
 EXECS=$(SRC:.ml=.byte)
 TARGETS=$(SRC:.ml=.js)
 LIB=
+SCRIPTS=../scripts
 OCAMLFLAGS=-package js_of_ocaml -syntax camlp4o
 GOOG=../goog
 all: $(TARGETS)
@@ -12,6 +13,7 @@ all: $(TARGETS)
 
 %.js: %.byte
 	js_of_ocaml $^ -pretty
+	ocaml str.cma $(SCRIPTS)/requirements.ml $@
 
 ocamldep:
 	ocamlfind ocamldep -I $(GOOG) -I $(GOOG)/ui $(OCAMLFLAGS) $(SRC) 

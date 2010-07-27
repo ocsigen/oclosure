@@ -39,6 +39,6 @@ class type ['but] nativeButtonRenderer = object
   method updateAriaState : unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.NativeButtonRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.NativeButtonRenderer[/oclosure]"
 let nativeButtonRenderer : #Button.button nativeButtonRenderer t constr = tmp
 

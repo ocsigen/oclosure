@@ -55,4 +55,4 @@ and eventWrapper = object
 end
 
 let eventHandler : (eventHandler t) constr = 
-  Js.Unsafe.variable "goog.events.EventHandler"
+  Tools.variable "[oclosure]goog.events.EventHandler[/oclosure]"

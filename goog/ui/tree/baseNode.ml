@@ -151,7 +151,7 @@ class type ['a] baseNode = object
   method setClientData : 'a opt -> unit meth      
 end
 
-let baseNode = Js.Unsafe.variable "goog.ui.tree.BaseNode"
+let baseNode = Tools.variable "[oclosure]goog.ui.tree.BaseNode[/oclosure]"
 let baseNode : (js_string t -> config opt -> DomHelper.domHelper t opt -> 'a baseNode t) constr = baseNode
 
 module BaseNode = struct

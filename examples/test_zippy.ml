@@ -1,4 +1,3 @@
-
 module D = Dom_html
 let d = D.document
 
@@ -18,6 +17,12 @@ let z2 = jsnew Goog.Ui.animatedZippy (
   Js.some (Goog.Tools.Union.i2 (Js.string "content2")),
   Js.null)
 
+let _ = Goog.Events.listen 
+    (Goog.Tools.Union.i1 z)
+    (Js.string "hover")
+    (Js.wrap_callback (fun () -> z##toggle()))
+    Js.null
+
 let js_not b = Js.bool (not (Js.to_bool b))
 
 let _ = Goog.Events.listen
@@ -25,7 +30,4 @@ let _ = Goog.Events.listen
     (Js.string "toggle")
     (Js.wrap_callback (fun () -> z2##setExpanded(js_not z##isExpanded())))
     Js.null
-(*
-    extract_react_event : #enventTarget t -> [<`Click| `Change |`Toto] list -> (unit -> unit) -> Event.id
-*)
-let _ = z##setExpanded(Js._true)
+

@@ -18,7 +18,7 @@ class type dragScrollSupport = object
   method setConstrainScroll : bool t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.fx.DragScrollSupport"
+let tmp = Tools.variable "[oclosure]goog.fx.DragScrollSupport[/oclosure]"
 let dragScrollSupport : (#Dom_html.element t -> int opt -> bool t opt 
   -> dragScrollSupport t) constr = tmp
   

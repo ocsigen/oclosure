@@ -16,4 +16,4 @@ end
 
 let dateTimeParse : ((js_string t, DateTimeFormat.DateTimeFormat.format) Tools.Union.t 
 		      -> dateTimeParse t) constr = 
-  Js.Unsafe.variable "goog.i18n.DateTimeParse"
+  Tools.variable "[oclosure]goog.i18n.DateTimeParse[/oclosure]"

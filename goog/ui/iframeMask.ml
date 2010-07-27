@@ -29,4 +29,4 @@ class type iframeMask = object
 end
 
 let iframeMask : Gdom.domHelper t opt -> Structs.pool t opt ->
-  iframeMask t constr = Js.Unsafe.variable "goog.ui.IframeMask"
+  iframeMask t constr = Tools.variable "[oclosure]goog.ui.IframeMask[/oclosure]"

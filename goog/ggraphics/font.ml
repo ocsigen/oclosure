@@ -16,4 +16,4 @@ class type font = object
 end
 
 let font : (int -> js_string t -> font t) constr =
-  Js.Unsafe.variable "goog.graphics.Font"
+  Tools.variable "[oclosure]goog.graphics.Font[/oclosure]"

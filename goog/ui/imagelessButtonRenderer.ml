@@ -21,11 +21,10 @@ class type ['but] imagelessButtonRenderer = object
   method getCssClass : js_string t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ImagelessButtonRenderer"
+let ibr = Tools.variable "[oclosure]goog.ui.ImagelessButtonRenderer[/oclosure]"
 let imagelessButtonRenderer : 
-    (#Button.button imagelessButtonRenderer t) constr = tmp
+    (#Button.button imagelessButtonRenderer t) constr = ibr
 
 module ImagelessButtonRenderer = struct
-  let getInstance () = Js.Unsafe.fun_call 
-    (Js.Unsafe.variable "goog.ui.imagelessButtonRenderer.getInstance") [||]
+  let getInstance () = ibr##getInstance()
 end

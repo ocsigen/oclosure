@@ -71,36 +71,6 @@ let _ =
   createColorPaletteDemo (js_arr [|"#000"; "#444"; "#666"; "#999"; 
 				   "#AAA"; "#CCC"; "#EEE"; "#FFF"|]) 8
     (to_s"This is a grey scale color palette:")
-(*
-let cpc = get_el"cp" in
-cpc##appendChild(doc##createTextNode("Change: "));
-cpc##appendChild(Dom_html.createSpan
-   Goog.Gdom.createDom("span",
-        {"class": "fakelink", "onclick": function() {
-   cpg.setColors(
-   [|"#000"; "#400"; "#600"; "#900"; 
-   "#A00"; "#C00"; "#E00"; "#F00"|]);
-        }}, "Reds"));
-    cpc.appendChild(document.createTextNode(", "));
-    cpc.appendChild(Goog.Gdom.createDom("span",
-        {"class": "fakelink", "onclick": function() {
-          cpg.setColors(
-              ["#000"; "#040"; "#060"; "#090"; "#0A0"; "#0C0"; "#0E0"; "#0F0"]);
-        }}, "Greens"));
-    cpc.appendChild(document.createTextNode(", "));
-    cpc.appendChild(Goog.Gdom.createDom("span",
-        {"class": "fakelink", "onclick": function() {
-          cpg.setColors(
-              ["#000"; "#004"; "#006"; "#009"; "#00A"; "#00C"; "#00E"; "#00F"]);
-        }}, "Blues"));
-    cpc.appendChild(document.createTextNode(", "));
-    cpc.appendChild(Goog.Gdom.createDom("span",
-        {"class": "fakelink", "onclick": function() {
-          cpg.setColors(
-              ["#000"; "#444"; "#666"; "#999"; "#AAA"; "#CCC"; "#EEE"; "#FFF"]);
-        }}, "Greys"));
-
-*)
 
 let cp = jsnew Goog.Ui.customColorPalette(js_arr[|"#FE1";"#ACD";"#119"|],
 					  Js.null, Js.null)

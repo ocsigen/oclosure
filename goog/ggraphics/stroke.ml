@@ -17,6 +17,6 @@ class type stroke = object
 end
 
 let stroke : ((int, js_string t) Union.t opt -> js_string t -> stroke t) constr =
-  Js.Unsafe.variable "goog.graphics.Stroke"
+  Tools.variable "[oclosure]goog.graphics.Stroke[/oclosure]"
 
 

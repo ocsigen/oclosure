@@ -56,9 +56,9 @@ class type ['pal] paletteRenderer = object
   method createDom : 'pal t -> Dom_html.element t meth
 end
 
-let paletteRenderer = Js.Unsafe.variable "goog.ui.PaletteRenderer"
+let paletteRenderer = Tools.variable "[oclosure]goog.ui.PaletteRenderer[/oclosure]"
 let paletteRenderer : #palette paletteRenderer t constr = paletteRenderer
 
-let palette = Js.Unsafe.variable "goog.ui.Palette"
+let palette = Tools.variable "[oclosure]goog.ui.Palette[/oclosure]"
 let palette : (#Dom.node t js_array t -> palette #paletteRenderer t opt -> Gdom.domHelper t opt -> palette t) constr = palette
 

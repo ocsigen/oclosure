@@ -21,6 +21,6 @@ class type ['but] flatButtonRenderer = object
 
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.FlatButtonRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.FlatButtonRenderer[/oclosure]"
 let flatButtonRenderer : (#Button.button flatButtonRenderer t) constr = tmp
   

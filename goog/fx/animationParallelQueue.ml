@@ -21,4 +21,4 @@ class type animationParallelQueue = object
 end
 
 let animationParallelQueue : (animationParallelQueue t) constr = 
-  Js.Unsafe.variable "goog.fx.AnimationParallelQueue"
+  Tools.variable "[oclosure]goog.fx.AnimationParallelQueue[/oclosure]"

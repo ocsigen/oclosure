@@ -1,5 +1,5 @@
 open Js
-open Goog.Spell
+module GS = Goog.Spell
 
 let dict = ["test"; "words"; "a"; "few"]
 let propose = Array.map Js.string [|"foo"; "bar"; "test"|]
@@ -11,13 +11,13 @@ let spell_checking words spell_checker callback =
       ignore
 	(results##push
 	   (if List.mem (Js.to_string w) dict then
-	     wordEntry w VALID (Js.array [||])
+	     GS.wordEntry w GS.VALID (Js.array [||])
 	   else
-             wordEntry w INVALID (Js.array propose))))
+             GS.wordEntry w GS.INVALID (Js.array propose))))
   done;
-  invokeCallback callback spell_checker results
+  GS.invokeCallback callback spell_checker results
 
-let handler = jsnew spellCheck(Js.wrap_callback spell_checking)
+let handler = jsnew GS.spellCheck(Js.wrap_callback spell_checking)
 
 let s = jsnew Goog.Ui.plainTextSpellChecker (handler, Js.null)
 

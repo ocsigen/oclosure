@@ -33,4 +33,4 @@ class type dragListGroup = object
 end
 
 let dragListGroup : (dragListGroup t) constr = 
-  Js.Unsafe.variable "goog.fx.DragListGroup"
+  Tools.variable "[oclosure]goog.fx.DragListGroup[/oclosure]"

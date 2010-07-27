@@ -30,4 +30,4 @@ end
 
 let dateTimeFormat : ((js_string t, DateTimeFormat.format) Tools.Union.t 
 		      -> dateTimeFormat t) constr = 
-  Js.Unsafe.variable "goog.i18n.DateTimeFormat"
+  Tools.variable "[oclosure]goog.i18n.DateTimeFormat[/oclosure]"

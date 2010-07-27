@@ -42,6 +42,6 @@ class type dragger = object
   method startDrag : Events.browserEvent t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.fx.Dragger"
+let tmp = Tools.variable "[oclosure]goog.fx.Dragger[/oclosure]"
 let dragger : (#Dom_html.element t -> #Dom_html.element t opt -> Math.rect t opt
   -> dragger t) constr = tmp 

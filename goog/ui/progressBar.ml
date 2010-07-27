@@ -29,7 +29,7 @@ class type progressBar = object
 end
 
 let progressBar : progressBar t constr =
-  Js.Unsafe.variable "goog.ui.ProgressBar"
+  Tools.variable "[oclosure]goog.ui.ProgressBar[/oclosure]"
 
 module ProgressBar = struct
   module Orientation = struct

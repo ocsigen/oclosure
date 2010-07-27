@@ -28,10 +28,9 @@ class type timeZone = object
 
 end
 
-let timeZone : timeZone t constr = Js.Unsafe.variable "goog.i18n.TimeZone"
+let tz = Tools.variable "[oclosure]goog.i18n.TimeZone[/oclosure]"
+let timeZone : timeZone t constr = tz
 
 module TimeZone = struct
-  let createTimeZone (offset:int) : timeZone t = Js.Unsafe.fun_call
-    (Js.Unsafe.variable "goog.i18n.TimeZone.createTimeZone")
-    [|Js.Unsafe.inject offset|]
+  let createTimeZone (offset:int) : timeZone t = tz##createTimeZone (offset)
 end

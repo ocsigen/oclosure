@@ -26,6 +26,6 @@ class type ['but] flatMenuButtonRenderer = object
   method getCssClass : js_string t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.FlatMenuButtonRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.FlatMenuButtonRenderer[/oclosure]"
 let flatMenuButtonRenderer : (#Button.button flatMenuButtonRenderer t) constr = 
   tmp

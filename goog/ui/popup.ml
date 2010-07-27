@@ -21,6 +21,6 @@ class type popup = object
   method reposition : unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.Popup"
+let tmp = Tools.variable "[oclosure]goog.ui.Popup[/oclosure]"
 let popup : (#Dom_html.element t opt -> Positioning.abstractPosition t opt 
   -> popup t) constr = tmp

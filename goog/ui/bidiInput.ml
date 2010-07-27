@@ -21,4 +21,4 @@ class type bidiInput = object
 end
 
 let bidiInput : (Gdom.domHelper t opt -> bidiInput t) constr = 
-  Js.Unsafe.variable "goog.ui.BidiInput"
+  Tools.variable "[oclosure]goog.ui.BidiInput[/oclosure]"

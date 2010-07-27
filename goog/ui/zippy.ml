@@ -28,7 +28,7 @@ class type zippy = object
   method toggle : unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.Zippy" 
+let tmp = Tools.variable "[oclosure]goog.ui.Zippy[/oclosure]" 
 let zippy : ((#Dom_html.element t, js_string t) Union.t opt 
 	  -> (#Dom_html.element t, js_string t) Union.t opt -> bool t opt 
 	  -> (#Dom_html.element t, js_string t) Union.t opt 

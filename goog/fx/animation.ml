@@ -24,4 +24,4 @@ end
 
 let animation : (int js_array t -> int js_array t -> int -> 
   (float t -> float t) opt -> animation t) constr = 
-  Js.Unsafe.variable "goog.fx.Animation"
+  Tools.variable "[oclosure]goog.fx.Animation[/oclosure]"

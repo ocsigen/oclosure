@@ -28,7 +28,7 @@ class type triStateMenuItem = object
   method performActionInternal : event t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.TriStateMenuItem"
+let tmp = Tools.variable "[oclosure]goog.ui.TriStateMenuItem[/oclosure]"
 let triStateMenuItem : (ControlContent.controlContent -> domHelper t opt -> 
 triStateMenuItem #menuItemRenderer t opt -> triStateMenuItem t ) constr = tmp
  

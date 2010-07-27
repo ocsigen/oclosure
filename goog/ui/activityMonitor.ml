@@ -24,5 +24,5 @@ end
 let activityMonitor : 
     (Gdom.domHelper t, Gdom.domHelper t js_array t) Tools.Union.t 
     -> activityMonitor t constr = 
-  Js.Unsafe.variable "goog.ui.ActivityMonitor"
+  Tools.variable "[oclosure]goog.ui.ActivityMonitor[/oclosure]"
 

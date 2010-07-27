@@ -13,6 +13,10 @@ open Zippy
 
 class type animatedZippy = object
   inherit zippy
+
+(**  Duration of expand/collapse animation, in milliseconds. *)
+  method animationDuration : int prop
+
   (**  Acceleration function for expand/collapse animation. *)
   method animationAcceleration : float -> float t meth
   

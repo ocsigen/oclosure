@@ -2,9 +2,9 @@ open Js
 
 include DomHelper
 
-let setTextContent (e : #Dom_html.element t) (s : js_string t) = Unsafe.fun_call
-    (Unsafe.variable "goog.dom.setTextContent")
-    [| Unsafe.inject e; Unsafe.inject s|]
+let gdom = Tools.variable "[oclosure]goog.dom[/oclosure]"
+let setTextContent (e : #Dom_html.element t) (s : js_string t) = 
+  gdom##setTextContent(e, s)
 
 module A11y = struct
   type role =

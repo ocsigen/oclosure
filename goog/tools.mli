@@ -1,10 +1,9 @@
 (**
-   OClosure Project - 2010
    Tools module
    
    Provide some tools for the OClosure library
    
-   @author : Cardoso Gabriel
+   @author Cardoso Gabriel
    @version 0.2
 *)
 
@@ -16,8 +15,8 @@ module Union : sig
   val i2 : 'b -> ('a, 'b) t
 end
 
-(*
-let require (s : js_string t) : unit = Js.Unsafe.fun_call
-    (Js.Unsafe.variable "goog.require")
-    [|Js.Unsafe.inject s|]
+(** The expression [variable s] where [s] has the form 
+   ["[oclosure]goog.package.ClassName[/oclosure]"] is considered as a pure
+   expression by the compiler. Used in constructors
 *)
+val variable : string -> 'a

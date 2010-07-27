@@ -1,3 +1,4 @@
 open Js
 
-let iE : bool t = Js.Unsafe.variable "goog.UserAgent.IE"
+let ua = Tools.variable "[oclosure]goog.userAgent[/oclosure]"
+let iE : bool t =  ua##_IE

@@ -16,4 +16,4 @@ class type option = object
 end
 
 let option : (ControlContent.controlContent -> bool t opt -> domHelper t opt -> option t ) constr = 
-  Js.Unsafe.variable "goog.ui.Option"
+  Tools.variable "[oclosure]goog.ui.Option[/oclosure]"

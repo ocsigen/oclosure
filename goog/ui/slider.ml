@@ -13,4 +13,4 @@ class type slider = object
 end
 
 let slider : (Gdom.domHelper t opt -> slider t) constr =
-  Js.Unsafe.variable "goog.ui.Slider"
+  Tools.variable "[oclosure]goog.ui.Slider[/oclosure]"

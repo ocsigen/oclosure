@@ -63,4 +63,4 @@ end
 
 let popupColorPicker : (Gdom.domHelper t opt -> ColorPicker.colorPicker t opt 
 			  -> popupColorPicker t) constr =
-  Js.Unsafe.variable "goog.ui.PopupColorPicker"
+  Tools.variable "[oclosure]goog.ui.PopupColorPicker[/oclosure]"

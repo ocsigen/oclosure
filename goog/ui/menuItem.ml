@@ -47,9 +47,9 @@ class type ['menuIt] menuItemRenderer = object
     -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.MenuItemRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.MenuItemRenderer[/oclosure]"
 let menuItemRenderer : (#menuItem menuItemRenderer t) constr = tmp
 
-let menuItem = Js.Unsafe.variable "goog.ui.MenuItem"
+let menuItem = Tools.variable "[oclosure]goog.ui.MenuItem[/oclosure]"
 let menuItem : (ControlContent.controlContent -> Gdom.domHelper t opt 
   -> menuItem #menuItemRenderer t opt -> menuItem t) constr = menuItem

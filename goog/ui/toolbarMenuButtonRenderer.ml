@@ -15,6 +15,6 @@ class type ['but] toolbarMenuButtonRenderer = object
   method getCssClass : js_string t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ToolbarMenuButtonRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.ToolbarMenuButtonRenderer[/oclosure]"
 let toolbarMenuButtonRenderer : (toolbarMenuButton #toolbarMenuButtonRenderer t) constr = 
   tmp

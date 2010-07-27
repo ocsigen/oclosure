@@ -13,14 +13,15 @@ open Tools
 class type animatedZippy = object
   inherit zippy
 
+  method animationDuration : int prop
+
   method animationAcceleration : float -> float t meth
   
   method setExpanded : bool t -> unit meth
 
 end
 
-let unit x = Js.Unsafe.variable (String.sub x 10 (String.length x - 21))
-let tmp = unit "[oclosure]goog.ui.AnimatedZippy[/oclosure]"
+let tmp = Tools.variable "[oclosure]goog.ui.AnimatedZippy[/oclosure]"
 let animatedZippy : ((#Dom_html.element t, js_string t) Union.t opt -> 
   (#Dom_html.element t, js_string t) Union.t opt -> bool t opt 
   -> animatedZippy t) constr = tmp

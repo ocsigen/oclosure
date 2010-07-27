@@ -21,4 +21,4 @@ class type plainTextSpellChecker = object
 end
 
 let plainTextSpellChecker : (plainTextSpellChecker t Spell.spellCheck t -> Gdom.domHelper t opt -> plainTextSpellChecker t) constr = 
-  Js.Unsafe.variable "goog.ui.PlainTextSpellChecker"
+  Tools.variable "[oclosure]goog.ui.PlainTextSpellChecker[/oclosure]"

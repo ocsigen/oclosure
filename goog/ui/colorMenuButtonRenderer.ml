@@ -20,5 +20,6 @@ class type ['but] colorMenuButtonRenderer = object
   method setValue : #Dom_html.element t -> js_string t -> unit meth
 end
 
-let colorMenuButtonRenderer : (colorMenuButton colorMenuButtonRenderer t) constr
-    = Js.Unsafe.variable "goog.ui.ColorMenuButtonRenderer"
+let colorMenuButtonRenderer : 
+    (colorMenuButton colorMenuButtonRenderer t) constr = 
+  Tools.variable "[oclosure]goog.ui.ColorMenuButtonRenderer[/oclosure]"

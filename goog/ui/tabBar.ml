@@ -65,10 +65,10 @@ class type ['cont] tabBarRenderer = object
   method getClassNames : 'cont t -> js_string t js_array t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.TabBarRendered"
+let tmp = Tools.variable "[oclosure]goog.ui.TabBarRendered[/oclosure]"
 let tabBarRenderer : tabBar #tabBarRenderer t constr = tmp
 
-let tmp = Js.Unsafe.variable "goog.ui.TabBar"
+let tmp = Tools.variable "[oclosure]goog.ui.TabBar[/oclosure]"
 let tabBar : (TabBar.location_pre opt -> tabBar #tabBarRenderer t opt -> Gdom.domHelper t opt -> tabBar t) constr = 
   tmp
     

@@ -17,7 +17,7 @@ class type gaugeColoredRange = object
 end
 
 let gaugeColoredRange : (int -> int -> js_string t -> gaugeColoredRange t) constr =  
-  Js.Unsafe.variable "goog.ui.GaugeColoredRange"
+  Tools.variable "[oclosure]goog.ui.GaugeColoredRange[/oclosure]"
 
 class type gauge = object
   inherit component
@@ -61,7 +61,7 @@ class type gauge = object
 end   
 
 let gauge : (int -> int -> domHelper t opt -> gauge t) constr =
-  Js.Unsafe.variable "goog.ui.Gauge"
+  Tools.variable "[oclosure]goog.ui.Gauge[/oclosure]"
 
 module Gauge = struct 
   let _RED = Js.string "#ffc0c0"

@@ -42,5 +42,5 @@ class type subMenu = object
   method isPositionAdjustable : bool t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.uiSubMenu"
+let tmp = Tools.variable "[oclosure]goog.ui.SubMenu[/oclosure]"
 let subMenu : (ControlContent.controlContent -> Gdom.domHelper t opt -> subMenu #MenuItem.menuItemRenderer t opt -> subMenu t) constr = tmp

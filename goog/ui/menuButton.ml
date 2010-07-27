@@ -84,7 +84,7 @@ class type menuButton = object
   
 end
 
-let menuButton = Js.Unsafe.variable "goog.ui.MenuButton"
+let menuButton = Tools.variable "[oclosure]goog.ui.MenuButton[/oclosure]"
 let menuButton : (ControlContent.controlContent -> menu t opt -> 
   menuButton #Button.buttonRenderer t opt -> Gdom.domHelper t opt -> 
   menuButton t) constr = menuButton

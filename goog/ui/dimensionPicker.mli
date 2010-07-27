@@ -45,7 +45,7 @@ class type ['dimPckr] dimensionPickerRenderer = object
 
   method setHighlightedSize : dimensionPicker t -> int -> int -> unit meth
 
-  method updateSize : dimensionPicker t -> Dom_html.element t -> unit meth
+  method updateSize : dimensionPicker t -> #Dom_html.element t -> unit meth
 end
 
 val dimensionPicker : (dimensionPicker dimensionPickerRenderer t opt 

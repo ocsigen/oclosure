@@ -17,4 +17,4 @@ class type charPickerData = object
 end
 
 let charPickerData : charPickerData t constr =
-  Js.Unsafe.variable "goog.i18n.CharPickerData"
+  Tools.variable "[oclosure]goog.i18n.CharPickerData[/oclosure]"

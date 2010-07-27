@@ -19,4 +19,4 @@ class type comboBoxItem = object
 end
 
 let comboBoxItem : (js_string t -> comboBoxItem t) constr = 
-  Js.Unsafe.variable "goog.ui.ComboBoxItem"
+  Tools.variable "[oclosure]goog.ui.ComboBoxItem[/oclosure]"

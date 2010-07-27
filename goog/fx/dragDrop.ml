@@ -67,13 +67,13 @@ class type dragDrop = object
   inherit abstractDragDrop
 end
 
-let tmp = Js.Unsafe.variable "goog.fx.DragDropItem"
+let tmp = Tools.variable "[oclosure]goog.fx.DragDropItem[/oclosure]"
 let dragDropItem : ((#Dom_html.element t, js_string t) Tools.Union.t 
 		    -> dragDropItem t) constr = tmp
 
 let abstractDragDrop : abstractDragDrop t constr =
-  Js.Unsafe.variable "goog.fx.AbstractDragDrop"
+  Tools.variable "[oclosure]goog.fx.AbstractDragDrop[/oclosure]"
 
-let tmp = Js.Unsafe.variable "goog.fx.DragDrop"
+let tmp = Tools.variable "[oclosure]goog.fx.DragDrop[/oclosure]"
 let dragDrop : ((#Dom_html.element t, js_string t) Tools.Union.t 
 		-> dragDrop t) constr = tmp

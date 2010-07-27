@@ -49,5 +49,5 @@ class type tooltip = object
   method className : js_string t prop
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.Tooltip"
+let tmp = Tools.variable "[oclosure]goog.ui.Tooltip[/oclosure]"
 let tooltip : ((#Dom_html.element t, js_string t) Union.t opt -> js_string t opt -> domHelper t opt -> tooltip t) constr = tmp

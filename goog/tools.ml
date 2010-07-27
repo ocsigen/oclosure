@@ -1,10 +1,9 @@
 (**
-   OClosure Project - 2010
    Tools module
    
    Provide some tools for the OClosure library
    
-   @author : Cardoso Gabriel
+   @author Cardoso Gabriel
    @version 0.2
 *)
 
@@ -16,6 +15,5 @@ module Union = struct
   let i2 : 'b -> ('a, 'b) t = Obj.magic 
 end
 
-let require (s : js_string t) : unit = Js.Unsafe.fun_call
-    (Js.Unsafe.variable "goog.require")
-    [|Js.Unsafe.inject s|]
+let variable s = Js.Unsafe.pure_expr 
+    (fun () -> Js.Unsafe.variable (String.sub s 10 (String.length s - 21)))

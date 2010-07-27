@@ -14,6 +14,6 @@ class type ['but] linkButtonRenderer = object
   method getCssClass : js_string t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.LinkButtonRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.LinkButtonRenderer[/oclosure]"
 let linkButtonRenderer : (#Button.button linkButtonRenderer t) constr = tmp
   

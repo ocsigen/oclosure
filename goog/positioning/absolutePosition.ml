@@ -16,4 +16,4 @@ class type absolutePosition = object
 end
 
 let absolutePosition : ((int, Math.coordinate) Tools.Union.t -> int opt ->absolutePosition t) constr = 
-   Js.Unsafe.variable "goog.positioning.AbsolutePosition"
+   Tools.variable "[oclosure]goog.positioning.AbsolutePosition[/oclosure]"

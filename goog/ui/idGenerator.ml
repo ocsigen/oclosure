@@ -11,10 +11,9 @@ class type idGenerator = object
   method getNexUniqueId : js_string t meth
 end
 
-let idGenerator : idGenerator t constr = 
-  Js.Unsafe.variable "goog.ui.IdGenerator"
+let idg = Tools.variable "[oclosure]goog.ui.IdGenerator[/oclosure]" 
+let idGenerator : idGenerator t constr = idg
 
 module IdGenerator = struct
-  let getInstance ()= Js.Unsafe.fun_call 
-    (Js.Unsafe.variable "goog.ui.IdGenerator.getInstance") [||]
+  let getInstance ()= idg##getInstance()
 end

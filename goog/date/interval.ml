@@ -19,4 +19,4 @@ class type interval = object
 end
 
 let interval : ((int, Js.js_string Js.t) Tools.Union.t Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> interval Js.t) Js.constr = 
-  Js.Unsafe.variable "goog.date.Interval"
+  Tools.variable "[oclosure]goog.date.Interval[/oclosure]"

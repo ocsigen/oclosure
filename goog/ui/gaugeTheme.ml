@@ -40,4 +40,4 @@ class type gaugeTheme = object
 end
 
 let gaugeTheme : gaugeTheme t constr =
-  Js.Unsafe.variable "goog.ui.GaugeTheme"
+  Tools.variable "[oclosure]goog.ui.GaugeTheme[/oclosure]"

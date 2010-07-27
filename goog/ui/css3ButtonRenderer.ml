@@ -22,6 +22,6 @@ class type ['but] css3ButtonRenderer = object
   method getCssClass : js_string t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.Css3ButtonRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.Css3ButtonRenderer[/oclosure]"
 let css3ButtonRenderer : (#Button.button css3ButtonRenderer t) constr = tmp 
 

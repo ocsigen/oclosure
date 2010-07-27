@@ -30,7 +30,7 @@ class type delay = object
   method stop : unit meth
 end
 
-let delay = Js.Unsafe.variable "goog.async.Delay"
+let delay = Tools.variable "[oclosure]goog.async.Delay[/oclosure]"
 let delay : ((unit -> unit) callback -> int opt -> 'a t opt 
   -> delay t) constr = delay
 

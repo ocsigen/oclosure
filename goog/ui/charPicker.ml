@@ -26,4 +26,4 @@ class type charPicker = object
 end
 
 let charPicker : (I18n.charPickerData t -> js_string t js_array t -> int opt -> int opt -> int opt -> int opt -> Gdom.domHelper t opt -> charPicker t) constr =
-  Js.Unsafe.variable "goog.ui.CharPicker"
+  Tools.variable "[oclosure]goog.ui.CharPicker[/oclosure]"

@@ -21,5 +21,5 @@ class type abstractPosition = object
 end
 
 let abstractPosition : abstractPosition t constr =
-  Js.Unsafe.variable "goog.positioning.AbstractPosition"
+  Tools.variable "[oclosure]goog.positioning.AbstractPosition[/oclosure]"
 

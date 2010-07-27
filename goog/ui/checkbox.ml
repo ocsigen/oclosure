@@ -37,4 +37,4 @@ class type checkbox = object
 end
 
 let checkbox : (bool t opt -> checkbox t) constr =
-  Js.Unsafe.variable "goog.ui.Checkbox"
+  Tools.variable "[oclosure]goog.ui.Checkbox[/oclosure]"

@@ -12,4 +12,4 @@ class type pool = object
 end
 
 let pool : int opt -> int opt -> pool t constr = 
-  Js.Unsafe.variable "goog.structs.Pool"
+  Tools.variable "[oclosure]goog.structs.Pool[/oclosure]"

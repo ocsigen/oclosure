@@ -172,11 +172,11 @@ and ['cont] containerRenderer = object
   method initializeDom : 'cont t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ContainerRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.ContainerRenderer[/oclosure]"
 let containerRenderer : (#container containerRenderer t) constr = tmp
 
 
-let tmp = Js.Unsafe.variable "goog.ui.Container"
+let tmp = Tools.variable "[oclosure]goog.ui.Container[/oclosure]"
 let container : (Container.orientation_pre opt -> container #containerRenderer t opt -> Gdom.domHelper t opt -> container t) constr =
   tmp
 

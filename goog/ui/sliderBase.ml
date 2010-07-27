@@ -49,5 +49,5 @@ class type sliderBase = object
 end
 
 let sliderBase : (Gdom.domHelper t opt -> sliderBase t) constr =
-  Js.Unsafe.variable "goog.ui.SliderBase"
+  Tools.variable "[oclosure]goog.ui.SliderBase[/oclosure]"
     

@@ -17,5 +17,5 @@ class type toolbarSelect = object
   inherit select
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ToolbarSelect"
+let tmp = Tools.variable "[oclosure]goog.ui.ToolbarSelect[/oclosure]"
 let toolbarSelect : (ControlContent.controlContent opt -> menu t -> toolbarSelect #menuButtonRenderer t opt -> domHelper t opt -> toolbarSelect t) constr = tmp 

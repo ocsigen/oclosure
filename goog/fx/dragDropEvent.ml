@@ -14,7 +14,7 @@ class type dragDropEvent = object
   method disposeInternal : unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.fx.DragDropEvent"
+let tmp = Tools.variable "[oclosure]goog.fx.DragDropEvent[/oclosure]"
 let dragDropEvent : (js_string t -> #DragDrop.abstractDragDrop t -> 
   DragDrop.dragDropItem t -> #DragDrop.abstractDragDrop t opt -> 
   DragDrop.dragDropItem t opt -> #Dom_html.element t opt -> int opt -> 

@@ -55,7 +55,7 @@ class type autoComplete = object
 end
 
 (*let autocomplete : (obj -> eventTarget -> obj -> autocomplete t) constr = 
-  Js.Unsafe.variable "goog.ui.AutoComplete"*)
+  Tools.variable "[oclosure]goog.ui.AutoComplete[/oclosure]"*)
 
   
 module AutoComplete = struct 
@@ -83,7 +83,7 @@ module AutoComplete = struct
 	    
   let arrayMatcher : (js_string t array -> bool t opt 
     -> arrayMatcher t) constr = 
-    Js.Unsafe.variable "goog.ui.AutoComplete.ArrayMatcher"
+    Tools.variable "[oclosure]goog.ui.AutoComplete.ArrayMatcher[/oclosure]"
 
   class type inputHandler = object
     inherit disposable 
@@ -141,7 +141,7 @@ module AutoComplete = struct
 
 
   let inputHandler : (js_string t opt -> js_string t opt -> bool t opt -> int -> inputHandler t) constr =
-    Js.Unsafe.variable "goog.ui.AutoComplete.InputHandler"
+    Tools.variable "[oclosure]goog.ui.AutoComplete.InputHandler[/oclosure]"
 
   module InputHandler = struct
     let _STANDARD_LIST_SEPARATORS = Js.string ",;"
@@ -152,7 +152,7 @@ module AutoComplete = struct
   class type basic = object
     inherit autoComplete
   end
-  let tmp = Js.Unsafe.variable "goog.ui.AutoComplete.Basic"
+  let tmp = Tools.variable "[oclosure]goog.ui.AutoComplete.Basic[/oclosure]"
   let basic : (string js_array t -> #Dom_html.element t -> bool t opt -> bool t opt -> basic t) constr = tmp   
 
   class type remote = object 
@@ -171,7 +171,7 @@ module AutoComplete = struct
     method setTimeoutInterval : float -> unit meth  
   end
 
-  let tmp = Js.Unsafe.variable "goog.ui.AutoComplete.Remote"
+  let tmp = Tools.variable "[oclosure]goog.ui.AutoComplete.Remote[/oclosure]"
   let remote : (js_string t -> #Dom_html.element t -> bool t opt -> bool t opt 
     -> remote t) constr = tmp
 
@@ -180,7 +180,7 @@ module AutoComplete = struct
     method setRowFilter : (unit -> unit) callback -> unit meth      
   end
 
-  let tmp = Js.Unsafe.variable "goog.ui.AutoComplete.RichRemote"
+  let tmp = Tools.variable "[oclosure]goog.ui.AutoComplete.RichRemote[/oclosure]"
   let richRemote : (js_string t -> #Dom_html.element t -> bool t opt -> bool t opt -> richRemote t) constr = tmp
  
 end

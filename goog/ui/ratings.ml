@@ -28,7 +28,7 @@ class type ratings = object
 end
 
 let ratings : ratings t constr =
-  Js.Unsafe.variable "goog.ui.Ratings" 
+  Tools.variable "[oclosure]goog.ui.Ratings[/oclosure]" 
 
 module Ratings = struct 
   module Display = struct

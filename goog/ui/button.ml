@@ -46,10 +46,10 @@ class type ['but] buttonRenderer = object
   method getValue : #Dom_html.element t -> js_string t opt meth
 end
 
-let buttonRenderer = Js.Unsafe.variable "goog.ui.ButtonRenderer"
+let buttonRenderer = Tools.variable "[oclosure]goog.ui.ButtonRenderer[/oclosure]"
 let buttonRenderer : #button buttonRenderer t constr = buttonRenderer
 
-let button = Js.Unsafe.variable "goog.ui.Button"
+let button = Tools.variable "[oclosure]goog.ui.Button[/oclosure]"
 let button : (ControlContent.controlContent -> button #buttonRenderer t opt -> 
   Gdom.domHelper t opt -> button t) constr = button
 

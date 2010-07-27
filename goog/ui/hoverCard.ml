@@ -26,7 +26,7 @@ class type hoverCard = object
     Positioning.abstractPosition t opt -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.HoverCard"
+let tmp = Tools.variable "[oclosure]goog.ui.HoverCard[/oclosure]"
 let hoverCard : ((#Dom_html.element t -> bool t) -> bool t opt -> 
   Gdom.domHelper t opt -> hoverCard t) constr = tmp
   

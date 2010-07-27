@@ -24,6 +24,6 @@ class type keyHandler = object
   method handleEvent : BrowserEvent.browserEvent t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.events.KeyHandler"
+let tmp = Tools.variable "[oclosure]goog.events.KeyHandler[/oclosure]"
 let keyHandler : ((#Dom_html.element t, #Dom_html.document t) Tools.Union.t opt 
 		  ->keyHandler t) constr = tmp

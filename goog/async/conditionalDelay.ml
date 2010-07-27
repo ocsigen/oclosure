@@ -24,5 +24,5 @@ class type conditionalDelay = object
   method stop : unit meth  
 end
 
-let conditionalDelay = Js.Unsafe.variable "goog.async.ConditionalDelay"
+let conditionalDelay = Tools.variable "[oclosure]goog.async.ConditionalDelay[/oclosure]"
 let conditionalDelay : ((unit -> bool t) callback -> 'a t opt -> conditionalDelay t) constr = conditionalDelay

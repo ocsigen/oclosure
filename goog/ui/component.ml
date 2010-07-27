@@ -77,7 +77,7 @@ class type component = object
 end
 
 let component : Gdom.domHelper t opt -> component t constr =
-  Js.Unsafe.variable "goog.ui.Component"
+  Tools.variable "[oclosure]goog.ui.Component[/oclosure]"
 
 module Component = struct
 

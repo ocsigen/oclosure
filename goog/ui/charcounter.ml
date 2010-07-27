@@ -31,7 +31,7 @@ class type charCounter = object
   method disposeInternal : unit  meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.CharCounter"
+let tmp = Tools.variable "[oclosure]goog.ui.CharCounter[/oclosure]"
 let charCounter : (#Dom_html.element t -> #Dom_html.element t -> int 
   -> CharCounter.Display.t opt -> charCounter t) constr = tmp
   

@@ -50,4 +50,4 @@ class type comboBox = object
 end
 
 let comboBox : (Gdom.domHelper t opt -> comboBox t) constr = 
-  Js.Unsafe.variable "goog.ui.ComboBox"
+  Tools.variable "[oclosure]goog.ui.ComboBox[/oclosure]"

@@ -106,4 +106,4 @@ class type domHelper = object
 end
 
 let domHelper : domHelper Js.t constr = 
-  Js.Unsafe.variable "goog.dom.DomHelper"
+  Tools.variable "[oclosure]goog.dom.DomHelper[/oclosure]"

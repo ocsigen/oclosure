@@ -22,4 +22,4 @@ class type event = object
 end
 
 let event : (js_string t -> event t) constr =
-  Js.Unsafe.variable "goog.events.Event"
+  Tools.variable "[oclosure]goog.events.Event[/oclosure]"

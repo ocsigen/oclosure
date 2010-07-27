@@ -24,7 +24,7 @@ class type ['sep] toolbarSeparatorRenderer = object
 end
 
 let toolbarSeparatorRenderer : toolbarSeparator #toolbarSeparatorRenderer t constr =
-  Js.Unsafe.variable "goog.ui.ToolbarSeparatorRenderer"
+  Tools.variable "[oclosure]goog.ui.ToolbarSeparatorRenderer[/oclosure]"
 
-let tmp = Js.Unsafe.variable "goog.ui.ToolbarSeparator"
+let tmp = Tools.variable "[oclosure]goog.ui.ToolbarSeparator[/oclosure]"
 let toolbarSeparator  : (toolbarSeparator #toolbarSeparatorRenderer t opt -> domHelper t opt -> toolbarSeparator t) constr = tmp

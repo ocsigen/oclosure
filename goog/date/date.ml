@@ -57,7 +57,7 @@ class type date = object ('self)
 end
 
 let date : (int Js.opt -> int Js.opt -> int Js.opt -> date Js.t) Js.constr = 
-  Js.Unsafe.variable "goog.date.Date"
+  Tools.variable "[oclosure]goog.date.Date[/oclosure]"
 
 class type dateTime = object ('self)
   inherit date
@@ -88,7 +88,7 @@ class type dateTime = object ('self)
 end
 
 let dateTime : (int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> int Js.opt -> dateTime Js.t) Js.constr =
-  Js.Unsafe.variable "goog.date.DateTime"
+  Tools.variable "[oclosure]goog.date.DateTime[/oclosure]"
 
 class type dateRange = object
    method getEndDate : date Js.t Js.meth
@@ -96,7 +96,7 @@ class type dateRange = object
 end
 
 let dateRange : (Js.date Js.t -> Js.date Js.t -> dateRange Js.t) Js.constr = 
-  Js.Unsafe.variable "goog.date.DateRange"
+  Tools.variable "[oclosure]goog.date.DateRange[/oclosure]"
 
 
 class type standardDateRangeKeys = object
@@ -104,4 +104,4 @@ class type standardDateRangeKeys = object
 end
 
 let standardDateRangeKeys : (standardDateRangeKeys Js.t) Js.constr = 
-  Js.Unsafe.variable "goog.date.DateRange.StandardDateRangeKeys"
+  Tools.variable "[oclosure]goog.date.DateRange.StandardDateRangeKeys[/oclosure]"

@@ -31,13 +31,13 @@ class type menuSeparator = object
 end
 
 let menuSeparator : (Gdom.domHelper t opt -> menuSeparator t) constr = 
-  Js.Unsafe.variable "goog.ui.MenuSeparator"
+  Tools.variable "[oclosure]goog.ui.MenuSeparator[/oclosure]"
 
-let tmp = Js.Unsafe.variable "goog.ui.MenuSeparatorRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.MenuSeparatorRenderer[/oclosure]"
 let menuSeparatorRenderer : 
     (#menuSeparator menuSeparatorRenderer t) constr = tmp
   
 
-let tmp = Js.Unsafe.variable "goog.ui.Separator"
+let tmp = Tools.variable "[oclosure]goog.ui.Separator[/oclosure]"
 let separator : (separator #menuSeparatorRenderer t opt -> Gdom.domHelper t opt 
   -> separator t) constr = tmp

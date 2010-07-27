@@ -25,5 +25,5 @@ class type prompt = object
 end
 
 let prompt : (js_string t -> js_string t -> (js_string t opt -> bool t) callback
-  -> prompt t) constr = Js.Unsafe.variable "goog.ui.Prompt"
+  -> prompt t) constr = Tools.variable "[oclosure]goog.ui.Prompt[/oclosure]"
   

@@ -17,4 +17,4 @@ class type formPost = object
 end
 
 let formPost : (formPost t) constr = 
-  Js.Unsafe.variable "goog.ui.FormPost"
+  Tools.variable "[oclosure]goog.ui.FormPost[/oclosure]"

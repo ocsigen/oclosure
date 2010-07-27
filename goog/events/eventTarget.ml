@@ -26,4 +26,4 @@ class type eventTarget = object
 end
 
 let eventTarget : eventTarget t constr =
-  Js.Unsafe.variable "goog.events.EventTarget"
+  Tools.variable "[oclosure]goog.events.EventTarget[/oclosure]"

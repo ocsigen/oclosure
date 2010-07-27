@@ -23,4 +23,4 @@ class type animationSerialQueue = object
 end
 
 let animationSerialQueue : (animationSerialQueue t) constr = 
-  Js.Unsafe.variable "goog.fx.AnimationSerialQueue"
+  Tools.variable "[oclosure]goog.fx.AnimationSerialQueue[/oclosure]"

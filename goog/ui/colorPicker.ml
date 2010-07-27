@@ -51,17 +51,17 @@ class type colorPicker = object
   method setSize : int -> unit meth
 end
 
-let colorPicker : (domHelper t opt -> colorPalette t opt -> colorPicker t) constr = 
-  Js.Unsafe.variable "goog.ui.ColorPicker"
+
+let cp = Tools.variable "[oclosure]goog.ui.ColorPicker[/oclosure]"
+let colorPicker : (domHelper t opt -> colorPalette t opt 
+  -> colorPicker t) constr = cp
+ 
 
 module ColorPicker = struct
   let createSimpleColorGrid (dh : Gdom.domHelper t opt) : colorPicker t = 
-    Js.Unsafe.fun_call 
-      (Js.Unsafe.variable "goog.ui.ColorPicker.createSimpleColorGrid")
-      [|Js.Unsafe.inject dh|]
+    cp##createSimpleColorGrid(dh)
 
-  let _SIMPLE_GRID_COLORS = Js.Unsafe.variable 
-      "goog.ui.ColorPicker.SIMPLE_GRID_COLORS"
+  let _SIMPLE_GRID_COLORS = cp##_SIMPLE_GRID_COLORS_
   module EventType = struct
     let _CHANGE = Js.string "change"
   end

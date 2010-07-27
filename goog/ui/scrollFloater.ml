@@ -20,7 +20,7 @@ class type scrollFloater = object
   method isFloating : bool t meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ScrollFloater"
+let tmp = Tools.variable "[oclosure]goog.ui.ScrollFloater[/oclosure]"
 let scrollFloater : (#Dom_html.element t -> Gdom.domHelper t opt 
   -> scrollFloater t) constr = tmp
   

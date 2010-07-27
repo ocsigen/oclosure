@@ -85,4 +85,4 @@ class type datePicker = object
 end
 
 val datePicker : ((Date.date t, Js.date t) Tools.Union.t opt -> 
-  I18n.dateTimeSymbols_pre opt -> datePicker t) constr
+  I18n.dateTimeSymbols opt -> datePicker t) constr

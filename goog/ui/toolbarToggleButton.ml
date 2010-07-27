@@ -12,7 +12,7 @@ class type toolbarToggleButton = object
   inherit ToggleButton.toggleButton
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ToolbarToggleButton"
+let tmp = Tools.variable "[oclosure]goog.ui.ToolbarToggleButton[/oclosure]"
 let toolbarToggleButton : 
     (ControlContent.controlContent 
      -> toolbarToggleButton #ToolbarButtonRenderer.toolbarButtonRenderer t opt

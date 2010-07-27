@@ -21,9 +21,9 @@ class type ['cont] toolbarRenderer = object
   method getDefaultOrientation : Container.orientation_pre meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ToolbarRenderer"
+let tmp = Tools.variable "[oclosure]goog.ui.ToolbarRenderer[/oclosure]"
 let toolbarRenderer : (toolbar #toolbarRenderer t) constr = tmp
 
-let tmp = Js.Unsafe.variable "goog.ui.Toolbar"
+let tmp = Tools.variable "[oclosure]goog.ui.Toolbar[/oclosure]"
 let toolbar : (toolbar #toolbarRenderer t opt -> Container.orientation_pre opt 
   -> Gdom.domHelper t opt -> toolbar t) constr = tmp

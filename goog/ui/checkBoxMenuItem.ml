@@ -13,4 +13,4 @@ class type checkBoxMenuItem = object
 end
 
 let checkBoxMenuItem : (ControlContent.controlContent -> checkBoxMenuItem t) constr = 
-  Js.Unsafe.variable "goog.ui.CheckBoxMenuItem"
+  Tools.variable "[oclosure]goog.ui.CheckBoxMenuItem[/oclosure]"

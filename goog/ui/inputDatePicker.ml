@@ -41,4 +41,4 @@ end
 let inputDatePicker : (I18n.dateTimeFormat t -> I18n.dateTimeParse t ->
 		       DatePicker.datePicker t opt -> Gdom.domHelper t opt ->
 		       inputDatePicker t) constr = 
-  Js.Unsafe.variable "goog.ui.InputDatePicker"
+  Tools.variable "[oclosure]goog.ui.InputDatePicker[/oclosure]"

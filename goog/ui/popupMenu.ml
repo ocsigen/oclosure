@@ -41,7 +41,7 @@ class type popupMenu = object
     unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.PopupMenu"
+let tmp = Tools.variable "[oclosure]goog.ui.PopupMenu[/oclosure]"
 let popupMenu : (Gdom.domHelper t opt -> popupMenu #Menu.menuRenderer t opt 
 		   -> popupMenu t) constr = tmp
   

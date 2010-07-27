@@ -43,17 +43,17 @@ class type ['dimPckr] dimensionPickerRenderer = object
 
   method setHighlightedSize : dimensionPicker t -> int -> int -> unit meth
 
-  method updateSize : dimensionPicker t -> Dom_html.element t -> unit meth
+  method updateSize : dimensionPicker t -> #Dom_html.element t -> unit meth
 end
 
 let dimensionPicker : (dimensionPicker dimensionPickerRenderer t opt 
 		       -> Gdom.domHelper t opt 
 		       -> dimensionPicker t) constr = 
-  Js.Unsafe.variable "goog.ui.DimensionPicker"
+  Tools.variable "[oclosure]goog.ui.DimensionPicker[/oclosure]"
 
-let dimensionPickerRenderer = 
-  Js.Unsafe.variable "goog.ui.DimensionPickerRenderer"
-let dimensionPickerRenderer : 
+let dimensionPickerRenderer =
+  Tools.variable "[oclosure]goog.ui.DimensionPickerRenderer[/oclosure]"
+let dimensionPickerRenderer :
     (#dimensionPicker dimensionPickerRenderer t) constr = 
   dimensionPickerRenderer
   

@@ -15,9 +15,7 @@ class type baseRoundedPanel = object
 end
 
 module RoundedPanel = struct
+  let rp = Tools.variable "[oclosure]goog.ui.RoundedPanel[/oclosure]"
   let create (r : int) (bw : int) (bc : js_string t) (bgc : js_string t opt) (c : int opt) (dh : Gdom.domHelper t opt) : baseRoundedPanel t =
-    Js.Unsafe.fun_call
-      (Js.Unsafe.variable "goog.ui.RoundedPanel.create")
-      [|Js.Unsafe.inject r; Js.Unsafe.inject bw; Js.Unsafe.inject bc; 
-	Js.Unsafe.inject bgc; Js.Unsafe.inject c; Js.Unsafe.inject dh|] 
+    rp##create(r, bw, bc, bgc, c, dh)
 end

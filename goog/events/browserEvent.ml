@@ -28,7 +28,7 @@ class type browserEvent = object
   method stopPropagation : unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.events.BrowserEvent"
+let tmp = Tools.variable "[oclosure]goog.events.BrowserEvent[/oclosure]"
 let browserEvent : (#Dom_html.event t opt -> #Dom.node t opt 
   -> browserEvent t) constr = tmp
   

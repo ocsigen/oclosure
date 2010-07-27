@@ -22,11 +22,11 @@ class type ['but] toolbarColorMenuButtonRenderer = object
   method initializeDom : ColorMenuButton.colorMenuButton t -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.ToolbarColorMenuButton"
+let tmp = Tools.variable "[oclosure]goog.ui.ToolbarColorMenuButton[/oclosure]"
 let toolbarColorMenuButton : (ControlContent.controlContent -> Menu.menu t opt -> ColorMenuButton.colorMenuButton #ColorMenuButtonRenderer.colorMenuButtonRenderer t -> Gdom.domHelper t -> toolbarColorMenuButton t) constr = 
   tmp
 
-let tmp = Js.Unsafe.variable "goog.ui.ToolbarColorMenuButton"
+let tmp = Tools.variable "[oclosure]goog.ui.ToolbarColorMenuButton[/oclosure]"
 let toolbarColorMenuButtonRenderer : (toolbarColorMenuButton #toolbarColorMenuButtonRenderer t) constr =
   tmp 
   

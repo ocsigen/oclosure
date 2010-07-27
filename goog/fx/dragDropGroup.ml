@@ -18,4 +18,4 @@ class type dragDropGroup = object
 end
 
 let dragDropGroup : (dragDropGroup t) constr = 
-  Js.Unsafe.variable "goog.fx.DragDropGroup"
+  Tools.variable "[oclosure]goog.fx.DragDropGroup[/oclosure]"

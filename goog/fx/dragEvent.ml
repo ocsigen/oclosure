@@ -15,4 +15,4 @@ end
 let dragEvent : (js_string t -> Dragger.dragger t -> int -> int -> 
   Events.browserEvent t -> int opt -> int opt -> bool t opt 
     -> dragEvent t) constr = 
-  Js.Unsafe.variable "goog.fx.DragEvent"
+  Tools.variable "[oclosure]goog.fx.DragEvent[/oclosure]"

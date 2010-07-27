@@ -17,4 +17,4 @@ class type coordinate = object
 end
 
 let coordinate : (float opt -> float opt -> coordinate t) constr =
-  Js.Unsafe.variable "goog.math.Coordinate"
+  Tools.variable "[oclosure]goog.math.Coordinate[/oclosure]"

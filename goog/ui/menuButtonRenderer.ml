@@ -22,10 +22,10 @@ class type ['but] menuButtonRenderer = object
     -> unit meth
 end
 
-let tmp = Js.Unsafe.variable "goog.ui.MenuButtonRenderer"
+let mbr = Tools.variable "[oclosure]goog.ui.MenuButtonRenderer[/oclosure]"
 let menuButtonRenderer : (#MenuButton.menuButton menuButtonRenderer t) constr = 
-  tmp
+  mbr
 
 module MenuButtonRenderer = struct
-  let getInstance () = Js.Unsafe.fun_call (Js.Unsafe.variable "goog.ui.MenuButtonRenderer.getInstance") [||]
+  let getInstance () = mbr##getInstance()
 end
