@@ -11,10 +11,9 @@
 #ifndef EVENTS
 open Js
 #endif
-open Disposable
 
 class type event = object
-  inherit disposable
+  inherit Disposable.disposable
   (** @inheritDoc *)
   method disposeInternal : unit meth
 

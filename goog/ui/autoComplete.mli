@@ -10,20 +10,18 @@
 open Js
 #endif
 open Tools
-open Events
-open Disposable
 
 (** This is the central manager class for an AutoComplete instance. *)
 class type autoComplete = object
-  inherit eventTarget 
+  inherit Events.eventTarget 
   
   (** Returns the renderer that renders/shows/highlights/hides the autocomplete menu.
       @return Renderer used by the this widget. *)
-  method getRenderer : eventTarget meth
+  method getRenderer : Events.eventTarget meth
     
   (** Generic event handler that handles any events this object is listening to. 
       @param e Event Object. *)
-  method handleEvent : event t -> unit meth
+  method handleEvent : Events.event t -> unit meth
     
   (** Sets the max number of matches to fetch from the Matcher. 
       @param max Max number of matches. *)
@@ -149,7 +147,7 @@ module AutoComplete : sig
 
   (** Class goog.ui.AutoComplete.InputHandler *)
   class type inputHandler = object
-    inherit disposable 
+    inherit Disposable.disposable 
       
     (** Attach an instance of an AutoComplete
 	@param ac Autocomplete object. *)

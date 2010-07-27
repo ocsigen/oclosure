@@ -12,7 +12,7 @@ open Js
 #endif
 
 class type zippy = object
-  inherit eventTarget
+  inherit Events.eventTarget
 
   (** Collapses content pane. *)
   method collapse : unit meth

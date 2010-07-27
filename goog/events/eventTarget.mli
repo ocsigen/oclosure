@@ -6,14 +6,13 @@
    @version 0.1
 *)
 #ifndef EVENTS
-open Disposable
 open Js
 open Event
 #endif
 open Tools
 
 class type eventTarget = object
-  inherit disposable
+  inherit Disposable.disposable
   (** Adds an event listener to the event target. 
       The same handler can only be added once per the type.
       Even if you add the same handler multiple times using the same type then

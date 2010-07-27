@@ -32,7 +32,7 @@ end
 module Gdom : sig
 #include "gdom/gdom.mli"
 end
-module Ggraphics : sig
+module Graphics : sig
 #include "ggraphics/ggraphics.mli"
 end
 module I18n : sig

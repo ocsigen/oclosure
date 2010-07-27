@@ -7,8 +7,8 @@
     @version 0.2
 *)
 #ifndef UI
-open EventTarget
 open Js
+open Events
 #endif
 
 module CharCounter : sig
@@ -24,7 +24,7 @@ module CharCounter : sig
 end
 
 class type charCounter = object
-  inherit eventTarget
+  inherit Events.eventTarget
   (** Sets the maximum length. 
       @param maxLength The maximum length.*)
   method setMaxLength : int -> unit  meth
