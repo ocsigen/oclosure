@@ -20,7 +20,7 @@ ocamldep:
 
 clean:
 	@echo "[CLEAN]"
-	-rm -f *.cmo *.cmi $(TARGETS) $(EXECS)
+	-rm -f *.cmo *.cmi $(TARGETS) $(EXECS) *_req.js
 
 var: 
 	@echo $(TARGETS)

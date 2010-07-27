@@ -51,6 +51,7 @@ var:
 	@echo $(FILES)
 
 doc:
+	mkdir -p ../doc
 	$(OCAMLFIND) $(OCAMLDOC) -stars -html -d ../doc $(OCAMLIFLAGS) goog.mli
 
 cleanall: clean

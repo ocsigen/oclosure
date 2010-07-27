@@ -1,24 +1,24 @@
 DIRS=goog examples
 
-all: depend lib examples
+all: lib examples
 
-lib:
+lib: 
 	@echo "[MAKE] in goog"
-	@(cd goog; ${MAKE});
+	@(${MAKE} -C goog);
 
 examples: lib
 	@echo "[MAKE] in examples"
-	@(cd examples; ${MAKE});
+	@(${MAKE} -C examples);
 
 doc: 
-	@(cd goog; ${MAKE} doc);
+	@(${MAKE} -C goog doc);
 
 clean:
 	@for D in $(DIRS);do\
 	(echo "-> ./$$D");\
-	(cd $$D; ${MAKE} clean);\
+	(${MAKE} -C $$D clean);\
 	done;
 
 depend:
 	@echo "[MAKE] depend in goog"
-	@(cd goog; ${MAKE} depend);
+	@(${MAKE} -C goog depend);
