@@ -8,14 +8,14 @@ let _ =
   let el = get_el "menu1" 
   and array = [|"Gmail";"Finance";"Bugs";"Apps";"Apps UI";"Apps UX";"Gmail Bugs";
   "Reference";"DO";"READ";"misc" |]
-  and menu = jsnew Ui.filteredMenu(Js.null,Js.null) in
+  and menu = jsnew Goog.Ui.filteredMenu(Js.null,Js.null) in
     menu##setFilterLabel(Js.some (Js.string "Create / search")); 
     menu##setAllowMultiple(Js._true);
     Array.iter (
       fun a -> 
-	let tsmi = jsnew Ui.triStateMenuItem (Ui.ControlContent.string (Js.string a),Js.null,Js.null) in
+	let tsmi = jsnew Goog.Ui.triStateMenuItem (Goog.Ui.ControlContent.string (Js.string a),Js.null,Js.null) in
 	let item = Goog.Tools.Union.i1 (tsmi) in
-	  tsmi##setCheckedState(Ui.TriStateMenuItem.State.PARTIALLY_CHECKED);
+	  tsmi##setCheckedState(Goog.Ui.TriStateMenuItem.State.PARTIALLY_CHECKED);
 	  menu##addItem(item)) array;
     
     menu##render(Js.some el);

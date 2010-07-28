@@ -16,17 +16,7 @@ open Gdom
 
 class type ['a] treeControl = object
   inherit ['a] baseNode
-(**
-   Creates a new tree node using the same config as the root.
-   @param html The html content of the node label.
-   @return The new item.
-*)
   method createNode : js_string t -> 'a treeNode t meth
-
-(**
-   Returns the tree.
-   @return The tree.
-*)      
   method getTree : 'a treeControl t meth
 end
 
