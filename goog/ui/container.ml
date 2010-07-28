@@ -54,8 +54,6 @@ class type container = object
 
   method exitDocument : unit meth 
 
-  method disposeInternal : unit meth 
-
   method handleEnterItem : Events.event t -> bool t meth 
 
   method handleHighlightItem : #Events.event t -> unit meth 

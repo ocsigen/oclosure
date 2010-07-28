@@ -71,7 +71,7 @@ class type ['a] baseNode = object
 *)
   method getAfterLabelHtml : js_string t meth
 
-(** Abstract method... *)
+(* Abstract method... *)
 (*  method getCalculatedIconClass : unit -> unit*)
 
 (**

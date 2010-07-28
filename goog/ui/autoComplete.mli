@@ -90,7 +90,7 @@ class type autoComplete = object
       @param opt_preserveHilited If true, keeps the currently hilited (by index) element hilited. *)
   method renderRows : js_string t array -> bool t opt -> unit meth
 
- (** attachInputs / detachInputs *)
+ (* attachInputs / detachInputs *)
  
 end
 

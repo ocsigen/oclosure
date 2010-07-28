@@ -1,4 +1,4 @@
-(**
+(*
   OClosure project - 2010
 
   OClosure is a binding of the Google Closure javascript library
@@ -6,7 +6,14 @@
 
   @author Gabriel Cardoso, Charles Oran
   @version 0.2 
+n*)
+
+(** Binding of the Google Closure javascript library
+
+  @author Gabriel Cardoso, Charles Oran, Bozman Cagdas, Emmanuel Crespin, Esther Baruk, Pierre Bourdin
+  @version 0.2
 *)
+
 #define GOOG
 module Tools : sig
 #include "tools.mli"

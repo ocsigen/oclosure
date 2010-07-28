@@ -114,9 +114,6 @@ class type container = object
   *)
   method exitDocument : unit meth 
 
-  (** @inheritDoc *)
-  method disposeInternal : unit meth 
-
   (**
      Handles ENTER events raised by child controls when they are navigated to.
      @param e ENTER event to handle.

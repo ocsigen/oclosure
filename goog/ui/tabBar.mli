@@ -36,9 +36,6 @@ end
 class type tabBar = object 
   inherit container
 
-  (** @inheritDoc *)
-  method disposeInternal : unit meth
-
   (**
      Removes the tab from the tab bar.  Overrides the superclass implementation 
      by deselecting the tab being removed.  Since #removeChildAt uses
@@ -101,7 +98,6 @@ class type tabBar = object
      Selects the tab at the given index.
      @param index Index of the tab to select (-1 to select none).
   *)
-
   method setSelectedTabIndex : int -> unit meth
 
   (**

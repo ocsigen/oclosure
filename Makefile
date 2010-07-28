@@ -2,7 +2,9 @@ DIRS=goog examples
 
 all: lib examples
 
-lib: 
+.PHONY: lib examples doc
+
+lib:
 	@echo "[MAKE] in goog"
 	@(${MAKE} -C goog);
 
@@ -10,7 +12,7 @@ examples: lib
 	@echo "[MAKE] in examples"
 	@(${MAKE} -C examples);
 
-doc: 
+doc:
 	@(${MAKE} -C goog doc);
 
 clean:
