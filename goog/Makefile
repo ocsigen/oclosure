@@ -54,6 +54,13 @@ doc:
 	mkdir -p ../doc
 	$(OCAMLFIND) $(OCAMLDOC) -stars -html -d ../doc $(OCAMLIFLAGS) goog.mli
 
+ocsi_doc:
+	mkdir -p ../docdiv
+	ocamlopt -shared -I /usr/lib/ocaml/ocamldoc -o ./odoc_ocsigen.cmxs ../tools/odoc_ocsigen.ml
+	$(OCAMLFIND) $(OCAMLDOC) -stars -g ./odoc_ocsigen.cmxs -d ../docdiv \
+		-t "OClosure - API Reference" $(OCAMLIFLAGS) goog.mli
+
+
 cleanall: clean
 	-rm -f .depend .ocamldsort
 
