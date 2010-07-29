@@ -122,4 +122,4 @@ val buttonRenderer : #button buttonRenderer t constr
    @param opt_domHelper Optional DOM hepler, used for
    document interaction.
 *)
-val button : (controlContent -> button buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr
+val button : (controlContent -> button #buttonRenderer t opt -> Gdom.domHelper t opt -> button t) constr
