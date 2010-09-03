@@ -1,3 +1,4 @@
+LIBRARY=oclosure
 DIRS=goog examples
 
 all: lib examples
@@ -11,6 +12,12 @@ lib:
 examples: lib
 	@echo "[MAKE] in examples"
 	@(${MAKE} -C examples);
+
+install:
+	ocamlfind install $(LIBRARY) goog/goog.cmi scripts/requirements.ml goog/oclosure.cma META
+
+uninstall:
+	ocamlfind remove $(LIBRARY)
 
 doc:
 	@(${MAKE} -C goog doc);

@@ -1,0 +1,4 @@
+description = "OClosure"
+version = "0.2"
+archive(byte) = "oclosure.cma"
+requires = "js_of_ocaml"
