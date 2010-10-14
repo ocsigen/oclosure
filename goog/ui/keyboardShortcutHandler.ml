@@ -43,7 +43,7 @@ class type keyboardShortcutHandler = object
   method unregisterShortcut : js_string t -> unit meth
 end
 
-let tmp = Tools.variable "[oclosure]goog.ui.KeyboarShortcutHandler[/oclosure]"
+let tmp = Tools.variable "[oclosure]goog.ui.KeyboardShortcutHandler[/oclosure]"
 let keyboardShortcutHandler :
     ((#Events.eventTarget t, #Dom_html.eventTarget t) Tools.Union.t opt 
      -> keyboardShortcutHandler t) constr = tmp
