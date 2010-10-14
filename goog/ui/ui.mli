@@ -98,6 +98,9 @@ end
 #include "toolbarSelect.mli"
 #include "colorMenuButtonRenderer.mli"
 #include "toolbarColorMenuButton.mli"
+module Editor : sig
+#include "editor/editor.mli"
+end
 
 (** 
    Decorates the element with a suitable goog.ui.Component instance, if a 

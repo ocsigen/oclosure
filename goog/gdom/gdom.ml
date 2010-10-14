@@ -1,6 +1,8 @@
 open Js
 
 include DomHelper
+include TagName
+include AbstractRange
 
 let gdom = Tools.variable "[oclosure]goog.dom[/oclosure]"
 let setTextContent (e : #Dom_html.element t) (s : js_string t) = 

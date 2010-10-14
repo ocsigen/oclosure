@@ -7,9 +7,10 @@
 *)
 
 open Js
+open MenuButton
 
 class type colorMenuButton = object
-  inherit MenuButton.menuButton
+  inherit menuButton
 
   method getSelectedColor : js_string t opt meth
 

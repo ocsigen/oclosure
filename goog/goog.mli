@@ -39,7 +39,10 @@ end
 module Gdom : sig
 #include "gdom/gdom.mli"
 end
-module Graphics : sig
+module Geditor : sig
+#include "geditor/geditor.mli"
+end
+module Ggraphics : sig
 #include "ggraphics/ggraphics.mli"
 end
 module I18n : sig

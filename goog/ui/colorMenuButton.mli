@@ -12,6 +12,7 @@ open Menu
 open MenuButtonRenderer
 open ControlContent
 #endif
+open Events
 
 class type colorMenuButton = object
   inherit menuButton
@@ -30,7 +31,7 @@ class type colorMenuButton = object
    goog.ui.MenuButton#handleMenuAction.
    @param e Action event to handle.
  *)
-  method handleMenuAction_ : Events.event t -> unit meth
+  method handleMenuAction_ : event t -> unit meth
 
 (**
    Opens or closes the menu.  Overrides goog.ui.MenuButton#setOpen by

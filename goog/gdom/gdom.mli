@@ -1,6 +1,8 @@
 open Js
 
 #include "domHelper.mli"
+#include "tagName.mli"
+#include "abstractRange.mli"
 
 val setTextContent : #Dom_html.element t -> js_string t -> unit
 

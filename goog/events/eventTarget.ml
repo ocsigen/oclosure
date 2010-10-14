@@ -6,7 +6,7 @@
    @version 0.1
 *)
 open Disposable
-
+open Event
 open Js
 open Tools
 
@@ -16,7 +16,7 @@ class type eventTarget = object
   method addEventListener : js_string t -> (unit -> bool t) callback 
     -> bool t opt -> unit meth
 
-  method dispatchEvent : (js_string t, Event.event t) Union.t -> bool t meth
+  method dispatchEvent : (js_string t, event t) Union.t -> bool t meth
 
   method getParentEventTarget : eventTarget t meth
 
