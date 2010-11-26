@@ -45,7 +45,7 @@ let menu_b = jsnew Goog.Ui.toolbarMenuButton(
   ccs "Show example", Js.some menu, Js.null, Js.null)
 let toolbar_div = Dom_html.createDiv d
 let _ = 
-  Goog.Ui.Component.addChild toolbar menu_b (Js.some Js._true);
+(*  Goog.Ui.Component.addChild toolbar menu_b (Js.some Js._true);*)
   Goog.Ui.Component.addChild toolbar code_button (Js.some Js._true);
   toolbar##render(Js.some toolbar_div);
   Dom.appendChild body toolbar_div

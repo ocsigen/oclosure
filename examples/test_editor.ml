@@ -1,4 +1,3 @@
-
 let get_el s = Js.Opt.get (Dom_html.document##getElementById(Js.string s))
     (fun _ -> Dom_html.window##alert (Js.string s); assert false)
 
@@ -35,29 +34,30 @@ let _ =
     (jsnew Goog.Geditor.Plugins.linkBubble(Js.array [||]))
  
 (* Specify the buttons to add to the toolbar, using built in default buttons. *)
-let buttons = Js.array [|
-  Goog.Tools.Union.i1 Goog.Geditor.Command._BOLD;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._ITALIC;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._UNDERLINE;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._FONT_COLOR;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._BACKGROUND_COLOR;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._FONT_FACE;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._FONT_SIZE;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._LINK;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._UNDO;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._REDO;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._UNORDERED_LIST;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._ORDERED_LIST;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._INDENT;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._OUTDENT;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._JUSTIFY_LEFT;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._JUSTIFY_CENTER;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._JUSTIFY_RIGHT;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._SUBSCRIPT;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._SUPERSCRIPT;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._STRIKE_THROUGH;
-  Goog.Tools.Union.i1 Goog.Geditor.Command._REMOVE_FORMAT
-|]
+let buttons = Js.array (Array.map Goog.Tools.Union.i1 [|
+  Goog.Geditor.Command._BOLD;
+  Goog.Geditor.Command._ITALIC;
+  Goog.Geditor.Command._UNDERLINE;
+  Goog.Geditor.Command._FONT_COLOR;
+  Goog.Geditor.Command._BACKGROUND_COLOR;
+  Goog.Geditor.Command._FONT_FACE;
+  Goog.Geditor.Command._FONT_SIZE;
+  Goog.Geditor.Command._LINK;
+  Goog.Geditor.Command._UNDO;
+  Goog.Geditor.Command._REDO;
+  Goog.Geditor.Command._UNORDERED_LIST;
+  Goog.Geditor.Command._ORDERED_LIST;
+  Goog.Geditor.Command._INDENT;
+  Goog.Geditor.Command._OUTDENT;
+  Goog.Geditor.Command._JUSTIFY_LEFT;
+  Goog.Geditor.Command._JUSTIFY_CENTER;
+  Goog.Geditor.Command._JUSTIFY_RIGHT;
+  Goog.Geditor.Command._SUBSCRIPT;
+  Goog.Geditor.Command._SUPERSCRIPT;
+  Goog.Geditor.Command._STRIKE_THROUGH;
+  Goog.Geditor.Command._REMOVE_FORMAT
+|])
+
 let myToolbar = Goog.Ui.Editor.DefaultToolbar.makeToolbar 
     buttons
     (get_el "toolbar")
