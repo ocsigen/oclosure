@@ -1,0 +1,45 @@
+<<div id="oclosure_menu">>
+<<script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js">>
+<<div class="wip"| Code supprimé ici pour l'instant (ne compile pas avec latex)
+<<|
+<<script src="http://jeangsta.free.fr/oclosure/oclosure_menu_req.js">>
+<<script src="http://jeangsta.free.fr/oclosure/oclosure_menu.js">>
+>>
+>>
+
+=Documentation=
+
+We tried to stay as close as possible to Google Closure structure
+* **Same inheritance tree**
+* **One module per class or package** (except in case of cyclic dependency between several classes)
+* **Same package name** (except for ##Goog.Gdom## (##goog.dom##), ##Goog.Ggraphics## (##goog.graphics##) and ##Goog.Geditor## (##goog.editor##))
+* **Constructors have the same name system**
+
+See the [[doc/api/|API]].
+
+----
+<<div class="wip"| Code supprimé ici pour l'instant (ne compile pas avec latex)
+<<|
+<<div class="twocol1"| =={{http://jeangsta.free.fr/images/closure_logo.png | Google Closure}}\\Google Closure ==>>
+
+<<div class="twocol2"| =={{http://jeangsta.free.fr/images/oclosure_logo.png| OClosure}}\\OClosure== >>
+** **
+>>
+>>
+
+== Structure ==
+<<div class="twocol1"| 
+In Closure, all objects have the same hierarchy form : 
+<<code | goog.package[.subPackage ...].ClassName>>
+>>
+<<div class="twocol2"| 
+In OClosure, the Goog module "packs" the sub modules <<code language="ocaml" | Goog.Package[.Subpackage ...].ClassName>>
+Some object are defined in the same module because of cyclic dependencies
+ >>
+
+== Constructors ==
+<<div class="twocol1"| Constructors have the name of the class : <<code | var z = new goog.ui.Zippy();>> >>
+<<div class="twocol2"| 
+Constructors have type <<code language="ocaml" | val className : args -> .. -> className Js.t constr>> 
+Modules defining objects are ##include##d in the parent package, so you have directly access to the constructors from the parent package:
+<<code language="ocaml" | let z = jsnew Goog.Ui.zippy()>> >>

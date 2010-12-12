@@ -4,5 +4,5 @@
 \.byte$
 ^examples/test_.*\.js$
 ~$
-^doc(/|$)
+^doc/*.html$
 ^docdiv(/|$)
