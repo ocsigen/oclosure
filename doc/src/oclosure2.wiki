@@ -1,10 +1,7 @@
-<<div id="oclosure_menu">>
-<<script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js">>
-<<div class="wip"| Code supprimé ici pour l'instant (ne compile pas avec latex)
-<<|
-<<script src="http://jeangsta.free.fr/oclosure/oclosure_menu_req.js">>
-<<script src="http://jeangsta.free.fr/oclosure/oclosure_menu.js">>
->>
+<<webonly |
+  <<div id="oclosure_menu" dir="rtl">>
+  <<script src="oclosure_menu_full.js">>
+  <<script src="oclosure_menu.js">>
 >>
 
 =Documentation=
@@ -17,14 +14,12 @@ We tried to stay as close as possible to Google Closure structure
 
 See the [[doc/api/|API]].
 
+<<webonly |
 ----
-<<div class="wip"| Code supprimé ici pour l'instant (ne compile pas avec latex)
-<<|
-<<div class="twocol1"| =={{http://jeangsta.free.fr/images/closure_logo.png | Google Closure}}\\Google Closure ==>>
+<<div class="twocol1"| =={{closure_logo.png | Google Closure}}\\Google Closure ==>>
 
-<<div class="twocol2"| =={{http://jeangsta.free.fr/images/oclosure_logo.png| OClosure}}\\OClosure== >>
+<<div class="twocol2"| =={{oclosure_logo.png| OClosure}}\\OClosure== >>
 ** **
->>
 >>
 
 == Structure ==
