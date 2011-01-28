@@ -10,7 +10,7 @@ LIB=$(JS_OF_OCAML_PATH)/lib
 
 INC_DIR=$(sort $(dir $(wildcard */ */*/)))
 INCLUDES=$(addprefix -I	,$(INC_DIR))
-OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml -syntax camlp4o
+OCAMLFLAGS=$(INCLUDES) -package js_of_ocaml.syntax -syntax camlp4o
 OCAMLIFLAGS=$(INCLUDES) -package js_of_ocaml -pp "cpp -traditional-cpp"
 GOOG=goog.cmo
 OCLOSURE=oclosure.cma

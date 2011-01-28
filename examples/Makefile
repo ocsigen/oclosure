@@ -1,15 +1,16 @@
 SRC=$(wildcard *.ml)
 EXECS=$(SRC:.ml=.byte)
 TARGETS=$(SRC:.ml=.js)
-LIB=
+LIB=-package js_of_ocaml oclosure.cma
 SCRIPTS=../scripts
-OCAMLFLAGS=-package js_of_ocaml -syntax camlp4o
+OCAMLFLAGS=-package js_of_ocaml.syntax -syntax camlp4o -I $(GOOG)
+OCAMLLFLAGS=
 GOOG=../goog
 all: $(TARGETS)
 
 %.byte: %.ml $(GOOG)/oclosure.cma
 	@echo "[CC]" $@
-	ocamlfind ocamlc $(LIB) -I $(GOOG) oclosure.cma $(OCAMLFLAGS) -linkpkg -o $@ $<
+	ocamlfind ocamlc -linkpkg -o $@ $(OCAMLFLAGS) $(LIB) $<
 
 %.js: %.byte
 	js_of_ocaml $^ -pretty
