@@ -48,7 +48,7 @@ class type eventTarget = object
    of the event.
    @param opt_handlerScope Object in whose scope to call the listener.
 *)
-  method removeEventListener : js_string t -> (unit -> bool t) -> bool t opt -> unit meth
+  method removeEventListener : js_string t -> (unit -> bool t) callback -> bool t opt -> unit meth
 
  (** Sets the parent of this event target to use for bubbling. *)
   method setParentEventTarget : eventTarget t opt -> unit meth

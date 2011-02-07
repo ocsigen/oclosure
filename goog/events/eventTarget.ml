@@ -20,7 +20,7 @@ class type eventTarget = object
 
   method getParentEventTarget : eventTarget t meth
 
-  method removeEventListener : js_string t -> (unit -> bool t) -> bool t opt -> unit meth
+  method removeEventListener : js_string t -> (unit -> bool t) callback -> bool t opt -> unit meth
 
   method setParentEventTarget : eventTarget t opt -> unit meth
 end
