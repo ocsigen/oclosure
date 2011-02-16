@@ -62,7 +62,6 @@ module DefaultToolbar : sig
  *     element.
  * @return Default editor toolbar, rendered into the given
  *     parent element.
- * @see goog.ui.editor.DefaultToolbar.DEFAULT_BUTTONS
  *)
   val makeDefaultToolbar : #Dom_html.element t -> bool t opt -> toolbar t
 

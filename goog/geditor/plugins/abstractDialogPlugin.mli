@@ -23,9 +23,9 @@ class type abstractDialogPlugin = object
  * supported). Hence this method does not dispatch the change events that the
  * superclass method does.
  * @param command The command to execute.
- * @param {...*} var_args Any additional parameters needed to
+ * @param var_args Any additional parameters needed to
  *     execute the command.
- * @return {*} The result of the execCommand, if any.
+ * @return The result of the execCommand, if any.
  * @override
  *)
   (* method execCommand *)

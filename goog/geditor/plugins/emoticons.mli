@@ -24,7 +24,7 @@ class type emoticons = object
 (*  method execCommandInternal : js_string t -> ? -> ? *)
 
 (**
- * @return {string} The ID unique to this plugin class. Note that different
+ * @return The ID unique to this plugin class. Note that different
  *     instances off the plugin share the same classId.
  *)
   method getTrogClassId : js_string t meth

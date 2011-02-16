@@ -21,7 +21,7 @@ class type blockquote = object
  * @param command The command to execute.
  * @param var_args Single additional argument representing the
  *     current cursor position.  In IE, it is a single node.  In any other
- *     browser, it is an object with a [node] key and an [@code offset]
+ *     browser, it is an object with a [node] key and an [offset]
  *     key.
  * @return Boolean true when the quoted region has been
  *     split, false or undefined otherwise.

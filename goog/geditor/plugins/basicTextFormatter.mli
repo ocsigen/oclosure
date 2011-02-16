@@ -23,7 +23,7 @@ class type basicTextFormatter = object
  *
  * This op is invoked even on disabled plugins.
  *
- * @param {!Element} fieldCopy The copy of the editable field which
+ * @param fieldCopy The copy of the editable field which
  *     needs to be cleaned up.
  *)
   method cleanContentsDom : #Dom_html.element t -> unit meth

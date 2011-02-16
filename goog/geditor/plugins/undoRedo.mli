@@ -142,7 +142,7 @@ class type undoRedo = object
  * Restores the state of the editable field.
  * @param {goog.editor.plugins.UndoRedo.UndoState_} state The state initiating
  *    the restore.
- * @param {string} content The content to restore.
+ * @param content The content to restore.
  * @param {goog.editor.plugins.UndoRedo.CursorPosition_?} cursorPosition
  *     The cursor position within the content.
  *

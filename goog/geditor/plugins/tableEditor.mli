@@ -35,9 +35,9 @@ class type tableEditor = object
  * instead.
  *
  * @param command The command to execute.
- * @param {...*} var_args Any additional parameters needed to
+ * @param var_args Any additional parameters needed to
  *     execute the command.
- * @return {*} The result of the execCommand, if any.
+ * @return The result of the execCommand, if any.
  *
   method execCommandInternal : js_string t -> ? -> ?*)
 
@@ -49,8 +49,8 @@ class type tableEditor = object
 
 (**
  * Whether the string corresponds to a command this plugin handles.
- * @param {string} command Command string to check.
- * @return {boolean} Whether the plugin handles this type of command.
+ * @param command Command string to check.
+ * @return Whether the plugin handles this type of command.
  *)
   method isSupportedCommand : js_string t -> bool t meth
 
