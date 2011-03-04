@@ -1,10 +1,6 @@
-<<webonly |
-  <<div id="oclosure_menu" dir="rtl">>
-  <<script src="oclosure_menu_full.js">>
-  <<script src="oclosure_menu.js">>
->>
+{1 {% <<a_api text="O'Closure - API References" | intro >> %} }
 
-=Documentation=
+{%
 
 We tried to stay as close as possible to Google Closure structure
 * **Same inheritance tree**
@@ -12,7 +8,7 @@ We tried to stay as close as possible to Google Closure structure
 * **Same package name** (except for ##Goog.Gdom## (##goog.dom##), ##Goog.Ggraphics## (##goog.graphics##) and ##Goog.Geditor## (##goog.editor##))
 * **Constructors have the same name system**
 
-See the [[doc/api/|API]].
+See the <<a_api text="API"| intro >>.
 
 <<webonly |
 ----
@@ -23,18 +19,43 @@ See the [[doc/api/|API]].
 >>
 
 == Structure ==
-<<div class="twocol1"| 
-In Closure, all objects have the same hierarchy form : 
+<<div class="twocol1"|
+In Closure, all objects have the same hierarchy form :
 <<code | goog.package[.subPackage ...].ClassName>>
 >>
-<<div class="twocol2"| 
+<<div class="twocol2"|
 In OClosure, the Goog module "packs" the sub modules <<code language="ocaml" | Goog.Package[.Subpackage ...].ClassName>>
 Some object are defined in the same module because of cyclic dependencies
  >>
 
 == Constructors ==
 <<div class="twocol1"| Constructors have the name of the class : <<code | var z = new goog.ui.Zippy();>> >>
-<<div class="twocol2"| 
-Constructors have type <<code language="ocaml" | val className : args -> .. -> className Js.t constr>> 
+<<div class="twocol2"|
+Constructors have type <<code language="ocaml" | val className : args -> .. -> className Js.t constr>>
 Modules defining objects are ##include##d in the parent package, so you have directly access to the constructors from the parent package:
 <<code language="ocaml" | let z = jsnew Goog.Ui.zippy()>> >>
+
+== Interfaces ==
+
+%}
+
+{!modules:
+Goog
+Goog.Tools
+Goog.Disposable
+Goog.Math
+Goog.Async
+Goog.Date
+Goog.Events
+Goog.Fx
+Goog.Gdom
+Goog.Geditor
+Goog.Ggraphics
+Goog.I18n
+Goog.Positioning
+Goog.Spell
+Goog.Structs
+Goog.Timer
+Goog.Ui
+Goog.UserAgent
+}

@@ -1,12 +1,7 @@
-<<webonly |
-  <<div id="oclosure_menu" dir="rtl">>
-  <<script src="oclosure_menu_full.js">>
-  <<script src="oclosure_menu.js">>
->>
 
 =OClosure Library=
 
-|<<webonly |{{oclosure_logo.png|OClosure logo}}>>|**OClosure library** is a binding of the [[http://code.google.com/closure/library/|Google Closure Javascript library]] in OCaml using [[../js_of_ocaml|Js_of_ocaml]].\\\\ You can now write dynamic user interfaces for web pages in OCaml.\\\\ You should find your way in the hundreds of class types if you take a look at the [[doc/overview|documentation]] pages but you might appreciate the [[http://closure-library.googlecode.com/svn/docs/index.html|Google Closure documentation]].|
+|<<webonly |{{oclosure_logo.png|OClosure logo}}>>|**OClosure library** is a binding of the [[http://code.google.com/closure/library/|Google Closure Javascript library]] in OCaml using [[wiki(30):|Js_of_ocaml]].\\\\ You can now write dynamic user interfaces for web pages in OCaml.\\\\ You should find your way in the hundreds of class types if you take a look at the <<a_manual chapter="intro"|documentation>> pages but you might appreciate the [[http://closure-library.googlecode.com/svn/docs/index.html|Google Closure documentation]].|
 ----
 To compile the library, you need:
 * [[wiki(30):|Js_of_ocaml]] : generate Javascript code from OCaml bytecode
