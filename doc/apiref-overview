@@ -12,13 +12,18 @@ See the <<a_api text="API"| intro >>.
 
 <<webonly |
 ----
-<<div class="twocol1"| =={{closure_logo.png| Google Closure}}\\Google Closure ==>>
+<<div class="twocol1 center"|
+== Google Closure ==
+{{closure_logo.png| Google Closure}} >>
 
-<<div class="twocol2"| =={{oclosure_logo.png| OClosure}}\\OClosure== >>
-** **
+<<div class="twocol2 center"|
+== OClosure ==
+{{oclosure_logo.png| OClosure}} >>
 >>
+ 
 
 == Structure ==
+
 <<div class="twocol1"|
 In Closure, all objects have the same hierarchy form :
 <<code | goog.package[.subPackage ...].ClassName>>
@@ -35,7 +40,7 @@ Constructors have type <<code language="ocaml" | val className : args -> .. -> c
 Modules defining objects are ##include##d in the parent package, so you have directly access to the constructors from the parent package:
 <<code language="ocaml" | let z = jsnew Goog.Ui.zippy()>> >>
 
-== Interfaces ==
+== Modules list ==
 
 %}
 
