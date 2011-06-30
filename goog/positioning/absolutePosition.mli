@@ -37,5 +37,5 @@ end
    @param opt_arg2 Top position.
 *)
 
-val absolutePosition : ((int, Math.coordinate) Tools.Union.t -> int opt ->absolutePosition t) constr
+val absolutePosition : ((int, Math.coordinate t) Tools.Union.t -> int opt ->absolutePosition t) constr
 
