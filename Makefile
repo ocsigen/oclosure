@@ -1,7 +1,7 @@
 LIBRARY=oclosure
 DIRS=goog examples
 
-all: lib examples
+all: lib
 
 .PHONY: lib examples doc
 
