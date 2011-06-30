@@ -1,21 +1,27 @@
 === Overview ===
 
-OClosure library is a binding of the Google Closure Javascript library in OCaml 
+OClosure library is a binding of the Google Closure Javascript library in OCaml
 using Js_of_ocaml (a compiler from OCaml bytecode to Javascript)
 
 === Requirements ===
 
   * Findlib
-  * Js_of_ocaml (http://ocsigen.org/js_of_ocaml/) : a compiler from OCaml 
-bytecode programs to Javascript 
-  * ocamldsort (http://dimitri.mutu.net/ocaml.html) : a dependency sorter for 
+  * Js_of_ocaml (http://ocsigen.org/js_of_ocaml/) : a compiler from OCaml
+bytecode programs to Javascript
+  * ocamldsort (http://dimitri.mutu.net/ocaml.html) : a dependency sorter for
 OCaml source files
+  * python : for google-closure dependencies calculation
 
-=== Installation === 
-  
-  * run {{{make depend}} to calculate dependencies in the library
-  * run {{{make}}} to compile the library and the examples
+=== Installation ===
+
+  * edit {{{Makefile.config}}}
+  * run {{{make}}} to compile the library
+  * run {{{make examples}}} to compile the examples (optionnal)
   * run {{{make install}}} (as root) to install the library
+
+Others Makefile rule:
+
+  * run {{{make depend}} to calculate dependencies in the library
   * run {{{make uninstall}}} (as root) to uninstall the library
   * run {{{make clean}}} to delete generated files
   * you can also run {{{make}}} and {{{make clean}}} directly in goog/ and examples/

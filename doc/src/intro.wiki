@@ -1,55 +1,75 @@
 
 =OClosure Library=
 
-|<<webonly |{{oclosure_logo.png|OClosure logo}}>>|**OClosure library** is a binding of the [[http://code.google.com/closure/library/|Google Closure Javascript library]] in OCaml using [[wiki(30):|Js_of_ocaml]].\\\\ You can now write dynamic user interfaces for web pages in OCaml.\\\\ You should find your way in the hundreds of class types if you take a look at the <<a_manual chapter="intro"|documentation>> pages but you might appreciate the [[http://closure-library.googlecode.com/svn/docs/index.html|Google Closure documentation]].|
+<<webonly | {{@@class="floatleft"@@oclosure_logo.png|OClosure logo}}>>
+
+**OClosure library** is a binding of the
+[[http://code.google.com/closure/library/|Google Closure Javascript library]]
+in OCaml using [[wiki(30):|Js_of_ocaml]].\\\\
+You can now write dynamic user interfaces for web pages in OCaml.\\\\
+To find your way in the hundreds of class types, you may take a
+look at the <<a_api project="oclosure" version="dev" text="API reference" | intro >> but you
+might also appreciate the
+[[http://closure-library.googlecode.com/svn/docs/index.html|Google Closure documentation]].
+
 ----
 To compile the library, you need:
 * [[wiki(30):|Js_of_ocaml]] : generate Javascript code from OCaml bytecode
 
 == Hello world ==
+
 1. First, write an OCaml program using OClosure objects:
 <<code language="ocaml"|open Js
 
-let ccs s = Goog.Ui.ControlContent.string (Js.string s)
-
-let get_element_by_id s = Js.Opt.get 
-    (Dom_html.document##getElementById(Js.string s))
-    (fun _ -> assert false)
-
-let my_alert s = 
+let my_alert s =
   let dialog = jsnew Goog.Ui.dialog(Js.null, Js.null, Js.null) in
   dialog##setContent(Js.string s);
   dialog##setVisible(Js._true)
 
-let button = jsnew Goog.Ui.button(ccs "Click", Js.null, Js.null)
+let onload evt =
+  let click = Goog.Ui.ControlContent.string (Js.string "Click") in
+  let button = jsnew Goog.Ui.button(click, Js.null, Js.null) in
+  ignore
+    (Goog.Events.listen
+       (Goog.Tools.Union.i1 button)
+       (Js.string "action")
+       (Js.wrap_callback (fun () -> my_alert "Hello world!"))
+       Js.null);
+  button##render(Js.some Dom_html.document##body);
+  Js._true
 
-let _ = Goog.Events.listen 
-    (Goog.Tools.Union.i1 button)
-    (Js.string "action")
-    (Js.wrap_callback (fun () -> my_alert "Hello world!"))
-    Js.null
-let _ = button##render(Js.some (get_element_by_id "button"))
+let _ = Dom_html.window##onload <- Dom_html.handler onload
 >>
 
-2.  Compile it with OCaml, Js_of_ocaml and Oclosure to obtain an byte code file, compile it with Js_of_ocaml to obtain a ##.js## file and apply the ##requirements.ml## script:
+2. Compile it with OCaml to obtain an byte-code executable:
 {{{
-ocamlfind ocamlc  -I ../goog oclosure.cma -package js_of_ocaml -syntax camlp4o -linkpkg -o test.byte test.ml
-js_of_ocaml test.byte -pretty
-ocaml str.cma ../scripts/requirements.ml test.js
+ocamlfind ocamlc -package oclosure,js_of_ocaml.syntax -syntax camlp4o -linkpkg test.ml -o test.byte
 }}}
 
-3. You will obtain a ##.js## and a ##_req.js## file. You are ready to write your web page:
+3. Generate the javascript program from the byte-code executable with the [[wiki(30):|Js_of_ocaml compiler]]:
 {{{
+js_of_ocaml test.byte -pretty
+}}}
+
+4. Extract the fragment of the closure library required by your program:
+{{{
+oclosure_req test.js
+}}}
+
+5. You obtain a ##test.js## and a ##test_oclosure.js## file that you may include in your web page:
+{{{
+<!DOCTYPE html>
 <html>
   <head>
-    <script src="http://closure-library.googlecode.com/svn/trunk/closure/goog/base.js"></script>
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/dialog.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/dialog.css">
+    <script type="text/javascript" src="test_oclosure.js"></script>
+    <script type="text/javascript" src="test.js"></script>
+    <title>Test OClosure</title>
   </head>
-<body>
-<div id="button"></div>
-</body>
-<script src="test_req.js"></script>
-<script src="test.js"></script>
+  <body>
+  </body>
 </html>
 }}}
+You may found the css in the {{{google-closure/closure/goog/css}}}
+directory from the the OClosure distribution.
