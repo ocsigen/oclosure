@@ -8,3 +8,4 @@
 ^docdiv(/|$)
 ^.svn(/|$)
 \.pyc$
+^Makefile.local$
