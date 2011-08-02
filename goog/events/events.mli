@@ -21,4 +21,4 @@ open Tools
    @param opt_capt Whether to fire in capture phase (defaults to false)
    @return Unique key for the listener.*)
 val listen : (#eventTarget t, #Dom_html.eventTarget t) Union.t -> js_string t 
-  -> (unit -> unit) callback -> bool t opt -> int
+  -> (Dom_html.event t -> unit) callback -> bool t opt -> int
