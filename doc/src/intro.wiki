@@ -1,7 +1,7 @@
 
 =OClosure Library=
 
-<<webonly | {{@@class="floatleft"@@oclosure_logo.png|OClosure logo}}>>
+<<webonly | {{@@style="float:left;"@@oclosure_logo.png|OClosure logo}}>>
 
 **OClosure library** is a binding of the
 [[http://code.google.com/closure/library/|Google Closure Javascript library]]
@@ -33,7 +33,7 @@ let onload evt =
     (Goog.Events.listen
        (Goog.Tools.Union.i1 button)
        (Js.string "action")
-       (Js.wrap_callback (fun () -> my_alert "Hello world!"))
+       (Js.wrap_callback (fun _ -> my_alert "Hello world!"))
        Js.null);
   button##render(Js.some Dom_html.document##body);
   Js._true
