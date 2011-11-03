@@ -70,6 +70,11 @@ let rec print_reqs () = function
 
 let file_exists file = try ignore(Unix.stat file); true with _ -> false
 
+let do_command command =
+  if !verbose then print_endline ("+ " ^ command);
+  let res =  Sys.command command in
+  if res <> 0 then exit res
+
 let process_file file =
   if not (Filename.check_suffix file "js") then begin
     prerr_endline usage;
@@ -77,22 +82,27 @@ let process_file file =
   end;
   let requirements = search_requirements file in
   let output_file = Filename.chop_extension file ^ "_oclosure.js" in
-  let command =
-    if !compile && file_exists !compiler_jar then
-      Printf.sprintf "%s%a%a --compiler_jar=%s -o compiled --output_file=%s"
-	closure_builder_path
-	print_roots roots
-	print_reqs requirements
-	!compiler_jar
-	output_file
-    else
-      Printf.sprintf "%s%a%a -o script --output_file=%s"
-	closure_builder_path
-	print_roots roots
-	print_reqs requirements
-	output_file in
-  if !verbose then print_endline ("+ " ^ command);
-  let res =  Sys.command command in
-  if res <> 0 then exit res
+  if !compile && file_exists !compiler_jar then
+    do_command
+      (Printf.sprintf
+	 "%s%a%a --compiler_jar=%s -o compiled --output_file=%s"
+	 closure_builder_path
+	 print_roots roots
+	 print_reqs requirements
+	 !compiler_jar
+	 output_file)
+  else begin
+    do_command
+      (Printf.sprintf
+	 "%s%a%a -o script --output_file=%s"
+	 closure_builder_path
+	 print_roots roots
+	 print_reqs requirements
+	 output_file);
+    do_command
+      (Printf.sprintf
+	 "sed -i 's/^goog.global.CLOSURE_NO_DEPS;$/goog.global.CLOSURE_NO_DEPS=true;/' %s"
+	 output_file)
+  end
 
 let _ = Arg.parse argument process_file usage
