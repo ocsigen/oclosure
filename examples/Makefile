@@ -3,7 +3,7 @@ EXECS=$(SRC:.ml=.byte)
 TARGETS=$(SRC:.ml=.js)
 LIB=-package js_of_ocaml oclosure.cma
 SCRIPTS=../scripts
-OCAMLFLAGS=-package js_of_ocaml.syntax -syntax camlp4o -I $(GOOG)
+OCAMLFLAGS=-package js_of_ocaml,js_of_ocaml.syntax -syntax camlp4o -I $(GOOG)
 OCAMLLFLAGS=
 GOOG=../goog
 all: $(TARGETS)
