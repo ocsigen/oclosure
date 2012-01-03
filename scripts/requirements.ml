@@ -82,7 +82,9 @@ let process_file file =
   end;
   let requirements = search_requirements file in
   let output_file = Filename.chop_extension file ^ "_oclosure.js" in
-  if !compile && file_exists !compiler_jar then
+  if requirements = [] then
+    close_out (open_out output_file) (* empty file *)
+  else if !compile && file_exists !compiler_jar then
     do_command
       (Printf.sprintf
 	 "%s%a%a --compiler_jar=%s -o compiled --output_file=%s"

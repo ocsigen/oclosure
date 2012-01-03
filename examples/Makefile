@@ -14,7 +14,7 @@ all: $(TARGETS)
 
 %.js: %.byte
 	js_of_ocaml $^ -pretty
-	ocaml str.cma $(SCRIPTS)/requirements.ml $@
+	OCAMLPATH=../files:${OCAMLPATH} ../oclosure_req $@
 
 ocamldep:
 	ocamlfind ocamldep -I $(GOOG) -I $(GOOG)/ui $(OCAMLFLAGS) $(SRC) 

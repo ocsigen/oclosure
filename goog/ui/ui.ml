@@ -97,6 +97,6 @@ include ColorMenuButtonRenderer
 include ToolbarColorMenuButton
 module Editor = Editor
 
-let ui = Tools.variable "[oclosure]goog.ui[/oclosure]"
+let ui = Tools.variable "[oclosure]goog.ui.decorate[/oclosure]"
 let decorate (e : #Dom_html.element t) : component t opt = ui##decorate(e)
 
