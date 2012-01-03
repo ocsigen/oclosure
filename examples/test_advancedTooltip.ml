@@ -41,6 +41,6 @@ let _ =
   Goog.Events.listen 
     (Goog.Tools.Union.i2 bc)
     (Js.string "click")
-    (Js.wrap_callback (fun () -> tooltip##setVisible(Js._false);))
+    (Js.wrap_callback (fun _ -> tooltip##setVisible(Js._false);))
     Js.null
     

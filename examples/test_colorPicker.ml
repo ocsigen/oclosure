@@ -10,6 +10,6 @@ let _ =
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 cp)
     Goog.Ui.ColorPicker.EventType._CHANGE
-    (Js.wrap_callback(fun () -> sel##innerHTML <- cp##getSelectedColor()))
+    (Js.wrap_callback(fun _ -> sel##innerHTML <- cp##getSelectedColor()))
     Js.null);
   cp##render(Js.some (get_el "colorPicker"))

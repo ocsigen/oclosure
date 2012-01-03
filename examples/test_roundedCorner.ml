@@ -23,7 +23,7 @@ let rec create_rounded_corner i =
       (fun () -> assert false) in
   roundedCorner##draw()
 
-let createRoundedCorners () =
+let createRoundedCorners _ =
   let _ = slider##setMaximum(float_of_int (max height width)) in
   let rec aux i = 
     create_rounded_corner i;

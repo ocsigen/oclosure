@@ -7,7 +7,7 @@ let get_textarea s = Js.Opt.get (Dom_html.CoerceTo.textarea (get_el s))
 (* Create an editable field. *)
 let myField = jsnew Goog.Geditor.field(Js.string "editMe", Js.null)
 
-let updateFieldContents () = 
+let updateFieldContents _ = 
   (get_textarea "fieldContents")##value <- myField##getCleanContents()
  
 (* Create and register all of the editing plugins you want to use *)

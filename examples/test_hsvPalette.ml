@@ -11,12 +11,12 @@ let _ =
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 p)
     Goog.Ui.Component.EventType._ACTION
-    (Js.wrap_callback (fun () -> pSmall##setColor(p##getColor())))
+    (Js.wrap_callback (fun _ -> pSmall##setColor(p##getColor())))
     Js.null);
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 pSmall)
     Goog.Ui.Component.EventType._ACTION
-    (Js.wrap_callback (fun () -> p##setColor(pSmall##getColor())))
+    (Js.wrap_callback (fun _ -> p##setColor(pSmall##getColor())))
     Js.null);
 
     

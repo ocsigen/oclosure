@@ -34,7 +34,7 @@ let f (b:Goog.Ui.customButton Js.t) =
   ignore(Goog.Events.listen 
     (Goog.Tools.Union.i1 b) 
     Goog.Ui.Component.EventType._ACTION
-    (Js.wrap_callback (fun () -> 
+    (Js.wrap_callback (fun _ -> 
       let newCaption = D.window##prompt(
 	to_s"Enter new caption for button:", to_s"Where am I ?") in
       b##setCaption(newCaption)))
@@ -61,7 +61,7 @@ let cb2 = ref [] in
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 toggleEnable)
     Goog.Ui.Component.EventType._ACTION
-    (Js.wrap_callback (fun () -> 
+    (Js.wrap_callback (fun _ -> 
       (List.nth !cb2 1)##setEnabled(toggleEnable##isChecked())))
     Js.null);
 
@@ -72,7 +72,7 @@ let cb2 = ref [] in
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 hideShow)
     Goog.Ui.Component.EventType._ACTION
-    (Js.wrap_callback (fun () ->
+    (Js.wrap_callback (fun _ ->
       ignore((List.nth !cb2 1)##setVisible(hideShow##isChecked(), Js.null)))
     )
     Js.null)

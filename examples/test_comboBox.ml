@@ -30,7 +30,7 @@ let _ =
   Goog.Events.listen 
     (Goog.Tools.Union.i1 cb) 
     (Js.string "change") 
-    (Js.wrap_callback (fun () -> (get_el "v")##innerHTML <- cb##getValue()))
+    (Js.wrap_callback (fun _ -> (get_el "v")##innerHTML <- cb##getValue()))
     Js.null
 
 let el2 = get_el "combo2"
@@ -56,6 +56,6 @@ let _ =
   ignore(  Goog.Events.listen
     (Goog.Tools.Union.i1 cb2)
     (Js.string "change")
-    (Js.wrap_callback (fun () -> (get_el "v")##innerHTML <- cb2##getValue()))
+    (Js.wrap_callback (fun _ -> (get_el "v")##innerHTML <- cb2##getValue()))
     Js.null);
 

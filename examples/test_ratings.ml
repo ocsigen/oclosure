@@ -25,13 +25,13 @@ let _ =
     ignore(Events.listen
       (Tools.Union.i1 rw1)
       Ui.Ratings.Display._CHANGE
-      (Js.wrap_callback (fun () -> dom##setTextContent(text,rw1##getValue())))
+      (Js.wrap_callback (fun _ -> dom##setTextContent(text,rw1##getValue())))
       Js.null);
 
     ignore(Events.listen 
       (Tools.Union.i1 rw1)
       Ui.Ratings.Display._HIGHLIGHT_CHANGE
-      (Js.wrap_callback (fun () -> dom##setTextContent(text,rw1##getHighlightedValue())))
+      (Js.wrap_callback (fun _ -> dom##setTextContent(text,rw1##getHighlightedValue())))
       Js.null);
     rw1##decorate(test1);
 

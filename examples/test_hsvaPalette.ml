@@ -8,10 +8,10 @@ let _ =
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 p)
     Goog.Ui.Component.EventType._ACTION
-    (Js.wrap_callback (fun () -> pSmall##setColorRgbaHex(p##getColorRgbaHex())))
+    (Js.wrap_callback (fun _ -> pSmall##setColorRgbaHex(p##getColorRgbaHex())))
     Js.null);
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 pSmall)
     Goog.Ui.Component.EventType._ACTION
-    (Js.wrap_callback (fun () -> p##setColorRgbaHex(pSmall##getColorRgbaHex())))
+    (Js.wrap_callback (fun _ -> p##setColorRgbaHex(pSmall##getColorRgbaHex())))
     Js.null);

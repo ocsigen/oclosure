@@ -21,7 +21,7 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 dp_iso_8601)
     (Js.string "change")
-    (Js.wrap_callback (fun () ->
+    (Js.wrap_callback (fun _ ->
       alert (
 	if (dp_iso_8601##getDate() != Js.null) 
 	then (get dp_iso_8601##getDate())##toIsoString(Js.some Js._true, Js.null)
@@ -36,7 +36,7 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 dp_custom)
     (Js.string "change")
-    (Js.wrap_callback (fun () -> 
+    (Js.wrap_callback (fun _ -> 
       (get_el "label_custom")##innerHTML <-
 	if (dp_custom##getDate() != Js.null) 
 	then (get dp_custom##getDate())##toIsoString(Js.some Js._true, Js.null)
@@ -49,7 +49,7 @@ let _ =
   Goog.Events.listen
     (Goog.Tools.Union.i1 dp_en_US)
     (Js.string "change")
-    (Js.wrap_callback (fun () -> 
+    (Js.wrap_callback (fun _ -> 
       (get_el "label_en_US")##innerHTML <-
 	if (dp_en_US##getDate() != Js.null)
 	then (get dp_en_US##getDate())##toIsoString(Js.some Js._true, Js.null)
@@ -62,7 +62,7 @@ let _ =
   ignore (Goog.Events.listen
     (Goog.Tools.Union.i1 dp_fr)
     (Js.string "change")
-    (Js.wrap_callback (fun () ->
+    (Js.wrap_callback (fun _ ->
       (get_el "label_fr")##innerHTML <- 
 	if(dp_fr##getDate() != Js.null)
 	then (get dp_fr##getDate())##toIsoString(Js.some Js._true, Js.null) 
@@ -78,7 +78,7 @@ let _ =
   ignore(Goog.Events.listen
     (Goog.Tools.Union.i1 dp_ml) 
     (Js.string "change")
-    (Js.wrap_callback (fun () ->
+    (Js.wrap_callback (fun _ ->
       (get_el "label_ml")##innerHTML <-
 	if (dp_ml##getDate() != Js.null) 
 	then (get dp_ml##getDate())##toIsoString(Js.some Js._true, Js.null) 

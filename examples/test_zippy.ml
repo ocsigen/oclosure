@@ -20,7 +20,7 @@ let z2 = jsnew Goog.Ui.animatedZippy (
 let _ = Goog.Events.listen 
     (Goog.Tools.Union.i1 z)
     (Js.string "hover")
-    (Js.wrap_callback (fun () -> z##toggle()))
+    (Js.wrap_callback (fun _ -> z##toggle()))
     Js.null
 
 let js_not b = Js.bool (not (Js.to_bool b))
@@ -28,6 +28,6 @@ let js_not b = Js.bool (not (Js.to_bool b))
 let _ = Goog.Events.listen
     (Goog.Tools.Union.i1 z)
     (Js.string "toggle")
-    (Js.wrap_callback (fun () -> z2##setExpanded(js_not z##isExpanded())))
+    (Js.wrap_callback (fun _ -> z2##setExpanded(js_not z##isExpanded())))
     Js.null
 
