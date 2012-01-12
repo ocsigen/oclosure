@@ -36,7 +36,8 @@ install:
 	ocamlfind install $(LIBRARY) goog/goog.cmi goog/oclosure.cma files/META
 	cp -r google-closure/closure google-closure/third_party $(DESTDIR)/$(LIBRARY)
 	chmod +x $(DESTDIR)/$(LIBRARY)/closure/bin/build/closurebuilder.py
-	install -D -m 755 oclosure_req ${BINDIR}/oclosure_req
+	mkdir -p ${BINDIR}
+	install -m 755 oclosure_req ${BINDIR}/oclosure_req
 
 uninstall:
 	-[ ! -d $(DESTDIR)/$(LIBRARY)/closure ] || rm -rf $(DESTDIR)/$(LIBRARY)/closure
