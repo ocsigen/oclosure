@@ -103,7 +103,7 @@ let process_file file =
 	 output_file);
     do_command
       (Printf.sprintf
-	 "sed -i 0 's/^goog.global.CLOSURE_NO_DEPS;$/goog.global.CLOSURE_NO_DEPS=true;/' %s"
+	 "sed -i 's/^goog.global.CLOSURE_NO_DEPS;$/goog.global.CLOSURE_NO_DEPS=true;/' %s"
 	 output_file)
   end
 
