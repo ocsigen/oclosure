@@ -55,6 +55,7 @@ doc:
 wikidoc:
 	mkdir -p ../wikidoc
 	$(OCAMLFIND) $(OCAMLDOC) -stars -d ../wikidoc \
+	   -intro ../doc/apiref-overview \
 	   -i $(shell ocamlfind query wikidoc) -g odoc_wiki.cma \
 	   -colorize-code -t "OClosure - API Reference" $(OCAMLIFLAGS) goog.mli
 
