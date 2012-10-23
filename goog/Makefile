@@ -57,7 +57,7 @@ wikidoc:
 	$(OCAMLFIND) $(OCAMLDOC) -stars -d ../wikidoc \
 	   -intro ../doc/apiref-overview \
 	   -i $(shell ocamlfind query wikidoc) -g odoc_wiki.cma \
-	   -colorize-code -t "OClosure - API Reference" $(OCAMLIFLAGS) goog.mli
+	   -colorize-code $(OCAMLIFLAGS) goog.mli
 
 cleanall: clean
 	-rm -f .depend .ocamldsort
