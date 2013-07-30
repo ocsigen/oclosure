@@ -1,0 +1,14 @@
+*.cmi
+*.cmo
+*.cma
+*.cmx
+*.cmxs
+*.o
+*.byte
+examples/test_.*.js
+*~
+doc/*.html
+docdiv
+.svn
+*.pyc
+Makefile.local
