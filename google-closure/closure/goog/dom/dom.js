@@ -674,7 +674,7 @@ goog.dom.createDom_ = function(doc, args) {
     tagName = tagNameArr.join('');
   }
 
-  var element = doc.createElement(tagName);
+  var element = doc.createElement(tagName.toLowerCase());
 
   if (attributes) {
     if (goog.isString(attributes)) {
