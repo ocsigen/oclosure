@@ -5,10 +5,14 @@
 *.cmxs
 *.o
 *.byte
-examples/test_.*.js
+examples/*.js*
 *~
 doc/*.html
 docdiv
 .svn
 *.pyc
 Makefile.local
+oclosure_req
+goog/closure
+goog/third_party
+files/META.oclosure
